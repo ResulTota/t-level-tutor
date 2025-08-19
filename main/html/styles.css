@@ -1,9 +1,44 @@
+header{
+    background-color: #1b4965;
+    display: flex;
+}
+
+.header-text{
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+    right: 63px;
+}
+
+#header-logo {
+    margin: 10px;
+    border: solid 2px #5FA8D3;
+    border-radius: 5px;
+    position: relative;
+}
+
+.main-topic {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom,#1b4965,#5FA8D3 );
+    width: 200px;
+    height: 300px;
+    margin: 20px 15px 20px 15px;
+    border-radius: 20px;
+    color: inherit;
+    box-shadow: #1b4965 0px 10px 0px 0px;
+}
+
 .main-topic img {
     border : solid 3px #1b4965;;
     border-radius : 20px;
-    height: 200px;
-    width: 200px;
-    margin: 10px 20px 0 20px;
+    height: 180px;
+    width: 180px;
+    margin: 15px 20px 0 20px;
 }
 
 .main-topic h3 {
@@ -11,16 +46,17 @@
     border-radius: 20px;
     width: 200px;
     text-align: center;
+    font-size: 15px;
     margin: 20px;
-    width: 200px;
+    width: 180px;
     height: 80px;
     padding: 0;
     color: rgb(74, 74, 74);
     background-color: aliceblue;
+    padding-top: 15px;
 }
 
 .content-area{
-    background-color: white;
     background-color: #bee7fe;
     border: solid 3px #1b4965;
     border-radius: 20px;
@@ -33,7 +69,9 @@
     justify-content: center;
 }
 
-body {
+body{
+    margin:0;
+    padding: 0;
     background-color: white;
 }
 
@@ -42,26 +80,12 @@ main{
     background-color: #5FA8D3;
 }
 
-.header-text{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: auto;
-}
-
-header{
-    display: flex;
-    background-color: #1b4965;
-}
-
 footer {
     background-color: #1b4965;
     color: white;
     text-align: center;
     padding: 10px;
+    margin: 0px;
 }
 
 h2{ 
@@ -74,3 +98,4 @@ h2{
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
+
