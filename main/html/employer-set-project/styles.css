@@ -19,21 +19,13 @@ header a {
     overflow: hidden;
 }
 
-main {
-    max-width: 800px;
-    margin: 30px auto;
-    border-radius: 45px;
-    background: #20689242;
-    padding: 10px;
-    font-family: 'Segoe UI', sans-serif;
-}
-
 .header-text{
     color: white;
     text-align: center;
     width: 100%;
     font-size: 25px;
     position: static;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 #header-logo {
@@ -43,7 +35,30 @@ main {
     margin: 0;
     border: 0;
     border-radius: 5px;
-    object-fit: contain;
+    object-fit: fill;
+    
+}
+
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 45px;
+    background-color: #bee7fe;
+    border: solid 3px #1b4965;
+    padding: 10px;
+    font-family: 'Segoe UI', sans-serif;
+
+}
+
+body {
+    background-color: #5FA8D3;
+}
+
+footer {
+    background-color: #1b4965;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
 .spacer {
