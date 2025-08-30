@@ -16,7 +16,7 @@ header a {
     border-radius: 5px;
     width: 120px;
     height: 120px;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .header-text{
@@ -25,6 +25,7 @@ header a {
     width: 100%;
     font-size: 25px;
     position: static;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 #header-logo {
@@ -34,7 +35,7 @@ header a {
     margin: 0;
     border: 0;
     border-radius: 5px;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 .main-topic {
@@ -61,19 +62,21 @@ header a {
 }
 
 .main-topic h3 {
-    border: solid 3px #1b4965;;
+    background-color: aliceblue;
+    border: solid 3px #1b4965;
     border-radius: 20px;
     width: 200px;
-    text-align: center;
-    font-size: 15px;
+    padding: 0;
     margin: 20px;
     width: 180px;
     height: 80px;
-    padding: 0;
-    color: rgb(74, 74, 74);
-    background-color: aliceblue;
-    padding-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: black;
+    padding-top: 13px;
+    font-family: 'Segoe UI', sans-serif;
 }
+
 
 .content-area{
     background-color: #bee7fe;
@@ -108,9 +111,11 @@ footer {
 }
 
 h2{ 
+    color: white;
     text-align: center;
     font-size: 24px;
     margin-top: 20px;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .main-topic:hover{

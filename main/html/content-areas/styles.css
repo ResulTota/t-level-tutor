@@ -25,6 +25,7 @@ header a {
     width: 100%;
     font-size: 25px;
     position: static;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 #header-logo {
@@ -34,7 +35,7 @@ header a {
     margin: 0;
     border: 0;
     border-radius: 5px;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 footer {
@@ -55,6 +56,7 @@ h2 {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .subtopic-box {
@@ -70,4 +72,10 @@ h2 {
     color: black;
     font-weight: bold;
     text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.subtopic-box:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
