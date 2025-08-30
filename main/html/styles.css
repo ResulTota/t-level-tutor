@@ -123,3 +123,7 @@ h2{
     transition: transform 0.3s ease;
 }
 
+p{
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 18px;
+}
