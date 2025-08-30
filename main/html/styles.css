@@ -54,6 +54,7 @@ header a {
 .main-topic img {
     border : solid 3px #1b4965;;
     border-radius : 20px;
+    background: linear-gradient(#205274,#417592 ); 
     height: 180px;
     width: 180px;
     margin: 15px 20px 0 20px;
