@@ -15,8 +15,21 @@
         <h1>TLevelTutor</h1>
       </div>
   </header>
+
   <main>
-    <h2>Choose Your Content Area</h2>
+    <form>
+      <label for="sections">Jump to Section:</label>
+      <select name="sections" id="sections">
+        <option value="" disabled selected>Select a section</option>
+        <option value="#CAS">Content Areas</option>
+        <option value="#ESP">Employer Set Project (ESP)</option>
+        <option value="#Other">Other</option>
+      </select>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <h2 id="CAS">Choose Your Content Area</h2>
     <div class="content-area">
       <a href="content-areas/CA1 - Problem Solving/problem-solving.html" class="main-topic">
         <img src="../images/problem-solving.png" alt="Problem Solving" width="200" height="200"/>
@@ -52,7 +65,7 @@
       </a>
     </div>
 
-    <h2>Employer Set Project (ESP)</h2>
+    <h2 id="ESP">Employer Set Project (ESP)</h2>
     <div class="content-area">
        <a href="employer-set-project/pre-task/pre-task.html" class="main-topic">
         <img src="../images/pre-task.png" alt="Pre-Task" width="200" height="200"/>
@@ -80,7 +93,7 @@
       </a>
     </div>
 
-    <h2> Other </h2>
+    <h2 id="Other"> Other </h2>
     <div class="content-area">
       <a href="Other/About T-levels/About.html" class="main-topic">
           <img src="../images/about.png" alt="about" width="200" height="200"/>
@@ -92,6 +105,15 @@
       </a>
     </div>
   </main>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const section = document.getElementById('sections').value;
+      if (section) {
+          window.location.hash = section;
+      }
+    });
+  </script>
 </body>
 <footer>
   <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
