@@ -17,10 +17,22 @@
         </div>
     </header>
 
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#what-section">What Is the Pre-Task?</option>
+            <option value="#marks-section">Marks</option>
+            <option value="#time-section">Time</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <h2 class="heading">ESP - Pre-Task</h2>
 
-        <h4>What Is It?</h4>
+        <h3 id="what-section"> What Is It?</h3>
         <p> The Pre-Task for the ESP introduces you to the business sector the ESP will revolve around (e.g: Retail, Real Estate, Fast Food etc.) which is useful as it can give you an idea of why the company might use digital tools/ technologies.</p>
         <p> During the pre-task you are allowed to: 
             <ul>
@@ -34,10 +46,10 @@
             <br> You are not expected to submit anything for the Pre-Task. 
         </p>
 
-        <h4>Marks?</h4>
+        <h3 id="marks-section">Marks?</h3>
         <p> The Pre-Task is worth 0 marks. <br> It is not assessed and only exists so that you have time to understand the business context. </p>
 
-        <h4>Time?</h4>
+        <h3 id="time-section">Time?</h3>
         <p> You will have a week for the Pre-Task. <br> &emsp; <em> However, it is advised you spend around <strong>6 hours</strong> on the task.</em> </p>
     </main>
     
@@ -45,5 +57,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+
+    <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const section = document.getElementById('sections').value;
+        if (section) {
+            window.location.hash = section;
+        }
+    });
+    </script>
 </body>
 </html>

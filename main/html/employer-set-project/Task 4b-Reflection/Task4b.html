@@ -16,24 +16,51 @@
             <h1>  Task 4b: Reflection  </h1>
         </div>
     </header>
+    
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#what-section">What Is It?</option>
+            <option value="#marks-section">Marks?</option>
+            <option value="#time-section">Time?</option>
+            <option value="#Tips">Tips</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
 
     <main>
         <h2 class="heading">ESP - Task 4b: Reflection</h2>
         
-        <h4>What Is It?</h4>
+        <h3 id="what-section">What Is It?</h3>
         <p> Task 4b is  </p>
 
-        <h4>Marks?</h4>
-        <p>Task 4b is worth </p>
+        <h3 id="marks-section">Marks?</h3>
+        <p>Task 4b is worth 9 marks </p>
 
-        <h4>Time?</h4>
+        <h3 id="time-section">Time?</h3>
         <p> You will have 1.5 Hours to complete this task</p>
 
+        <h3 id="Tips"> Tips </h3>
+        <p> 
+            
+        </p>
     </main>
     
     <footer>
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const section = document.getElementById('sections').value;
+        if (section) {
+            window.location.hash = section;
+        }
+    });
+    </script>
 </body>
 </html>
