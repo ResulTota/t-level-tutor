@@ -21,10 +21,9 @@
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
             <option value="#what-section">What Is Task 4a?</option>
+            <option value="#csv-section">CSV Files</option>            
+            <option value="#pandas-section">Pandas</option>            
             <option value="#matplotlib-section">MatPlotLib</option>
-            <option value="#pandas-section">Pandas</option>
-            <option value="#datetime-section">DateTime</option>
-            <option value="#csv-section">CSV Files</option>
             <option value="#marks-section">Marks</option>
             <option value="#time-section">Time</option>
             <option value="#tips-section">Tips</option>
@@ -50,28 +49,10 @@
             Your goal is to complete the code so that it meets the requirements of the brief, using Python and relevant libraries.
         </p>
 
-        <h3 class="sub-heading" id="matplotlib-section">MatPlotLib</h3>
-        <p>
-            MatPlotLib is a Python library used for creating static, animated, and interactive visualizations.<br>
-            You may use it to plot graphs and visualize data from the CSV file.
-        </p>
-
-        <h3 class="sub-heading" id="pandas-section">Pandas</h3>
-        <p>
-            Pandas is a powerful Python library for data manipulation and analysis.<br>
-            It is commonly used to read, process, and analyze CSV files.
-        </p>
-
-        <h3 class="sub-heading" id="datetime-section">DateTime</h3>
-        <p>
-            The DateTime module in Python allows you to work with dates and times.<br>
-            You may need it to process time-based data in your CSV file.
-        </p>
-
-        <h3 class="sub-heading" id="csv-section">CSV Files</h3>
+            <h3 class="sub-heading" id="csv-section">CSV Files</h3>
         <p>
             <strong><em>We talk more about CSV files in Task 3 but here is an example of an ESP Task 4a CSV File:</em></strong><br>
-            <img src="../../../images/csv-file-example-4a.png" alt="Example csv file" width="600"/><br>
+            <br><img src="../../../images/csv-file-example-4a.png" alt="Example csv file" width="600"/><br>
             <strong>Differences:</strong>
         </p>
         <ul>
@@ -79,6 +60,218 @@
             <li>Likely to include time-based or numerical data for analysis</li>
             <li>Structure may be tailored to the requirements of the brief</li>
         </ul>
+
+        <h3 class="sub-heading" id="pandas-section">Pandas</h3>
+        <p>
+            Pandas is a powerful Python library for data manipulation and analysis.<br>
+            It is commonly used to read, process, and analyse CSV files.
+            
+            <h4>How Pandas efficiently handles data:</h4>
+            <ul>
+                <li><strong>Reading CSV Files</strong>: Load external data into a DataFrame (a table-like structure)<br>Example: <code>pd.read_csv('sales_data.csv')</code></li>
+                <li><strong>Data Selection & Filtering</strong>: Extract specific rows, columns, or conditions<br>Example: <code>df[df['Sales (£)'] > 1500]</code></li>
+                <li><strong>Data Aggregation</strong>: Calculate totals, averages, counts, etc.<br>Example: <code>df['Sales (£)'].mean()</code></li>
+                <li><strong>Sorting & Grouping</strong>: Organize data by values or categories<br>Example: <code>df.sort_values(by='Sales (£)', ascending=False)</code></li>
+            </ul>
+
+            <h4>Why It’s Useful</h4>
+            Pandas lets you:
+            <ul>
+                <li>Quickly explore and understand your dataset</li>
+                <li>Automate repetitive tasks like filtering and summarizing</li>
+                <li>Prepare data for visualization with Matplotlib or other tools</li>
+            </ul>
+            <p>It’s especially useful when working with multiple sheets or datasets, like comparing sales across departments or analszing age distributions.</p>
+            
+            <h4>Essential Pandas Commands</h4>
+
+            <h4>Read Data</h4>
+            <pre><code>pd.read_csv('filename.csv')</code></pre>
+            <p>Loads data from a CSV file into a DataFrame for analysis.</p>
+
+            <h4>Create a DataFrame</h4>
+            <pre><code>
+            pd.DataFrame({
+                'Month': ['Jan', 'Feb', 'Mar'],
+                'Sales (£)': [1200, 1500, 1700]
+            })
+            </code></pre>
+            <p>Creates a table-like structure with labeled columns and rows.</p>
+
+            <h4>Filter Rows</h4>
+            <pre><code>df[df['Sales (£)'] > 1500]</code></pre>
+            <p>Returns rows where the sales are greater than £1500.</p>
+
+            <h4>Summary Statistics</h4>
+            <pre><code>df['Sales (£)'].mean()</code></pre>
+            <p>Calculates the average of the Sales column.</p>
+
+            <h4>Sort Data</h4>
+            <pre><code>df.sort_values(by='Sales (£)', ascending=False)</code></pre>
+            <p>Sorts the DataFrame by sales in descending order.</p>
+
+            <h4>Convert to Date</h4>
+            <pre><code>pd.to_datetime(df['Date'])</code></pre>
+            <p>Converts a column of strings into datetime objects for time-based analysis.</p>
+
+            <h4>Display First Rows</h4>
+            <pre><code>df.head()</code></pre>
+            <p>Shows the first five rows of the DataFrame.</p>
+
+            <h4>Column Selection</h4>
+            <pre><code>df['Sales (£)']</code></pre>
+            <p>Selects a single column from the DataFrame.</p>
+
+            <h4>Drop Columns</h4>
+            <pre><code>df.drop('ColumnName', axis=1)</code></pre>
+            <p>Removes a column from the DataFrame.</p>
+
+            <h4>Example:</h4>
+            <em><strong>Code:</strong></em>
+            <pre><code>
+        import pandas as pd
+
+        # Monthly Sales
+        monthly_sales = pd.DataFrame({
+            'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            'Sales (£)': [1200, 1500, 1700, 1300, 1600, 1800]
+        })
+
+        # Filter months with sales over £1500
+        high_sales = monthly_sales[monthly_sales['Sales (£)'] > 1500]
+
+        # Calculate average sales
+        average_sales = monthly_sales['Sales (£)'].mean()
+
+        print("High Sales Months:")
+        print(high_sales)
+        print(f"\nAverage Monthly Sales: £{average_sales:.2f}")
+            </code></pre>
+            <em><strong>Output:</strong></em>
+            <br><br> &emsp; &emsp; <img src="../../../images/pandas-example.png" alt="Example line graph" width="400" /> 
+        </p>
+
+        <h3 class="sub-heading" id="matplotlib-section">MatPlotLib</h3>
+        <p>
+            MatPlotLib is a Python library used for creating static, animated, and interactive visualizations.<br>
+            You may use it to plot graphs and visualise data from the CSV file.
+            Matplotlib helps you <strong>visualise</strong> that data, turning raw numbers into meaningful insights.
+
+            <h3>Key Matplotlib Features for Task 4a</h3>
+            <h4>Essential Matplotlib Commands</h4>
+
+            <h4>Core Setup</h4>
+            <pre><code>import matplotlib.pyplot as plt</code></pre>
+            <p>This is the standard import statement. Most people alias it as <code>plt</code> for convenience.</p>
+
+            <h4>Line Plot</h4>
+            <pre><code>plt.plot(x, y)</code></pre>
+            <p>Draws a simple line graph. You can customize it with markers, colors, and line styles.</p>
+
+            <h4>Bar Chart</h4>
+            <pre><code>plt.bar(categories, values)</code></pre>
+            <p>Creates vertical bars to compare quantities across categories.</p>
+
+            <h4>Horizontal Bar Chart</h4>
+            <pre><code>plt.barh(categories, values)</code></pre>
+            <p>Same as above, but horizontal.</p>
+
+            <h4>Pie Chart</h4>
+            <pre><code>plt.pie(values, labels=labels, autopct='%1.1f%%')</code></pre>
+            <p>Displays proportions as slices of a circle. <code>autopct</code> shows percentages.</p>
+
+            <h4>Scatter Plot</h4>
+            <pre><code>plt.scatter(x, y)</code></pre>
+            <p>Plots individual data points—great for showing relationships or distributions.</p>
+
+            <h4>Histogram</h4>
+            <pre><code>plt.hist(data, bins=10)</code></pre>
+            <p>Shows the frequency distribution of a dataset. <code>bins</code> controls the number of intervals.</p>
+
+            <h4>Titles and Labels</h4>
+            <pre><code>
+        plt.title('Your Title')
+        plt.xlabel('X-axis Label')
+        plt.ylabel('Y-axis Label')
+            </code></pre>
+            <p>Adds context to your graph so viewers know what they’re looking at.</p>
+
+            <h4>Grid and Legend</h4>
+            <pre><code>
+        plt.grid(True)
+        plt.legend()
+            </code></pre>
+            <p>Adds a grid for readability and a legend for identifying data series.</p>
+
+            <h4>Show the Plot</h4>
+            <pre><code>plt.show()</code></pre>
+            <p>Displays the graph in a window. Always include this at the end of your plotting code.</p>
+
+            <h3>Graphs in MatPlotLib:</h3>
+            <ul>
+                <li><strong>Line Graphs</strong>: Ideal for showing trends over time (e.g., monthly sales, temperature changes)
+                <br><br><strong><em>Example:</em></strong>
+                <pre><code>
+plt.figure(figsize=(10, 6))
+plt.plot(months, sales, marker='o', linestyle='-', color='blue')
+plt.title('Monthly Sales Trend')
+plt.xlabel('Month')
+plt.ylabel('Sales (£)')
+plt.grid(True)
+plt.show()
+                </code> </pre>
+                &emsp; <img src="../../../images/Figure_1.png" alt="Example line graph" width="400" /> </li>
+                <br>
+                <li><strong>Bar Charts</strong>: Great for comparing categories (e.g., revenue by department)
+                <br><br><strong><em>Example:</em></strong>
+                <pre><code>
+plt.figure(figsize=(8, 5))
+plt.bar(departments, revenue, color='green')
+plt.title('Revenue by Department')
+plt.xlabel('Department')
+plt.ylabel('Revenue (£)')
+plt.show()
+                </code></pre>
+                 &emsp; <img src="../../../images/Figure_2.png" alt="Example bar chart" width="400" /></li>
+                <br>
+                <li><strong>Pie Charts</strong>: Useful for showing proportions (e.g., market share)
+                <br><br><strong><em>Example:</em></strong>
+                <pre><code>
+plt.figure(figsize=(6, 6))
+plt.pie(market_share_values, labels=market_share_labels, autopct='%1.1f%%', startangle=140)
+plt.title('Market Share Distribution')
+plt.show()
+                </code></pre>
+                &emsp; <img src="../../../images/Figure_3.png" alt="Example pie chart" width="400" /></li>
+                <br>
+                <li><strong>Scatter Plots</strong>: Good for identifying correlations (e.g., hours studied vs. exam scores)
+                <br><br><strong><em>Example:</em></strong>
+                <pre><code>
+plt.figure(figsize=(8, 5))
+plt.scatter(study_hours, exam_scores, color='purple')
+plt.title('Study Hours vs Exam Scores')
+plt.xlabel('Hours Studied')
+plt.ylabel('Exam Score')
+plt.grid(True)
+plt.show()
+                </code></pre>
+                &emsp; <img src="../../../images/Figure_4.png" alt="Example scatter plot" width="400" /> </li>
+                <br>
+                <li><strong>Histograms</strong>: Helps show distribution of data (e.g., age ranges, income brackets)
+                <br><br><strong><em>Example:</em></strong>
+                <pre><code>
+plt.figure(figsize=(8, 5))
+plt.hist(ages, bins=5, color='orange', edgecolor='black')
+plt.title('Age Distribution')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.show()
+                </code></pre>
+                &emsp; <img src="../../../images/Figure_5.png" alt="Example Histogram" width="400" /></li>
+            </ul>
+
+        
+        </p>
 
         <h3 class="sub-heading" id="marks-section">Marks</h3>
         <p>
