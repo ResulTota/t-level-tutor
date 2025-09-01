@@ -15,6 +15,23 @@
             <h1>2.7 - Functions and Procedures</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#section-2.7.1">2.7.1 - Functions</option>
+            <option value="#section-2.7.2">2.7.2 - Procedures</option>
+            <option value="#section-2.7.3">2.7.3 - Sources of functions and procedures</option>
+            <option value="#section-2.7.4">2.7.4 - Benefits and drawbacks of pre-written code</option>
+            <option value="#section-2.7.5">2.7.5 - Be able to interpret code using functions and procedures</option>
+            <option value="#section-2.7.6">2.7.6 - Be able to develop code using functions and procedures</option>
+            <option value="#section-2.7.7">2.7.7 - Be able to debug code using functions and procedures</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="section-2.7.1">
             <h3 class="sub-heading">2.7.1 - Functions</h3>
@@ -146,5 +163,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

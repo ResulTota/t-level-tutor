@@ -15,6 +15,23 @@
             <h1>2.11 - Common Algorithms</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#2.11.1">2.11.1 - Understand the algorithms for searching, how they work and when they are used: linear search, binary search.</option>
+            <option value="#2.11.2">2.11.2 - Understand the algorithms for sorting, how they work and when they are used: bubble sort, insertion sort, merge sort.</option>
+            <option value="#2.11.3">2.11.3 - Understand the benefits and drawbacks of using: linear search, binary search, bubble sort, insertion sort, merge sort.</option>
+            <option value="#2.11.4">2.11.4 - Understand metrics to compare algorithms: use of memory space, execution time, number of comparisons.</option>
+            <option value="#2.11.5">2.11.5 - Understand best case, worst case and average case for common algorithms, using logical reasoning (Big O not required).</option>
+            <option value="#2.11.6">2.11.6 - Make judgements about the suitability of using different algorithms for searching.</option>
+            <option value="#2.11.7">2.11.7 - Make judgements about the suitability of using different algorithms for sorting.</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="2.11.1">
             <h3 class="sub-heading">2.11.1 - Know and understand the algorithms for searching, how they work and when they are used: linear search, binary search.</h3>
@@ -168,5 +185,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

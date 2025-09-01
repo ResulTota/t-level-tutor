@@ -15,6 +15,20 @@
             <h1>2.12 - Testing</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#2.12.1">2.12.1 - Testing Components</option>
+            <option value="#2.12.2">2.12.2 - Testing Methods</option>
+            <option value="#2.12.3">2.12.3 - Automation</option>
+            <option value="#2.12.4">2.12.4 - Test Data and Test Plan</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
 
         <section id="2.12.1">
@@ -42,10 +56,10 @@
 
 
         <section id="2.12.2">
-            <h2>2.12.2 - Testing Methods</h2>
+            <h2 class="sub-heading">2.12.2 - Testing Methods</h2>
 
             <section id="2.12.2.1">
-                <h3 class="sub-heading">2.12.2.1 - Know a definition of testing methods and understand their purpose, benefits and drawbacks, and when they are used</h3>
+                <h3>Know a definition of testing methods and understand their purpose, benefits and drawbacks, and when they are used</h3>
 
                 <h4>Concept Testing</h4>
                 <p>Early testing of an idea, mock-up, or prototype to gather feedback before full development.</p>
@@ -144,7 +158,7 @@
             </section>
         
             <section id="2.12.2.2">
-                <h3>2.12.2.2 - Be able to use testing methods</h3>
+                <h3>Be able to use testing methods</h3>
                 <p>Students should practice applying different testing methods:</p>
                 <ul>
                     <li>Use <strong>unit tests</strong> for small pieces of code.</li>
@@ -156,10 +170,10 @@
         </section>
 
         <section id="2.12.3">
-            <h2>2.12.3 - Automation</h2>
+            <h2 class="sub-heading">2.12.3 - Automation</h2>
 
             <section id="2.12.3.1">
-                <h3>2.12.3.1 - Purpose of Automation Methods</h3>
+                <h3>Purpose of Automation Methods</h3>
                 <p>Automation reduces human error and speeds up repetitive testing.</p>
                 <ul>
                 <li><strong>Macros:</strong> Automate repetitive actions in applications (e.g., Excel).</li>
@@ -171,7 +185,7 @@
         </section>
 
         <section id="2.12.4">
-            <h2>2.12.4 - Test Data and Test Plan</h2>
+            <h2 class="sub-heading">2.12.4 - Test Data and Test Plan</h2>
 
             <section id="2.12.4.1">
                 <h3>2.12.4.1 - Types of Test Data</h3>
@@ -209,5 +223,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

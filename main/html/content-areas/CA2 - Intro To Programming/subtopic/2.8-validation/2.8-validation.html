@@ -15,6 +15,20 @@
             <h1>2.8 - Validation</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#section-2.8.1">2.8.1 - Definition, Purpose, and Types of Validation</option>
+            <option value="#section-2.8.2">2.8.2 - Interpreting Code Using Validation</option>
+            <option value="#section-2.8.3">2.8.3 - Developing Code Using Validation</option>
+            <option value="#section-2.8.4">2.8.4 - Debugging Code Using Validation</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="section-2.8.1">
             <h3 class="sub-heading">2.8.1 - Definition, Purpose, and Types of Validation</h3>
@@ -93,5 +107,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

@@ -17,9 +17,21 @@
         </div>
     </header>
 
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#ESP"> ESP </option>
+            <option value="#Core"> Core Papers </option>
+            <option value="#Importance"> Importance </option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>    
+
     <main>
         <h2 class="heading">Assesments</h2>
-            <h4>ESP:</h4>
+            <h4 class="sub-heading" id="ESP">ESP:</h4>
             <p> In <strong>May</strong> next year, you will sit <strong>The ESP</strong>. </p>
             <ul>
                 <li>It is made up of <strong>5 tasks</strong> that will take place over a 2 week window.</li>
@@ -36,7 +48,7 @@
                 <li>You will be graded from <strong>A* to E</strong> based on your score<strong> out of 100</strong>.</li>
             </ul>
 
-            <h4>Core Papers:</h4>
+            <h4 class="sub-heading" id="Core">Core Papers:</h4>
             <p> In <strong>June</strong> next year, you will sit <strong>2 core papers</strong>. </p>
             <ul>
                 <li>Each paper will last <strong>2hrs 15mins</strong>.</li>
@@ -64,7 +76,7 @@
                 <li>Your grade for the papers will come from <strong>combining the marks</strong>.</li>
                 <li>You will be graded from <strong>A* to E</strong> based on your score<strong> out of 180</strong>.</li>
             </ul>
-            <h4>Importance:</h4>
+            <h4 class="sub-heading" id="Importance">Importance:</h4>
             <p>These assesments make up your <strong>grade for year 12</strong> </p>
             <ul>
                 <li>You will be graded from <strong>A* to E</strong> based on your score<strong> out of 280</strong>.</li>
@@ -82,5 +94,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body> 
 </html>

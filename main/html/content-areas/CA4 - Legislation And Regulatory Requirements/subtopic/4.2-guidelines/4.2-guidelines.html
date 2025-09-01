@@ -15,6 +15,22 @@
             <h1>4.2 - Guidelines</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#4.2.1">4.2.1 - Know the sources of codes of conduct</option>
+            <option value="#4.2.2">4.2.2 - Understand how guidelines in codes of conduct influence professional behaviour</option>
+            <option value="#4.2.3">4.2.3 - Know the sources of digital industry standards</option>
+            <option value="#4.2.4">4.2.4 - Understand the purpose of acceptable use policies (AUP)</option>
+            <option value="#4.2.5">4.2.5 - Understand the importance of whistleblowing procedures</option>
+            <option value="#4.2.6">4.2.6 - The interrelationships between software development & guidelines, Make judgements about the impact</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="4.2.1">
             <h3 class="sub-heading">4.2.1 - Know the sources of codes of conduct</h3>
@@ -416,5 +432,15 @@
             <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
             <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

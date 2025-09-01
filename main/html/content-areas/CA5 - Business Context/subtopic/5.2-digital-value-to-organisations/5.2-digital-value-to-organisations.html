@@ -17,10 +17,21 @@
         </div>
     </header>
 
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#5.2.1">5.2.1 - Understand how digital systems are used to support key organisation areas</option>
+            <option value="#5.2.2">5.2.2 - Understand how digital systems are used to meet user needs and ensure quality of product/service</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
     <h2 class="heading">Subtopic 5.2: Digital value to organisations</h2>
 
-    <h3 class="sub-heading">5.2.1 - Understand how digital systems are used to support key organisation areas</h3>
+    <h3 class="sub-heading" id="5.2.1">5.2.1 - Understand how digital systems are used to support key organisation areas</h3>
 
     <h4>Sales and Marketing:</h4>
     <ul>
@@ -61,7 +72,7 @@
     </ul>
 
     <h4>Human Resources:</h4>
-    <ul
+    <ul>
         <h4>Staff records</h4>
         <p>HR systems store <strong>employee data securely</strong> for easy access and compliance with laws.</p>
 
@@ -121,7 +132,7 @@
     <p>Real-time accounting software ensures <strong>accurate financial insights</strong>, aiding faster decision-making.</p>
     </ul>
     
-    <h3 class="sub-heading">5.2.2 - Understand how digital systems are used to meet user needs and ensure quality of product/service</h3>
+    <h3 class="sub-heading" id="5.2.2">5.2.2 - Understand how digital systems are used to meet user needs and ensure quality of product/service</h3>
 
     <h4>Appropriate and Effective Functionality</h4>
     <ul>
@@ -190,5 +201,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

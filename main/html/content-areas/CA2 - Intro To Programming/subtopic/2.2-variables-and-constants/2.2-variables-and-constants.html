@@ -15,6 +15,22 @@
             <h1>2.2 - Variables and Constants</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#2.2.1">2.2.1 - Know the definition of variables, understand their purpose and when they are used.</option>
+            <option value="#2.2.2">2.2.2 - Know the definition of constants, understand their purpose and when they are used.</option>
+            <option value="#2.2.3">2.2.3 - Understand the purpose of data type conversion functions and why they are used. See Appendix 2 for functions.</option>
+            <option value="#2.2.4">2.2.4 - Know a definition of scope and understand the role of scope and when it is used.</option>
+            <option value="#2.2.5">2.2.5 - Know and understand how variables are managed by scope: global variables, local variables.</option>
+            <option value="#2.2.6-2.2.9">2.2.6-2.2.9 - Be able to use scope, declare & use variables & constants using standard data types, use Casting.</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="2.2.1">
             <h3 class="sub-heading">2.2.1 - Know the definition of variables, understand their purpose and when they are used.</h3>
@@ -91,6 +107,16 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>  
 </body>
 </html>
 

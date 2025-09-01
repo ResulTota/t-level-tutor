@@ -16,6 +16,15 @@
             <h1>2.1 - Standard Data Types</h1>
         </div>
     </header>
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#2.1.1">2.1.1 - Know the definition of common data types and understand their purpose and when each is used</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
     <main>
         <section id="2.1.1">
             <h3 class="sub-heading">2.1.1 - Know the definition of common data types and understand their purpose and when each is used</h3>
@@ -45,5 +54,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

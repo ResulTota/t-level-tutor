@@ -17,10 +17,21 @@
         </div>
     </header>
 
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#5.3.1">5.3.1 - Understand the potential risks to organisations when using digital systems</option>
+            <option value="#5.3.2">5.3.2 - Understand the potential impact of risks to organisations when using digital systems</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
          <h2 class="heading"> Subtopic 5.3: Risk to Organisations of Using Digital Systems </h2>
 
-    <h3 class="sub-heading"> 5.3.1 Understand the potential risks to organisations when using digital systems </h3>
+    <h3 class="sub-heading" id="5.3.1"> 5.3.1 Understand the potential risks to organisations when using digital systems </h3>
 
     <h4>Security breaches</h4>
     <ul>
@@ -53,7 +64,7 @@
         <p><strong>System not fit for purpose:</strong> Implementing a system that does not meet organisational needs can reduce productivity and create inefficiencies.</p>
     </ul>
 
-    <h3 class="sub-heading">5.3.2 Understand the potential impact of risks to organisations when using digital systems</h3>
+    <h3 class="sub-heading" id="5.3.2">5.3.2 Understand the potential impact of risks to organisations when using digital systems</h3>
 
     <ul>
         <li><strong>Legal action:</strong> Organisations may face lawsuits from customers, employees, or regulators if they fail to protect data or comply with laws.</li>
@@ -68,5 +79,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

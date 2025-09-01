@@ -15,6 +15,20 @@
             <h1>2.3 - Data Structures</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#2.3.1">2.3.1 - Know the standard data structures and understand their purpose and when each is used: list, array, dictionary.</option>
+            <option value="#2.3.2">2.3.2 - Be able to interpret code using data structures</option>
+            <option value="#2.3.3">2.3.3 - Be able to develop code using data structures.</option>
+            <option value="#2.3.4">2.3.4 - Be able to debug code using data structures.</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="2.3.1">
             <h3 class="sub-heading">2.3.1 - Know the standard data structures and understand their purpose and when each is used: list, array, dictionary.</h3>
@@ -194,5 +208,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script> 
 </body>
 </html>

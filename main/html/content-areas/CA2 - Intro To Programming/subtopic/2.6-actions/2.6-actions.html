@@ -15,6 +15,24 @@
             <h1>2.6 - Actions</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#section-2.6.1">2.6.1 - Know and understand sequence</option>
+            <option value="#section-2.6.2">2.6.2 - Know and understand selection</option>
+            <option value="#section-2.6.3">2.6.3 - Know and understand loops</option>
+            <option value="#section-2.6.4">2.6.4 - Know and understand iteration</option>
+            <option value="#section-2.6.5">2.6.5 - Know and understand the benefits and drawbacks of loops</option>
+            <option value="#section-2.6.6">2.6.6 - Be able to interpret code using actions</option>
+            <option value="#section-2.6.7">2.6.7 - Be able to develop code using actions</option>
+            <option value="#section-2.6.8">2.6.8 - Be able to debug code using actions</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="section-2.6.1">
             <h3 class="sub-heading">2.6.1 - Know and understand sequence</h3>
@@ -150,5 +168,15 @@ while n < 10:
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

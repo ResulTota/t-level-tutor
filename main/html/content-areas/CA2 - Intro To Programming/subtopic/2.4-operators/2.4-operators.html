@@ -15,6 +15,23 @@
             <h1>2.4 - Operators</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#section-2-4-1">2.4.1 - Understand the purpose of arithmetic operators</option>
+            <option value="#section-2-4-2">2.4.2 - Understand the purpose of relational operators</option>
+            <option value="#section-2-4-3">2.4.3 - Understand the purpose of Boolean operators</option>
+            <option value="#section-2-4-4">2.4.4 - Be able to use operators</option>
+            <option value="#section-2-4-5">2.4.5 - Be able to interpret code using operators</option>
+            <option value="#section-2-4-6">2.4.6 - Be able to create code using operators</option>
+            <option value="#section-2-4-7">2.4.7 - Be able to debug code using operators</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="section-2-4-1">
             <h3 class="sub-heading">2.4.1 - Understand the purpose of arithmetic operators</h3>
@@ -174,5 +191,15 @@ print(x &lt; y and y &lt; z)  # Correct
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script> 
 </body>
 </html>

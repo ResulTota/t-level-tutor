@@ -16,12 +16,27 @@
             <h1>  5.4  Technical Change Management  </h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#5.4.1">5.4.1 - Understand the internal factors that trigger change in organisations</option>
+            <option value="#5.4.2">5.4.2 - Understand the external factors that trigger change in organisations</option>
+            <option value="#5.4.3">5.4.3 - Understand how organisations can respond to change</option>
+            <option value="#5.4.4">5.4.4 - Understand the processes, benefits and drawbacks of the change management process</option>
+            <option value="#5.4.5">5.4.5 - Understand the factors that determine the feasibility of a digital project</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <h2 class="heading">Subtopic 5.4: Technical change management </h2>
 
         <p>Technical change management is the structured approach organisations use to plan, implement and monitor changes to systems, processes, people and strategy. Effective change management minimises disruption, mitigates risk and improves the chance that the change delivers intended benefits.</p>
 
-        <h3 class="sub-heading"> 5.4.1 Understand the internal factors that trigger change in organisations: </h3>
+        <h3 class="sub-heading" id="5.4.1"> 5.4.1 Understand the internal factors that trigger change in organisations: </h3>
 
         <h4>Organisational restructuring</h4>
     
@@ -107,7 +122,7 @@
         <ul><div class="example"><strong>Example:</strong> A streaming platform introducing live sports or offline downloads.</div></ul>
 
 
-        <h3 class="sub-heading">5.4.2 Understand the external factors that trigger change in organisations:</h3>
+        <h3 class="sub-heading" id="5.4.2">5.4.2 Understand the external factors that trigger change in organisations:</h3>
 
         <h4>Political</h4>
         <ul>
@@ -212,7 +227,7 @@
 
         <p class="note"><strong>Note:</strong> Many real-world changes are triggered by multiple factors simultaneously (for example: a recession + new legislation + a technology failure). Practical change management recognises these interactions and plans holistically to address people, process, technology and governance together.</p>
 
-        <h3 class="sub-heading">5.4.3 Understand how organisations can respond to change:</h3>
+        <h3 class="sub-heading" id="5.4.3">5.4.3 Understand how organisations can respond to change:</h3>
 
         <h4>New or Amended Policies</h4>
         <p>Policies guide how an organisation operates and must sometimes change due to legislation, regulations, or internal priorities.</p>
@@ -314,7 +329,7 @@
             </li>
         </ul>
 
-        <h3 class="sub-heading">5.4.4 Understand the processes, benefits and drawbacks of the change management process:</h3>
+        <h3 class="sub-heading" id="5.4.4">5.4.4 Understand the processes, benefits and drawbacks of the change management process:</h3>
 
         <h4>Identifying Type of Change</h4>
         <ul>
@@ -435,7 +450,7 @@
             <li>Allows rollback to previous versions and ensures collaborative consistency.</li>
         </ul>
 
-        <h3 class="sub-heading">5.4.5 Understand the factors that determine the feasibility of a digital project</h3>
+        <h3 class="sub-heading" id="5.4.5">5.4.5 Understand the factors that determine the feasibility of a digital project</h3>
 
         <h4>Benefits and Drawbacks</h4>
         <p>Evaluating the benefits and drawbacks of a digital project helps determine whether it is worth pursuing.</p>
@@ -486,5 +501,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

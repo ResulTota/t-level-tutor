@@ -15,6 +15,23 @@
             <h1>2.9 - Design Considerations and Programming Practices</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#section-2.9.1">2.9.1 - Determine the logical order for actions within processes</option>
+            <option value="#section-2.9.2">2.9.2 - Determine the order of operations in calculations and processes</option>
+            <option value="#section-2.9.3">2.9.3 - Determine the selection of data structures</option>
+            <option value="#section-2.9.4">2.9.4 - Determine the order of actions</option>
+            <option value="#section-2.9.5">2.9.5 - Naming conventions and their purpose</option>
+            <option value="#section-2.9.6">2.9.6 - Impact on readability of code style conventions</option>
+            <option value="#section-2.9.7">2.9.7 - Judging the suitability of an algorithm</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="section-2.9.1">
             <h3 class="sub-heading">2.9.1 - Determine the logical order for actions within processes</h3>
@@ -146,5 +163,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

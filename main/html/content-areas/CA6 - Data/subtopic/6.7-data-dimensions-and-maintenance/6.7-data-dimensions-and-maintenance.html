@@ -16,7 +16,17 @@
             <h1>  6.7 - Data Dimensions and Maintenance  </h1>
         </div>
     </header>
-
+    
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#.1.1">.1.1 - </option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+ 
     <main>
         
     </main>
@@ -25,5 +35,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>

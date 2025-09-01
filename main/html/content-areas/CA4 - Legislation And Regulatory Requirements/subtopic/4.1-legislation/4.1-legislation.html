@@ -15,6 +15,24 @@
             <h1>4.1 - Legislation</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#4.1.1">4.1.1 - Understand the key points and implications to employers of the relevant health and safety legislation</option>
+            <option value="#4.1.2">4.1.2 - Understand the health and safety risks and preventative measures of working with digital systems</option>
+            <option value="#4.1.3">4.1.3 - Understand data security and protection legislation including the effect on organisations and individuals</option>
+            <option value="#4.1.4">4.1.4 - Understand computer misuse legislation</option>
+            <option value="#4.1.5">4.1.5 - Understand equality legislation</option>
+            <option value="#4.1.6">4.1.6 - Understand intellectual property legislation</option>
+            <option value="#4.1.7">4.1.7 - The interrelationships of software development and legislation, Make judgements about the impact.</option>
+            <option value="#4.1.8">4.1.8 - Know that international law applies to some offences</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
 
 
@@ -729,5 +747,15 @@
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
 </body>
 </html>
