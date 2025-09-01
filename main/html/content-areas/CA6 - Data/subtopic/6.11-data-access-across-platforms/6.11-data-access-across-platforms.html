@@ -28,7 +28,134 @@
     </form>
  
     <main>
-        
+        <h2 class="heading">Subtopic 6.11: Data Access Across Platforms</h2>
+
+        <h3 class="sub-heading">6.11.1 Understand the features, purposes, benefits and drawbacks of accessing data across platforms</h3>
+
+        <h4>Permissions</h4>
+        <ul>
+            <p><strong>Features:</strong> Define what actions a user or system can perform on a data object.</p>
+            <p><strong>Purpose:</strong> Ensure that users can only perform allowed operations.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Improves security by limiting operations to authorized users.</li>
+                <li><strong>Drawbacks:</strong> Can become complex in large systems, making management difficult.</li>
+            </ul>
+        </ul>
+
+        <h4>Authorisation</h4>
+        <ul>
+            <p><strong>Features:</strong> Determines whether a user or system is allowed to access specific resources.</p>
+            <p><strong>Purpose:</strong> Verify that the entity attempting access has the right credentials.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Protects sensitive data and prevents unauthorized actions.</li>
+                <li><strong>Drawbacks:</strong> Misconfiguration can block legitimate access or allow unauthorized access.</li>
+            </ul>
+        </ul>
+
+        <h4>Privileges</h4>
+        <ul>
+            <p><strong>Features:</strong> Specific rights granted to users, often as part of a role or group.</p>
+            <p><strong>Purpose:</strong> Control fine-grained access to resources.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Streamlines user management by grouping permissions.</li>
+                <li><strong>Drawbacks:</strong> Too many privileges can lead to security risks if not carefully monitored.</li>
+            </ul>
+        </ul>
+
+        <h4>Access Rights</h4>
+        <ul>
+            <p><strong>Features:</strong> Rules defining who can read, write, or modify data.</p>
+            <p><strong>Purpose:</strong> Enforce proper data use policies.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Ensures data integrity and confidentiality.</li>
+                <li><strong>Drawbacks:</strong> Complexity increases with multiple platforms and users.</li>
+            </ul>
+        </ul>
+
+        <h4>Rules</h4>
+        <ul>
+            <p><strong>Features:</strong> Policies that govern access based on conditions or criteria.</p>
+            <p><strong>Purpose:</strong> Apply dynamic control over data usage.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Provides flexible and automated control.</li>
+                <li><strong>Drawbacks:</strong> Rules can conflict or become difficult to maintain.</li>
+            </ul>
+        </ul>
+
+        <h4>Access Mechanisms</h4>
+
+        <h5>Role-Based Access Control (RBAC)</h5>
+        <ul>
+            <p><strong>Features:</strong> Access is granted based on a user’s role in the organization.</p>
+            <p><strong>Purpose:</strong> Simplify management by grouping permissions into roles.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Easier to administer, especially in large organizations.</li>
+                <li><strong>Drawbacks:</strong> Can be inflexible if users need temporary or exceptional access.</li>
+            </ul>
+        </ul>
+
+        <h5>Rule-Based Access Control (RuBAC)</h5>
+        <ul>
+            <p><strong>Features:</strong> Access is granted or denied based on pre-defined rules or conditions.</p>
+            <p><strong>Purpose:</strong> Provide dynamic control depending on context, time, or other factors.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Highly flexible and adaptable.</li>
+                <li><strong>Drawbacks:</strong> Complexity can lead to misconfigurations.</li>
+            </ul>
+        </ul>
+
+        <h5>Application Programming Interfaces (API)</h5>
+        <ul>
+            <p><strong>Features:</strong> APIs allow software systems to communicate and access data programmatically.</p>
+            <p><strong>Purpose:</strong> Facilitate secure and structured access to data across platforms.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Enables integration, automation, and scalability.</li>
+                <li><strong>Drawbacks:</strong> Security risks if APIs are poorly designed; may require authentication and throttling.</li>
+            </ul>
+        </ul>
+
+        <h3 class="sub-heading">6.11.2 Benefits and Drawbacks of Methods to Access Data Across Platforms</h3>
+        <ul>
+            <li><strong>RBAC:</strong></li>
+            <ul>
+                <li>Benefits: Simple role management, consistent across platforms.</li>
+                <li>Drawbacks: Inflexible, difficult for exceptions.</li>
+            </ul>
+            <li><strong>RuBAC:</strong></li>
+            <ul>
+                <li>Benefits: Context-aware, flexible.</li>
+                <li>Drawbacks: Complex rules, risk of conflicts.</li>
+            </ul>
+            <li><strong>API:</strong></li>
+            <ul>
+                <li>Benefits: Standardized, enables automation and integration.</li>
+                <li>Drawbacks: Security risks, dependency on API availability.</li>
+            </ul>
+            <li><strong>Permissions & Privileges:</strong></li>
+            <ul>
+                <li>Benefits: Fine-grained control.</li>
+                <li>Drawbacks: Hard to maintain at scale.</li>
+            </ul>
+            <li><strong>Authorisation & Access Rights:</strong></li>
+            <ul>
+                <li>Benefits: Protects sensitive data.</li>
+                <li>Drawbacks: Misconfiguration can lock out legitimate users.</li>
+            </ul>
+        </ul>
+
+        <h3 class="sub-heading">6.11.3 Interrelationships Between Data Access Requirements and Methods</h3>
+        <ul>
+            <p>Access requirements determine which mechanisms to implement. RBAC suits structured organizational roles, RuBAC fits dynamic access needs, and APIs are necessary for system integration.</p>
+            <p>Factors to consider when judging suitability:</p>
+            <ul>
+                <li>Data sensitivity: Highly sensitive data requires stricter controls.</li>
+                <li>Scalability: Large systems benefit from RBAC and automated API management.</li>
+                <li>Context: Temporary projects may require flexible RuBAC policies.</li>
+                <li>Security and compliance: Dictates the granularity of permissions and access rights.</li>
+            </ul>
+            <p>Conclusion: Using a combination of mechanisms often provides the best solution in digital software development.</p>
+        </ul>
+
     </main>
     
     <arrow-Nav>

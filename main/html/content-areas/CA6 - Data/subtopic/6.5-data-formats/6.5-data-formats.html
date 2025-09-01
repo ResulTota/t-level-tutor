@@ -28,6 +28,103 @@
     </form>
  
     <main>
+       <h2 class="heading">Subtopic 6.5: Data Formats</h2>
+       
+        <h3 class="sub-heading">6.5.1 Know the definition of common data formats and understand their purpose and when each is used</h3>
+
+        <h4>JSON</h4>
+        <ul>
+            <p><strong>Definition:</strong> Lightweight, text-based format for storing and exchanging structured data.</p>
+            <p><strong>Purpose:</strong> Human-readable and machine-parsable; supports nested structures (objects and arrays).</p>
+            <p><strong>When used:</strong> Web APIs, configuration files, and data exchange between front-end and back-end systems.</p>
+            <p><strong>Example:</strong>
+            <code>{
+        "name": "Alice",
+        "age": 25,
+        "isStudent": true,
+        "subjects": ["Math", "English"]
+        }</code>
+            </p>
+        </ul>
+
+        <h4>Text File (.txt)</h4>
+        <ul>
+            <p><strong>Definition:</strong> Simple files containing plain text without any structured formatting.</p>
+            <p><strong>Purpose:</strong> Useful for human-readable notes, logs, or small datasets.</p>
+            <p><strong>When used:</strong> Logging system events, storing configuration notes, or simple data storage.</p>
+            <p><strong>Example:</strong>
+            ```
+        Name: Alice
+        Age: 25
+        Status: Student
+        ```</p>
+        </ul>
+
+        <h4>CSV (Comma-Separated Values)</h4>
+        <ul>
+            <p><strong>Definition:</strong> Text files storing tabular data, with values separated by commas (or other delimiters).</p>
+            <p><strong>Purpose:</strong> Simple, human-readable format for tabular datasets.</p>
+            <p><strong>When used:</strong> Exporting spreadsheets, importing/exporting databases, and dataset analysis.</p>
+            <p><strong>Example:</strong>
+            ```
+        Name, Age, Status
+        Alice, 25, Student
+        Bob, 30, Teacher
+        ```</p>
+        </ul>
+
+        <h4>UTF-8</h4>
+        <ul>
+            <p><strong>Definition:</strong> Character encoding standard capable of representing almost all characters in all languages.</p>
+            <p><strong>Purpose:</strong> Ensures correct display of text across different platforms and languages.</p>
+            <p><strong>When used:</strong> Websites, APIs, internationalized software, and text files.</p>
+            <p><strong>Example:</strong> `"你好"` (Chinese) and `"Hello"` (English) stored safely in UTF-8 files.</p>
+        </ul>
+
+        <h4>ASCII</h4>
+        <ul>
+            <p><strong>Definition:</strong> Character encoding standard for basic English letters, digits, and symbols (128 characters).</p>
+            <p><strong>Purpose:</strong> Lightweight encoding for simple text, widely compatible.</p>
+            <p><strong>When used:</strong> Legacy systems, simple text files, and communication protocols.</p>
+            <p><strong>Example:</strong> Letters `A-Z`, numbers `0-9`, and symbols like `@` or `#`.</p>
+        </ul>
+
+        <h4>XML (Extensible Markup Language)</h4>
+        <ul>
+            <p><strong>Definition:</strong> Markup language for encoding structured data in a human- and machine-readable way.</p>
+            <p><strong>Purpose:</strong> Supports hierarchical data with tags describing the data.</p>
+            <p><strong>When used:</strong> Configuration files, document storage, data exchange between enterprise systems, RSS feeds.</p>
+            <p><strong>Example:</strong>
+            <code>
+        <person>
+        <name>Alice</name>
+        <age>25</age>
+        <status>Student</status>
+        <subjects>
+            <subject>Math</subject>
+            <subject>English</subject>
+        </subjects>
+        </person>
+        </code>
+            </p>
+        </ul>
+
+        <h3 class="sub-heading">6.5.2 Understand the interrelationships between data format and data transformation and make judgements about the suitability of using data formats in digital software development</h3>
+
+        <ul>
+            <p><strong>Data transformation:</strong> The process of converting data from one format to another, such as JSON → CSV or XML → JSON.</p>
+            <p><strong>Interrelationship:</strong> Structured formats (JSON, CSV, XML) are easier to transform and validate due to predictable structures. Text files and encodings (UTF-8, ASCII) determine readability and compatibility during transformation.</p>
+            <p><strong>Judgements for suitability:</strong></p>
+            <ul>
+                <li><strong>JSON:</strong> Ideal for web apps and APIs; supports hierarchical data and is easy to parse.</li>
+                <li><strong>Text file:</strong> Lightweight and simple for logs or notes; not suitable for complex structured data.</li>
+                <li><strong>CSV:</strong> Perfect for tabular datasets and spreadsheet compatibility; cannot handle nested data easily.</li>
+                <li><strong>UTF-8:</strong> Essential for internationalized applications and multilingual content.</li>
+                <li><strong>ASCII:</strong> Lightweight and compatible but limited to basic English characters.</li>
+                <li><strong>XML:</strong> Suitable for hierarchical or complex data; more verbose than JSON but widely used in legacy systems.</li>
+            </ul>
+            <p><strong>Key principle:</strong> Selecting the correct data format ensures efficient storage, smooth data exchange, and compatibility across systems. Developers should balance readability, structure, size, and interoperability when choosing a format.</p>
+        </ul>
         
     </main>
     

@@ -28,7 +28,103 @@
     </form>
  
     <main>
-        
+        <h2 class = "heading">Subtopic 6.4: Data Types</h2>
+
+        <h3 class="sub-heading">6.4.1 Know the definition of common data types and understand their purpose and when each is used</h3>
+
+        <h4>Integer</h4>
+        <ul>
+            <p><strong>Definition:</strong> Whole numbers without decimals (positive or negative).</p>
+            <p><strong>Purpose:</strong> Used for counting, indexing, or any value that must be whole.</p>
+            <p><strong>When used:</strong> Storing age, quantity of items, IDs, or loop counters.</p>
+            <p><strong>Example:</strong> <code>age = 25</code>, <code>items_in_cart = 4</code></p>
+        </ul>
+
+        <h4>Real (Float)</h4>
+        <ul>
+            <p><strong>Definition:</strong> Numbers with decimals (fractional numbers).</p>
+            <p><strong>Purpose:</strong> Used when precision is required, especially for measurements.</p>
+            <p><strong>When used:</strong> Storing prices, weight, temperature, or scientific calculations.</p>
+            <p><strong>Example:</strong> <code>temperature = 36.6</code>, <code>price = 19.99</code></p>
+        </ul>
+
+        <h4>Character</h4>
+        <ul>
+            <p><strong>Definition:</strong> A single letter, number, symbol, or whitespace.</p>
+            <p><strong>Purpose:</strong> Used for storing single characters.</p>
+            <p><strong>When used:</strong> Storing a grade, a single initial, or a symbol.</p>
+            <p><strong>Example:</strong> <code>initial = 'J'</code></p>
+        </ul>
+
+        <h4>String</h4>
+        <ul>
+            <p><strong>Definition:</strong> A sequence of characters.</p>
+            <p><strong>Purpose:</strong> Used for storing text, words, or alphanumeric information.</p>
+            <p><strong>When used:</strong> Storing names, addresses, messages, or any textual input.</p>
+            <p><strong>Example:</strong> <code>name = "Alice"</code>, <code>address = "123 Main St"</code></p>
+        </ul>
+
+        <h4>Boolean</h4>
+        <ul>
+            <p><strong>Definition:</strong> Represents two values: True or False.</p>
+            <p><strong>Purpose:</strong> Used for logical decisions, flags, or conditions.</p>
+            <p><strong>When used:</strong> Checking if a user is logged in, a light switch is on/off, or if a condition is met.</p>
+            <p><strong>Example:</strong> <code>is_logged_in = True</code></p>
+        </ul>
+
+        <h4>Date</h4>
+        <ul>
+            <p><strong>Definition:</strong> Represents dates (and sometimes times).</p>
+            <p><strong>Purpose:</strong> Used for storing calendar information.</p>
+            <p><strong>When used:</strong> Birthdates, deadlines, transaction timestamps.</p>
+            <p><strong>Example:</strong> <code>dob = 2000-05-15</code>, <code>order_date = 2025-09-01</code></p>
+        </ul>
+
+        <h4>Blob (Binary Large Object)</h4>
+        <ul>
+            <p><strong>Definition:</strong> Stores large data like images, audio, video, or any binary data.</p>
+            <p><strong>Purpose:</strong> Used for multimedia storage or any data that isn’t plain text or numbers.</p>
+            <p><strong>When used:</strong> Saving profile pictures, PDF files, or video clips in databases.</p>
+            <p><strong>Example:</strong> <code>profile_picture = Blob("image_data")</code></p>
+        </ul>
+
+        <h3 class="sub-heading">6.4.2 Understand the interrelationships between structured data, unstructured data and data type</h3>
+
+        <ul>
+            <p><strong>Structured data:</strong> Organized in tables, rows, and columns. Data types are strictly defined. Example: A database table with <code>name (string)</code>, <code>age (integer)</code>, <code>price (real)</code>.</p>
+            <p><strong>Unstructured data:</strong> Does not follow a predefined structure; can include text, images, videos. Example: Emails, social media posts, videos, and images.</p>
+            <p><strong>Interrelationship:</strong> Structured data depends on clearly defined data types, while unstructured data may use strings, Blobs, or specialized formats. Proper data types help convert unstructured data into structured formats.</p>
+        </ul>
+
+        <h3 class="sub-heading">6.4.3 Understand the interrelationships between data type and data transformation</h3>
+
+        <ul>
+            <p><strong>Data transformation:</strong> Process of converting data from one format or type to another.</p>
+            <p><strong>Interrelationship:</strong> Transformations require compatible data types. Examples:</p>
+            <ul>
+                <li>Converting a string "25" to an integer 25 for calculations.</li>
+                <li>Real → Integer may lose decimal precision.</li>
+                <li>Date → String allows formatting, but arithmetic requires date types.</li>
+            </ul>
+            <p>Choosing correct data types ensures accuracy, prevents errors, and optimizes storage.</p>
+        </ul>
+
+        <h3 class="sub-heading">6.4.4 Be able to make judgements about the suitability of using structured data, unstructured data, data types and data transformations in digital software development</h3>
+
+        <ul>
+            <p><strong>Structured data:</strong> Suitable for banking systems, inventory management, employee databases due to predictability and consistency.</p>
+            <p><strong>Unstructured data:</strong> Suitable for social media platforms, multimedia apps, document storage because of flexibility.</p>
+            <p><strong>Data types:</strong> Choosing suitable types ensures proper storage and operations:</p>
+            <ul>
+                <li>Integer for counts</li>
+                <li>Real for precise measurements</li>
+                <li>String for text</li>
+                <li>Boolean for binary decisions</li>
+                <li>Blob for large multimedia files</li>
+            </ul>
+            <p><strong>Data transformation:</strong> Transform when integrating systems, cleaning data, or performing analytics. Example: Converting string "2025-09-01" to a date type to calculate days until a deadline.</p>
+        </ul>
+
     </main>
     
     <arrow-Nav>

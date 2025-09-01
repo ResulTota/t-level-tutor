@@ -28,7 +28,143 @@
     </form>
  
     <main>
-        
+        <h2 class="heading">Subtopic 6.10: Data Models</h2>
+
+        <h3 class="sub-heading">6.10.1 Know the types of data models and understand how they organise data into structures</h3>
+
+        <h4>Hierarchical Data Model</h4>
+        <ul>
+            <p><strong>Structure:</strong> Data is organized in a tree-like structure, with a single root and multiple levels of parent and child records.</p>
+            <p><strong>Example:</strong> A company database where each department has multiple employees.</p>
+            <pre>
+        Company
+        ├─ HR
+        │   ├─ Employee 1
+        │   └─ Employee 2
+        └─ IT
+            ├─ Employee 3
+            └─ Employee 4
+            </pre>
+            <p><strong>Characteristics:</strong> One-to-many relationships, easy to navigate if hierarchy is clear, each child has only one parent.</p>
+        </ul>
+
+        <h4>Network Data Model</h4>
+        <ul>
+            <p><strong>Structure:</strong> Data is organized in a graph structure where records (nodes) are connected via relationships (edges).</p>
+            <p><strong>Example:</strong> A university database where students can enroll in multiple courses and courses can have multiple students.</p>
+            <pre>
+        Student 1 ──enrolled in──> Course A
+        Student 2 ──enrolled in──> Course A
+        Student 1 ──enrolled in──> Course B
+            </pre>
+            <p><strong>Characteristics:</strong> Many-to-many relationships, more flexible than hierarchical models, traversing the network can be complex.</p>
+        </ul>
+
+        <h4>Relational Data Model</h4>
+        <ul>
+            <p><strong>Structure:</strong> Data is stored in tables (relations) consisting of rows (records) and columns (fields). Relationships between tables are made using keys (primary and foreign keys).</p>
+            <p><strong>Example:</strong></p>
+            <pre>
+        Students Table:       Courses Table:
+        ID | Name            ID | Course Name
+        1  | Alice           101 | Math
+        2  | Bob             102 | Physics
+
+        Enrollment Table:
+        StudentID | CourseID
+        1         | 101
+        1         | 102
+        2         | 101
+            </pre>
+            <p><strong>Characteristics:</strong> Easy to query with SQL, handles complex data efficiently, flexible and widely used.</p>
+        </ul>
+
+        <h3 class="sub-heading">6.10.2 Know and understand the factors that impact the selection of data models for organising data</h3>
+
+        <ul>
+            <p><strong>Efficiency of accessing individual items of data:</strong> Some models allow faster access. Example: Hierarchical models allow quick traversal if the path is known. Relational models may require searching multiple tables.</p>
+            <p><strong>Efficiency of data storage:</strong> Some models use less storage. Example: Network models can reduce redundancy compared to hierarchical models.</p>
+            <p><strong>Level of complexity in implementation:</strong> How difficult it is to build and maintain the database. Example: Hierarchical models are simpler but less flexible. Relational models are more complex but highly versatile.</p>
+        </ul>
+
+        <h3 class="sub-heading">6.10.3 Understand the benefits and drawbacks of different data models and make judgements about the suitability of data models based on efficiency and complexity</h3>
+
+        <h4>Comparison Table</h4>
+        <ul>
+            <p><strong>Hierarchical:</strong></p>
+            <ul>
+                <li>Benefits: Simple to understand, fast access if hierarchy known</li>
+                <li>Drawbacks: Inflexible, difficult to modify, one-to-many only</li>
+                <li>Suitability: Small, predictable datasets</li>
+            </ul>
+
+            <p><strong>Network:</strong></p>
+            <ul>
+                <li>Benefits: Supports many-to-many relationships, reduces redundancy</li>
+                <li>Drawbacks: Complex to implement, difficult to navigate</li>
+                <li>Suitability: Complex relationships like social networks</li>
+            </ul>
+
+            <p><strong>Relational:</strong></p>
+            <ul>
+                <li>Benefits: Flexible, supports complex queries, widely used</li>
+                <li>Drawbacks: Can be slower for very large datasets if not optimized</li>
+                <li>Suitability: General-purpose databases, business applications</li>
+            </ul>
+        </ul>
+
+        <h3 class="sub-heading">6.10.4 Be able to draw and represent data models</h3>
+
+        <h4>Hierarchical Model</h4>
+        <ul>
+            <p>Represented with blocks (entities), arrows (relationships), and labels:</p>
+            <pre>
+        [Company]
+        |
+        +--[HR]
+        |    |
+        |    +--[Employee 1]
+        |    +--[Employee 2]
+        |
+        +--[IT]
+                |
+                +--[Employee 3]
+                +--[Employee 4]
+            </pre>
+        </ul>
+
+        <h4>Network Model</h4>
+        <ul>
+            <p>Represented with blocks (entities), arrows (relationships), and labels, showing many-to-many relationships:</p>
+            <pre>
+        [Student 1] ──enrolled in──> [Course A]
+        [Student 1] ──enrolled in──> [Course B]
+        [Student 2] ──enrolled in──> [Course A]
+            </pre>
+        </ul>
+
+        <h4>Relational Model</h4>
+        <ul>
+            <p>Represented as tables with rows, columns, and labels:</p>
+            <pre>
+        Students Table:
+        ID | Name
+        1  | Alice
+        2  | Bob
+
+        Courses Table:
+        ID | Course Name
+        101 | Math
+        102 | Physics
+
+        Enrollment Table:
+        StudentID | CourseID
+        1         | 101
+        1         | 102
+        2         | 101
+            </pre>
+        </ul>
+
     </main>
     
     <arrow-Nav>
