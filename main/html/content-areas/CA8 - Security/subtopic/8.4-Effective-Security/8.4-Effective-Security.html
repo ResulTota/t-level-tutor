@@ -21,14 +21,157 @@
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#.1.1">.1.1 - </option>
+            <option value="#8.4.1">8.4.1 - Understand how the relationships in the CIA triad interrelate. </option>
+            <option value="#8.4.2">8.4.2 - Understand the IAAA Model: Elements, Techniques, Benefits & Drawbacks</option>
         </select>
         <br>
         <input type="submit" value="Submit">
     </form>
  
     <main>
+        <h2 class="heading">Subtopic 8.4: Interrelationship of Components Required for Effective Security </h2>
         
+        <h3 class="top-sub-heading" id="8.4.1">8.4.1 - Understand how the relationships in the CIA triad interrelate.</h3>
+        <p>
+            <strong>The CIA triad—Confidentiality, Integrity, and Availability—forms the foundation of effective information security.</strong>
+            <br>
+            These three components are deeply interconnected:
+            <ul>
+                <li>
+                    <strong>Protecting confidentiality</strong> helps maintain data integrity.
+                </li>
+                <li>
+                    <strong>Ensuring integrity</strong> supports availability.
+                </li>
+            </ul>
+            A weakness in one area can undermine the others, so a balanced approach is essential.
+            <br>
+            Understanding how these elements work together enables organisations to safeguard sensitive information, maintain trustworthiness, and ensure reliable access to data and systems.
+            <ul>
+                <li>
+                    <strong>Confidentiality:</strong>
+                    <br>
+                        Ensuring that data is kept private by controlling who has access to the data.
+                        <br><em>
+                        &emsp; <strong>Techniques:</strong> Encryption, access controls, authentication, data classification.
+                        <br>
+                        &emsp; <strong>Benefits:</strong> Protects sensitive information from unauthorized disclosure.
+                        <br>
+                        &emsp; <strong>Drawbacks:</strong> May introduce complexity and reduce usability if not managed properly.
+                    </em>
+                </li>
+                <br>
+                <li>
+                    <strong>Integrity:</strong>
+                    <br>
+                        Ensuring that the data has not been tampered with; this can be done by maintaining confidentiality.
+                        <br>
+                        <em>
+                        &emsp; <strong>Techniques:</strong> Hashing, digital signatures, checksums, audit trails.
+                        <br>
+                        &emsp; <strong>Benefits:</strong> Maintains trustworthiness and accuracy of data.
+                        <br>
+                        &emsp; <strong>Drawbacks:</strong> Can require additional resources and may impact performance.
+                        </em>
+                </li>
+                <br>
+                <li>
+                    <strong>Availability:</strong>
+                    <br>
+                        Ensuring that data is available and useful; this can be done by ensuring integrity.
+                        <br>
+                        <em>
+                        &emsp; <strong>Techniques:</strong> Redundancy, backups, failover systems, disaster recovery planning.
+                        <br>
+                        &emsp; <strong>Benefits:</strong> Ensures users can access data and services when needed.
+                        <br>
+                        &emsp; <strong>Drawbacks:</strong> May increase costs and require ongoing maintenance.
+                        </em>
+                </li>
+            </ul>
+            <strong>Relationship:</strong>
+            <br>
+                The CIA triad components support each other; for example, maintaining confidentiality helps protect integrity, and ensuring integrity supports availability. Weakness in one area can undermine the others.
+        </p>
+
+        <h3 class="sub-heading" id="8.4.2">8.4.2 - Understand the processes and procedures that assure internet security and the reasons why they are used. </h3>
+        <p>
+            Understand the elements of the Identification, Authentication, Authorisation, Accountability (IAAA) model, including the techniques used, benefits, and drawbacks:
+            <ul>
+            <li>
+                <strong>Identification:</strong>
+                <br>
+                Recognising the individual within a digital system.
+                <br>
+                <em>
+                &emsp; <strong>Techniques:</strong> 
+                <ul>
+                    <li>Knowledge-based identification (e.g., username)</li>
+                    <li>Possession-based identification (e.g., ID cards, tokens)</li>
+                    <li>Biometric-based identification (e.g., fingerprint, facial recognition)</li>
+                </ul>
+                &emsp; <strong>Benefits:</strong> Enables systems to distinguish between users and apply appropriate controls.
+                <br>
+                &emsp; <strong>Drawbacks:</strong> May be vulnerable to impersonation or theft of credentials/devices.
+                </em>
+            </li>
+            <br>
+            <li>
+                <strong>Authentication:</strong>
+                <br>
+                Verifying the identity claimed during the identification phase.
+                <br>
+                <em>
+                &emsp; <strong>Techniques:</strong>
+                <ul>
+                    <li>Passwords and passphrases</li>
+                    <li>Multi-factor authentication (MFA)</li>
+                    <li>Biometric authentication</li>
+                </ul>
+                &emsp; <strong>Benefits:</strong> Strengthens access control by requiring proof of identity.
+                <br>
+                &emsp; <strong>Drawbacks:</strong> Passwords can be weak or reused; biometrics may raise privacy concerns.
+                </em>
+            </li>
+            <br>
+            <li>
+                <strong>Authorisation:</strong>
+                <br>
+                Ensuring that authenticated users can only access resources and perform actions they are permitted to.
+                <br>
+                <em>
+                &emsp; <strong>Techniques:</strong>
+                <ul>
+                    <li>Role-based access control (RBAC)</li>
+                    <li>Access control lists (ACLs)</li>
+                </ul>
+                &emsp; <strong>Benefits:</strong> Limits exposure of sensitive data and functions to only those who need them.
+                <br>
+                &emsp; <strong>Drawbacks:</strong> Can be complex to manage and maintain, especially in large organisations.
+                </em>
+            </li>
+            <br>
+            <li>
+                <strong>Accountability:</strong>
+                <br>
+                Ensuring that any actions within a system can be traced back to the responsible user.
+                <br>
+                <em>
+                &emsp; <strong>Techniques:</strong>
+                <ul>
+                    <li>Audit logs</li>
+                    <li>User activity monitoring</li>
+                </ul>
+                &emsp; <strong>Benefits:</strong> Deters misuse and supports investigations by providing traceability.
+                <br>
+                &emsp; <strong>Drawbacks:</strong> Requires secure storage and management of logs; privacy concerns may arise.
+                </em>
+            </li>
+            </ul>
+            <strong>Relationship:</strong>
+            <br>
+            The IAAA components work together to ensure secure access and accountability in digital systems. Weakness in one area can compromise the effectiveness of the others.
+        </p>
     </main>
     
     <arrow-Nav>

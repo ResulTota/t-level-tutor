@@ -21,14 +21,273 @@
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#.1.1">.1.1 - </option>
+            <option value="#8.3.1">8.3.1 - Understand the purposes, processes, benefits and drawbacks of common threat mitigation techniques.</option>
+            <option value="#8.3.2">8.3.2 - Understand the processes and procedures that assure internet security and the reasons why they are used.</option>
         </select>
         <br>
         <input type="submit" value="Submit">
     </form>
  
     <main>
+        <h2 class="heading">Subtopic 8.3: Threat Mitigation</h2>
         
+        <h3 class="top-sub-heading" id="8.3.1">8.3.1 - Understand the purposes, processes, benefits and drawbacks of common threat mitigation techniques.</h3>
+            <p>
+            Threat mitigation uses strategies to lower the chance and impact of security threats to information systems. It involves identifying risks, applying controls to prevent or limit attacks, and monitoring systems to quickly detect and respond to incidents.
+            </p>
+        <ul>
+            <li>
+                <strong>Security Settings:</strong>
+                <ul>
+                    <li><strong>Hardware:</strong> Physical controls (e.g., firewalls, biometric access) to restrict unauthorized access.</li>
+                    <li><strong>Software:</strong> Configuration of operating systems and applications to enforce security policies.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Reduces attack surface and prevents unauthorized changes.<br>
+                    <strong>Drawbacks:</strong> Misconfiguration can create vulnerabilities.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Anti-malware Software:</strong>
+                <ul>
+                    <li><strong>Function:</strong> Detects and removes malicious software.</li>
+                    <li><strong>Actions:</strong> Scans files, quarantines threats, and provides real-time protection.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Protects systems from viruses, trojans, and other malware.<br>
+                    <strong>Drawbacks:</strong> May impact system performance and require regular updates.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Intrusion Detection:</strong>
+                <br>
+                Monitors network or system activities for suspicious behavior.
+                <em>
+                    <strong>Benefits:</strong> Early warning of attacks.<br>
+                    <strong>Drawbacks:</strong> False positives can cause unnecessary alerts.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Encryption:</strong>
+                <ul>
+                    <li><strong>Hashing:</strong> Secures data integrity by generating unique values for data.</li>
+                    <li><strong>Symmetric:</strong> Uses the same key for encryption and decryption.</li>
+                    <li><strong>Asymmetric:</strong> Uses public and private keys for secure communication.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Protects data confidentiality and integrity.<br>
+                    <strong>Drawbacks:</strong> Key management can be complex.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>User Access Policies:</strong>
+                <br>
+                Defines who can access what resources and at what level.
+                <em><br>
+                    <strong>Benefits:</strong> Limits exposure of sensitive data.<br>
+                    <strong>Drawbacks:</strong> Overly restrictive policies can hinder productivity.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Staff Vetting:</strong>
+                <br>
+                Background checks to ensure trustworthy personnel.
+                <em><br>
+                    <strong>Benefits:</strong> Reduces insider threats.<br>
+                    <strong>Drawbacks:</strong> Can be time-consuming and costly.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Staff Training:</strong>
+                <br>
+                Educates employees on security best practices.
+                <em><br>
+                    <strong>Benefits:</strong> Reduces risk of human error.<br>
+                    <strong>Drawbacks:</strong> Requires ongoing investment.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Software-based Access Control:</strong>
+                <br>
+                Uses software to manage user permissions and authentication.
+                <em><br>
+                    <strong>Benefits:</strong> Flexible and scalable.<br>
+                    <strong>Drawbacks:</strong> Vulnerable to software exploits.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Device Hardening:</strong>
+                <br>
+                Secures devices by disabling unnecessary features and services.
+                <em><br>
+                    <strong>Benefits:</strong> Reduces vulnerabilities.<br>
+                    <strong>Drawbacks:</strong> May limit device functionality.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Backups:</strong>
+                <ul>
+                    <li><strong>Type:</strong> Full, incremental, differential backups.</li>
+                    <li><strong>Safe Storage:</strong> Offsite or encrypted storage to protect backup data.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Enables recovery from data loss.<br>
+                    <strong>Drawbacks:</strong> Requires storage space and regular maintenance.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Software Updates:</strong>
+                <br>
+                Regularly applying patches to fix vulnerabilities.
+                <em><br>
+                    <strong>Benefits:</strong> Protects against known threats.<br>
+                    <strong>Drawbacks:</strong> May cause compatibility issues.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Firmware/Driver Updates:</strong>
+                <br>
+                Keeps hardware components secure and functional.
+                <em><br>
+                    <strong>Benefits:</strong> Fixes hardware vulnerabilities.<br>
+                    <strong>Drawbacks:</strong> Risk of device instability.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Air Gaps:</strong>
+                <br>
+                Physically isolates systems from unsecured networks.
+                <em><br>
+                    <strong>Benefits:</strong> Prevents remote attacks.<br>
+                    <strong>Drawbacks:</strong> Limits usability and data transfer.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Certification of APIs:</strong>
+                <br>
+                Ensures APIs meet security standards before use.
+                <em><br>
+                    <strong>Benefits:</strong> Reduces risk of insecure integrations.<br>
+                    <strong>Drawbacks:</strong> Can delay deployment.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>VPNs (Virtual Private Networks):</strong>
+                <br>
+                Encrypts network traffic for secure remote access.
+                <em><br>
+                    <strong>Benefits:</strong> Protects data in transit.<br>
+                    <strong>Drawbacks:</strong> May slow down connections.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Multi-factor Authentication:</strong>
+                <br>
+                Requires multiple forms of verification for access.
+                <em><br>
+                    <strong>Benefits:</strong> Stronger protection against unauthorized access.<br>
+                    <strong>Drawbacks:</strong> Can be inconvenient for users.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Password Managers:</strong>
+                <br>
+                Securely stores and manages user passwords.
+                <em><br>
+                    <strong>Benefits:</strong> Encourages strong, unique passwords.<br>
+                    <strong>Drawbacks:</strong> Single point of failure if compromised.
+                </em>
+            </li>
+            <br> 
+            <li>
+                <strong>Port Scanning:</strong>
+                <br>
+                Identifies open ports and potential vulnerabilities.
+                <em><br>
+                    <strong>Benefits:</strong> Helps detect weaknesses.<br>
+                    <strong>Drawbacks:</strong> Can be used by attackers for reconnaissance.
+                </em>
+            </li>
+            <br>         
+            <li>
+                <strong>Penetration Testing:</strong>
+                <ul>
+                    <li><strong>Ethical Hacking:</strong> Authorized testing to find vulnerabilities.</li>
+                    <li><strong>Unethical Hacking:</strong> Unauthorized attacks to exploit weaknesses.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Identifies and helps fix security gaps.<br>
+                    <strong>Drawbacks:</strong> Can be costly and disruptive.
+                </em>
+            </li>
+        </ul>
+
+        <h3 id="8.3.2">Processes and procedures that ensure internet security & reasons why they are used: </h3>
+        
+        <ul>
+            <li>
+                <strong>Firewall Configuration:</strong>
+                <ul>
+                    <li><strong>Rules for Traffic (Inbound and Outbound):</strong> Controls which data packets are allowed to enter or leave the network.</li>
+                    <li><strong>Traffic Type Rules:</strong> Filters traffic based on protocols (e.g., HTTP, FTP, SMTP).</li>
+                    <li><strong>Application Rules:</strong> Restricts or allows network access for specific applications.</li>
+                    <li><strong>IP Address Rules:</strong> Allows or blocks traffic from specified IP addresses or ranges.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Prevents unauthorized access and reduces exposure to threats.<br>
+                    <strong>Drawbacks:</strong> Incorrect rule configuration can block legitimate traffic or allow malicious activity.
+                </em>
+            </li>
+            <br>
+            <li>
+                <strong>Network Segregation:</strong>
+                <ul>
+                    <li><strong>Virtual:</strong> Uses VLANs to separate network segments for security and management.</li>
+                    <li><strong>Physical:</strong> Isolates networks using separate hardware and cabling.</li>
+                    <li><strong>Offline Network:</strong> Keeps sensitive systems disconnected from external networks.</li>
+                </ul>
+                <em>
+                    <strong>Benefits:</strong> Limits the spread of attacks and protects critical assets.<br>
+                    <strong>Drawbacks:</strong> Can increase complexity and cost.
+                </em>
+            </li>
+            <br>
+            <li>
+                <strong>Network Monitoring:</strong>
+                <br>
+                Continuously observes network activity to detect suspicious behavior or security incidents.
+                <em><br>
+                    <strong>Benefits:</strong> Enables rapid response to threats and helps identify vulnerabilities.<br>
+                    <strong>Drawbacks:</strong> May generate large amounts of data and require skilled personnel to interpret results.
+                </em>
+            </li>
+            <br>
+            <li>
+                <strong>Port Scanning:</strong>
+                <br>
+                Examines network devices to identify open ports and potential vulnerabilities.
+                <em><br>
+                    <strong>Benefits:</strong> Helps administrators find and secure weak points.<br>
+                    <strong>Drawbacks:</strong> Can be used by attackers for reconnaissance; may trigger security alerts.
+                </em>
+            </li>
+        </ul>
     </main>
     
     <arrow-Nav>

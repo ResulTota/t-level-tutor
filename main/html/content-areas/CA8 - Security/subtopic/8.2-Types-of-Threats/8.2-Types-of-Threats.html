@@ -21,13 +21,180 @@
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#.1.1">.1.1 - </option>
+            <option value="#8.2.1">8.2.1 - Understand potential technical threats & their impacts, including prevention & mitigation methods.</option>
+            <option value="#8.2.2">8.2.2 - Understand potential technical vulnerabilities to systems and data. </option>
+            <option value="#8.2.3">8.2.3 - Understand potential human threats, including prevention and mitigation methods, to systems and data.</option>
+            <option value="#8.2.4">8.2.4 - Understand potential physical vulnerabilities, including prevention & mitigation methods, to systems, data & information. </option>
+            <option value="#8.2.5">8.2.5 - Understand the potential impact to an organisation of threats and vulnerabilities.</option>
         </select>
         <br>
         <input type="submit" value="Submit">
     </form>
  
     <main>
+        <h2 class="heading">Subtopic 8.2: Types Of Threats</h2>
+
+        <h3 class="top-sub-heading" id="8.2.1">8.2.1 - Understand potential technical threats and their impacts on organisations and individuals including prevention and mitigation methods:</h3>
+            <p>
+                Technical threats refer to various cyber threats that can compromise the security, integrity, and availability of systems and data. 
+                <br>Common technical threats include:
+                <ul>
+                    <li><strong>Malware:</strong> Malicious software that can damage or disrupt systems. 
+                        <br> &emsp; <em> <strong>Examples:</strong>  viruses, worms, key loggers, ransomware, spyware, trojans.</em></li>
+                    <li><strong>DoS Attacks:</strong> Denial of Service attacks are when one computer overwhelms a system with traffic, making it unavailable to users. 
+                        <br> &emsp; <em> (Distributed Denial of Service [DDoS] attacks are DoS attacks that come from several computers)</em></li>
+                    <li><strong>BotNets:</strong> Networks of compromised computers controlled by attackers to launch large-scale attacks or spread malware.
+                        <br> &emsp; <em> <strong>Example Usages:</strong> Used for DDoS attacks, spamming, and distributing malware.</em></li>
+                    <li><strong>Hackers:</strong> Individuals or groups who attempt to gain unauthorized access to systems or data.
+                        <br> &emsp; <em> <strong>Example Usages:</strong> Can exploit vulnerabilities to steal, alter, or destroy information.</em></li>
+                    <li><strong>Social Engineering:</strong> Manipulating people into revealing confidential information or performing actions that compromise security.
+                        <br> &emsp; <em> <strong>Examples:</strong> phishing, pretexting, baiting, tailgating.</em></li>
+                    <li><strong>Phishing:</strong> Fraudulent attempts to obtain sensitive information by pretending to be a trustworthy entity, often via email.
+                        <br> &emsp; <em> <strong>Example Usages:</strong> Can lead to identity theft, financial loss, and unauthorized access to systems.</em></li>
+                    <li><strong>Insecure Application Programming Interfaces (APIs):</strong> APIs that lack proper security controls can be exploited to access or manipulate data.
+                    <li><strong>Man-In-The-Middle attacks:</strong> Attackers intercept and potentially alter communications between two parties without their knowledge.
+                    <li><strong>Open/Unsecured Wi-Fi networks:</strong> Public or poorly secured wireless networks can be exploited by attackers to intercept data or gain unauthorized access.
+                </ul>
+            </p>
+        <h3 class="sub-heading" id="8.2.2">8.2.2 - Understand potential technical vulnerabilities to systems and data: </h3>
+        <p>
+            Technical vulnerabilities are weaknesses in systems, software, or processes that can be exploited by attackers to compromise security. 
+            <br><strong>Common technical vulnerabilities include:</strong>
+            <ul>
+                <li><strong>Inadequate Security Processes:</strong> Poorly implemented or missing security procedures can leave systems exposed.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Lack of regular security audits, insufficient monitoring, failure to update security policies.
+                    </em>
+                </li>
+                <li><strong>Weak Encryption:</strong> Using outdated or easily broken encryption algorithms makes data susceptible to interception and theft.
+                    <br> &emsp; <em>
+                        <strong>Example Usages:</strong> Transmitting sensitive information over unsecured channels, storing passwords with weak hashes.
+                    </em>
+                </li>
+                <li><strong>Inadequate Password Policy:</strong> Allowing weak, easily guessable passwords or not enforcing password changes increases risk of unauthorized access.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> No minimum password length, no complexity requirements, passwords reused across accounts.
+                    </em>
+                </li>
+                <li><strong>Failure to Use Multi-Factor Authentication (MFA):</strong> Relying solely on passwords makes accounts more vulnerable to compromise.
+                    <br> &emsp; <em>
+                        <strong>Example Usages:</strong> Sensitive accounts accessible with only a password, no additional verification steps.
+                    </em>
+                </li>
+                <li><strong>Out-of-Date Components:</strong> Using outdated hardware, software, or firmware can introduce vulnerabilities due to lack of support or unpatched security flaws.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Unsupported operating systems, legacy applications, unpatched zero-day bugs, obsolete firmware.
+                    </em>
+                </li>
+            </ul>
+        </p>
+
+        <h3 class="sub-heading" id="8.2.3">8.2.3 - Understand potential human threats, including prevention and mitigation methods, to systems and data:</h3>
+        <p> 
+            Human threats refer to risks posed by individuals, either through mistakes or intentional actions, that can compromise systems and data. 
+            <br><strong>Common human threats include:</strong>
+            <ul>
+                <li><strong>Human Error:</strong> Mistakes made by users or staff can lead to data loss, breaches, or system failures.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Accidentally deleting files, misconfiguring system settings, sending sensitive information to the wrong recipient.
+                        <br> &emsp; <strong>Prevention & Mitigation:</strong> Use file properties to restrict access, implement confirmation boxes for critical actions, provide regular staff training.
+                    </em>
+                </li>
+                <li><strong>Malicious Employee:</strong> Staff members who intentionally harm systems or steal data.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Sabotaging systems, stealing confidential information, installing malware.
+                        <br> &emsp; <strong>Prevention & Mitigation:</strong> Immediate removal from premises, suspend user accounts immediately, monitor user activity.
+                    </em>
+                </li>
+                <li><strong>Disguised Criminal:</strong> Individuals who gain physical access to premises by pretending to be legitimate visitors.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Impersonating staff, contractors, or delivery personnel to access restricted areas.
+                        <br> &emsp; <strong>Prevention & Mitigation:</strong> Accompany all visitors, check identification of visitors, enforce visitor sign-in procedures.
+                    </em>
+                </li>
+                <li><strong>Poor Cyber Hygiene:</strong> Unsafe habits and practices that increase vulnerability to threats.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Leaving machines unlocked, writing down passwords, using weak or reused passwords.
+                        <br> &emsp; <strong>Prevention & Mitigation:</strong> Lock all unattended machines, avoid writing down passwords, enforce strong password management policies.
+                    </em>
+                </li>
+            </ul>
+        </p>
+        <h3 class="sub-heading" id="8.2.4">8.2.4 - Understand potential physical vulnerabilities, including prevention and mitigation methods, to systems, data and information, including:</h3>
+        <p>
+            Physical vulnerabilities refer to weaknesses in the physical environment or controls that can be exploited to compromise systems, data, or information.
+            <br><strong>Common physical vulnerabilities include:</strong>
+            <ul>
+                <li><strong>Lack of Access Control:</strong> Inadequate systems for controlling entry to secure areas can allow unauthorized individuals to gain access.
+                    <br> &emsp; <em>
+                        <strong>Prevention & Mitigation:</strong> Implement entry control systems such as key cards, biometric scanners, or security personnel.
+                    </em>
+                </li>
+                <li><strong>Poor Access Control:</strong> Weak or poorly enforced access procedures increase the risk of unauthorized access.
+                    <br> &emsp; <em>
+                        <strong>Prevention & Mitigation:</strong> 
+                        <ul>
+                            <li>Do not allow tailgating (following someone through a secure door without authorization).</li>
+                            <li>Use complex access codes and change them regularly.</li>
+                            <li>Monitor access areas with CCTV or security staff.</li>
+                            <li>Conduct regular audits of staff access to secure areas.</li>
+                        </ul>
+                    </em>
+                </li>
+                <li><strong>Nature of Location:</strong> The physical environment can introduce risks such as shoulder surfing, environmental hazards, or vandalism.
+                    <br> &emsp; <em>
+                        <strong>Prevention & Mitigation:</strong>
+                        <ul>
+                            <li>Protect against shoulder surfing by using privacy screens and positioning devices securely.</li>
+                            <li>Safeguard equipment and data from environmental threats (e.g., water, fire, dust).</li>
+                            <li>Implement measures to deter and prevent vandalism, such as secure enclosures and surveillance.</li>
+                        </ul>
+                    </em>
+                </li>
+                <li><strong>Poor System Robustness:</strong> Using equipment that is not designed to withstand harsh conditions can lead to failures or data loss.
+                    <br> &emsp; <em>
+                        <strong>Prevention & Mitigation:</strong> Use rugged machines and hardware designed for durability in challenging environments.
+                    </em>
+                </li>
+                <li><strong>Natural Disasters:</strong> Events such as floods, fires, or earthquakes can damage systems and data.
+                    <br> &emsp; <em>
+                        <strong>Prevention & Mitigation:</strong> Develop disaster recovery plans, use backup systems, and store critical data offsite or in the cloud.
+                    </em>
+                </li>
+            </ul>
+        </p>
+        <h3 class="sub-heading" id="8.2.5">8.2.5 - Understand the potential impact to an organisation of threats and vulnerabilities:</h3>
+        <p>
+            The potential impact to an organisation of threats and vulnerabilities can be significant, affecting operations, reputation, and finances.
+            <br><strong>Common impacts include:</strong>
+            <ul>
+                <li><strong>Loss/Leaking of Sensitive Data:</strong> Confidential information may be exposed or stolen, leading to legal consequences, reputational damage, and loss of customer trust.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Personal data breaches, intellectual property theft, exposure of financial records.
+                    </em>
+                </li>
+                <li><strong>Unauthorised Access to Digital Systems:</strong> Attackers may gain access to systems, allowing them to manipulate, steal, or destroy data.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Hackers accessing databases, altering system configurations, installing malware.
+                    </em>
+                </li>
+                <li><strong>Data Corruption:</strong> Data may be intentionally or accidentally altered, making it unusable or unreliable.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Malware corrupting files, accidental overwriting of records, sabotage by malicious insiders.
+                    </em>
+                </li>
+                <li><strong>Disruption of Service:</strong> Threats can cause systems or services to become unavailable, impacting productivity and customer experience.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Denial of Service (DoS) attacks, hardware failures, ransomware locking systems.
+                    </em>
+                </li>
+                <li><strong>Unauthorised Access to Restricted Physical Areas:</strong> Physical security breaches can result in theft, sabotage, or further cyber attacks.
+                    <br> &emsp; <em>
+                        <strong>Examples:</strong> Intruders accessing server rooms, stealing devices, planting malicious hardware.
+                    </em>
+                </li>
+            </ul>
+        </p>
         
     </main>
 
