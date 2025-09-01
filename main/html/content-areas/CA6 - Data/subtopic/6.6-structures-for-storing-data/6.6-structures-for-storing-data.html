@@ -28,6 +28,119 @@
     </form>
  
     <main>
+      <h2 class="heading">Subtopic 6.6: Structures for storing data</h2>
+
+        <h3 class="sub-heading">6.6.1 Understand the role of metadata in providing descriptions and contexts for data</h3>
+
+        <h4>Definition and Purpose</h4>
+        <ul>
+            <p><strong>Metadata:</strong> Data that describes other data, providing context, meaning, and structure for easier use.</p>
+            <p><strong>Descriptive metadata:</strong> Identifies and locates data. Example: Title, author, keywords of a research paper.</p>
+            <p><strong>Structural metadata:</strong> Explains relationships between components. Example: Chapters and sections of a book.</p>
+            <p><strong>Administrative metadata:</strong> Provides management details. Example: File size, creation date, access permissions, format type.</p>
+        </ul>
+
+        <h4>Importance of Metadata</h4>
+        <ul>
+            <p><strong>Efficient retrieval:</strong> Allows systems and users to locate and search data quickly.</p>
+            <p><strong>Interoperability:</strong> Enables different systems to understand and use the same data correctly.</p>
+            <p><strong>Data governance:</strong> Tracks ownership, changes, and access rights.</p>
+        </ul>
+
+        <h4>Real-world Example</h4>
+        <p>A digital photograph may include metadata such as camera settings (ISO, aperture, shutter speed), GPS location, date and time, and photographer’s name, making it easier to catalog, search, and edit.</p>
+
+        <h3 class="sub-heading">6.6.2 Know the definition of file-based and directory-based structures and understand their purposes and when they are used</h3>
+
+        <h4>File-based Structure</h4>
+        <ul>
+            <p>Data is stored in separate files, each containing related information.</p>
+            <p>Each file is independent, with minimal relationships to other files.</p>
+        </ul>
+
+        <h4>Directory-based Structure</h4>
+        <ul>
+            <p>Files are grouped into directories (folders) to organize them hierarchically.</p>
+            <p>Subdirectories can further categorize files for better management.</p>
+        </ul>
+
+        <h4>Purpose and Usage</h4>
+        <ul>
+            <p><strong>File-based:</strong> Simple, suitable for small datasets or single-user systems. Example: Storing text documents or spreadsheets.</p>
+            <p><strong>Directory-based:</strong> Scalable and organized for larger datasets. Example:</p>
+            <pre>
+        Projects/
+        ProjectA/
+            Budget.xlsx
+            Timeline.docx
+        ProjectB/
+            Budget.xlsx
+            Timeline.docx
+            </pre>
+        </ul>
+
+        <h4>Advantages</h4>
+        <ul>
+            <li>Directory structures allow grouping of related files and easier access.</li>
+            <li>File-based storage is flexible and simple but can become hard to manage with many files.</li>
+        </ul>
+
+        <h3 class="sub-heading">6.6.3 Know the definition of hierarchy-based structure and understand its purpose and when it is used</h3>
+
+        <h4>Definition</h4>
+        <p>A hierarchy-based structure organizes data in a tree-like format where each parent node can have multiple child nodes.</p>
+
+        <h4>Purpose and Usage</h4>
+        <ul>
+            <p>Efficiently represents relationships between items.</p>
+            <p>Supports quick navigation, retrieval, and reporting.</p>
+            <p>Commonly used in file systems, hierarchical databases (XML, LDAP), and organizational charts.</p>
+        </ul>
+
+        <h4>Advantages</h4>
+        <ul>
+            <li>Easy to understand and visualize relationships.</li>
+            <li>Reduces data redundancy by sharing parent data across multiple child nodes.</li>
+            <li>Supports hierarchical queries, e.g., “Show all employees under IT department.”</li>
+        </ul>
+
+        <h4>Example</h4>
+        <pre>
+        Company
+        ├── HR
+        │    ├── Recruitment
+        │    └── Payroll
+        └── IT
+            ├── Development
+            └── Support
+        </pre>
+
+        <h4>Comparison with Other Structures</h4>
+        <ul>
+            <li><strong>File-based:</strong> Flat, simple, suitable for small datasets.</li>
+            <li><strong>Directory-based:</strong> Nested folders, medium complexity, suitable for medium to large datasets.</li>
+            <li><strong>Hierarchy-based:</strong> Tree-like, complex, suitable for complex relationships.</li>
+        </ul>
+
+        <h3 class="sub-heading">6.6.4 Understand the interrelationships between storage structures and data transformation</h3>
+
+        <h4>Definition</h4>
+        <p>Data transformation is the process of converting data from one format or structure to another for easier analysis, storage, or compatibility.</p>
+
+        <h4>Interrelationships with Storage Structures</h4>
+        <ul>
+            <p><strong>File-based:</strong> May require combining or splitting files for analysis. Example: Consolidating CSV files into a single dataset.</p>
+            <p><strong>Directory-based:</strong> Automated processing must navigate nested directories. Example: A program reads multiple project folders to generate reports.</p>
+            <p><strong>Hierarchy-based:</strong> Mapping relationships carefully when transforming into flat formats. Example: Converting XML or JSON hierarchical data into relational tables.</p>
+        </ul>
+
+        <h4>Role of Metadata</h4>
+        <ul>
+            <p>Metadata guides transformation by providing context, definitions, and relationships, ensuring accurate interpretation.</p>
+        </ul>
+
+        <h4>Real-world Example</h4>
+        <p>A company stores sales data in multiple folders by region (directory-based), and each file contains nested customer order details (hierarchy-based). To analyze total sales, files are aggregated and hierarchical data flattened for spreadsheet analysis, using metadata to maintain correct field mapping.</p>
         
     </main>
     
