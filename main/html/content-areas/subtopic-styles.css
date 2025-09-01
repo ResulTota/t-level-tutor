@@ -116,17 +116,6 @@ form{
     background-color: #bee7fe;
     border: solid 3px #1b4965;
     padding: 10px;
-    width: 250px;
-}
-
-form{
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 18px;
-    margin: 30px auto;
-    border-radius: 20px;
-    background-color: #bee7fe;
-    border: solid 3px #1b4965;
-    padding: 10px;
-    max-width: 275px;
+    max-width: 800px;
 }
 

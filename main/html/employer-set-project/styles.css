@@ -50,6 +50,49 @@ main {
 
 }
 
+.heading {
+    text-align: center;
+    font-size: 32px;
+    margin: 8px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: solid 3px black;
+}
+
+.top-sub-heading {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 8px;
+    padding-bottom: 3px;
+    border-bottom: solid 2px black;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 8px;
+    padding-bottom: 3px;
+    border-bottom: solid 2px black;
+    border-top: solid 2px black;
+}
+
+h4 {
+    font-size: 18px;
+    margin: 0;
+    padding: 5px 0 0 0;
+}
+
+.pros strong,
+.good {
+    color: green;
+    font-weight: bold;
+}
+
+.cons strong,
+.bad {
+    color: red;
+    font-weight: bold;
+}
+
 body {
     background-color: #5FA8D3;
 }
@@ -73,5 +116,6 @@ form{
     background-color: #bee7fe;
     border: solid 3px #1b4965;
     padding: 10px;
-    max-width: 400px;
+    max-width: 800px;
 }
+

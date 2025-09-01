@@ -15,6 +15,28 @@
             <h1>1.2 - Algorithmic Design</h1>
         </div>
     </header>
+
+    <form>
+        <label for="sections">Jump to Section:</label>
+        <select name="sections" id="sections">
+            <option value="" disabled selected>Select a section</option>
+            <option value="#1.2.1">1.2.1 - Know the definition and understand the characteristics and purpose of algorithms</option>
+            <option value="#1.2.2">1.2.2 - Know and understand ways that algorithms can be expressed</option>
+            <option value="#1.2.3">1.2.3 - Know and understand the benefits and drawbacks of the ways of expressing algorithms in flowcharts</option>
+            <option value="#1.2.4">1.2.4 - Know and understand the benefits and drawbacks of the ways of expressing algorithms in written descriptions</option>
+            <option value="#1.2.5">1.2.5 - Know and understand the benefits and drawbacks of the ways of expressing algorithms in code</option>
+            <option value="#1.2.6">1.2.6 - Know and understand actions to control ordering of steps in algorithms</option>
+            <option value="#1.2.7">1.2.7 - Be able to determine the purpose of an algorithm and how it works</option>
+            <option value="#1.2.8">1.2.8 - Be able to determine the output of an algorithm given an input</option>
+            <option value="#1.2.9">1.2.9 - Be able to identify errors in an algorithm</option>
+            <option value="#1.2.10">1.2.10 - Be able to correct errors in an algorithm</option>
+            <option value="#1.2.11">1.2.11 - Be able to translate between the different notations for algorithms</option>
+            <option value="#1.2.12">1.2.12 - Be able to design algorithms and solutions that use actions</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
     <main>
         <section id="1.2.1">
             <h3 class="sub-heading">1.2.1 - Know the definition and understand the characteristics and purpose of algorithms</h3>
@@ -307,5 +329,16 @@ else:
             <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
             <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
+    </script>
+
 </body>
 </html>

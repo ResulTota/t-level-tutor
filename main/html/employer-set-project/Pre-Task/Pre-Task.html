@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>  Pre Task  </title>
-        <link rel="stylesheet" href="../styles.css">
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre Task</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
     <header>
         <a href="../../index.html" id="logo-link">
             <img src="../../../images/logo.png" alt="TLevelTutor Logo" width="100" height="100" id="header-logo"/>
         </a>
         <div class="header-text">
-            <h1>  Pre-Task  </h1>
+            <h1>Pre-Task</h1>
         </div>
     </header>
-
+    
     <form>
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
@@ -32,40 +31,57 @@
     <main>
         <h2 class="heading">ESP - Pre-Task</h2>
 
-        <h3 id="what-section"> What Is It?</h3>
-        <p> The Pre-Task for the ESP introduces you to the business sector the ESP will revolve around (e.g: Retail, Real Estate, Fast Food etc.) which is useful as it can give you an idea of why the company might use digital tools/ technologies.</p>
-        <p> During the pre-task you are allowed to: 
-            <ul>
-                <li> Access the internet </li>
-                <li> Talk with other students <br> &ensp; <em> Generally, you will be in teams of six, however you can still communicate with those outside of your group. </em></li>
-                <li> Make notes about your research <br> &ensp; <em> However you <strong>Cannot</strong> bring these notes into the other exams. </em></li>
-            </ul>
+        <h3 class="top-sub-heading" id="what-section">What Is the Pre-Task?</h3>
+        <p>
+            The Pre-Task for the ESP introduces you to the business sector the ESP will revolve around (e.g: Retail, Real Estate, Fast Food etc.) which is useful as it can give you an idea of why the company might use digital tools/technologies.
         </p>
-        <p> 
-            The Pre-Task will outline the goals & requirements of the solution/ system and recommend different tools/ technologies you could research that are commonly used in the sector outlines. <br>
-            <br> You are not expected to submit anything for the Pre-Task. 
+        <ul>
+            <li>Access the internet</li>
+            <li>Talk with other students
+                <br>&ensp;<em>Generally, you will be in teams of six, however you can still communicate with those outside of your group.</em>
+            </li>
+            <li>Make notes about your research
+                <br>&ensp;<em>However you <strong>Cannot</strong> bring these notes into the other exams.</em>
+            </li>
+        </ul>
+        <p>
+            The Pre-Task will outline the goals & requirements of the solution/system and recommend different tools/technologies you could research that are commonly used in the sector outlined.<br>
+            <br>You are not expected to submit anything for the Pre-Task.
         </p>
 
-        <h3 id="marks-section">Marks?</h3>
-        <p> The Pre-Task is worth 0 marks. <br> It is not assessed and only exists so that you have time to understand the business context. </p>
+        <h3 class="sub-heading" id="marks-section">Marks?</h3>
+        <p>
+            The Pre-Task is worth 0 marks.<br>
+            It is not assessed and only exists so that you have time to understand the business context.
+        </p>
 
-        <h3 id="time-section">Time?</h3>
-        <p> You will have a week for the Pre-Task. <br> &emsp; <em> However, it is advised you spend around <strong>6 hours</strong> on the task.</em> </p>
+        <h3 class="sub-heading" id="time-section">Time?</h3>
+        <p>
+            You will have a week for the Pre-Task.<br>
+            &emsp;<em>However, it is advised you spend around <strong>6 hours</strong> on the task.</em>
+        </p>
+
+        <h3 class="sub-heading" id="tips-section">Tips</h3>
+        <ul>
+            <li>Use your time wisely to research the sector.</li>
+            <li>Collaborate with your team for broader perspectives.</li>
+            <li>Make clear notes, but remember you can't bring them into the exam.</li>
+            <li>Focus on understanding the goals and requirements.</li>
+        </ul>
     </main>
-    
     <footer>
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
 
     <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const section = document.getElementById('sections').value;
-        if (section) {
-            window.location.hash = section;
-        }
-    });
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
     </script>
 </body>
 </html>

@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>  Task 1  </title>
-        <link rel="stylesheet" href="../styles.css">
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
     <header>
         <a href="../../index.html" id="logo-link">
             <img src="../../../images/logo.png" alt="TLevelTutor Logo" width="100" height="100" id="header-logo"/>
         </a>
         <div class="header-text">
-            <h1>  Task 1: Planning A project  </h1>
+            <h1>Task 1: Planning A Project</h1>
         </div>
     </header>
 
@@ -22,155 +21,142 @@
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
             <option value="#what-section">What Is Task 1?</option>
-            <option value="#Gantt Charts">Gantt Charts</option>
-            <option value="#Resource & Cost Plan">Resource & Cost Plan</option>
-            <option value="#Rationale">Rationale</option>
+            <option value="#gantt-section">Gantt Charts</option>
+            <option value="#cost-section">Resource & Cost Plan</option>
+            <option value="#rationale-section">Rationale</option>
             <option value="#marks-section">Marks</option>
             <option value="#time-section">Time</option>
-            <option value="#Tips">Tips</option>
+            <option value="#tips-section">Tips</option>
         </select>
         <br>
         <input type="submit" value="Submit">
     </form>
-    
+
     <main>
         <h2 class="heading">ESP - Task 1: Planning A Project</h2>
-        
-        <h3 id="what-section">What Is It?</h3>
-        <p> Task 1 is all about planning a project.
-            <br> In the task, you will be a project manager for a software development company and you will be given a brief that you will use 
-            to create the following:
-            <ul>
-                <li>a Gantt chart to manage the timeline of the project,</li>
-                <li>a Resource & Cost Plan to demonstrate all costs,</li>
-                <li>and a Rationale explaining your choices.</li>
-            </ul>
 
+        <h3 class="top-sub-heading" id="what-section">What Is Task 1?</h3>
+        <p>
+            Task 1 is all about planning a project.<br>
+            In the task, you will be a project manager for a software development company and you will be given a brief that you will use to create the following:
+        </p>
+        <ul>
+            <li>A Gantt chart to manage the timeline of the project</li>
+            <li>A Resource & Cost Plan to demonstrate all costs</li>
+            <li>A Rationale explaining your choices</li>
+        </ul>
+        <p>
             The brief will include information such as:
-            <ul>
-                <li>Project requirements,</li>
-                <li>Deadlines,</li>
-                <li>Tasks
-                    <br> &ensp; <em>And the expected time the task will take </em></li>
-                <li>Employee Information, </li>
-                <li>Budget Constraints,</li>
-                <li>Other relevant costs,
-                    <br> &ensp; <em>(e.g: software licenses, hardware costs, staff training costs, etc.)</em></li>
-                <li>And any other relevant information.</li>
-            </ul>
+        </p>
+        <ul>
+            <li>Project requirements</li>
+            <li>Deadlines</li>
+            <li>Tasks <br>&ensp;<em>And the expected time the task will take</em></li>
+            <li>Employee Information</li>
+            <li>Budget Constraints</li>
+            <li>Other relevant costs <br>&ensp;<em>(e.g: software licenses, hardware costs, staff training costs, etc.)</em></li>
+            <li>And any other relevant information</li>
+        </ul>
+        <em>Ok that's great, but what even is a Gantt chart or a cost plan..?</em>
 
-            <em>Ok thats great, but what even is a gantt chart or a cost plan..?</em>
+        <h3 class="sub-heading" id="gantt-section">Gantt Charts</h3>
+        <p>
+            A Gantt chart is a type of chart that illustrates a project schedule. It shows the start and finish dates of the various elements of a project.<br>
+            Gantt charts are useful for planning and scheduling projects, as they provide a visual representation of the timeline and help to identify many things, such as:
+        </p>
+        <ul>
+            <li>Task Duration</li>
+            <li>Task Dependencies</li>
+            <li>Resource allocation <br>&ensp;<em>(Resource is another term for Employee)</em></li>
+        </ul>
+        <strong><em>Here is an example of a Gantt chart:</em></strong><br>
+        <img src="../../../images/gantt-chart-example.png" alt="Example Gantt Chart" width="600"/><br>
+        <strong>Key features:</strong>
+        <ul>
+            <li>Tasks are listed on the left</li>
+            <li>Time is represented on the top</li>
+            <li>Start and End Date are also clearly displayed</li>
+            <li>Bars represent the duration of each task</li>
+            <li>Dependencies between tasks are shown with black lines w/ arrows</li>
+            <li>Resources/Employees responsible for a task are labelled next to it</li>
+        </ul>
 
-            <h4 id="Gantt Charts">Gantt Charts</h4>
-            <p> A Gantt chart is a type of chart that illustrates a project schedule. It shows the start and finish dates of the various elements of a project. 
-            <br><br> Gantt charts are useful for planning and scheduling projects, as they provide a visual representation of the timeline and help to identify many things
-            <br> Such as:
-            <ul>
-                <li>Task Duration,</li>
-                <li>Task Dependencies,</li>
-                <li>and Resource allocation. <br> &ensp; <em>(Resource is another term for Employee)</em> </li>
-            </ul>
-            <strong><em>Here is an example of a Gantt chart:</em></strong>
-            <br>
-            <img src="../../../images/gantt-chart-example.png" alt="Example Gantt Chart" width="600"/>
-            <br> <strong>key features:</strong>
-            <ul>
-                <li>Tasks are listed on the left,</li>
-                <li>Time is represented on the top,</li>
-                <li>Start and End Date are also clearly displayed</li>
-                <li>Bars represent the duration of each task,</li>
-                <li>Dependencies between tasks are shown with black lines w/ arrows,</li>
-                <li>Resources/ Employees responsible for a task are labelled next to it</li>
-            </ul>
-            </p>
-            <br>
+        <h3 class="sub-heading" id="cost-section">Resource & Cost Plan</h3>
+        <p>
+            A Resource & Cost Plan is a document that outlines the resources required for a project and the associated costs.<br>
+            It typically includes:
+        </p>
+        <ul>
+            <li>Human Resources: The employees needed for the project, including their roles and responsibilities.</li>
+            <li>Material Resources: The physical items required for the project, such as equipment, software, and supplies.</li>
+            <li>Financial Resources: The budget allocated for the project, including costs for human and material resources.</li>
+        </ul>
+        <strong><em>Here is an example of a resource & cost plan:</em></strong><br><br>
+        <img src="../../../images/cost-plan-example.png" alt="Example Cost Plan" width="600"/><br>
+        <strong>Key features:</strong>
+        <ul>
+            <li>Tasks are clearly broken up</li>
+            <li>Each task has a Resource allocated to it, alongside their hourly rate</li>
+            <li>The total hours and cost for each task is clearly displayed</li>
+        </ul>
 
-            <h4 id="Resource & Cost Plan">Resource & Cost Plan</h4>
-            <p> A Resource & Cost Plan is a document that outlines the resources required for a project and the associated costs.
-            <br><br> It typically includes:
-            <ul>
-                <li>Human Resources: The employees needed for the project, including their roles and responsibilities.</li>
-                <li>Material Resources: The physical items required for the project, such as equipment, software, and supplies.</li>
-                <li>Financial Resources: The budget allocated for the project, including costs for human and material resources.</li>
-            </ul>
-            <strong><em>Here is an example of a resource & cost plan:</em></strong>
-            <br> <br>
-            &emsp; &emsp; <img src="../../../images/cost-plan-example.png" alt="Example Cost Plan" width="600"/>
-            <br> <strong>key features:</strong>
-            <ul>
-                <li> Tasks are clearly broken up </li>
-                <li> Each task has a Resource allocated to it, along side their hourly rate</li>
-                <li> The total hours and cost for each task is clearly displayed </li>
-            </ul>
-            </p>
-            <br> 
+        <h3 class="sub-heading" id="rationale-section">Rationale</h3>
+        <p>
+            A Rationale is a document that explains the reasoning behind the decisions made in a project.<br>
+            It typically includes decisions such as:
+        </p>
+        <ul>
+            <li>Why did you choose a certain employee to do a task?<br>&ensp;<em>e.g: why did you choose employee A to do Task 1 rather than employee B?</em></li>
+            <li>Why did you allocate a certain amount of time to a task?<br>&ensp;<em>e.g: why did you allocate 4 hours to Task 2 instead of 5 hours?</em></li>
+            <li>Why did you choose to use a certain piece of software or hardware?<br>&ensp;<em>e.g: why did you choose to use a cloud server over a physical one?</em></li>
+            <li>Why did you choose to do tasks in a certain order?<br>&ensp;<em>e.g: why did you choose to do Task 7 before Task 4?</em></li>
+        </ul>
+        <strong><em>You get the idea..</em></strong>
 
-            <h4 id="Rationale">Rationale</h4>
-            <p> A Rationale is a document that explains the reasoning behind the decisions made in a project.
-            <br><br> It typically includes decisions such as:
-            <ul>
-                <li> Why did you choose a certain employee to do a task?
-                    <br> &ensp; <em>e.g: why did you choose employee A to do Task 1 rather than employee B?</em></li>
-                <li> Why did you allocate a certain amount of time to a task?
-                    <br> &ensp; <em>e.g: why did you allocate 4 hours to Task 2 instead of 5 hours?</em></li>
-                <li> Why did you choose to use a certain piece of software or hardware?
-                    <br> &ensp; <em>e.g: why did you choose to use a cloud server over a physical one?</em></li>
-                <li> Why did you choose to do tasks in a certain order?
-                    <br> &ensp; <em>e.g: why did you choose to do Task 7 before Task 4?</em></li>
-            </ul>
-            <strong><em> You get the idea..</em></strong>
-            </p>
+        <h3 class="sub-heading" id="marks-section">Marks</h3>
+        <p>
+            Task 1 is worth 19 marks.<br>
+            This is split into 3 sections:
+        </p>
+        <ul>
+            <li>Gantt Chart - 6 Marks</li>
+            <li>Resource & Cost Plan - 4 Marks</li>
+            <li>Rationale - 9 Marks</li>
+        </ul>
+
+        <h3 class="sub-heading" id="time-section">Time</h3>
+        <p>
+            You will have 3 Hours to complete this task.
         </p>
 
-
-
-        <h3 id="marks-section">Marks?</h3>
-        <p>Task 1 is worth 19 marks. 
-            <br> This is split into 3 sections:
-            <ul>
-                <li>Gantt Chart - 6 Marks</li>
-                <li>Resource & Cost Plan - 4 Marks</li>
-                <li>Rationale - 9 Marks</li>
-            </ul>
-        </p>
-
-        <h3 id="time-section">Time?</h3>
-        <p> You will have 3 Hours to complete this task.</p>
-
-        <h3 id="Tips"> Tips </h3>
-        <p> 
-            Here are some tips to help you with this task:
-            <ul>
-                <li> <strong>Do Not Neglect The Rationale.</strong>
-                    <ul>
-                        <li>It is worth the most marks in the Task and you (almost certainly) <strong> will not </strong> have enough time to fully complete everything.</li>
-                    </ul>
-                
-                <li>Make sure to <strong>read the task brief carefully</strong> and <strong>ensure you understand the requirements before begining anything else.</strong></li>
-                <li>Spend time <strong> getting familiar with tools </strong> used to create Gantt charts and Resource & Cost Plans <strong>before</strong> the exam.
-                    <br> &ensp; <em> e.g: Ganttproject, Microsoft Project, Excel Spreadsheets etc.</em></li>
-                <li>Be clear in your Rationale, take time to <strong>Fully explain</strong> why you made certain decisions.</li>
-                <li>Do the tasks simultaneously, <strong>Do Not</strong> do the cost plan <strong>then</strong> the gantt chart <strong>then</strong> the rationale. 
-                <br> <strong><em>You Will Not Finish In Time.</em></strong></li>
-                <li>Check your work <strong> several times </strong> for accuracy and completeness before submitting.</li>
-            </ul>
-        </p>
-
+        <h3 class="sub-heading" id="tips-section">Tips</h3>
+        <ul>
+            <li><strong>Do Not Neglect The Rationale.</strong>
+                <ul>
+                    <li>It is worth the most marks in the Task and you (almost certainly) <strong>will not</strong> have enough time to fully complete everything.</li>
+                </ul>
+            </li>
+            <li>Make sure to <strong>read the task brief carefully</strong> and <strong>ensure you understand the requirements before beginning anything else.</strong></li>
+            <li>Spend time <strong>getting familiar with tools</strong> used to create Gantt charts and Resource & Cost Plans <strong>before</strong> the exam.<br>&ensp;<em>e.g: Ganttproject, Microsoft Project, Excel Spreadsheets etc.</em></li>
+            <li>Be clear in your Rationale, take time to <strong>fully explain</strong> why you made certain decisions.</li>
+            <li>Do the tasks simultaneously, <strong>Do Not</strong> do the cost plan <strong>then</strong> the Gantt chart <strong>then</strong> the rationale.<br><strong><em>You Will Not Finish In Time.</em></strong></li>
+            <li>Check your work <strong>several times</strong> for accuracy and completeness before submitting.</li>
+        </ul>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
     </footer>
 
     <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const section = document.getElementById('sections').value;
-        if (section) {
-            window.location.hash = section;
-        }
-    });
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
     </script>
 </body>
 </html>

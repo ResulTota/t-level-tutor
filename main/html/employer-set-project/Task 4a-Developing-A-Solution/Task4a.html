@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>  task 4b  </title>
-        <link rel="stylesheet" href="../styles.css">
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4a</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
     <header>
         <a href="../../index.html" id="logo-link">
             <img src="../../../images/logo.png" alt="TLevelTutor Logo" width="100" height="100" id="header-logo"/>
         </a>
         <div class="header-text">
-            <h1>  Task 4a: 4a-Developing-A-Solution  </h1>
+            <h1>Task 4a: Developing A Solution</h1>
         </div>
     </header>
-    
+
     <form>
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#what-section">What Is It?</option>
-            <option value="#MatPlotLib">MatPlotLib</option>
-            <option value="#Pandas">Pandas</option>
-            <option value="#datetime">DateTime</option>
-            <option value="#CSV Files">CSV Files</option>
-            <option value="#marks-section">Marks?</option>
-            <option value="#time-section">Time?</option>
-            <option value="#Tips">Tips</option>
+            <option value="#what-section">What Is Task 4a?</option>
+            <option value="#matplotlib-section">MatPlotLib</option>
+            <option value="#pandas-section">Pandas</option>
+            <option value="#datetime-section">DateTime</option>
+            <option value="#csv-section">CSV Files</option>
+            <option value="#marks-section">Marks</option>
+            <option value="#time-section">Time</option>
+            <option value="#tips-section">Tips</option>
         </select>
         <br>
         <input type="submit" value="Submit">
@@ -37,43 +36,79 @@
     <main>
         <h2 class="heading">ESP - Task 4a: Developing A Solution</h2>
         
-        <h3 id="what-section">What Is It?</h3>
-        <p> Task 4a is all about coding.
-            <br> You will be given:
-            <ul>
-                <li>A brief,</li>
-                <li>A CSV file containing data relevant to the brief</li>
-                <li>and a partially completed code.</li>
-            </ul> 
+        <h3 class="top-sub-heading" id="what-section">What Is Task 4a?</h3>
+        <p>
+            Task 4a is all about coding.<br>
+            You will be given:
+        </p>
+        <ul>
+            <li>A brief</li>
+            <li>A CSV file containing data relevant to the brief</li>
+            <li>A partially completed code</li>
+        </ul>
+        <p>
+            Your goal is to complete the code so that it meets the requirements of the brief, using Python and relevant libraries.
+        </p>
 
-            <h4 id="MatPlotLib">MatPlotLib</h4>
+        <h3 class="sub-heading" id="matplotlib-section">MatPlotLib</h3>
+        <p>
+            MatPlotLib is a Python library used for creating static, animated, and interactive visualizations.<br>
+            You may use it to plot graphs and visualize data from the CSV file.
+        </p>
 
-            <h4 id="Pandas">Pandas</h4>
+        <h3 class="sub-heading" id="pandas-section">Pandas</h3>
+        <p>
+            Pandas is a powerful Python library for data manipulation and analysis.<br>
+            It is commonly used to read, process, and analyze CSV files.
+        </p>
 
-            <h4 id="datetime">DateTime</h4>
+        <h3 class="sub-heading" id="datetime-section">DateTime</h3>
+        <p>
+            The DateTime module in Python allows you to work with dates and times.<br>
+            You may need it to process time-based data in your CSV file.
+        </p>
 
-            <h4 id="CSV Files">CSV Files</h4>
-            <strong><em>We talk more about CSV files in Task 3 but here is an example of an ESP Task 4a CSV File:</em></strong>
-                <br> <br>
-                &emsp; &emsp; <img src="../../../images/csv-file-example-4a.png" alt="Example csv file" width="600"/>
-                <br> <strong>Differences:</strong>
-                <ul>
-                    <li> </li>  
-                </ul>
-                <br>
+        <h3 class="sub-heading" id="csv-section">CSV Files</h3>
+        <p>
+            <strong><em>We talk more about CSV files in Task 3 but here is an example of an ESP Task 4a CSV File:</em></strong><br>
+            <img src="../../../images/csv-file-example-4a.png" alt="Example csv file" width="600"/><br>
+            <strong>Differences:</strong>
+        </p>
+        <ul>
+            <li>May contain more columns or different data types compared to Task 3</li>
+            <li>Likely to include time-based or numerical data for analysis</li>
+            <li>Structure may be tailored to the requirements of the brief</li>
+        </ul>
+
+        <h3 class="sub-heading" id="marks-section">Marks</h3>
+        <p>
+            Task 4a is worth 34 marks. <br>
+            The marks are split into 6 parts:
+        </p>
+        <ul>
+            <li>Functionality - 6 marks</li>
+            <li>Logic and programming structures - 3 marks</li>
+            <li>Robustness - 3 marks</li>
+            <li>Security - 6 marks</li>
+            <li>Code organisation - 8 marks </li>
+            <li>User experience - 8 marks</li>
+        </ul>
 
         </p>
 
-        <h3 id="marks-section">Marks?</h3>
-        <p>Task 4a is worth 34 marks</p>
-
-        <h3 id="time-section">Time?</h3>
-        <p> You will have 4 Hours to complete this task</p>
-
-        <h3 id="Tips"> Tips </h3>
-        <p> 
-            
+        <h3 class="sub-heading" id="time-section">Time</h3>
+        <p>
+            You will have 4 Hours to complete this task.
         </p>
+
+        <h3 class="sub-heading" id="tips-section">Tips</h3>
+        <ul>
+            <li>Practise using Python libraries such as Pandas and MatPlotLib before the exam.</li>
+            <li>Read the brief carefully and understand the requirements before starting.</li>
+            <li>Test your code thoroughly to ensure it meets all requirements.</li>
+            <li>Comment your code to explain your logic and decisions.</li>
+            <li>Use the CSV file effectively to analyze and present data as required.</li>
+        </ul>
     </main>
     
     <footer>
@@ -82,13 +117,13 @@
     </footer>
     
     <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const section = document.getElementById('sections').value;
-        if (section) {
-            window.location.hash = section;
-        }
-    });
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
     </script>
 </body>
 </html>

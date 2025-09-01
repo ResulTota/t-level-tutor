@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>  Task 3  </title>
-        <link rel="stylesheet" href="../styles.css">
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
     <header>
         <a href="../../index.html" id="logo-link">
             <img src="../../../images/logo.png" alt="TLevelTutor Logo" width="100" height="100" id="header-logo"/>
         </a>
         <div class="header-text">
-            <h1>  Task 3: Designing A Solution  </h1>
+            <h1>Task 3: Designing A Solution</h1>
         </div>
     </header>
 
@@ -21,11 +20,12 @@
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#what-section">What Is It?</option>
-            <option value="#Flow Charts">Flow Charts</option>
-            <option value="#marks-section">Marks?</option>
-            <option value="#time-section">Time?</option>
-            <option value="#Tips">Tips</option>
+            <option value="#what-section">What Is Task 3?</option>
+            <option value="#csv-section">CSV Files</option>
+            <option value="#flowchart-section">Flow Charts</option>
+            <option value="#marks-section">Marks</option>
+            <option value="#time-section">Time</option>
+            <option value="#tips-section">Tips</option>
         </select>
         <br>
         <input type="submit" value="Submit">
@@ -34,74 +34,92 @@
     <main>
         <h2 class="heading">ESP - Task 3: Designing A Solution</h2>
         
-        <h3 id="what-section">What Is It?</h3>
-        <p> Task 3 is all about making Flow Charts.
-            <br> You will be given a brief and a CSV file that your Flow Chart(s) will be based on.
-
-            <h4 id="CSV Files">CSV Files</h4>
-            &ensp; <em>What are CSV files..?</em>
-            <br><br> A CSV (Comma Separated Values) file is a plain text file that contains data in a tabular format.
-            <br> Each line in the file represents a row of data, and each value within the row is separated by a comma.
-            <br> <br> Within the ESP, the CSV file will contain data relevant to the brief.
-            <br> &emsp; <em><strong>Note:</strong> You <strong>will not</strong> recieve the same CSV file in Task 4a, however it is <strong>highly</strong> likely that the CSV file will have <strong>similar</strong> data </em>
-                <br> <br> <strong><em>Here is an example of an ESP CSV File:</em></strong>
-                <br> <br>
-                &emsp; &emsp; <img src="../../../images/csv-file-example-3.png" alt="Example csv file" width="600"/>
-                <br> <strong>key features:</strong>
-                <ul>
-                    <li> Almost every CSV file you will be given will have a form of Time 
-                        <br> &ensp; <em><strong>Note:</strong> This is not a guarantee.. it is just <strong> highly likely.</strong></em> </li>
-                    <li> There are several collums with unique headers </li>  
-                    <li> Each Value (outside of Day) is unique </li>
-                </ul>
-                You will use this data to create your Flow Chart(s), as you will need to reference the data in the CSV file to meets the brief requirements.
-            <br>
-            
-            <h4 id="Flow Charts">Flow Charts</h4>
-            &ensp; <em>Soooo... What are Flow Charts..?</em>
-            <br><br> A flow chart is a type of diagram that represents an algorithm.
-            <br> Flowcharts can:
-                <ul>
-                    <li>Communicate complex ideas in a simple, graphical way.
-                        <br> &ensp; <em>(They can act as a bridge between a programmer and a client, too ensure everyone knows what is expected of a program)</em></li>
-                    <li>Show the steps in a process as shapes,</li>
-                    <li>Help to understand how a process works,</li>
-                    <li>Identify potential problems or inefficiencies,</li>
-                    <li>And can be used to Design Processes or Improve Existing Ones.</li>
-                </ul>
-                <br> To make your flow chart, you will likely use a software called: <strong>draw.io</strong>
-                <br> <br> <strong><em>Here is an example of a Flow Chart:</em></strong>
-                <br> <br>
-                &emsp; &emsp; <img src="../../../images/flow-chart-example.png" alt="Example flow chart" width="300"/>
-                <br> <strong>key features:</strong>
-                <ul>
-                    <li> Makes use of several symbols
-                        <br> &ensp; <em> (e.g: Decision Symbols, Process Symbols)</em> </li>
-                    <li> Arrows to indicate the flow of the process,</li>
-                    <li> Labels on decisions to clarify the flow,</li>
-                    <li> Clear start and end points,</li>
-                    <li> Easy to follow.</li>
-                </ul>
-            &ensp; <em><strong>Note:</strong> flow charts will be more complicated than the example... like <strong>waaaaay</strong> more complex...</em>
-            
+        <h3 class="top-sub-heading" id="what-section">What Is Task 3?</h3>
+        <p>
+            Task 3 is all about making Flow Charts.<br>
+            You will be given a brief and a CSV file that your Flow Chart(s) will be based on.
         </p>
 
-        <h3 id="marks-section">Marks?</h3>
-        <p>Task 3 is worth 17 marks </p>
-
-        <h3 id="time-section">Time?</h3>
-        <p> You will have 3 Hours to complete this task</p>
-
-        <h3 id="Tips"> Tips </h3>
-        <p> 
-            Some tips for Task 3:
-            <ul>
-                <li> Spend time <strong> getting familiar with draw.io </strong> before the exam.</li>
-                <li> Make sure to <strong>read the task brief carefully</strong> and <strong>ensure you understand the requirements before begining anything else.</strong></li>
-                <li> Use the data in the CSV file to help you meet the requirements of the brief.</li>
-                <li> Do Not Overcomplicate things, keep your flow chart simple and easy to follow.</li>
-            </ul>
+        <h3 class="sub-heading" id="csv-section">CSV Files</h3>
+        <p>
+            <em>What are CSV files..?</em><br>
+            A CSV (Comma Separated Values) file is a plain text file that contains data in a tabular format.<br>
+            Each line in the file represents a row of data, and each value within the row is separated by a comma.<br>
+            Within the ESP, the CSV file will contain data relevant to the brief.<br>
+            <strong>Note:</strong> You <strong>will not</strong> receive the same CSV file in Task 4a, however it is <strong>highly</strong> likely that the CSV file will have <strong>similar</strong> data.
         </p>
+        <strong><em>Here is an example of an ESP CSV File:</em></strong><br>
+        <img src="../../../images/csv-file-example-3.png" alt="Example csv file" width="600"/><br>
+        <strong>Key features:</strong>
+        <ul>
+            <li>Almost every CSV file you will be given will have a form of Time 
+                <br><em><strong>Note:</strong> This is not a guarantee, just highly likely.</em>
+            </li>
+            <li>Several columns with unique headers</li>
+            <li>Each value (outside of Day) is unique</li>
+        </ul>
+        <p>
+            You will use this data to create your Flow Chart(s), as you will need to reference the data in the CSV file to meet the brief requirements.
+        </p>
+
+        <h3 class="sub-heading" id="flowchart-section">Flow Charts</h3>
+        <p>
+            <em>Soooo... What are Flow Charts..?</em><br>
+            A flow chart is a type of diagram that represents an algorithm.<br>
+            Flowcharts can:
+        </p>
+        <ul>
+            <li>Communicate complex ideas in a simple, graphical way
+                <br><em>(They can act as a bridge between a programmer and a client, to ensure everyone knows what is expected of a program)</em>
+            </li>
+            <li>Show the steps in a process as shapes</li>
+            <li>Help to understand how a process works</li>
+            <li>Identify potential problems or inefficiencies</li>
+            <li>Design processes or improve existing ones</li>
+        </ul>
+        <p>
+            To make your flow chart, you will likely use a software called: <strong>draw.io</strong>
+        </p>
+        <strong><em>Here is an example of a Flow Chart:</em></strong><br>
+        <img src="../../../images/flow-chart-example.png" alt="Example flow chart" width="300"/><br>
+        <strong>Key features:</strong>
+        <ul>
+            <li>Makes use of several symbols
+                <br><em>(e.g: Decision Symbols, Process Symbols)</em>
+            </li>
+            <li>Arrows to indicate the flow of the process</li>
+            <li>Labels on decisions to clarify the flow</li>
+            <li>Clear start and end points</li>
+            <li>Easy to follow</li>
+        </ul>
+        <p>
+            <em><strong>Note:</strong> Flow charts will be more complicated than the example... like <strong>waaaaay</strong> more complex...</em>
+        </p>
+
+        <h3 class="sub-heading" id="marks-section">Marks</h3>
+        <p>
+            Task 3 is worth 17 marks.<br>
+            The marks are split into 3 parts:
+        </p>
+        <ul>
+            <li>Decomposition of the Probelm - 8 marks</li>
+            <li>Application of logical thinking and conventions - 6 marks</li>
+            <li>Communication of the design - 3 marks</li>
+        </ul>
+        </p>
+
+        <h3 class="sub-heading" id="time-section">Time</h3>
+        <p>
+            You will have 3 Hours to complete this task.
+        </p>
+
+        <h3 class="sub-heading" id="tips-section">Tips</h3>
+        <ul>
+            <li>Spend time <strong>getting familiar with draw.io</strong> before the exam.</li>
+            <li>Make sure to <strong>read the task brief carefully</strong> and <strong>ensure you understand the requirements before beginning anything else.</strong></li>
+            <li>Use the data in the CSV file to help you meet the requirements of the brief.</li>
+            <li>Do not overcomplicate things, keep your flow chart simple and easy to follow.</li>
+        </ul>
     </main>
     
     <footer>
@@ -110,13 +128,12 @@
     </footer>
     
     <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const section = document.getElementById('sections').value;
-        if (section) {
-            window.location.hash = section;
-        }
-    });
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
     </script>
 </body>
-</html>

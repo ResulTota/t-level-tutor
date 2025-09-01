@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>  task 4b  </title>
-        <link rel="stylesheet" href="../styles.css">
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4b</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
     <header>
         <a href="../../index.html" id="logo-link">
             <img src="../../../images/logo.png" alt="TLevelTutor Logo" width="100" height="100" id="header-logo"/>
         </a>
         <div class="header-text">
-            <h1>  Task 4b: Reflection  </h1>
+            <h1>Task 4b: Reflection</h1>
         </div>
     </header>
     
@@ -21,10 +20,10 @@
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#what-section">What Is It?</option>
-            <option value="#marks-section">Marks?</option>
-            <option value="#time-section">Time?</option>
-            <option value="#Tips">Tips</option>
+            <option value="#what-section">What Is Task 4b?</option>
+            <option value="#marks-section">Marks</option>
+            <option value="#time-section">Time</option>
+            <option value="#tips-section">Tips</option>
         </select>
         <br>
         <input type="submit" value="Submit">
@@ -32,20 +31,40 @@
 
     <main>
         <h2 class="heading">ESP - Task 4b: Reflection</h2>
-        
-        <h3 id="what-section">What Is It?</h3>
-        <p> Task 4b is  </p>
 
-        <h3 id="marks-section">Marks?</h3>
-        <p>Task 4b is worth 9 marks </p>
-
-        <h3 id="time-section">Time?</h3>
-        <p> You will have 1.5 Hours to complete this task</p>
-
-        <h3 id="Tips"> Tips </h3>
-        <p> 
-            
+        <h3 class="top-sub-heading" id="what-section">What Is Task 4b?</h3>
+        <p>
+            Task 4b is a reflection activity where you review your work from Task 4a, 
+            <br> You will consider:
+            <ul>
+                <li>How well your code meets the requirements of the brief</li>
+                <li>Any challenges you faced during development and how you overcame them</li>
+                <li>What you would do differently if you were to undertake a similar task in the future</li>
+                <li>Potential improvements or additional features that could enhance the solution</li>
+            </ul>
+            <em><strong>Note:</strong> Task 4b is similar to the Rationale from Task 1.</em>
+            <br><br> You will write your reflection in Microsoft Word.
         </p>
+
+        <h3 class="sub-heading" id="marks-section">Marks</h3>
+        <p>
+            Task 4b is worth 9 marks.<br>
+            The marks are split into 2 parts:
+        </p>
+        <ul>
+            <li>Programming outcomes - 6 marks</li>
+            <li>Future Developments - 3 marks</li>
+        </ul>
+
+        <h3 class="sub-heading" id="time-section">Time</h3>
+        <p>
+            You will have 1.5 hours to complete this task.
+        </p>
+
+        <h3 class="sub-heading" id="tips-section">Tips</h3>
+        <ul>
+            <li>Use samples/ Screenshots from your work.</li>
+        </ul>
     </main>
     
     <footer>
@@ -54,13 +73,10 @@
     </footer>
     
     <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const section = document.getElementById('sections').value;
-        if (section) {
-            window.location.hash = section;
-        }
-    });
-    </script>
-</body>
-</html>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('sections').value;
+            if (section) {
+                window.location.hash = section;
+            }
+        });
