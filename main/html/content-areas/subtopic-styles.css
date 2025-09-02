@@ -119,6 +119,52 @@ form{
     max-width: 800px;
 }
 
+input[type=submit] {
+  background-color: #1b4965;
+  border: solid 3px #1b4965;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+label {
+  padding: 10px;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+}
+
+select {
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid #1b4965;
+  border-radius: 8px;
+  background-color: #1b4965;
+  color: white;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #0077cc;
+  outline: none;
+  background-color: #1b4965;
+  color: white;
+}
+
+
+input[type=submit] {
+  background-color: #1b4965;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 arrow-Nav {
     display: flex;
     justify-content: center;
