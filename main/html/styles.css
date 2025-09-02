@@ -38,6 +38,7 @@ header a {
     object-fit: fill;
 }
 
+
 .main-topic {
     display: inline-flex;
     flex-direction: column;
@@ -140,6 +141,7 @@ body{
 main{
     display: inline-block;
     background-color: #5FA8D3;
+    width: 100%;
 }
 
 footer {
@@ -223,3 +225,39 @@ select:focus {
   background-color: #1b4965;
   color: white;
 }
+
+arrow-Nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* space between arrows */
+    margin: 20px 0;
+}
+
+arrow-Nav a {
+    position: static; /* or just remove position */
+    margin: 0 20px;
+}
+
+
+#arrow {
+    background-color: #bee7fe;
+    display: block;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    object-fit: fill;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 20px 15px 20px 15px;
+    border-radius: 20px;
+    color: inherit;
+    border : solid 3px #1b4965;;
+    border-radius : 20px;
+    background-color: #bee7fe;    
+    margin: 15px 20px 0 20px;
+}
+

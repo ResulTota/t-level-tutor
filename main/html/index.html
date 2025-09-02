@@ -14,92 +14,27 @@
       <div class="header-text">      
         <h1>TLevelTutor</h1>
       </div>
+    
   </header>
 
   <main>
-    <form>
-      <label for="sections">Jump to Section:</label>
-      <select name="sections" id="sections">
-        <option value="" disabled selected>Select a section</option>
-        <option value="#CAS">Content Areas</option>
-        <option value="#ESP">Employer Set Project (ESP)</option>
-        <option value="#Other">Other</option>
-      </select>
-      <br>
-      <input type="submit" value="Submit">
-    </form>
 
-    <h2 id="CAS">Choose Your Content Area</h2>
+    <h2 id="CAS">Choose Your Area.</h2>
     <div class="content-area">
-      <a href="content-areas/CA1 - Problem Solving/problem-solving.html" class="main-topic">
-        <img src="../images/problem-solving.png" alt="Problem Solving" width="200" height="200"/>
-        <h3>Problem Solving (CA1)</h3>
+      <a href="./content-Areas.html" class="main-topic">
+        <img src="../images/content-areas.png" alt="CA" width="200" height="200"/>
+        <h3>Content Areas (CA_)</h3>
       </a>
-      <a href="content-areas/CA2 - Intro To Programming/intro-to-programming.html" class="main-topic">
-        <img src="../images/intro-to-programming.png" alt="Introduction to Programming" width="200" height="200"/>
-        <h3>Introduction to Programming (CA2)</h3>
+      <a href="./Esp.html" class="main-topic">
+        <img src="../images/Esp.png" alt="ESP" width="200" height="200"/>
+        <h3>Employer Set Project (ESP)</h3>
       </a>
-      <a href="content-areas/CA3 - Emerging Issues/emerging-issues.html" class="main-topic">
-        <img src="../images/emerging-issues.png" alt="Emerging Issues" width="200" height="200"/>
-        <h3>Emerging Issues (CA3)</h3>
-      </a>
-      <a href="content-areas/CA4 - Legislation And Regulatory Requirements/legislation-and-regulatory-requirements.html" class="main-topic">
-        <img src="../images/legislation-and-regulatory-requirements.png" alt="Legislation and Regulatory Requirements" width="200" height="200"/>
-        <h3>Legislation and Regulatory Requirements (CA4)</h3>
-      </a>
-      <a href="content-areas/CA5 - Business Context/business-context.html" class="main-topic">
-        <img src="../images/business-context.png" alt="Business Context" width="200" height="200"/>
-        <h3>Business Context (CA5)</h3>
-      </a>
-      <a href="content-areas/CA6 - Data/data.html" class="main-topic">
-        <img src="../images/data.png" alt="Data" width="200" height="200"/>
-        <h3>Data (CA6)</h3>
-      </a>
-      <a href="content-areas/CA7 - Digital Environments/digital-environments.html" class="main-topic">
-        <img src="../images/digital-environments.png" alt="Digital Environments" width="200" height="200"/>
-        <h3>Digital Environments (CA7)</h3>
-      </a>
-      <a href="content-areas/CA8 - Security/security.html" class="main-topic">
-        <img src="../images/security.png" alt="Security" width="200" height="200"/>
-        <h3>Security (CA8)</h3>
+      <a href="./Other.html" class="main-topic">
+        <img src="../images/faq.png" alt="Other" width="200" height="200"/>
+        <h3>Other</h3>
       </a>
     </div>
 
-    <h2 id="ESP">Employer Set Project (ESP)</h2>
-    <div class="content-area">
-       <a href="employer-set-project/pre-task/pre-task.html" class="esp-topic">
-        <img src="../images/pre-task.png" alt="Pre-Task" width="200" height="200"/>
-        <h3>Pre-Task</h3>
-      </a>
-       <a href="employer-set-project/Task 1-Planning-A-Project/Task1.html" class="esp-topic">
-        <img src="../images/task1.png" alt="Task1" width="200" height="200"/>
-        <h3>Task 1: Planning A Project</h3>
-      </a>
-       <a href="employer-set-project/Task 2-Debugging-Existing-Code/Task2.html" class="esp-topic">
-        <img src="../images/task2.png" alt="Task2" width="200" height="200"/>
-        <h3>Task 2: Debugging Existing Code</h3>
-      </a>      
-       <a href="employer-set-project/Task 3-Designing-A-Solution/Task3.html" class="esp-topic">
-        <img src="../images/task3.png" alt="Task3" width="200" height="200"/>
-        <h3>Task 3: Designing A Solution</h3>
-      </a>
-       <a href="employer-set-project/Task 4a-Developing-A-Solution/Task4a.html" class="esp-topic">
-        <img src="../images/task4a.png" alt="Task4a" width="200" height="200"/>
-        <h3>Task 4a: Developing A Solution</h3>
-      </a>
-       <a href="employer-set-project/Task 4b-Reflection/Task4b.html" class="esp-topic">
-        <img src="../images/task4b.png" alt="Task4b" width="200" height="200"/>
-        <h3>Task 4b: Reflection</h3>
-      </a>
-    </div>
-
-    <h2 id="Other"> Other </h2>
-    <div class="content-area">
-      <a href="Other/About T-levels/About.html" class="esp-topic">
-          <img src="../images/about.png" alt="about" width="200" height="200"/>
-          <h3>About The T-Level</h3>
-      </a>
-    </div>
   </main>
   <script>
     document.querySelector('form').addEventListener('submit', function(e) {
