@@ -55,13 +55,53 @@ header a {
 .main-topic img {
     border : solid 3px #1b4965;;
     border-radius : 20px;
+    background: linear-gradient(#3485bb,#61afd8 ); 
+    height: 180px;
+    width: 180px;
+    margin: 15px 20px 0 20px;
+}
+
+
+.main-topic h3 {
+    background-color: aliceblue;
+    border: solid 3px #1b4965;
+    border-radius: 20px;
+    width: 200px;
+    padding: 0;
+    margin: 20px;
+    width: 180px;
+    height: 80px;
+    text-align: center;
+    font-size: 13px;
+    color: black;
+    padding-top: 13px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.esp-topic {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom,#1b4965,#5FA8D3 );
+    width: 200px;
+    height: 300px;
+    margin: 20px 15px 20px 15px;
+    border-radius: 20px;
+    color: inherit;
+    box-shadow: #1b4965 0px 10px 0px 0px;
+}
+
+.esp-topic img {
+    border : solid 3px #1b4965;;
+    border-radius : 20px;
     background: linear-gradient(#205274,#417592 ); 
     height: 180px;
     width: 180px;
     margin: 15px 20px 0 20px;
 }
 
-.main-topic h3 {
+.esp-topic h3 {
     background-color: aliceblue;
     border: solid 3px #1b4965;
     border-radius: 20px;
@@ -110,6 +150,15 @@ footer {
     margin: 0px;
 }
 
+input[type=submit] {
+  background-color: #1b4965;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
 h2{ 
     color: white;
