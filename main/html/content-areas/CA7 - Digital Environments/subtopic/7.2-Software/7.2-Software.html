@@ -28,7 +28,302 @@
     </form>
  
     <main>
-        
+        <h2 class="heading">Subtopic 7.2: Software</h2>
+
+        <h3 class="top-sub-heading" id="7.2.1">7.2.1 - Understand the features and use of operating systems</h3>
+
+        <p>An <strong>Operating System (OS)</strong> is system software that manages computer hardware, software resources, and provides services for computer programs. There are different types of operating systems designed for different tasks and environments.</p>
+
+
+        <h3>Batch Operating System</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Non-interactive applications:</strong> Jobs are collected, grouped, and executed without user interaction during processing.</li>
+            <li><strong>High volume:</strong> Handles large amounts of data and repetitive tasks efficiently.</li>
+            <li><strong>Scheduling:</strong> Jobs are queued and executed in order, often prioritised by the system.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Payroll systems.</li>
+            <li>Banking transaction processing.</li>
+            <li>Data analysis on large datasets.</li>
+        </ul>
+
+
+        <h3>Multitasking Operating System</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Concurrent execution of multiple tasks:</strong> Runs more than one program at a time.</li>
+            <li><strong>Time-slicing:</strong> Processor time is divided between tasks, giving the appearance of simultaneous execution.</li>
+            <li><strong>Interrupts:</strong> Mechanism that allows the OS to pause one task and switch to another when needed.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Desktop and laptop operating systems (Windows, macOS, Linux).</li>
+            <li>Running multiple applications like web browsers, word processors, and media players at the same time.</li>
+        </ul>
+
+
+        <h3>Real-Time Operating System (RTOS)</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Monitoring and control applications:</strong> Provides predictable response times.</li>
+            <li><strong>Transaction processing:</strong> Handles critical operations where timing is crucial.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Embedded systems (e.g., car engine management, robotics).</li>
+            <li>Medical devices requiring instant feedback.</li>
+            <li>Industrial automation and control systems.</li>
+        </ul>
+
+
+        <h3>Network Operating System</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Resource sharing:</strong> Manages file and printer sharing across a network.</li>
+            <li><strong>User management:</strong> Provides authentication, permissions, and account control.</li>
+            <li><strong>Communication:</strong> Facilitates messaging, data transfer, and remote access between devices.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Client-server environments (Windows Server, Linux server distros).</li>
+            <li>Corporate networks requiring centralised control and security.</li>
+        </ul>
+
+
+        <h3>Mobile Operating System</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Smartphones and tablets:</strong> Designed specifically for mobile devices.</li>
+            <li><strong>Lower processing requirements:</strong> Optimised to run efficiently on less powerful hardware.</li>
+            <li><strong>Increased battery life:</strong> Power management is a core feature.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Mobile devices such as Android phones and iPhones (iOS).</li>
+            <li>Supports app ecosystems, touch input, and wireless connectivity.</li>
+        </ul>
+
+     
+        <h3>Summary</h3>
+        <p>Different types of operating systems are tailored for specific tasks: <strong>batch OS</strong> for repetitive processing, <strong>multitasking OS</strong> for general computing, <strong>real-time OS</strong> for time-critical applications, <strong>network OS</strong> for resource sharing, and <strong>mobile OS</strong> for portable devices.</p>
+
+        <h3 class="sub-heading" id="7.2.2">7.2.2 - Understand the features and use of common utilities</h3>
+
+        <p><strong>Utilities</strong> are system tools that support the operation, maintenance, and management of a computer system. They perform specific tasks that enhance performance, security, and reliability.</p>
+
+
+        <h3>File Management</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Provides the ability to <strong>create, edit, move, copy, and delete files</strong>.</li>
+            <li>Organises files into <strong>folders/directories</strong> for easier navigation.</li>
+            <li>Supports file permissions and <strong>access control</strong>.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Managing personal documents, images, and videos.</li>
+            <li>System administrators organising large datasets.</li>
+            <li>Accessing files stored locally or on network drives.</li>
+        </ul>
+
+
+        <h3>Defragmenters</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Reorganises fragmented data on <strong>magnetic hard drives</strong>.</li>
+            <li>Improves file access speed by storing data in <strong>contiguous blocks</strong>.</li>
+            <li>Reduces unnecessary movement of the disk head.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Improving system performance on HDDs.</li>
+            <li>Reducing wear and tear on mechanical drives.</li>
+        </ul>
+        <p><em>Note: Not required for SSDs, as they use flash memory.</em></p>
+
+
+        <h3>File Compression</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Reduces file size using <strong>compression algorithms</strong> (e.g., ZIP, RAR).</li>
+            <li>Can be <strong>lossless</strong> (no data lost) or <strong>lossy</strong> (reduced quality for smaller size).</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Saving storage space.</li>
+            <li>Speeding up file transfers and downloads.</li>
+            <li>Archiving large collections of data.</li>
+        </ul>
+
+
+        <h3>Package Managers</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Automates <strong>installation, updating, and removal</strong> of software.</li>
+            <li>Resolves <strong>dependencies</strong> between software packages.</li>
+            <li>Ensures software is <strong>securely verified</strong> and up-to-date.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Linux distributions (e.g., <code>apt</code>, <code>yum</code>, <code>pacman</code>).</li>
+            <li>Programming environments (e.g., <code>npm</code> for Node.js, <code>pip</code> for Python).</li>
+            <li>Managing software libraries and frameworks efficiently.</li>
+        </ul>
+
+
+        <h3>Protection Software</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Antivirus</strong> to detect and remove malicious software.</li>
+            <li><strong>Firewalls</strong> to monitor and block unauthorised network access.</li>
+            <li><strong>Encryption tools</strong> to secure sensitive data.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Protecting systems against malware, spyware, and ransomware.</li>
+            <li>Ensuring data security for personal and business use.</li>
+            <li>Preventing unauthorised access to networks.</li>
+        </ul>
+
+
+        <h3>Backup Software</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Creates copies of files or entire systems.</li>
+            <li>Supports <strong>incremental</strong>, <strong>differential</strong>, and <strong>full backups</strong>.</li>
+            <li>Often includes <strong>automated scheduling</strong> of backups.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Protecting against data loss due to hardware failure or malware.</li>
+            <li>Recovering previous versions of files.</li>
+            <li>Ensuring business continuity and disaster recovery.</li>
+        </ul>
+
+
+        <h3>Understand the features and use of common code development tools</h3>
+        <p>Code development tools support programmers in writing, testing, and maintaining software. They improve productivity and reduce errors during the software development lifecycle.</p>
+
+        <h3>Integrated Development Environments (IDEs)</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li><strong>Code editing tools</strong> - syntax highlighting, auto-completion, code navigation.</li>
+            <li><strong>Debugging tools</strong> - breakpoints, step-through execution, variable inspection.</li>
+            <li><strong>Screen design tools</strong> - drag-and-drop interfaces for UI/UX development.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Providing an <strong>all-in-one environment</strong> for coding, testing, and debugging.</li>
+            <li>Reducing errors with real-time suggestions and error detection.</li>
+            <li>Speeding up development of <strong>desktop, mobile, and web applications</strong>.</li>
+        </ul>
+
+
+        <h3>Compilers</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Translate <strong>high-level code</strong> into <strong>machine code</strong>.</li>
+            <li>Provide <strong>error reports</strong> before execution.</li>
+            <li>Optimise code for <strong>performance</strong>.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Creating <strong>standalone executable programs</strong>.</li>
+            <li>Ensuring programs run efficiently on target hardware.</li>
+        </ul>
+
+
+        <h3>Interpreters</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Execute code <strong>line by line</strong> instead of compiling into a full program first.</li>
+            <li>Provide immediate feedback during development.</li>
+            <li>Easier debugging with <strong>interactive testing</strong>.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Running scripts quickly without compiling.</li>
+            <li>Useful for <strong>scripting languages</strong> (e.g., Python, JavaScript).</li>
+            <li>Rapid prototyping and testing ideas.</li>
+        </ul>
+
+        <hr>
+
+        <h3 class="sub-heading" id="7.2.4">7.2.4 - Understand the features and use of common application software</h3>
+        <p>Application software allows users to perform specific tasks, such as creating documents, managing data, or communicating online.</p>
+
+
+        <h3>Word Processors</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Create, edit, and format <strong>text documents</strong>.</li>
+            <li>Support for <strong>images, tables, and templates</strong>.</li>
+            <li>Spelling, grammar, and collaboration tools.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Writing letters, essays, and reports.</li>
+            <li>Collaborating on shared documents.</li>
+        </ul>
+
+
+        <h3>Spreadsheets</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Organise data in <strong>rows and columns</strong>.</li>
+            <li>Support for <strong>formulas, charts, and pivot tables</strong>.</li>
+            <li>Automation with <strong>macros</strong>.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Financial planning and budgeting.</li>
+            <li>Data analysis and visualisation.</li>
+        </ul>
+
+
+        <h3>Databases</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Structured storage of large volumes of data.</li>
+            <li>Support for <strong>queries</strong> and <strong>reports</strong>.</li>
+            <li>Enforces <strong>data integrity</strong> and security.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Managing customer records and business data.</li>
+            <li>Supporting websites and applications with <strong>back-end data</strong>.</li>
+        </ul>
+
+
+        <h3>Email</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Send and receive <strong>digital messages</strong>.</li>
+            <li>Supports attachments and cloud integration.</li>
+            <li>Filters, spam protection, and contact management.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Business communication and collaboration.</li>
+            <li>Personal correspondence and notifications.</li>
+        </ul>
+
+
+        <h3>Project Management Software</h3>
+        <h4>Features:</h4>
+        <ul>
+            <li>Task assignment, scheduling, and <strong>progress tracking</strong>.</li>
+            <li>Supports <strong>collaboration</strong> and resource allocation.</li>
+            <li>Visual tools such as <strong>Gantt charts</strong> and Kanban boards.</li>
+        </ul>
+        <h4>Uses:</h4>
+        <ul>
+            <li>Managing software development projects.</li>
+            <li>Coordinating teams and deadlines.</li>
+        </ul>
+
     </main>
     
     <arrow-Nav>

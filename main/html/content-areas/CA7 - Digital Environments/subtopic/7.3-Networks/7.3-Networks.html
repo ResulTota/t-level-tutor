@@ -28,7 +28,408 @@
     </form>
  
     <main>
+        <h2 class="heading">Subtopic 7.3: Networks</h2>
         
+        <h3 class="sub-heading" id="7.3.1">7.3.1 - Benefits and Drawbacks of Connecting Devices to Form Networks</h3>
+
+        <p>Connecting devices into networks enables communication, resource sharing and centralised management — but it also introduces costs, complexity and security risks. Below we outline the main benefits and drawbacks so you can evaluate when and how to use networks effectively.</p>
+
+        <h4>Benefits</h4>
+        <ul>
+            <li><strong>Resource sharing</strong> — share printers, files, storage and internet access across many devices, reducing cost and duplication.</li>
+            <li><strong>Improved communication & collaboration</strong> — email, chat, video conferencing and collaborative tools let users work together in real time.</li>
+            <li><strong>Centralised management</strong> — administrators can deploy updates, manage backups and enforce policies from one place.</li>
+            <li><strong>Scalability</strong> — networks make it easier to add new devices and services without redesigning the whole system.</li>
+            <li><strong>Remote access</strong> — users can access resources from different locations (often via secure methods like VPNs).</li>
+        </ul>
+
+        <h4>Drawbacks</h4>
+        <ul>
+            <li><strong>Security risks</strong> — connected systems are exposed to malware, unauthorised access and data breaches unless properly protected.</li>
+            <li><strong>Costs</strong> — initial hardware, cabling, licensing and configuration costs can be significant.</li>
+            <li><strong>Maintenance & administration</strong> — networks require ongoing monitoring, troubleshooting and skilled IT staff.</li>
+            <li><strong>Single points of failure</strong> — if key network equipment or links fail, many users can lose access until repaired.</li>
+            <li><strong>Performance constraints</strong> — network congestion, latency or poor configuration can reduce application responsiveness.</li>
+        </ul>
+
+        <h3 class="sub-heading" id="7.3.2">7.3.2 - Features of Different Types of Networks</h3>
+
+        <p>This section covers the main features used to describe networks, then explains specific network types: PAN, LAN, MAN, WAN and VPN. For each type we describe <em>coverage</em>, <em>typical number of users</em>, <em>common connection media</em> and <em>typical uses</em>.</p>
+
+        <h4>Key characteristics to consider</h4>
+        <ul>
+            <li><strong>Number of users</strong> — ranges from a single person (PAN) to millions (global WAN/Internet).</li>
+            <li><strong>Connection media</strong> — wired (Ethernet, fibre) or wireless (Wi-Fi, Bluetooth, cellular, satellite).</li>
+            <li><strong>Coverage area</strong> — physical distance the network spans (room, building, city, country, globe).</li>
+            <li><strong>Topology & architecture</strong> — how devices are logically and physically connected (star, mesh, hierarchical, client-server).</li>
+            <li><strong>Security & access control</strong> — how access is restricted and data protected (encryption, firewalls, authentication).</li>
+        </ul>
+
+        <h4>Personal Area Network (PAN)</h4>
+        <ul>
+            <li><strong>Coverage:</strong> a few metres (typically around one person).</li>
+            <li><strong>Number of users:</strong> usually a single user with several personal devices.</li>
+            <li><strong>Connection media:</strong> Bluetooth, NFC, sometimes USB or wireless personal hotspots.</li>
+            <li><strong>Typical uses:</strong> connecting phone to headphones, smartwatch to phone, or syncing a laptop to a phone's hotspot.</li>
+            <li><strong>Notes:</strong> PANs are simple and very local; security is usually lightweight but still important (pairing, PINs).</li>
+        </ul>
+
+        <h4>Local Area Network (LAN)</h4>
+        <ul>
+            <li><strong>Coverage:</strong> single building or site (home, office, school).</li>
+            <li><strong>Number of users:</strong> tens to hundreds.</li>
+            <li><strong>Connection media:</strong> Ethernet (copper/fibre), Wi-Fi for wireless access.</li>
+            <li><strong>Typical uses:</strong> file sharing, printing services, local servers, corporate or campus networks.</li>
+            <li><strong>Notes:</strong> LANs usually provide high throughput and low latency; they are commonly managed by a central IT team in larger organisations.</li>
+        </ul>
+
+        <h4>Metropolitan Area Network (MAN)</h4>
+        <ul>
+            <li><strong>Coverage:</strong> city-wide or large campus areas.</li>
+            <li><strong>Number of users:</strong> hundreds to thousands.</li>
+            <li><strong>Connection media:</strong> high-capacity fibre, microwave links or leased lines.</li>
+            <li><strong>Typical uses:</strong> connecting multiple buildings of a city university, linking corporate sites across a city, municipal services.</li>
+            <li><strong>Notes:</strong> MANs bridge several LANs — they are larger than LANs but smaller than WANs and often operated by ISPs or local authorities.</li>
+        </ul>
+
+        <h4>Wide Area Network (WAN)</h4>
+        <ul>
+            <li><strong>Coverage:</strong> national or international (country to globe).</li>
+            <li><strong>Number of users:</strong> thousands to millions.</li>
+            <li><strong>Connection media:</strong> fibre-optic backbones, submarine cables, satellite links, leased circuits spanning long distances.</li>
+            <li><strong>Typical uses:</strong> the Internet, multinational company networks, cloud provider backbones.</li>
+            <li><strong>Notes:</strong> WANs usually involve multiple service providers and focus on long-distance connectivity rather than local high-speed access.</li>
+        </ul>
+
+        <h4>Virtual Private Network (VPN)</h4>
+        <ul>
+            <li><strong>Coverage:</strong> virtual — can span any geographic distance using underlying public networks.</li>
+            <li><strong>Number of users:</strong> variable — small teams to large organisations with many remote users.</li>
+            <li><strong>Connection media:</strong> encrypted tunnels over Internet/WAN links (IPsec, SSL/TLS-based VPNs, WireGuard, etc.).</li>
+            <li><strong>Typical uses:</strong> secure remote access to corporate resources, connecting branch offices securely over public infrastructure.</li>
+            <li><strong>Notes:</strong> VPNs provide confidentiality and integrity for data in transit, but depend on strong authentication and up-to-date cryptography to be secure.</li>
+        </ul>
+
+        <h4>Summary</h4>
+        <p>Networks let devices share resources and communicate at different scales — from a single user's PAN to the global WAN/Internet. Choosing the right network type and technologies depends on required coverage, expected number of users, performance needs and security constraints. Understanding these trade-offs helps you design and use networks that are fit-for-purpose.</p>
+
+
+        <h3 class="sub-heading" id="7.3.3">7.3.3 - Understand the features, characteristics, benefits and drawbacks of connectivity methods</h3>
+
+        <p>Connectivity methods describe how devices physically or wirelessly connect to a network. Each method has unique features, benefits and drawbacks that influence performance, reliability and cost.</p>
+
+        <h4>Wired Connectivity</h4>
+
+        <h5>Copper / Ethernet</h5>
+        <ul>
+            <li><strong>Features:</strong> Uses twisted-pair copper cables (Cat5e, Cat6, Cat7). Common in LANs.</li>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li><strong class="pros">Low cost</strong> compared to fibre-optic.</li>
+                    <li><strong class="pros">Widely available</strong> and easy to install.</li>
+                    <li><strong class="pros">Good speeds</strong> up to 10 Gbps.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong class="cons">Limited distance</strong> (about 100m before repeaters/switches are needed).</li>
+                    <li><strong class="cons">Susceptible to interference</strong> from electromagnetic signals.</li>
+                    <li><strong class="cons">Lower bandwidth</strong> compared to fibre-optic.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h5>Fibre-Optic</h5>
+        <ul>
+            <li><strong>Features:</strong> Uses glass or plastic fibres to transmit data as light signals.</li>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li><strong class="pros">Very high speeds</strong> (Gbps–Tbps).</li>
+                    <li><strong class="pros">Long-distance transmission</strong> with minimal signal loss.</li>
+                    <li><strong class="pros">Immune to interference</strong> from electromagnetic signals.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong class="cons">Expensive</strong> compared to copper cabling.</li>
+                    <li><strong class="cons">Requires specialist installation</strong> and maintenance.</li>
+                    <li><strong class="cons">Fragile cables</strong> that are harder to repair.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Wireless Connectivity</h4>
+
+        <h5>Wireless Access Points (WAPs)</h5>
+        <ul>
+            <li><strong>Features:</strong> Provide wireless connectivity to devices using Wi-Fi standards (IEEE 802.11).</li>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li><strong class="pros">Mobility</strong> for connected devices.</li>
+                    <li><strong class="pros">Flexible</strong> with no need for cables at endpoints.</li>
+                    <li><strong class="pros">Scalable</strong> — new devices can be added easily.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong class="cons">Security risks</strong> due to interception and unauthorised access.</li>
+                    <li><strong class="cons">Signal interference</strong> from walls and other devices.</li>
+                    <li><strong class="cons">Lower bandwidth</strong> and less consistent speed compared to wired.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 class="sub-heading" id="7.3.4">7.3.4 - Understand the features, benefits and drawbacks of the common network topologies</h3>
+
+        <p>Topology refers to how devices are arranged and connected in a network. Networks can be described by their <strong>physical</strong> topology (cable/device layout) or their <strong>logical</strong> topology (how data actually flows between devices).</p>
+
+        <h4>Star Topology</h4>
+        <ul>
+            <li><strong>Features:</strong> All devices connect to a central switch or hub.</li>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li><strong class="pros">Easy to manage</strong> and set up.</li>
+                    <li><strong class="pros">Fault isolation</strong> — one device failing doesn’t affect others.</li>
+                    <li><strong class="pros">Scalable</strong> — devices can be added or removed easily.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong class="cons">Single point of failure</strong> at the hub/switch.</li>
+                    <li><strong class="cons">More cabling</strong> required than simpler topologies.</li>
+                    <li><strong class="cons">Higher cost</strong> due to extra equipment.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Mesh Topology</h4>
+        <ul>
+            <li><strong>Features:</strong> Every device connects to multiple other devices, forming a web.</li>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li><strong class="pros">High reliability</strong> — multiple routes for data.</li>
+                    <li><strong class="pros">Redundant connections</strong> improve fault tolerance.</li>
+                    <li><strong class="pros">Scalable</strong> for critical systems requiring uptime.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong class="cons">Complex setup</strong> requiring advanced configuration.</li>
+                    <li><strong class="cons">Expensive</strong> due to more cabling and hardware.</li>
+                    <li><strong class="cons">Maintenance challenges</strong> as the network grows.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Tree Topology</h4>
+        <ul>
+            <li><strong>Features:</strong> Hierarchical structure combining multiple star networks in a branching arrangement.</li>
+            <li><strong>Pros:</strong>
+                <ul>
+                    <li><strong class="pros">Scalable</strong> for large networks.</li>
+                    <li><strong class="pros">Structured hierarchy</strong> simplifies management.</li>
+                    <li><strong class="pros">Combination of star and bus</strong> advantages.</li>
+                </ul>
+            </li>
+            <li><strong>Cons:</strong>
+                <ul>
+                    <li><strong class="cons">Backbone failure</strong> can affect entire sections.</li>
+                    <li><strong class="cons">Complex maintenance</strong> in large networks.</li>
+                    <li><strong class="cons">High cabling cost</strong> compared to simpler designs.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>Logical vs Physical Topologies</h4>
+        <ul>
+            <li><strong class="pros">Physical topology</strong>: The actual physical layout of cables, switches, routers and devices.</li>
+            <li><strong class="pros">Logical topology</strong>: How data flows through the network, regardless of physical design.</li>
+            <li><strong class="pros">Example</strong>: A physically star-shaped network (all devices connected to a switch) may have a logical bus topology if data is broadcast to all devices.</li>
+        </ul>
+
+        <h3 class="sub-heading" id="7.3.7">7.3.7 - Understand the seven-layer OSI (Open Systems Interconnection) model</h3>
+
+        <p>The OSI model is a conceptual framework that standardises how different networking devices and systems communicate. It divides communication into seven layers, each with specific functions and related protocols.</p>
+
+        <table>
+        <thead>
+            <tr>
+            <th>Layer</th>
+            <th>Function</th>
+            <th>Examples of Protocols</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><strong>Application (Layer 7)</strong></td>
+            <td>Provides services and interfaces for end-user applications (e.g. web browsers, email clients).</td>
+            <td><strong>HTTP, HTTPS, FTP, SMTP, POP3</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Presentation (Layer 6)</strong></td>
+            <td>Translates data formats, handles encryption, compression, and character encoding.</td>
+            <td><strong>SSL/TLS, JPEG, MPEG</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Session (Layer 5)</strong></td>
+            <td>Manages and maintains sessions (start, manage, end) between communicating devices.</td>
+            <td><strong>NetBIOS, RPC</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Transport (Layer 4)</strong></td>
+            <td>Ensures reliable data delivery, error checking, segmentation, and flow control.</td>
+            <td><strong>TCP, UDP</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Network (Layer 3)</strong></td>
+            <td>Handles logical addressing and routing so data can travel across networks.</td>
+            <td><strong>IP, ICMP, IPsec</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Data Link (Layer 2)</strong></td>
+            <td>Provides physical addressing (MAC addresses), error detection, and frame delivery within a LAN.</td>
+            <td><strong>Ethernet, Wi-Fi, PPP</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Physical (Layer 1)</strong></td>
+            <td>Transmits raw bits over the physical medium (cables, radio waves, fibre).</td>
+            <td><strong>Ethernet cables, Fibre optics, Wi-Fi radio signals</strong></td>
+            </tr>
+        </tbody>
+        </table>
+
+        <p><strong>Mnemonic:</strong> A common way to remember the OSI layers from top (7) to bottom (1) is: <em>All People Seem To Need Data Processing</em>.</p>
+
+        <h3 class="sub-heading" id="7.3.8">7.3.8 - Understand the four-layer TCP/IP (Transmission Control Protocol/Internet Protocol) model</h3>
+
+        <p>The TCP/IP model is a simplified framework for computer networking, used in real-world internet communications. It consists of four layers, each responsible for specific aspects of data transmission.</p>
+
+        <table>
+        <thead>
+            <tr>
+            <th>Layer</th>
+            <th>Function</th>
+            <th>Examples of Protocols</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><strong>Application Layer</strong></td>
+            <td>Provides network services directly to user applications, including data formatting, encryption, and communication interfaces.</td>
+            <td><strong>HTTP, HTTPS, FTP, SMTP, DNS</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Transport Layer</strong></td>
+            <td>Ensures reliable delivery of data, segmentation, error detection, and flow control between devices.</td>
+            <td><strong>TCP, UDP</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Internet Layer</strong></td>
+            <td>Handles logical addressing and routing so that data packets can travel across interconnected networks.</td>
+            <td><strong>IP, ICMP, ARP</strong></td>
+            </tr>
+            <tr>
+            <td><strong>Network Access / Link Layer</strong></td>
+            <td>Responsible for the physical transmission of data over the network hardware and manages local addressing (MAC addresses).</td>
+            <td><strong>Ethernet, Wi-Fi, PPP</strong></td>
+            </tr>
+        </tbody>
+        </table>
+
+        <p><strong>Note:</strong> The TCP/IP model is widely used in practice and maps roughly to the OSI model: OSI layers 7–5 correspond to TCP/IP Application, OSI 4 = TCP/IP Transport, OSI 3 = TCP/IP Internet, and OSI 2–1 = TCP/IP Network Access.</p>
+
+        <h3 class="sub-heading" id="7.3.9">7.3.9 - Understand the role of data packets in transmitting over a network</h3>
+
+        <p>Data packets are small units of data transmitted across a network. Breaking information into packets allows efficient, reliable communication and makes it easier to manage errors and routing.</p>
+
+        <h4>Contents and Structure of a Data Packet</h4>
+        <ul>
+            <li><strong>Header:</strong> Contains control information such as source and destination addresses, protocol type, and sequencing information.</li>
+            <li><strong>Payload / Data:</strong> The actual content being transmitted, such as part of a file, message, or request.</li>
+            <li><strong>Trailer:</strong> Includes error-checking information such as a checksum or cyclic redundancy check (CRC).</li>
+        </ul>
+
+        <h4>Role of the Components of a Data Packet</h4>
+        <ul>
+            <li><strong>Source and Destination Addresses:</strong> Identify where the packet comes from and where it should go.</li>
+            <li><strong>Sequence Number:</strong> Allows the receiving device to reassemble packets in the correct order.</li>
+            <li><strong>Error-Checking Data:</strong> Detects if the packet has been corrupted during transmission.</li>
+        </ul>
+
+        <h4>Packet Switching</h4>
+        <p>Packet switching is a method where data is divided into packets and sent independently across the network. Each packet may take a different route to the destination.</p>
+        <ul>
+            <li><strong>Causes of Packet Loss:</strong> Network congestion, faulty hardware, corrupted packets, or transmission errors can cause some packets to be lost.</li>
+        </ul>
+
+        <h4>Error Handling</h4>
+        <p>Networks use error detection and correction techniques to ensure data integrity.</p>
+        <ul>
+            <li><strong>Cyclic Redundancy Check (CRC):</strong> A mathematical calculation added to the packet trailer. The receiver recalculates the CRC and compares it with the sent value to detect errors.</li>
+        </ul>
+
+        <p>Understanding packets, switching, and error handling is essential for designing reliable networks and troubleshooting communication issues.</p>
+
+        <h3 class="sub-heading" id="7.3.10">7.3.10 - Understand the role of common network protocols</h3>
+
+        <p>Network protocols define rules and conventions for communication between devices over a network. Different protocols serve specific purposes, such as web browsing, email delivery, routing, or file transfer.</p>
+
+        <h4>Web Protocols</h4>
+        <ul>
+            <li><strong>HTTP (HyperText Transfer Protocol):</strong> The standard protocol used for transferring web pages over the internet. Works without encryption.</li>
+            <li><strong>HTTPS (HTTP Secure):</strong> An extension of HTTP that adds <strong>encryption (TLS/SSL)</strong> to ensure secure communication between browsers and web servers.</li>
+        </ul>
+
+        <h4>Mail Protocols</h4>
+        <ul>
+            <li><strong>SMTP (Simple Mail Transfer Protocol):</strong> Used to send emails from a client to a mail server or between mail servers.</li>
+            <li><strong>POP (Post Office Protocol):</strong> Used by email clients to retrieve messages from a server, typically downloading and removing them from the server.</li>
+            <li><strong>IMAP (Internet Message Access Protocol):</strong> Retrieves and manages email on the server, allowing multiple devices to access the same mailbox.</li>
+        </ul>
+
+        <h4>Routing Protocols</h4>
+        <ul>
+            <li><strong>RIP (Routing Information Protocol):</strong> A simple distance-vector routing protocol used to determine the best path based on hop count.</li>
+            <li><strong>OSPF (Open Shortest Path First):</strong> A more advanced link-state routing protocol that uses path cost and network topology to find the most efficient route.</li>
+        </ul>
+
+        <h4>Application Protocols</h4>
+        <ul>
+            <li><strong>FTP (File Transfer Protocol):</strong> Transfers files between client and server over a network.</li>
+            <li><strong>SFTP (Secure File Transfer Protocol):</strong> A secure version of FTP that uses encryption to protect data during transfer.</li>
+            <li><strong>DHCP (Dynamic Host Configuration Protocol):</strong> Automatically assigns IP addresses and network configuration to devices on a network.</li>
+            <li><strong>DNS (Domain Name System):</strong> Translates human-readable domain names (like www.example.com) into IP addresses that devices can use for routing.</li>
+        </ul>
+
+        <p>Understanding these protocols is essential for managing communication, security, and data flow across networks.</p>
+
+        <h3 class="sub-heading" id="7.3.11">7.3.11 - Understand the concepts of bandwidth and latency, and their effect on the performance of networks and connected systems</h3>
+
+        <p>Network performance depends on several factors, with <strong>bandwidth</strong> and <strong>latency</strong> being two of the most important. Both directly impact the speed and responsiveness of data transmission between devices.</p>
+
+        <h4>Bandwidth</h4>
+        <ul>
+            <li><strong>Definition:</strong> The maximum amount of data that can be transmitted over a network in a given time, usually measured in <strong>bits per second (bps)</strong>, kilobits (Kbps), megabits (Mbps), or gigabits (Gbps).</li>
+            <li><strong>Effect on performance:</strong> Higher bandwidth allows more data to be sent simultaneously, improving download/upload speeds and overall network throughput.</li>
+            <li><strong>Example:</strong> Streaming a high-definition video requires higher bandwidth than sending a simple text message.</li>
+        </ul>
+
+        <h4>Latency</h4>
+        <ul>
+            <li><strong>Definition:</strong> The time it takes for a data packet to travel from the source to the destination, measured in <strong>milliseconds (ms)</strong>.</li>
+            <li><strong>Effect on performance:</strong> High latency causes delays in communication, which can affect real-time applications like online gaming, video calls, and VoIP.</li>
+            <li><strong>Factors affecting latency:</strong> Distance between devices, network congestion, routing inefficiencies, and processing delays in hardware/software.</li>
+        </ul>
+
+        <h4>Interaction Between Bandwidth and Latency</h4>
+        <ul>
+            <li>Even with high bandwidth, high latency can make applications feel slow.</li>
+            <li>Optimising both bandwidth and latency is important for a smooth user experience.</li>
+            <li>Network engineers often balance bandwidth allocation and reduce latency to improve performance for critical applications.</li>
+        </ul>
+
+        <p>Understanding bandwidth and latency helps in designing, troubleshooting, and optimising networks and connected systems to meet performance requirements.</p>
+
     </main>
     
     <arrow-Nav>
