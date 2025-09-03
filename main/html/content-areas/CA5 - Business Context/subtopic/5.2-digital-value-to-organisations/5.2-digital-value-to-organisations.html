@@ -17,6 +17,55 @@
         </div>
     </header>
 
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+    <a href="../../../../index.html">Home</a>
+    
+    <div class="menu-item">
+          <a href="../../../../content-Areas.html">Content Areas</a>
+          <div class="submenu">
+            <a href="../../../CA1 - Problem Solving/problem-solving.html">CA1</a>
+            <a href="../../../CA2 - Intro To Programming/intro-to-programming.html">CA2</a>
+            <a href="../../../CA3 - Emerging Issues/emerging-issues.html">CA3</a>
+            <a href="../../../CA4 - Legislation And Regulatory Requirements/legislation-and-regulatory-requirements.html">CA4</a>
+
+            <a href="../../../CA5 - Business Context/business-context.html">CA5</a>
+            <a href="../../../CA6 - Data/data.html">CA6</a>
+            <a href="../../../CA7 - Digital Environments/digital-environments.html">CA7</a>
+            <a href="../../../CA8 - Security/security.html">CA8</a>
+          </div>
+    </div>
+        
+    <div class="menu-item">
+      <a href="../../../../Esp.html">Employer Set Project (ESP)</a>
+      <div class="submenu">
+        <a href="../../../../employer-set-project/Pre-Task/Pre-Task.html">Pre-Task</a>
+        <a href="../../../../employer-set-project/Task 1-Planning-A-Project/Task1.html">Task 1</a>
+        <a href="../../../../employer-set-project/Task 2-Debugging-Existing-Code/Task2.html">Task 2</a>
+        <a href="../../../../employer-set-project/Task 3-Designing-A-Solution/Task3.html">Task 3</a>
+        <a href="../../../../employer-set-project/Task 4a-Developing-A-Solution/Task4a.html">Task 4a</a>
+        <a href="../../../../employer-set-project/Task 4b-Reflection/Task4b.html">Task 4b</a>
+      </div>
+    </div>
+
+    <a href="../../../../Other.html">Other</a>
+
+  </div>
+
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+    
+
     <form>
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
