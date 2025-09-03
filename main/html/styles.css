@@ -120,13 +120,10 @@ header a {
 
 
 .content-area{
-    background:linear-gradient( #e2e2e2, #ffffff);
-    border: solid 3px #1b4965;
-    border-radius: 20px;
+    background: white;
     max-width: auto;
     height: auto;
-    padding: 10px;
-    margin: 20px;
+    margin: 0px 20px 20px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -138,11 +135,6 @@ body{
     background-color: white;
 }
 
-main{
-    display: inline-block;
-    background: linear-gradient(#1B4965, #5FA8D3);
-    width: 100%;
-}
 
 footer {
     background-color: #1b4965;
@@ -160,14 +152,6 @@ input[type=submit] {
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
-}
-
-h2{ 
-    color: white;
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20px;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 .main-topic:hover{
@@ -261,3 +245,47 @@ arrow-Nav a {
     margin: 15px 20px 0 20px;
 }
 
+.title {
+    background: white;
+    max-width: auto;
+    height: auto;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h2{ 
+    color: black;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+content {
+    background: white;
+    width: 85%;
+    height: auto;
+    margin: 0 20px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-area{
+    background: white;
+    max-width:inherit;
+    height: auto;
+    margin: 0px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    background: linear-gradient(#1B4965, #5FA8D3);
+    width: 100%;
+    justify-content: center;
+}
