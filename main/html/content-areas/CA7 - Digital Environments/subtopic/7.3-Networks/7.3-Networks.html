@@ -21,7 +21,18 @@
         <label for="sections">Jump to Section:</label>
         <select name="sections" id="sections">
             <option value="" disabled selected>Select a section</option>
-            <option value="#.1.1">.1.1 - </option>
+            <option value="#7.3.1">7.3.1 - Understand the benefits and drawbacks of connecting devices from netwokrs</option>
+            <option value="#7.3.2">7.3.2 - Understand the features of different types of networks</option>
+            <option value="#7.3.3">7.3.3 - Understand the features, characteristics, benefits and drawbacks of connectivity methods</option>
+            <option value="#7.3.4">7.3.4 - Understand the features, benefits and drawbacks of the common network topologies</option>
+            <option value="#7.3.5">7.3.5 - Understand the feature, benefits and drawbacks of different network models</option>
+            <option value="#7.3.6">7.3.6 - Understand the features and use of common networking hardware</option>
+            <option value="#7.3.7">7.3.7 - Understand the seven-layer OSI (Open Systems Interconnection) model</option>
+            <option value="#7.3.8">7.3.8 - Understand the four-layer TCP/IP (Transmission Control Protocol/Internet Protocol) model</option>
+            <option value="#7.3.9">7.3.9 - Understand the role of data packets in transmitting over a network</option>
+            <option value="#7.3.10">7.3.10 - Understand the role of common network protocols</option>
+            <option value="#7.3.11">7.3.11 - Understand the concepts of bandwidth and latency, and their effect on the performance of networks and connected systems</option>
+
         </select>
         <br>
         <input type="submit" value="Submit">
@@ -30,7 +41,7 @@
     <main>
         <h2 class="heading">Subtopic 7.3: Networks</h2>
         
-        <h3 class="sub-heading" id="7.3.1">7.3.1 - Benefits and Drawbacks of Connecting Devices to Form Networks</h3>
+        <h3 class="top-sub-heading" id="7.3.1">7.3.1 - Benefits and Drawbacks of Connecting Devices to Form Networks</h3>
 
         <p>Connecting devices into networks enables communication, resource sharing and centralised management — but it also introduces costs, complexity and security risks. Below we outline the main benefits and drawbacks so you can evaluate when and how to use networks effectively.</p>
 
@@ -245,6 +256,160 @@
             <li><strong class="pros">Physical topology</strong>: The actual physical layout of cables, switches, routers and devices.</li>
             <li><strong class="pros">Logical topology</strong>: How data flows through the network, regardless of physical design.</li>
             <li><strong class="pros">Example</strong>: A physically star-shaped network (all devices connected to a switch) may have a logical bus topology if data is broadcast to all devices.</li>
+        </ul>
+
+        <h3 class="sub-heading" id="7.3.5">7.3.5 - Network Models</h3>
+
+        <p>Different organizations use different types of networks depending on <strong>cost</strong>, <strong>control</strong>, and <strong>usage needs</strong>.</p>
+
+        <h4>1. Client-Server Model</h4>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>One central server provides resources (files, applications, storage) to multiple clients (computers, devices).</li>
+            <li>Clients request services, the server responds.</li>
+            <li>Examples: Email servers, database servers, file servers.</li>
+        </ul>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+            <li><strong>Centralized control</strong> of data, security, and backups.</li>
+            <li><strong>Easy management</strong> for large networks.</li>
+            <li><strong>Scalable</strong> — can add more clients easily.</li>
+        </ul>
+
+        <p><strong>Drawbacks:</strong></p>
+        <ul>
+            <li><strong>Expensive</strong> to set up (servers are costly).</li>
+            <li><strong>Single point of failure</strong> — server failure = loss of service for all clients.</li>
+            <li>Requires <strong>skilled administrators</strong>.</li>
+        </ul>
+
+        <h4>2. Thin Client Model</h4>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>Clients are "lightweight" devices that depend on a server for most processing.</li>
+            <li>The server does the heavy work (applications, processing, storage).</li>
+            <li>Clients are basically input/output devices.</li>
+        </ul>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+            <li><strong>Low-cost</strong> client machines (less powerful hardware needed).</li>
+            <li><strong>Centralized updates</strong> and maintenance.</li>
+            <li><strong>Secure</strong>, since data is stored on the server not the client.</li>
+        </ul>
+
+        <p><strong>Drawbacks:</strong></p>
+        <ul>
+            <li><strong>Heavy server load</strong> - server must be powerful.</li>
+            <li>Requires a <strong>fast, reliable network</strong> connection.</li>
+            <li>Clients <strong>depend on the server</strong> - poor performance if disconnected.</li>
+        </ul>
+
+        <h4>3. Peer-to-Peer (P2P) Model</h4>
+        <p><strong>Features:</strong></p>
+        <ul>
+            <li>All computers (peers) are equal - they act as both client and server.</li>
+            <li>Each device can share files and resources directly with others.</li>
+            <li>No central server.</li>
+        </ul>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+            <li><strong>Inexpensive</strong> — no dedicated server required.</li>
+            <li><strong>Easy to set up</strong> for small networks.</li>
+            <li>Good for <strong>file sharing</strong> in small groups.</li>
+        </ul>
+
+        <p><strong>Drawbacks:</strong></p>
+        <ul>
+            <li><strong>No central control</strong> — harder to manage security and backups.</li>
+            <li><strong>Performance issues</strong> as the network grows.</li>
+            <li>Higher risk of <strong>malware spread</strong> since all devices are interconnected.</li>
+        </ul>
+
+        <h4>Quick Comparison Table</h4>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Features</th>
+                    <th>Benefits</th>
+                    <th>Drawbacks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Client-Server</td>
+                    <td>Central server provides resources</td>
+                    <td>Centralized control, scalable, secure</td>
+                    <td>Expensive, single point of failure, admin needed</td>
+                </tr>
+                <tr>
+                    <td>Thin Client</td>
+                    <td>Clients rely on server for processing</td>
+                    <td>Cheaper clients, easy updates, secure</td>
+                    <td>Heavy server load, needs strong network, server dependency</td>
+                </tr>
+                <tr>
+                    <td>Peer-to-Peer</td>
+                    <td>Devices equal, share resources directly</td>
+                    <td>Cheap, easy setup, good for small groups</td>
+                    <td>No central control, less secure, not scalable</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading" id="7.3.6">7.3.6 - Common Network Components</h3>
+
+        <p>Every network, from a small home setup to the global Internet, relies on key components. Each has a specific role in enabling <strong>communication</strong> and <strong>data transfer</strong>.</p>
+
+        <h4>1. Server</h4>
+        <p><strong>Role:</strong> A powerful computer that provides services, resources, or data to other computers (clients) on the network.</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li><strong>File server</strong> - stores and manages documents</li>
+            <li><strong>Mail server</strong> - handles email sending and receiving</li>
+            <li><strong>Web server</strong> - hosts websites and delivers web pages</li>
+        </ul>
+
+        <h4>2. Client</h4>
+        <p><strong>Role:</strong> A device (PC, laptop, phone, tablet) that requests services or resources from a server.</p>
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li>A student's laptop accessing files from a school's <strong>file server</strong>.</li>
+            <li>A smartphone requesting a webpage from a <strong>web server</strong>.</li>
+        </ul>
+
+        <h4>3. Router</h4>
+        <p><strong>Role:</strong></p>
+        <ul>
+            <li>Directs data between different <strong>networks</strong>.</li>
+            <li>Connects a <strong>local network (LAN)</strong> to the <strong>Internet (WAN)</strong>.</li>
+            <li>Assigns <strong>IP addresses</strong> to devices.</li>
+        </ul>
+        <p><strong>Example:</strong> Your home broadband router connects all your devices to the Internet.</p>
+
+        <h4>4. Network Switch</h4>
+        <p><strong>Role:</strong></p>
+        <ul>
+            <li>Connects multiple devices within a <strong>local network (LAN)</strong>.</li>
+            <li>Forwards data only to the specific device it is intended for (<strong>efficient compared to a hub</strong>).</li>
+        </ul>
+        <p><strong>Example:</strong> In an office, a switch connects computers, printers, and servers together.</p>
+
+        <h4>5. Internet Connection / Internet Backbone</h4>
+        <p><strong>Internet connection:</strong></p>
+        <ul>
+            <li>Provides access from a <strong>local network</strong> to the <strong>global Internet</strong>.</li>
+            <li>Supplied by an <strong>Internet Service Provider (ISP)</strong>.</li>
+        </ul>
+
+        <p><strong>Internet backbone:</strong></p>
+        <ul>
+            <li>The <strong>core infrastructure</strong> of the Internet.</li>
+            <li>Made up of high-speed <strong>fiber-optic cables</strong>, routers, and data centers operated by major telecom companies.</li>
+            <li>Carries the majority of Internet traffic across <strong>countries</strong> and <strong>continents</strong>.</li>
         </ul>
 
         <h3 class="sub-heading" id="7.3.7">7.3.7 - Understand the seven-layer OSI (Open Systems Interconnection) model</h3>
