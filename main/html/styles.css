@@ -1,5 +1,5 @@
 header{
-    background-color: #1b4965;
+    background-color: #CAE9FF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +12,7 @@ header a {
     top: 10px;
     left: 10px;
     display: block;
-    border: solid 2px #5FA8D3;
+    border: solid 2px #fff;
     border-radius: 5px;
     width: 120px;
     height: 120px;
@@ -20,7 +20,7 @@ header a {
 }
 
 .header-text{
-    color: white;
+    color: black;
     text-align: center;
     width: 100%;
     font-size: 25px;
@@ -120,10 +120,10 @@ header a {
 
 
 .content-area{
-    background-color: #bee7fe;
+    background:linear-gradient( #e2e2e2, #ffffff);
     border: solid 3px #1b4965;
     border-radius: 20px;
-    width: auto;
+    max-width: auto;
     height: auto;
     padding: 10px;
     margin: 20px;
@@ -140,7 +140,7 @@ body{
 
 main{
     display: inline-block;
-    background-color: #5FA8D3;
+    background: linear-gradient(#1B4965, #5FA8D3);
     width: 100%;
 }
 
