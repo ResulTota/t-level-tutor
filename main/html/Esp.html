@@ -25,26 +25,28 @@
   
   <main>
     <content>
-      <div id="mySidenav" class="sidenav">
+      <div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    
+    <div class="overlay-content">
     <a href="./index.html">Home</a>
-    
-    <div class="menu-item">
-          <a href="./content-Areas.html">Content Areas</a>
-          <div class="submenu">
-            <a href="./content-areas/CA1 - Problem Solving/problem-solving.html">CA1</a>
-            <a href="./content-areas/CA2 - Intro To Programming/intro-to-programming.html">CA2</a>
-            <a href="./content-areas/CA3 - Emerging Issues/emerging-issues.html">CA3</a>
-            <a href="./content-areas/CA4 - Legislation And Regulatory Requirements/legislation-and-regulatory-requirements.html">CA4</a>
 
-            <a href="./content-areas/CA5 - Business Context/business-context.html">CA5</a>
-            <a href="./content-areas/CA6 - Data/data.html">CA6</a>
-            <a href="./content-areas/CA7 - Digital Environments/digital-environments.html">CA7</a>
-            <a href="./content-areas/CA8 - Security/security.html">CA8</a>
-          </div>
+    <div class="menu-item">
+      <a href="./content-Areas.html">Content Areas</a>
+      <div class="submenu">
+        <a href="./content-areas/CA1 - Problem Solving/problem-solving.html">CA1</a>
+        <a href="./content-areas/CA2 - Intro To Programming/intro-to-programming.html">CA2</a>
+        <a href="./content-areas/CA3 - Emerging Issues/emerging-issues.html">CA3</a>
+        <a href="./content-areas/CA4 - Legislation And Regulatory Requirements/legislation-and-regulatory-requirements.html">CA4</a>
+
+        <a href="./content-areas/CA5 - Business Context/business-context.html">CA5</a>
+        <a href="./content-areas/CA6 - Data/data.html">CA6</a>
+        <a href="./content-areas/CA7 - Digital Environments/digital-environments.html">CA7</a>
+        <a href="./content-areas/CA8 - Security/security.html">CA8</a>
+      </div>
     </div>
-        
+
+    <a href="#"></a>
+    
     <div class="menu-item">
       <a href="./Esp.html">Employer Set Project (ESP)</a>
       <div class="submenu">
@@ -59,18 +61,19 @@
 
     <a href="./Other.html">Other</a>
 
+    </div>
   </div>
 
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
   <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
+    function openNav() {
+      document.getElementById("myNav").style.height = "100%";
+    }
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+    function closeNav() {
+      document.getElementById("myNav").style.height = "0%";
+    }
 
     let darkmode = localStorage.getItem('darkmode')
     const themeSwitch = document.getElementById('theme-switch')
