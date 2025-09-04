@@ -2,7 +2,7 @@
     --header-bg-color: #1b4965;
     --header-text-color:white;
     --border-line-color: black;
-    --both-outer-box-color: #5FA8D3;
+    --both-outer-box-color:  linear-gradient(to bottom, #5FA8D3, #5FA8D3);
     --footer-color: #1b4965;
     --form-bg-color: #bee7fe;
     --nav-1-color: #1B4965;
@@ -17,15 +17,15 @@ body.darkmode{
     --header-bg-color: #002139;
     --header-text-color:white;
     --border-line-color: white;
-    --both-outer-box-color:#001524;
+    --both-outer-box-color: linear-gradient(to bottom,#0A192F, #001524);
     --footer-color: #002139;
-    --form-bg-color: #05375A;
+    --form-bg-color: #172A46;
     --nav-1-color: #002139;
     
     --switch-day-night: #205274;
     --switch-fill-color: #69B4E0;
 
-    --main-topic-box-color: #05375A;
+    --main-topic-box-color: #172A46;
 }
 
 #theme-switch{
@@ -155,7 +155,7 @@ h4 {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--both-outer-box-color);
+    background-image: var(--both-outer-box-color);
     color: var(--border-line-color);
 }
 

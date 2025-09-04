@@ -1,6 +1,6 @@
 :root{
     --header-bg-color: #1b4965;
-    --both-outer-box-color: #5FA8D3;
+    --both-outer-box-color:  linear-gradient(to bottom, #5FA8D3, #5FA8D3);
     --footer-color: #1b4965;
     --sub-topic-box-color: aliceblue;
     --border-line-color: black;
@@ -12,9 +12,9 @@
 }
 body.darkmode{
     --header-bg-color: #002139;
-    --both-outer-box-color:#001524;
+    --both-outer-box-color: linear-gradient(to bottom, #001524, #003A63);
     --footer-color: #002139;
-    --sub-topic-box-color: #05375A;
+    --sub-topic-box-color: #031825;
     --border-line-color: white;
     --shadow-jitsu-color: #001E33;
 
@@ -201,7 +201,7 @@ h2 {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--both-outer-box-color);
+    background-image: var(--both-outer-box-color);
 }
 
 @media screen and (max-height: 450px) {

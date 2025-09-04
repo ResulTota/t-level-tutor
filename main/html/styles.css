@@ -63,6 +63,36 @@ body.darkmode{
     display: block;
 }
 
+#googleSignIn{
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 100px;
+    padding: 0;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    cursor: pointer;
+    margin-right: 190px ;
+}
+
+#signOut{
+      top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 100px;
+    padding: 0;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    cursor: pointer;
+    margin-right: 80px ;
+}
+
 header{
     background-color: var(--header-bg-color);
     display: flex;
