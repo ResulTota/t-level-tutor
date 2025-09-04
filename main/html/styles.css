@@ -12,7 +12,6 @@
     --esp-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --esp-topic-img-color: linear-gradient(#205274,#417592 );
     --content-back-color: white;
-    --small-content-color: white;
 
 }
 body.darkmode{
@@ -20,7 +19,7 @@ body.darkmode{
     --header-text-color:white;
     --both-inner-box-color: #69B4E0;
     --footer-color: #1b4965;
-    --footer-text-color: black;
+    --footer-text-color: white;
     --switch-day-night: #205274;
     --switch-fill-color: #69B4E0;
 
@@ -29,7 +28,6 @@ body.darkmode{
     --esp-topic-box-color: linear-gradient(to bottom, #5FA8D3, #1b4965 );
     --esp-topic-img-color: linear-gradient(#417592, #205274 );
     --content-back-color: linear-gradient(to bottom, #001524, #003A63, #00518A);
-    --small-content-color: linear-gradient(to bottom , #002139, #00518A) ;
     --content-area-text-bg-color: linear-gradient(to bottom, #00182A, #001E33);
 }
 
@@ -329,7 +327,6 @@ content {
 }
 
 .content-area{
-    background: var(--small-content-color);
     max-width:inherit;
     height: auto;
     margin: 0px 20px 20px 20px;
