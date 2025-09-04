@@ -1,5 +1,56 @@
+:root{
+    --header-bg-color: #1b4965;
+    --both-outer-box-color: #5FA8D3;
+    --footer-color: #1b4965;
+    --sub-topic-box-color: aliceblue;
+    --border-line-color: black;
+
+    --switch-day-night: #69B4E0;
+    --switch-fill-color: #205274;
+
+}
+body.darkmode{
+    --header-bg-color: #002139;
+    --both-outer-box-color:#001524;
+    --footer-color: #002139;
+    --sub-topic-box-color: #05375A;
+    --border-line-color: white;
+
+    --switch-day-night: #205274;
+    --switch-fill-color: #69B4E0;
+}
+
+#theme-switch{
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 70px;
+    padding: 0;
+    border-radius: 50px;
+    background-color: var(--switch-day-night);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+#theme-switch svg{
+    fill: var(--switch-fill-color)
+}
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block;
+}
+
 header{
-    background-color: #1b4965;
+    background-color: var(--header-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +63,7 @@ header a {
     top: 10px;
     left: 10px;
     display: block;
-    border: solid 2px #5FA8D3;
+    border: solid 2px #5FA8D3; /*leave dis*/
     border-radius: 5px;
     width: 120px;
     height: 120px;
@@ -39,7 +90,7 @@ header a {
 }
 
 footer {
-    background-color: #1b4965;
+    background-color: var(--footer-color);
     color: white;
     text-align: center;
     padding: 10px;
@@ -47,7 +98,7 @@ footer {
 
 main{
     display: inline-block;
-    background-color: #5FA8D3;
+    background-color: var(--both-outer-box-color);
     width: 100%;
 }
 
@@ -60,7 +111,7 @@ h2 {
 }
 
 .subtopic-box {
-    background-color: aliceblue;
+    background-color: var(--sub-topic-box-color);
     border: solid 3px #1b4965;
     border-radius: 20px;
     width: auto;
@@ -69,14 +120,14 @@ h2 {
     display: block;
     text-align: center;
     font-size: 20px;
-    color: black;
+    color: var(--border-line-color);
     font-weight: bold;
     text-decoration: none;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .subtopic-box:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: transform 0.3s ease;
 }
 
@@ -142,6 +193,12 @@ h2 {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--both-outer-box-color);
 }
 
 @media screen and (max-height: 450px) {
