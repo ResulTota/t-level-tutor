@@ -49,11 +49,9 @@
         <a href="./content-areas/CA8 - Security/security.html">CA8</a>
       </div>
     </div>
-
-    <a href="#"></a>
     
     <div class="menu-item">
-      <a href="./Esp.html">Employer Set Project (ESP)</a>
+    <a href="javascript:void(0)" class="menu-toggle">Employer Set Project (ESP)</a>
       <div class="submenu">
         <a href="./employer-set-project/Pre-Task/Pre-Task.html">Pre-Task</a>
         <a href="./employer-set-project/Task 1-Planning-A-Project/">Task 1</a>
@@ -90,24 +88,14 @@
   </main>
   
   <script>
-    function jumpToSection() { 
-      document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const section = document.getElementById('sections').value;
-        if (section) {
-            window.location.hash = section;
-        }
-      })
-    };
-
     function openNav() {
-      document.getElementById("myNav").style.width = "100%";
+      document.getElementById("myNav").style.height = "100%";
     }
 
     function closeNav() {
-      document.getElementById("myNav").style.width = "0%";
+      document.getElementById("myNav").style.height = "0%";
     }
-    
+     
     let darkmode = localStorage.getItem('darkmode')
     const themeSwitch = document.getElementById('theme-switch')
 
