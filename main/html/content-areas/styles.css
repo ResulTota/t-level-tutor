@@ -4,6 +4,7 @@
     --footer-color: #1b4965;
     --sub-topic-box-color: aliceblue;
     --border-line-color: black;
+    --shadow-jitsu-color: #1b4965;
 
     --switch-day-night: #69B4E0;
     --switch-fill-color: #205274;
@@ -15,6 +16,7 @@ body.darkmode{
     --footer-color: #002139;
     --sub-topic-box-color: #05375A;
     --border-line-color: white;
+    --shadow-jitsu-color: #001E33;
 
     --switch-day-night: #205274;
     --switch-fill-color: #69B4E0;

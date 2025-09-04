@@ -6,6 +6,7 @@
     --footer-text-color: white;
     --switch-day-night: #69B4E0;
     --switch-fill-color: #205274;
+    --shadow-jitsu-color: #1b4965;
 
     --main-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --main-topic-img-color: linear-gradient(#3485bb,#61afd8 ); 
@@ -22,6 +23,7 @@ body.darkmode{
     --footer-text-color: white;
     --switch-day-night: #205274;
     --switch-fill-color: #69B4E0;
+    --shadow-jitsu-color: #001E33;
 
     --main-topic-box-color: linear-gradient(to bottom, #5FA8D3, #1b4965 );
     --main-topic-img-color: linear-gradient(#61afd8, #3485bb ); 
@@ -113,7 +115,7 @@ header a {
     margin: 20px 15px 20px 15px;
     border-radius: 20px;
     color: inherit;
-    box-shadow: #1b4965 0px 10px 0px 0px;
+    box-shadow: var(--shadow-jitsu-color) 0px 10px 0px 0px;
 }
 
 .main-topic img {
@@ -153,7 +155,7 @@ header a {
     margin: 20px 15px 20px 15px;
     border-radius: 20px;
     color: inherit;
-    box-shadow: #1b4965 0px 10px 0px 0px;
+    box-shadow: var(--shadow-jitsu-color) 0px 10px 0px 0px;
 }
 
 .esp-topic img {

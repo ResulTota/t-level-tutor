@@ -1,5 +1,65 @@
+:root{
+    --header-bg-color: #1b4965;
+    --header-text-color:white;
+    --border-line-color: black;
+    --both-outer-box-color: #5FA8D3;
+    --footer-color: #1b4965;
+    --form-bg-color: #bee7fe;
+    --nav-1-color: #1B4965;
+
+    --switch-day-night: #69B4E0;
+    --switch-fill-color: #205274;
+
+    --main-topic-box-color:#bee7fe;
+
+}
+body.darkmode{
+    --header-bg-color: #002139;
+    --header-text-color:white;
+    --border-line-color: white;
+    --both-outer-box-color: linear-gradient(to bottom, #001524, #003A63, #00518A);
+    --footer-color: #002139;
+    --form-bg-color: #05375A;
+    --nav-1-color: #002139;
+    
+    --switch-day-night: #205274;
+    --switch-fill-color: #69B4E0;
+
+    --main-topic-box-color: #05375A;
+}
+
+#theme-switch{
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 70px;
+    padding: 0;
+    border-radius: 50px;
+    background-color: var(--switch-day-night);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    cursor: pointer;
+}
+
+#theme-switch svg{
+    fill: var(--switch-fill-color)
+}
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block;
+}
+
 header{
-    background-color: #1b4965;
+    background-color: var(--header-bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +80,7 @@ header a {
 }
 
 .header-text{
-    color: white;
+    color: var(--header-text-color);
     text-align: center;
     width: 100%;
     font-size: 25px;
@@ -43,7 +103,7 @@ main {
     max-width: 800px;
     margin: 30px auto;
     border-radius: 45px;
-    background-color: #bee7fe;
+    background-color: var(--main-topic-box-color);
     border: solid 3px #1b4965;
     padding: 10px;
     font-family: 'Segoe UI', sans-serif;
@@ -55,7 +115,7 @@ main {
     font-size: 32px;
     margin: 8px 0 15px 0;
     padding-bottom: 8px;
-    border-bottom: solid 3px black;
+    border-bottom: solid 3px var(--border-line-color);
 }
 
 .top-sub-heading {
@@ -63,7 +123,7 @@ main {
     font-size: 20px;
     margin-top: 8px;
     padding-bottom: 3px;
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px var(--border-line-color);
 }
 
 .sub-heading {
@@ -71,8 +131,8 @@ main {
     font-size: 20px;
     margin-top: 8px;
     padding-bottom: 3px;
-    border-bottom: solid 2px black;
-    border-top: solid 2px black;
+    border-bottom: solid 2px var(--border-line-color);
+    border-top: solid 2px var(--border-line-color);
 }
 
 h4 {
@@ -94,11 +154,14 @@ h4 {
 }
 
 body {
-    background-color: #5FA8D3;
+    margin: 0;
+    padding: 0;
+    background-color: var(--both-outer-box-color);
+    color: var(--border-line-color);
 }
 
 footer {
-    background-color: #1b4965;
+    background-color: var(--footer-color);
     color: white;
     text-align: center;
     padding: 10px;
@@ -113,7 +176,7 @@ form{
     font-size: 18px;
     margin: 30px auto;
     border-radius: 20px;
-    background-color: #bee7fe;
+    background-color: var(--form-bg-color);
     border: solid 3px #1b4965;
     padding: 10px;
     max-width: 800px;
@@ -133,7 +196,7 @@ input[type=submit] {
 label {
   padding: 10px;
   font-size: 20px;
-  color: black;
+  color: var(--border-line-color);
   cursor: pointer;
 }
 
