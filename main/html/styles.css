@@ -43,6 +43,7 @@ body.darkmode{
     justify-content: center;
     align-items: center;
     position: fixed;
+    cursor: pointer;
 }
 
 #theme-switch svg{
