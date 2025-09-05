@@ -12,6 +12,10 @@
 
     --main-topic-box-color:#bee7fe;
 
+    --side-bar-color: #1B4965;
+    --sub-menu-hover: rgba(50,120,160, 0.7);
+    --sub-menu-background: rgba(37,97,133, 0.7);
+
 }
 body.darkmode{
     --header-bg-color: #002139;
@@ -26,6 +30,10 @@ body.darkmode{
     --switch-fill-color: #69B4E0;
 
     --main-topic-box-color: #172A46;
+    
+    --side-bar-color: #002139;
+    --sub-menu-hover: rgba(11, 46, 86, 0.7);
+    --sub-menu-background: rgba(9, 39, 69, 0.7);
 }
 
 #theme-switch{
@@ -82,7 +90,7 @@ header a {
 }
 
 .header-text{
-    color: var(--header-text-color);
+    color: white;
     text-align: center;
     width: 100%;
     font-size: 18px;
@@ -219,17 +227,6 @@ select:focus {
   color: white;
 }
 
-
-input[type=submit] {
-  background-color: #1b4965;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
 arrow-Nav {
     display: flex;
     justify-content: center;
@@ -265,53 +262,6 @@ arrow-Nav a {
     margin: 15px 20px 0 20px;
 }
 
-table, th, td, tr{
-    width: auto;
-    margin: 20px 0;
-    border: solid 3px #000000;
-}
-
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #1B4965;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  background-color: #256185;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
 .menu-item {
   position: relative;
   font-family: 'Segoe UI', sans-serif;
@@ -320,7 +270,7 @@ table, th, td, tr{
 .submenu {
   display: none;
   flex-direction: column;
-  background-color: rgba(37,97,133, 0.7);
+  background-color: var(--sub-menu-background);
   align-items: center;
 }
 
@@ -337,7 +287,7 @@ table, th, td, tr{
 }
 
 .submenu a:hover {
-  background-color: rgba(50,120,160, 0.7);
+  background-color: var(--sub-menu-hover);
 }
 
 
@@ -348,7 +298,7 @@ table, th, td, tr{
   z-index: 1;
   top: 140px;
   left: 0;
-  background-color: #1B4965;
+  background-color: var(--side-bar-color);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -365,7 +315,7 @@ table, th, td, tr{
 }
 
 .sidenav a:hover {
-  background-color: #256185;
+  background-color: var(--sub-menu-hover);
 }
 
 .sidenav .closebtn {

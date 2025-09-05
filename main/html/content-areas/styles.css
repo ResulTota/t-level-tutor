@@ -9,6 +9,9 @@
     --switch-day-night: #69B4E0;
     --switch-fill-color: #205274;
 
+    --side-bar-color: #1B4965;
+    --sub-menu-hover: rgba(50,120,160, 0.7);
+    --sub-menu-background: rgba(37,97,133, 0.7);
 }
 body.darkmode{
     --header-bg-color: #002139;
@@ -20,6 +23,10 @@ body.darkmode{
 
     --switch-day-night: #205274;
     --switch-fill-color: #69B4E0;
+    
+    --side-bar-color: #002139;
+    --sub-menu-hover: rgba(11, 46, 86, 0.7);
+    --sub-menu-background: rgba(9, 39, 69, 0.7);
 }
 
 #theme-switch{
@@ -144,7 +151,7 @@ h2 {
 .submenu {
   display: none;
   flex-direction: column;
-  background-color: rgba(37,97,133, 0.7);
+  background-color: var(--sub-menu-background);
   align-items: center;
 }
 
@@ -161,7 +168,7 @@ h2 {
 }
 
 .submenu a:hover {
-  background-color: rgba(50,120,160, 0.7);
+  background-color: var(--sub-menu-hover);
 }
 
 
@@ -172,7 +179,7 @@ h2 {
   z-index: 1;
   top: 140px;
   left: 0;
-  background-color: #1B4965;
+  background-color: var(--side-bar-color);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -189,7 +196,7 @@ h2 {
 }
 
 .sidenav a:hover {
-  background-color: #256185;
+  background-color: var(--sub-menu-hover);
 }
 
 .sidenav .closebtn {

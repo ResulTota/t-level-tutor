@@ -16,13 +16,14 @@
     --esp-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --esp-topic-img-color: linear-gradient(#205274,#417592 );
     --content-back-color: white;
+    --pillar-background: linear-gradient(#CAE9FF, #1b4965);
 
 }
 body.darkmode{
     --header-bg-color: #073550;
     --header-text-color:white;
     --both-inner-box-color: #69B4E0;
-    --footer-color: #1b4965;
+    --footer-color: #002139;
     --footer-text-color: white;
     --switch-day-night: #205274;
     --switch-fill-color: #69B4E0;
@@ -37,6 +38,7 @@ body.darkmode{
     --esp-topic-img-color: linear-gradient(#417592, #205274 );
     --content-back-color: linear-gradient(to bottom, #001524, #00182A );
     --content-area-text-bg-color: linear-gradient(to bottom, #00182A, #001E33);
+    --pillar-background: linear-gradient(#073550, #002139);
 }
 
 #theme-switch{
@@ -402,7 +404,7 @@ content {
 
 main{
     display: flex;
-    background: linear-gradient(#1B4965, #5FA8D3);
+    background: var(--pillar-background);
     width: 100%;
     justify-content: center;
 }
