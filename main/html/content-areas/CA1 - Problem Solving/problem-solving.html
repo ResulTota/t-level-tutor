@@ -22,9 +22,9 @@
         </div>
     </header>
 <content>
-<div id="mySidenav" class="sidenav">
+<div id="myNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    
+    <br><br><br><br><br>
     <a href="../../index.html">Home</a>
     
     <div class="menu-item">
@@ -61,13 +61,13 @@
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
   <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
+    function openNav() {
+      document.getElementById("myNav").style.height = "100%";
+    }
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+    function closeNav() {
+      document.getElementById("myNav").style.height = "0%";
+    }
 
   
     let darkmode = localStorage.getItem('darkmode')
