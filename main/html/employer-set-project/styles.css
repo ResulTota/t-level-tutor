@@ -296,7 +296,7 @@ arrow-Nav a {
   width: 0;
   position: fixed;
   z-index: 1;
-  top: 140px;
+  top: 100px;
   left: 0;
   background-color: var(--side-bar-color);
   overflow-x: hidden;
