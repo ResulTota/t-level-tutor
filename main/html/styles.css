@@ -10,6 +10,7 @@
 
     --sign-out: linear-gradient(to left, #5DB4E7, #92D2FF );
     --sign-in: linear-gradient(to left, #5DB4E7, #92D2FF );
+    --log-out-icon: #002139;
 
     --main-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --main-topic-img-color: linear-gradient(#3485bb,#61afd8 ); 
@@ -31,6 +32,7 @@ body.darkmode{
 
     --sign-out: linear-gradient(to left, #172A46, #172A46);
     --sign-in: linear-gradient(to left, #172A46, #172A46);
+    --log-out-icon: white;
 
     --main-topic-box-color: linear-gradient(to bottom, #5FA8D3, #1b4965 );
     --main-topic-img-color: linear-gradient(#61afd8, #3485bb ); 
@@ -78,6 +80,7 @@ body.darkmode{
     right: 20px;
     height: 50px;
     width: 100px;
+    gap: 10px;
     padding: 0;
     border-style: none;
     border-radius: 50px;
@@ -97,6 +100,7 @@ body.darkmode{
     right: 20px;
     height: 50px;
     width: 100px;
+    gap: 5px;
     padding: 0;
     border-style: none;
     border-radius: 50px;
@@ -110,6 +114,7 @@ body.darkmode{
     color: var(--header-text-color);
     overflow: hidden; 
 }
+
 #user-icon{
     top: 20px;
     right: -20px;
