@@ -8,6 +8,9 @@
     --switch-fill-color: #205274;
     --shadow-jitsu-color: #1b4965;
 
+    --sign-out: linear-gradient(to left, #5DB4E7, #92D2FF );
+    --sign-in: linear-gradient(to left, #5DB4E7, #92D2FF );
+
     --main-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --main-topic-img-color: linear-gradient(#3485bb,#61afd8 ); 
     --esp-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
@@ -25,11 +28,14 @@ body.darkmode{
     --switch-fill-color: #69B4E0;
     --shadow-jitsu-color: #001E33;
 
+    --sign-out: linear-gradient(to left, #172A46, #172A46);
+    --sign-in: linear-gradient(to left, #172A46, #172A46);
+
     --main-topic-box-color: linear-gradient(to bottom, #5FA8D3, #1b4965 );
     --main-topic-img-color: linear-gradient(#61afd8, #3485bb ); 
     --esp-topic-box-color: linear-gradient(to bottom, #5FA8D3, #1b4965 );
     --esp-topic-img-color: linear-gradient(#417592, #205274 );
-    --content-back-color: linear-gradient(to bottom, #001524, #003A63, #00518A);
+    --content-back-color: linear-gradient(to bottom, #001524, #00182A );
     --content-area-text-bg-color: linear-gradient(to bottom, #00182A, #001E33);
 }
 
@@ -46,6 +52,7 @@ body.darkmode{
     align-items: center;
     position: fixed;
     cursor: pointer;
+    border-style: none;
 }
 
 #theme-switch svg{
@@ -69,21 +76,7 @@ body.darkmode{
     height: 50px;
     width: 100px;
     padding: 0;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    cursor: pointer;
-    margin-right: 190px ;
-}
-
-#signOut{
-      top: 20px;
-    right: 20px;
-    height: 50px;
-    width: 100px;
-    padding: 0;
+    border-style: none;
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -91,6 +84,26 @@ body.darkmode{
     position: fixed;
     cursor: pointer;
     margin-right: 80px ;
+    background-image: var(--sign-in);
+    color: var(--header-text-color);
+}
+
+#signOut{
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 100px;
+    padding: 0;
+    border-style: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    cursor: pointer;
+    margin-right: 190px ;
+    background-image: var(--sign-out);
+    color: var(--header-text-color);
 }
 
 header{
@@ -99,18 +112,18 @@ header{
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 140px;
+    min-height: 100px;
 }
 
 header a {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 25px;
     display: block;
     border: solid 2px #fff; /*leave dis*/
     border-radius: 5px;
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     overflow: hidden; 
 }
 
@@ -118,7 +131,7 @@ header a {
     color: var(--header-text-color);
     text-align: center;
     width: 100%;
-    font-size: 25px;
+    font-size: 18px;
     position: static;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -361,7 +374,7 @@ content {
 
 .content-area{
     max-width:inherit;
-    height: auto;
+    height: 100%;
     margin: 0px 20px 20px 20px;
     display: flex;
     flex-wrap: wrap;
