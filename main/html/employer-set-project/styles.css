@@ -34,12 +34,14 @@ body.darkmode{
     width: 70px;
     padding: 0;
     border-radius: 50px;
+    border-style: none;
     background-color: var(--switch-day-night);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     cursor: pointer;
+    overflow: hidden; 
 }
 
 #theme-switch svg{
@@ -63,18 +65,18 @@ header{
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 140px;
+    min-height: 100px;
 }
 
 header a {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 25px;
     display: block;
     border: solid 2px #5FA8D3;
     border-radius: 5px;
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
 }
 
@@ -82,7 +84,7 @@ header a {
     color: white;
     text-align: center;
     width: 100%;
-    font-size: 25px;
+    font-size: 18px;
     position: static;
     font-family: 'Segoe UI', sans-serif;
 }

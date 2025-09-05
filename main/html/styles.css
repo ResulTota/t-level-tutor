@@ -50,9 +50,10 @@ body.darkmode{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     cursor: pointer;
     border-style: none;
+    overflow: hidden; 
 }
 
 #theme-switch svg{
@@ -81,11 +82,12 @@ body.darkmode{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     cursor: pointer;
     margin-right: 80px ;
     background-image: var(--sign-in);
     color: var(--header-text-color);
+    overflow: hidden; 
 }
 
 #signOut{
@@ -99,11 +101,12 @@ body.darkmode{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     cursor: pointer;
     margin-right: 200px ;
     background-image: var(--sign-out);
-    color: var(--header-text-color)
+    color: var(--header-text-color);
+    overflow: hidden; 
 }
 #user-icon{
     top: 20px;
