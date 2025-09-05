@@ -172,6 +172,7 @@ h2 {
   color: #fff;
   display: block;
   transition: 0.3s;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .overlay a:hover, .overlay a:focus {
