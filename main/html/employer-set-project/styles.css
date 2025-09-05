@@ -12,6 +12,10 @@
 
     --main-topic-box-color:#bee7fe;
 
+    --side-bar-color: #1B4965;
+    --sub-menu-hover: rgba(50,120,160, 0.7);
+    --sub-menu-background: rgba(37,97,133, 0.7);
+
 }
 body.darkmode{
     --header-bg-color: #002139;
@@ -26,7 +30,12 @@ body.darkmode{
     --switch-fill-color: #69B4E0;
 
     --main-topic-box-color: #172A46;
+
+    --side-bar-color: #002139;
+    --sub-menu-hover: rgba(11, 46, 86, 0.7);
+    --sub-menu-background: rgba(9, 39, 69, 0.7);
 }
+
 #theme-switch{
     top: 20px;
     right: 20px;
@@ -259,7 +268,7 @@ arrow-Nav a {
 .submenu {
   display: none;
   flex-direction: column;
-  background-color: rgba(37,97,133, 0.7);
+  background-color: var(--sub-menu-background);
   align-items: center;
 }
 
@@ -276,7 +285,7 @@ arrow-Nav a {
 }
 
 .submenu a:hover {
-  background-color: rgba(50,120,160, 0.7);
+  background-color: var(--sub-menu-hover);
 }
 
 
@@ -287,7 +296,7 @@ arrow-Nav a {
   z-index: 1;
   top: 140px;
   left: 0;
-  background-color: #1B4965;
+  background-color: var(--side-bar-color);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -304,7 +313,7 @@ arrow-Nav a {
 }
 
 .sidenav a:hover {
-  background-color: #256185;
+  background-color: var(--sub-menu-hover);
 }
 
 .sidenav .closebtn {
