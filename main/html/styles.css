@@ -41,7 +41,7 @@ body.darkmode{
 
 #theme-switch{
     top: 20px;
-    right: 20px;
+    right: 340px;
     height: 50px;
     width: 70px;
     padding: 0;
@@ -101,9 +101,25 @@ body.darkmode{
     align-items: center;
     position: fixed;
     cursor: pointer;
-    margin-right: 190px ;
+    margin-right: 200px ;
     background-image: var(--sign-out);
-    color: var(--header-text-color);
+    color: var(--header-text-color)
+}
+#user-icon{
+    top: 20px;
+    right: -20px;
+    margin-right: 50px;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    cursor: pointer;
+    border-style: none; 
 }
 
 header{
