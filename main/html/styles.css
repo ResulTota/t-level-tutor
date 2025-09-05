@@ -19,6 +19,11 @@
     --content-back-color: white;
     --pillar-background: linear-gradient(#CAE9FF, #1b4965);
 
+    --menu-color: rgb(202, 233, 255, 0.9);
+    --menu-text-color: #000; 
+    --sub-menu-hover: rgba(153, 190, 215, 0.7);
+    --sub-menu-background: rgba(164, 206, 233, 0.7);
+
 }
 body.darkmode{
     --header-bg-color: #073550;
@@ -41,6 +46,11 @@ body.darkmode{
     --content-back-color: linear-gradient(to bottom, #001524, #00182A );
     --content-area-text-bg-color: linear-gradient(to bottom, #00182A, #001E33);
     --pillar-background: linear-gradient(#073550, #002139);
+
+    --menu-color: rgb(8, 53, 79, 0.9);
+    --menu-text-color: #fff;
+    --sub-menu-hover: rgba(11, 46, 86, 0.7);
+    --sub-menu-background: rgba(9, 39, 69, 0.7);
 }
 
 #theme-switch{
@@ -400,7 +410,7 @@ content {
 
 .content-area{
     max-width:inherit;
-    height: 100%;
+    height: 100;
     margin: 0px 20px 20px 20px;
     display: flex;
     flex-wrap: wrap;
@@ -422,8 +432,7 @@ main{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #1B4965;
-  background-color: rgba(27,73,101, 0.9);
+  background-color: var(--menu-color);
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -441,13 +450,14 @@ main{
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
-  color: #fff;
+  color: var(--menu-text-color);
   display: block;
   transition: 0.3s;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .overlay a:hover, .overlay a:focus {
-  background-color: rgba(37,97,133, 0.7);
+  background-color: var(--sub-menu-hover);
 }
 
 .overlay .closebtn {
@@ -475,7 +485,7 @@ main{
 .submenu {
   display: none;
   flex-direction: column;
-  background-color: rgba(37,97,133, 0.7);
+  background-color: var(--sub-menu-background);
   align-items: center;
 }
 
@@ -492,7 +502,7 @@ main{
 }
 
 .submenu a:hover {
-  background-color: rgba(50,120,160, 0.7);
+  background-color: var(--sub-menu-hover);
 }
 
 
