@@ -24,18 +24,7 @@
   </header>
 
   <main>
-    <!--
-    <button id="googleSignIn">
-      <span>Sign in</span>
-      <img id= "google-icon" src="../images/google-icon.png"/>
-    </button>
 
-    <button id="signOut">
-      <span>Sign Out</span>
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>
-    </button>
-  -->
-    
     <p id="userInfo"></p>
 
     <button id="googleSignIn" onclick="window.location.href='log-in.html'">Login</button>
@@ -128,52 +117,7 @@
       darkmode !== "active" ? enableDarkmode() : disableDarkmode()
     })
 
-
-</script>
-
-<script type="module">
-  // Import Firebase SDKs from CDN
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-  import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } 
-    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyC_eZWC9B2nWY-5_0UDswLRlL7Ssa1pSt0",
-      authDomain: "tleveltutor.firebaseapp.com",
-      projectId: "tleveltutor",
-      storageBucket: "tleveltutor.firebasestorage.app",
-      messagingSenderId: "978451529313",
-      appId: "1:978451529313:web:33ffc6efd85ad713d8f420",
-      measurementId: "G-T47VXPDZEJ"
-    };
-
-      // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-  // Setup Auth
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-
-  // Sign in with Google
-  document.getElementById("googleSignIn").addEventListener("click", async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      document.getElementById("userInfo").innerText = `Hello, ${user.displayName}`;
-      console.log("Signed in:", user);
-    } catch (error) {
-      console.error("Sign in error:", error);
-    }
-  });
-
-  // Sign out
-  document.getElementById("signOut").addEventListener("click", async () => {
-    await signOut(auth);
-    document.getElementById("userInfo").innerText = "Signed out";
-  });
-</script>
+  </script>
 
 </body>
 <footer>
