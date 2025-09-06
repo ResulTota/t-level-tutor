@@ -545,3 +545,164 @@ main{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
+/* LOGIN PAGE STYLES */
+
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: auto;
+  height: auto;
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-box label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 97%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-box button:hover {
+  opacity: 0.8;
+}
+
+.login-box .cancelbtn {
+  background-color: #f44336;
+  margin-top: 10px;
+}
+
+/*LOGIN PAGE STYLES END */
+
+
+/* SIGNUP PAGE STYLES */
+
+/* Signup Box */
+.signup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: auto;
+}
+
+/* Heading */
+.signup-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+.signup-box label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"] {
+  width: 97%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border 0.3s;
+}
+
+/* Focus Effect */
+.signup-box input:focus {
+  border-color: #04AA6D;
+  outline: none;
+}
+
+/* Error Input Highlight */
+input.error {
+  border-color: #f44336;
+}
+
+/* Buttons */
+.signup-box button{
+  width: 100%;
+  padding: 12px;
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.signup-box button:hover {
+  opacity: 0.9;
+}
+
+/* Cancel Button */
+.signup-box .cancelbtn {
+  background-color: #f44336;
+  margin-top: 10px;
+}
+
+/* Error Message */
+#error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin: -10px 0 10px 0;
+  display: none;
+  text-align: left;
+}
+
+/* Link to Login */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #04AA6D;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+#googleSignUp{
+  width: 100%;
+  padding: 12px;
+  background-color: #FFFFFF;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* SIGNUP PAGE STYLES END */
