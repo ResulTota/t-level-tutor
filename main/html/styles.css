@@ -775,6 +775,7 @@ input.error {
 .tubby1 img {
   position: relative;
   right: 40px;
+  top: 40px;
 }
 
 .form-left {
