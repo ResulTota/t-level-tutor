@@ -630,7 +630,7 @@ main{
 }
 
 .tubby {
-  position: absolute; /* or fixed */
+  position: absolute; 
   top: 140px;
   right: 100px;
   padding: 0px;
@@ -644,18 +644,25 @@ main{
 
 /* SIGNUP PAGE STYLES */
 
+#signupForm{
+  background-color:var(--login-form-color);
+  border-style: none;
+    height: 62vh;
+}
+
 /* Signup Box */
-.signup-box {
-  background: white;
+.signup-box{
+  background-color: var(--login-outer-box-color);
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px var(--login-shadow);
   width: auto;
 }
 
 /* Heading */
 .signup-box h2 {
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -664,13 +671,14 @@ main{
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;
+  color: var(--header-text-color);
 }
 
 /* Input Fields */
 .signup-box input[type="text"],
 .signup-box input[type="email"],
 .signup-box input[type="password"] {
-  width: 97%;
+  width: 40%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -691,15 +699,17 @@ input.error {
 
 /* Buttons */
 .signup-box button{
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 43%;
   padding: 12px;
-  background-color: #04AA6D;
+  background-color: #5FA8D3;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px;
 }
 
 .signup-box button:hover {
@@ -708,7 +718,7 @@ input.error {
 
 /* Cancel Button */
 .signup-box .cancelbtn {
-  background-color: #f44336;
+  background-color: #3d7494;
   margin-top: 10px;
 }
 
@@ -725,6 +735,8 @@ input.error {
 .login-link {
   text-align: center;
   margin-top: 15px;
+  position: relative;
+  right: 90px;
 }
 
 .login-link a {
@@ -736,8 +748,9 @@ input.error {
   text-decoration: underline;
 }
 
-#googleSignUp{
+#googleSignUp {
   width: 100%;
+  max-width: 300px;
   padding: 12px;
   background-color: #FFFFFF;
   color: black;
@@ -745,7 +758,27 @@ input.error {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px;
+  margin: 10px auto 0 auto; 
+  display: block; 
+  position: relative;
+  left: 190px;
+}
+
+.right-align {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  text-align: right; 
+  position: relative;
+  top: -460px;
+}
+.tubby1 img {
+  position: relative;
+  right: 40px;
+}
+
+.form-left {
+  margin-left: 50px;
 }
 
 /* SIGNUP PAGE STYLES END */

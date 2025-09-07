@@ -20,35 +20,43 @@
     <div class="signup-box">
         <h2>Create Account</h2>
         <form id="signupForm" action="/signup_action.php" method="post">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Choose a Username" name="uname" required>
 
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
+        <div class = "form-left">
+          <label for="uname">Sign Up</label>
+          <input type="text" placeholder="Username" name="uname" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+          <label for="email"></label>
+          <input type="email" placeholder="Email" name="email" required>
 
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+          <label for="psw"></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-        <p id="error-message" style="color:red; display:none;">Passwords do not match!</p>
-        
-        <button type="submit">Sign Up</button>
-        <button type="button" class="cancelbtn" onclick="window.location.href='index.html'">Cancel</button>
-        </form>
+          <label for="psw-repeat"></label>
+          <input type="password" placeholder="Confirm Password" name="psw-repeat" id="psw-repeat" required>
 
-        <button id="googleSignUp">
-            <span>Sign Up with Google </span>
-            <img id= "google-icon" src="../images/google-icon.png"/>
-        </button>
+          <p id="error-message" style="color:red; display:none;">Passwords do not match!</p>
+          
+          <button type="submit" class="signupbtn">Sign Up</button>
+          <button type="button" class="cancelbtn" onclick="window.location.href='index.html'">Cancel</button>
+        </div>
 
-        <p class="login-link">Already have an account? <a href="log-in.html">Login</a></p>
+          <div class="right-align">
+            <div class="tubby1">
+              <img src="../images/tubby1.png" alt="tubby1" width="350" height="350"/>
+            </div>
 
-          <div class="tubby1">
-            <img src="../images/tubby1.png" alt="tubby1" width="350" height="350"/>
+            <button id="googleSignUp">
+              <span>Sign Up with Google </span>
+              <img id="google-icon" src="../images/google-icon.png"/>
+            </button>
+
+            <p class="login-link">Already have an account? <a href="log-in.html">Login</a></p>
           </div>
+
+        </form>
     </div>
+
+  </body>
 
     <script>
         document.getElementById("signupForm").addEventListener("submit", function(event) {
@@ -63,6 +71,26 @@
             errorMessage.style.display = "none"; // hide error if fixed
         }
         });
+          
+          let darkmode = localStorage.getItem('darkmode')
+          const themeSwitch = document.getElementById('theme-switch')
+
+          const enableDarkmode = () => {
+            document.body.classList.add('darkmode')
+            localStorage.setItem('darkmode', 'active')
+          }
+
+          const disableDarkmode = () => {
+            document.body.classList.remove('darkmode')
+            localStorage.setItem('darkmode', null)
+          }
+
+          if(darkmode === "active") enableDarkmode()
+
+          themeSwitch.addEventListener("click", () => {
+            darkmode = localStorage.getItem('darkmode')
+            darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+          })
     </script>
 
 <!-- Firebase Script -->
@@ -108,26 +136,6 @@
     await signOut(auth);
     document.getElementById("userInfo").innerText = "Signed out";
   });
-  
-    let darkmode = localStorage.getItem('darkmode')
-    const themeSwitch = document.getElementById('theme-switch')
-
-    const enableDarkmode = () => {
-      document.body.classList.add('darkmode')
-      localStorage.setItem('darkmode', 'active')
-    }
-
-    const disableDarkmode = () => {
-      document.body.classList.remove('darkmode')
-      localStorage.setItem('darkmode', null)
-    }
-
-    if(darkmode === "active") enableDarkmode()
-
-    themeSwitch.addEventListener("click", () => {
-      darkmode = localStorage.getItem('darkmode')
-      darkmode !== "active" ? enableDarkmode() : disableDarkmode()
-    })
 </script>
 
 </body>
