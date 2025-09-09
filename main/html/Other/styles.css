@@ -12,6 +12,10 @@
 
     --main-topic-box-color:#bee7fe;
 
+    --side-bar-color: #1B4965;
+    --sub-menu-hover: rgba(50,120,160, 0.7);
+    --sub-menu-background: rgba(37,97,133, 0.7);
+    
 }
 body.darkmode{
     --header-bg-color: #002139;
@@ -26,7 +30,11 @@ body.darkmode{
     --switch-fill-color: #69B4E0;
 
     --main-topic-box-color: #172A46;
-}
+
+    --side-bar-color: #002139;
+    --sub-menu-hover: rgba(11, 46, 86, 0.7);
+    --sub-menu-background: rgba(9, 39, 69, 0.7);
+  }
 
 #theme-switch{
     top: 20px;
@@ -218,6 +226,56 @@ select:focus {
   color: white;
 }
 
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 0;
+  background-color: var(--side-bar-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.overlay a:hover, .overlay a:focus {
+  background-color: var(--sub-menu-hover);
+}
+
+.overlay .closebtn {
+  position: absolute;
+  font-size: 40px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
 .menu-item {
   position: relative;
   font-family: 'Segoe UI', sans-serif;
@@ -226,7 +284,7 @@ select:focus {
 .submenu {
   display: none;
   flex-direction: column;
-  background-color: rgba(37,97,133, 0.7);
+  background-color: var(--sub-menu-background);
   align-items: center;
 }
 
@@ -243,7 +301,7 @@ select:focus {
 }
 
 .submenu a:hover {
-  background-color: rgba(50,120,160, 0.7);
+  background-color: var(--sub-menu-hover);
 }
 
 

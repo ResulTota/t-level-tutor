@@ -21,10 +21,10 @@
             <h1>2.10 - Robust Code</h1>
         </div>
     </header>
-
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <br><br><br><br><br>
     <a href="../../../../index.html">Home</a>
     
     <div class="menu-item">
@@ -62,11 +62,11 @@
 
   <script>
   function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("myNav").style.height = "100%";
   }
 
   function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("myNav").style.height = "0";
   }
   
     let darkmode = localStorage.getItem('darkmode')

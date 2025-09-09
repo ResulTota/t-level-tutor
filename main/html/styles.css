@@ -492,8 +492,8 @@ main{
 
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 15%;
+  right: 48%;
   font-size: 60px;
 }
 
