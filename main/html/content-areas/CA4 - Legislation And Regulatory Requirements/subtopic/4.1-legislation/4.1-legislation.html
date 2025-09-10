@@ -817,6 +817,264 @@
             </section>
 
         </section>
+
+
+                                    
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the main purpose of the Health and Safety at Work Act 1974?",
+        options: [
+        "To reduce company taxes",
+        "To ensure the safety, health, and welfare of employees",
+        "To regulate working hours only",
+        "To monitor employee productivity"
+        ],
+        answer: "To ensure the safety, health, and welfare of employees",
+        explanation: "HSWA 1974 mandates that employers maintain safe workplaces, prevent accidents, and protect employee welfare."
+    },
+    {
+        question: "Which of the following is an employer obligation under HSWA?",
+        options: [
+        "Increase employee workloads",
+        "Provide a safe working environment and proper training",
+        "Limit access to welfare facilities",
+        "Ignore safety incidents if minor"
+        ],
+        answer: "Provide a safe working environment and proper training",
+        explanation: "Employers must ensure workplaces are free from hazards and staff are trained to work safely."
+    },
+    {
+        question: "The Display Screen Equipment (DSE) Regulations 1992 aim to prevent:",
+        options: [
+        "Cybercrime and hacking",
+        "Eye strain, fatigue, and musculoskeletal problems",
+        "Environmental pollution",
+        "Unfair recruitment practices"
+        ],
+        answer: "Eye strain, fatigue, and musculoskeletal problems",
+        explanation: "DSE regulations protect employees from health issues caused by prolonged computer and screen use."
+    },
+    {
+        question: "A practical measure to comply with DSE regulations is:",
+        options: [
+        "Removing all chairs from workstations",
+        "Providing adjustable chairs and anti-glare screens",
+        "Limiting employees to only 1 hour of work per day",
+        "Ignoring workstation layout"
+        ],
+        answer: "Providing adjustable chairs and anti-glare screens",
+        explanation: "Ergonomic equipment helps prevent RSI and eye strain, meeting DSE requirements."
+    },
+    {
+        question: "Which of the following is a health risk from prolonged use of digital systems?",
+        options: [
+        "Repetitive Strain Injury (RSI)",
+        "Improved posture",
+        "Better sleep patterns",
+        "Enhanced vision"
+        ],
+        answer: "Repetitive Strain Injury (RSI)",
+        explanation: "Long periods of typing or using a mouse can cause musculoskeletal strain and injuries like RSI."
+    },
+    {
+        question: "Under GDPR, organisations must ensure:",
+        options: [
+        "Data is collected legally, stored securely, and processed for specific purposes",
+        "Data is sold to third parties freely",
+        "Employees have unrestricted access to all personal data",
+        "Data is stored indefinitely"
+        ],
+        answer: "Data is collected legally, stored securely, and processed for specific purposes",
+        explanation: "GDPR requires lawful, fair, and secure handling of personal data."
+    },
+    {
+        question: "Which principle ensures organisations only collect the minimum necessary personal data?",
+        options: [
+        "Data Minimisation",
+        "Integrity and Confidentiality",
+        "Purpose Limitation",
+        "Accountability"
+        ],
+        answer: "Data Minimisation",
+        explanation: "Collecting only necessary data reduces risk and ensures GDPR compliance."
+    },
+    {
+        question: "A breach of the Computer Misuse Act 1990 includes:",
+        options: [
+        "Accessing a system without authorisation",
+        "Using software as intended",
+        "Providing training to staff",
+        "Updating security patches"
+        ],
+        answer: "Accessing a system without authorisation",
+        explanation: "CMA makes unauthorised access, modification, or misuse of computer systems illegal."
+    },
+    {
+        question: "Which of the following is a type of discrimination covered under the Equality Act 2010?",
+        options: [
+        "Direct and indirect discrimination, harassment, and victimisation",
+        "Only unfair pay",
+        "Only age-based rules",
+        "Workplace theft"
+        ],
+        answer: "Direct and indirect discrimination, harassment, and victimisation",
+        explanation: "The Act protects against multiple forms of discrimination based on protected characteristics."
+    },
+    {
+        question: "An employer responsibility under the Equality Act 2010 is:",
+        options: [
+        "Making reasonable adjustments for employees with disabilities",
+        "Ignoring complaints of harassment",
+        "Hiring based solely on age",
+        "Providing identical workstations to all employees regardless of needs"
+        ],
+        answer: "Making reasonable adjustments for employees with disabilities",
+        explanation: "Employers must ensure equality and accessibility in the workplace."
+    },
+    {
+        question: "Which legislation protects inventions, software, designs, and creative works?",
+        options: [
+        "GDPR",
+        "Health and Safety at Work Act",
+        "Intellectual Property Legislation",
+        "Computer Misuse Act"
+        ],
+        answer: "Intellectual Property Legislation",
+        explanation: "IP laws protect creators’ rights, prevent unauthorised use, and encourage innovation."
+    },
+    {
+        question: "A software developer must follow IP laws by:",
+        options: [
+        "Using licensed libraries and respecting copyright",
+        "Copying competitor software without permission",
+        "Sharing confidential code publicly without authorisation",
+        "Ignoring registration of patents or designs"
+        ],
+        answer: "Using licensed libraries and respecting copyright",
+        explanation: "Compliance ensures legal and ethical use of software components and creative works."
+    },
+    {
+        question: "The interrelationship between digital legislation and software development ensures:",
+        options: [
+        "Compliance with laws, user protection, and organisational responsibility",
+        "Maximum software sales without concern for privacy",
+        "Disregard for ethical considerations",
+        "Unlimited access to all user data"
+        ],
+        answer: "Compliance with laws, user protection, and organisational responsibility",
+        explanation: "Software must comply with H&S, GDPR, CMA, Equality Act, and IP laws to protect users and organisations."
+    },
+    {
+        question: "International law applies to digital offences by:",
+        options: [
+        "Providing global guidance for cybercrime, data breaches, and surveillance",
+        "Exempting multinational organisations from local laws",
+        "Allowing unrestricted cross-border hacking",
+        "Ignoring human rights"
+        ],
+        answer: "Providing global guidance for cybercrime, data breaches, and surveillance",
+        explanation: "International law ensures cross-border compliance, protecting privacy and security across nations."
+    },
+    {
+        question: "A consequence of non-compliance with health and safety or data legislation can include:",
+        options: [
+        "Fines, legal action, reputational damage, and operational restrictions",
+        "Unlimited profits",
+        "Automatic promotion for staff",
+        "Reduced responsibility"
+        ],
+        answer: "Fines, legal action, reputational damage, and operational restrictions",
+        explanation: "Failing to comply with laws like HSWA, GDPR, CMA, or IP legislation can result in severe financial, legal, and reputational consequences."
+    }
+    ];
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

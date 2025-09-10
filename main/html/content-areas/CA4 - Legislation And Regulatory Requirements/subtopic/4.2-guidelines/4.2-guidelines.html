@@ -503,6 +503,263 @@
 
         </section>
 
+                                    
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the main purpose of a code of conduct in digital and software development roles?",
+        options: [
+        "To provide guidance on ethical, professional, and legal behaviour",
+        "To increase company profits",
+        "To reduce software development time",
+        "To enforce marketing strategies"
+        ],
+        answer: "To provide guidance on ethical, professional, and legal behaviour",
+        explanation: "Codes of conduct guide individuals to act responsibly, maintain integrity, and comply with laws and organisational policies."
+    },
+    {
+        question: "Which of the following is an example of a professional code of conduct source?",
+        options: [
+        "British Computer Society (BCS)",
+        "Internal company memo",
+        "Social media policy",
+        "ISO 27001"
+        ],
+        answer: "British Computer Society (BCS)",
+        explanation: "Professional bodies like BCS provide ethical and professional guidance for IT practitioners."
+    },
+    {
+        question: "Governmental codes of conduct ensure:",
+        options: [
+        "Compliance with legal and regulatory frameworks",
+        "Maximum employee autonomy",
+        "Unlimited access to data",
+        "Faster software development"
+        ],
+        answer: "Compliance with legal and regulatory frameworks",
+        explanation: "Governmental codes guide ethical behaviour in public sector IT, ensuring integrity and trust."
+    },
+    {
+        question: "How do guidelines in codes of conduct influence professional behaviour?",
+        options: [
+        "By promoting ethical, responsible, and professional conduct",
+        "By reducing software quality",
+        "By increasing workloads unnecessarily",
+        "By eliminating legal responsibilities"
+        ],
+        answer: "By promoting ethical, responsible, and professional conduct",
+        explanation: "Codes of conduct encourage employees to follow policies, meet deadlines, communicate effectively, and maintain confidentiality."
+    },
+    {
+        question: "Which of the following is an example of following a code of conduct in software development?",
+        options: [
+        "Maintaining confidentiality of client data",
+        "Ignoring security protocols",
+        "Using pirated software for testing",
+        "Skipping professional training"
+        ],
+        answer: "Maintaining confidentiality of client data",
+        explanation: "Adhering to professional guidelines ensures trust and ethical handling of sensitive information."
+    },
+    {
+        question: "Digital industry standards are important because they:",
+        options: [
+        "Ensure interoperability, security, accessibility, and quality across technologies",
+        "Allow software to bypass regulations",
+        "Eliminate the need for testing",
+        "Reduce ethical responsibilities"
+        ],
+        answer: "Ensure interoperability, security, accessibility, and quality across technologies",
+        explanation: "Standards like ISO, WCAG, and W3C provide reliable frameworks for high-quality software development."
+    },
+    {
+        question: "Which organisation sets global IT and quality management standards?",
+        options: [
+        "ISO (International Organization for Standardization)",
+        "PCI SSC",
+        "BCS",
+        "IETF"
+        ],
+        answer: "ISO (International Organization for Standardization)",
+        explanation: "ISO provides international standards for quality, security, and IT processes."
+    },
+    {
+        question: "An Acceptable Use Policy (AUP) defines:",
+        options: [
+        "The rules and guidelines for using an organisation's digital systems",
+        "The company holiday schedule",
+        "Employee dress codes",
+        "Software development deadlines"
+        ],
+        answer: "The rules and guidelines for using an organisation's digital systems",
+        explanation: "AUPs set expectations for ethical, legal, and secure use of IT resources."
+    },
+    {
+        question: "Which of the following is typically prohibited by an AUP?",
+        options: [
+        "Installing unauthorised software",
+        "Using work email professionally",
+        "Accessing authorised work applications",
+        "Using company devices for assigned tasks"
+        ],
+        answer: "Installing unauthorised software",
+        explanation: "Prohibited activities in an AUP prevent security breaches, data loss, and misuse of systems."
+    },
+    {
+        question: "What is the purpose of whistleblowing procedures?",
+        options: [
+        "To allow employees to report unethical, illegal, or unsafe practices safely",
+        "To evaluate employee productivity",
+        "To enforce dress codes",
+        "To assign project deadlines"
+        ],
+        answer: "To allow employees to report unethical, illegal, or unsafe practices safely",
+        explanation: "Whistleblowing helps organisations prevent harm, fraud, or misconduct while protecting the reporter."
+    },
+    {
+        question: "A key principle of whistleblowing procedures is:",
+        options: [
+        "Confidentiality and protection from retaliation",
+        "Mandatory public disclosure of the whistleblower's identity",
+        "Ignoring reported concerns",
+        "Punishing all staff equally"
+        ],
+        answer: "Confidentiality and protection from retaliation",
+        explanation: "Whistleblowers must be safeguarded to encourage reporting without fear of harassment or dismissal."
+    },
+    {
+        question: "How do codes of conduct, industry standards, and AUPs influence software development?",
+        options: [
+        "They ensure ethical, legal, professional, and quality standards are met",
+        "They allow developers to bypass regulations",
+        "They eliminate the need for testing or documentation",
+        "They replace project management tools"
+        ],
+        answer: "They ensure ethical, legal, professional, and quality standards are met",
+        explanation: "Following these guidelines reduces risks, improves compliance, and ensures secure, accessible, and reliable software."
+    },
+    {
+        question: "A practical example of ethical software development is:",
+        options: [
+        "Developing applications that comply with GDPR and accessibility standards",
+        "Ignoring user privacy and accessibility needs",
+        "Copying competitor software without permission",
+        "Skipping security testing to save time"
+        ],
+        answer: "Developing applications that comply with GDPR and accessibility standards",
+        explanation: "Responsible software development incorporates legal compliance, accessibility, and ethical principles."
+    },
+    {
+        question: "What is a potential consequence for ignoring guidelines and codes of conduct in software development?",
+        options: [
+        "Operational risks, legal penalties, reputational damage, and professional consequences",
+        "Increased salary and benefits",
+        "Faster deployment without risk",
+        "Automatic professional promotion"
+        ],
+        answer: "Operational risks, legal penalties, reputational damage, and professional consequences",
+        explanation: "Failure to follow guidelines can result in unsafe, insecure, or non-compliant software, harming organisations, users, and developers."
+    },
+    {
+        question: "Employers’ responsibilities regarding codes of conduct and standards include:",
+        options: [
+        "Providing training, enforcing compliance, and monitoring adherence",
+        "Delegating all decisions to employees without guidance",
+        "Ignoring breaches unless reported externally",
+        "Focusing only on profit and deadlines"
+        ],
+        answer: "Providing training, enforcing compliance, and monitoring adherence",
+        explanation: "Employers must ensure staff understand and follow ethical, professional, and legal guidelines."
+    }
+    ];
+
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
 
     <arrow-Nav>

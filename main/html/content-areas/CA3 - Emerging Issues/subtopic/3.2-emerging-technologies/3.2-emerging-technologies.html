@@ -550,6 +550,287 @@
         </section>
     </section>
 
+                            
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is a primary benefit of increased storage media for organisations?",
+        options: [
+        "Reduces environmental impact of data centres",
+        "Allows analysis of large datasets for decision-making",
+        "Eliminates data privacy risks",
+        "Removes the need for cybersecurity measures"
+        ],
+        answer: "Allows analysis of large datasets for decision-making",
+        explanation: "Organisations can store and process large volumes of data efficiently, enabling better insights and decisions."
+    },
+    {
+        question: "Which is an ethical concern related to data storage?",
+        options: [
+        "Faster file access",
+        "Data privacy breaches and security risks",
+        "Improved cloud services",
+        "Reduced storage costs"
+        ],
+        answer: "Data privacy breaches and security risks",
+        explanation: "Storing personal or sensitive data raises privacy and security issues if not managed responsibly."
+    },
+    {
+        question: "Quantum computing can impact organisations by:",
+        options: [
+        "Slowing down AI training",
+        "Optimising logistics and complex operations",
+        "Eliminating the need for encryption",
+        "Replacing cloud storage solutions"
+        ],
+        answer: "Optimising logistics and complex operations",
+        explanation: "Quantum computing accelerates complex problem solving, improving efficiency in operations and AI applications."
+    },
+    {
+        question: "A potential societal drawback of quantum computing is:",
+        options: [
+        "Reduced scientific research capabilities",
+        "Widening technological inequality and security risks",
+        "Slower decision-making",
+        "Lowering AI accuracy"
+        ],
+        answer: "Widening technological inequality and security risks",
+        explanation: "Quantum computing could be limited to wealthy organisations or countries, creating fairness concerns."
+    },
+    {
+        question: "IoT devices can improve personal convenience but may also:",
+        options: [
+        "Eliminate privacy concerns",
+        "Create privacy and security risks through continuous monitoring",
+        "Reduce energy efficiency",
+        "Make technology less accessible"
+        ],
+        answer: "Create privacy and security risks through continuous monitoring",
+        explanation: "IoT devices collect real-time data, raising concerns about surveillance, hacking, and misuse."
+    },
+    {
+        question: "Which of the following is a positive impact of AI in organisations?",
+        options: [
+        "Job displacement for all roles",
+        "Automates repetitive tasks, saving time and cost",
+        "Bias and discrimination in decisions",
+        "Creates misinformation"
+        ],
+        answer: "Automates repetitive tasks, saving time and cost",
+        explanation: "AI can improve efficiency by automating routine work, freeing staff for higher-value tasks."
+    },
+    {
+        question: "An ethical concern of AI is:",
+        options: [
+        "Faster decision-making",
+        "Bias and discrimination from training data",
+        "Predictive analytics",
+        "Personalised recommendations"
+        ],
+        answer: "Bias and discrimination from training data",
+        explanation: "AI decisions may be unfair if trained on biased datasets, affecting individuals and organisations."
+    },
+    {
+        question: "Extended Reality (XR) technologies can benefit training but may also cause:",
+        options: [
+        "Over-reliance on virtual experiences and potential mental health issues",
+        "Reduced immersive learning",
+        "Lower entertainment value",
+        "Higher physical activity levels"
+        ],
+        answer: "Over-reliance on virtual experiences and potential mental health issues",
+        explanation: "Excessive use of VR/AR can affect mental health, social interactions, and ethical judgement."
+    },
+    {
+        question: "Open source software benefits organisations by:",
+        options: [
+        "Increasing software costs",
+        "Encouraging collaboration and reducing costs",
+        "Eliminating security risks completely",
+        "Restricting innovation"
+        ],
+        answer: "Encouraging collaboration and reducing costs",
+        explanation: "Open source projects provide free code and community-driven improvements, lowering costs and enhancing learning."
+    },
+    {
+        question: "A drawback of blockchain technology is:",
+        options: [
+        "Fraud reduction",
+        "Energy-intensive mining and environmental impact",
+        "Secure digital ownership",
+        "Increased transparency"
+        ],
+        answer: "Energy-intensive mining and environmental impact",
+        explanation: "Blockchain operations can consume significant energy, raising sustainability concerns."
+    },
+    {
+        question: "Autonomous machines like self-driving cars raise ethical concerns because:",
+        options: [
+        "They always improve job security",
+        "Decision-making dilemmas and accountability in accidents",
+        "They eliminate all safety risks",
+        "They reduce operational efficiency"
+        ],
+        answer: "Decision-making dilemmas and accountability in accidents",
+        explanation: "Autonomous systems must make ethical decisions and liability in failures is complex."
+    },
+    {
+        question: "Which is a societal benefit of environmental impact assessment in technology?",
+        options: [
+        "Promotes unsustainable practices",
+        "Encourages recycling and sustainable tech design",
+        "Increases electronic waste",
+        "Reduces quality of life improvements"
+        ],
+        answer: "Encourages recycling and sustainable tech design",
+        explanation: "Assessing environmental impacts helps reduce carbon footprint and supports sustainable practices."
+    },
+    {
+        question: "AI + IoT integration benefits organisations by:",
+        options: [
+        "Reducing operational efficiency",
+        "Providing predictive maintenance and personalised services",
+        "Removing the need for data security",
+        "Eliminating ethical responsibilities"
+        ],
+        answer: "Providing predictive maintenance and personalised services",
+        explanation: "IoT devices collect data which AI can analyse to improve efficiency and service quality."
+    },
+    {
+        question: "A risk of combining AI + XR is:",
+        options: [
+        "Cost-effective training",
+        "Enhanced learning",
+        "Mental health issues and over-reliance on virtual environments",
+        "Immersive experiences"
+        ],
+        answer: "Mental health issues and over-reliance on virtual environments",
+        explanation: "Excessive dependence on XR experiences may negatively affect social skills and mental wellbeing."
+    },
+    {
+        question: "Quantum computing + AI can accelerate research but may also:",
+        options: [
+        "Reduce innovation",
+        "Raise data security threats and unequal access",
+        "Eliminate bias",
+        "Simplify ethical concerns"
+        ],
+        answer: "Raise data security threats and unequal access",
+        explanation: "Faster computing can be misused, creating security and fairness challenges."
+    },
+    {
+        question: "When evaluating the impact of emerging technologies, organisations should consider:",
+        options: [
+        "Efficiency, cost, ethical responsibilities, and strategic advantages",
+        "Only profitability",
+        "Only regulatory compliance",
+        "Ignoring environmental impact"
+        ],
+        answer: "Efficiency, cost, ethical responsibilities, and strategic advantages",
+        explanation: "Organisations must weigh both benefits and potential risks to make informed decisions."
+    },
+    {
+        question: "Key principles for software development with emerging technologies include:",
+        options: [
+        "Holistic design, ethics, sustainability, risk management, inclusivity",
+        "Focusing only on AI capabilities",
+        "Reducing user access to technology",
+        "Maximising profit above all else"
+        ],
+        answer: "Holistic design, ethics, sustainability, risk management, inclusivity",
+        explanation: "Considering combined effects, ethical issues, environmental impact, and inclusivity ensures responsible technology use."
+    }
+    ];
+
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
+
     </main>
     
     <arrow-Nav>

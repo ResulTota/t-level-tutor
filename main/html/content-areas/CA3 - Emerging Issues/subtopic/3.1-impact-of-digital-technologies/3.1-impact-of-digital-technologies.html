@@ -475,6 +475,276 @@
                 <li><strong>Reputation:</strong> Organisations benefit when employees <strong>adhere to recognised standards</strong>, building trust with clients and partners.</li>
             </ul>
         </section>
+
+                        
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is a key benefit of using digital communication tools in organisations?",
+        options: [
+        "Reduces the need for any face-to-face interaction",
+        "Allows instant sharing of information across teams and locations",
+        "Eliminates the risk of miscommunication",
+        "Reduces the amount of documentation required"
+        ],
+        answer: "Allows instant sharing of information across teams and locations",
+        explanation: "Digital tools enable fast communication and clear documentation, improving efficiency and decision-making."
+    },
+    {
+        question: "Which of the following is a drawback of increased digital monitoring of staff?",
+        options: [
+        "Improved security",
+        "Process improvement",
+        "Employee distrust and privacy concerns",
+        "Better accountability"
+        ],
+        answer: "Employee distrust and privacy concerns",
+        explanation: "While monitoring can improve accountability, excessive surveillance can reduce morale and raise privacy issues."
+    },
+    {
+        question: "A potential negative impact of remote or hybrid working is:",
+        options: [
+        "Reduced flexibility",
+        "Cost savings for employers",
+        "Isolation and reduced collaboration",
+        "Access to a larger talent pool"
+        ],
+        answer: "Isolation and reduced collaboration",
+        explanation: "Remote workers may feel disconnected from teams, impacting communication and collaboration."
+    },
+    {
+        question: "Which is a benefit of AI and automation in organisations?",
+        options: [
+        "Guaranteed human empathy in decisions",
+        "Job security for all roles",
+        "Efficiency gains by automating routine tasks",
+        "Reduced need for digital skills"
+        ],
+        answer: "Efficiency gains by automating routine tasks",
+        explanation: "AI and automation free staff from repetitive work, allowing focus on higher-value tasks."
+    },
+    {
+        question: "What is a societal drawback of automation and AI?",
+        options: [
+        "Shift to higher-value work",
+        "Creation of new industries",
+        "Unemployment risk for lower-skilled roles",
+        "Upskilling opportunities"
+        ],
+        answer: "Unemployment risk for lower-skilled roles",
+        explanation: "Automation can displace traditional jobs, disproportionately affecting lower-skilled workers."
+    },
+    {
+        question: "Why is digital inclusion important?",
+        options: [
+        "To make all services free",
+        "To ensure fair access to technology, connectivity, and accessible services",
+        "To promote the use of AI",
+        "To reduce globalisation"
+        ],
+        answer: "To ensure fair access to technology, connectivity, and accessible services",
+        explanation: "Digital inclusion ensures all individuals can use digital services regardless of location, ability, or resources."
+    },
+    {
+        question: "Which end-user characteristic can limit access to digital services?",
+        options: [
+        "Age",
+        "Skills",
+        "Additional needs like accessibility requirements",
+        "All of the above"
+        ],
+        answer: "All of the above",
+        explanation: "Age, digital or literacy skills, and accessibility needs all affect how effectively users can engage with digital systems."
+    },
+    {
+        question: "How can cultural issues impact digital system use?",
+        options: [
+        "They never impact usage",
+        "They can introduce bias or exclude certain groups if language, symbols, or colours are inappropriate",
+        "They only affect internal employees",
+        "They only impact software performance"
+        ],
+        answer: "They can introduce bias or exclude certain groups if language, symbols, or colours are inappropriate",
+        explanation: "Cultural insensitivity can make systems less inclusive and reduce adoption or usability."
+    },
+    {
+        question: "Which of the following is a benefit of professional development?",
+        options: [
+        "Improves industry knowledge and competence",
+        "Decreases employability potential",
+        "Reduces adherence to standards",
+        "Limits career growth"
+        ],
+        answer: "Improves industry knowledge and competence",
+        explanation: "Professional development keeps staff up-to-date with tools, trends, and standards, enhancing performance and career prospects."
+    },
+    {
+        question: "How does digital reliance impact organisational culture?",
+        options: [
+        "Only increases face-to-face meetings",
+        "Changes communication methods, productivity expectations, staff monitoring, and working practices",
+        "Eliminates the need for managers",
+        "Reduces the use of technology in business"
+        ],
+        answer: "Changes communication methods, productivity expectations, staff monitoring, and working practices",
+        explanation: "Digital systems affect multiple aspects of culture including communication, work flexibility, productivity expectations, and monitoring."
+    },
+    {
+        question: "What is a societal benefit of access to wider social networks via digital systems?",
+        options: [
+        "Exposure to online harassment",
+        "Superficial connections only",
+        "Opportunities for professional growth and maintaining relationships",
+        "Limited networking"
+        ],
+        answer: "Opportunities for professional growth and maintaining relationships",
+        explanation: "Digital networks allow global professional connections and help maintain personal relationships."
+    },
+    {
+        question: "Why is connectivity important for digital inclusion?",
+        options: [
+        "It allows people to create digital content",
+        "It ensures fair access to digital services regardless of location",
+        "It improves AI performance",
+        "It reduces the need for professional development"
+        ],
+        answer: "It ensures fair access to digital services regardless of location",
+        explanation: "Reliable internet access is essential for all users to participate in digital systems, particularly in rural or remote areas."
+    },
+    {
+        question: "A drawback of increased use of AI in society is:",
+        options: [
+        "Better accessibility for disabled users",
+        "Enhanced creativity",
+        "Deepfakes and disinformation",
+        "Global knowledge access"
+        ],
+        answer: "Deepfakes and disinformation",
+        explanation: "AI-generated content can be misused for false or misleading media, impacting trust and authenticity."
+    },
+    {
+        question: "How can professional development improve adherence to industry standards?",
+        options: [
+        "By training staff to follow best practices, improving safety and compatibility",
+        "By reducing employee skills",
+        "By replacing manual testing",
+        "By limiting access to technology"
+        ],
+        answer: "By training staff to follow best practices, improving safety and compatibility",
+        explanation: "Professional development ensures employees are knowledgeable about standards, benefiting organisational quality and reputation."
+    },
+    {
+        question: "What is a potential drawback of over-reliance on digital communication in organisations?",
+        options: [
+        "Faster decision-making",
+        "Weakened personal connections and reduced social bonding",
+        "Clear documentation",
+        "Flexible communication methods"
+        ],
+        answer: "Weakened personal connections and reduced social bonding",
+        explanation: "Relying heavily on digital communication may reduce face-to-face interaction, affecting workplace relationships."
+    },
+    {
+        question: "Which factor contributes to digital exclusion in society?",
+        options: [
+        "Access to modern hardware",
+        "Lack of connectivity",
+        "Skills gap",
+        "All of the above"
+        ],
+        answer: "All of the above",
+        explanation: "Digital exclusion arises from lack of devices, poor internet access, or insufficient skills."
+    }
+    ];
+
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>
