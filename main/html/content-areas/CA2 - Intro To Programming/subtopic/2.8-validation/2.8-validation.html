@@ -178,6 +178,210 @@
             <h3 class="sub-heading">2.8.4 - Debugging Code Using Validation</h3>
             <p>You must be able to debug code that uses validation.</p>
         </section>
+
+                
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the main purpose of validation in programming?",
+        options: [
+        "To fix errors in code",
+        "To ensure input data is correct, reasonable, and acceptable",
+        "To improve program speed",
+        "To encrypt sensitive information"
+        ],
+        answer: "To ensure input data is correct, reasonable, and acceptable",
+        explanation: "Validation prevents invalid data from being processed, ensuring accuracy and reliability."
+    },
+    {
+        question: "Which type of validation ensures that a required field is not left blank?",
+        options: [
+        "Range check",
+        "Type check",
+        "Presence check",
+        "Length check"
+        ],
+        answer: "Presence check",
+        explanation: "Presence checks verify that the user has entered a value."
+    },
+    {
+        question: "A system requires passwords to be at least 8 characters long. What type of validation is this?",
+        options: [
+        "Length check",
+        "Presence check",
+        "Format check",
+        "Type check"
+        ],
+        answer: "Length check",
+        explanation: "Length checks ensure input meets minimum or maximum character requirements."
+    },
+    {
+        question: "Which validation type is being used here?\n\nage = int(input('Enter age: '))\nif age < 1 or age > 120:\n    print('Error: Invalid age')",
+        options: [
+        "Range check",
+        "Type check",
+        "Format check",
+        "Presence check"
+        ],
+        answer: "Range check",
+        explanation: "This code ensures the number is within a valid range (1–120)."
+    },
+    {
+        question: "Which validation type prevents users from entering letters when a number is expected?",
+        options: [
+        "Type check",
+        "Range check",
+        "Length check",
+        "Check digit"
+        ],
+        answer: "Type check",
+        explanation: "Type checks ensure the input is of the correct data type, such as an integer."
+    },
+    {
+        question: "What validation method is commonly used to check if an email contains '@' and '.'?",
+        options: [
+        "Presence check",
+        "Format check",
+        "Range check",
+        "Length check"
+        ],
+        answer: "Format check",
+        explanation: "Format checks validate that input follows a specific pattern, like an email address."
+    },
+    {
+        question: "Which validation technique is commonly used in barcodes and ISBN numbers?",
+        options: [
+        "Length check",
+        "Check digit",
+        "Presence check",
+        "Range check"
+        ],
+        answer: "Check digit",
+        explanation: "Check digit validation adds an extra digit to verify correctness of numbers like ISBNs."
+    },
+    {
+        question: "What will this code output if the user presses Enter without typing anything?\n\nusername = input('Enter username: ')\nif username == '':\n    print('Error: Username required')",
+        options: [
+        "Nothing happens",
+        "Error: Username required",
+        "Error: Invalid input",
+        "Error: Wrong type"
+        ],
+        answer: "Error: Username required",
+        explanation: "The input is blank, triggering the presence check."
+    },
+    {
+        question: "If an error occurs because a ValueError was not caught during type conversion, what should be added?",
+        options: [
+        "A presence check",
+        "A try-except block",
+        "A format check",
+        "A length check"
+        ],
+        answer: "A try-except block",
+        explanation: "Using try-except prevents the program from crashing on invalid input types."
+    },
+    {
+        question: "Which of the following is a common mistake when debugging validation?",
+        options: [
+        "Forgetting to close a file",
+        "Allowing invalid ranges by using incorrect operators",
+        "Not importing libraries like re",
+        "Overusing functions instead of procedures"
+        ],
+        answer: "Allowing invalid ranges by using incorrect operators",
+        explanation: "Debugging validation often involves fixing logic errors in range or condition checks."
+    }
+    ];
+
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>

@@ -107,11 +107,11 @@
 
     <main>
 
-        <section id="2.12.1">
+        <section class="heading" id="2.12.1">
             <h2>2.12.1 - Testing Components</h2>
 
             <section id="2.12.1.1">
-                <h3 class="sub-heading">2.12.1.1 - Understand the reasons for testing individual components of a solution before putting them together in the final solution</h3>
+                <h3 class="top-sub-heading">2.12.1.1 - Understand the reasons for testing individual components of a solution before putting them together in the final solution</h3>
 
                 <h4>Software</h4>
                 <p>Verify that individual code modules and programs function correctly, handle inputs/outputs as intended, and meet their specifications.</p>
@@ -294,6 +294,177 @@
                 </ol>
             </section>
         </section>
+
+                
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Why is it important to test individual software components before integrating them?",
+        options: [
+        "To ensure the final product is expensive",
+        "To verify each component functions correctly and meets specifications",
+        "To reduce the need for documentation",
+        "To skip integration testing"
+        ],
+        answer: "To verify each component functions correctly and meets specifications",
+        explanation: "Testing components individually helps catch defects early, ensures proper input/output handling, and confirms compliance with specifications."
+    },
+    {
+        question: "Which testing method focuses on checking values at the edges of valid or invalid input ranges?",
+        options: ["Unit Testing", "Boundary Testing", "Integration Testing", "Performance Testing"],
+        answer: "Boundary Testing",
+        explanation: "Boundary testing targets edge cases to detect defects that occur at the limits of valid inputs."
+    },
+    {
+        question: "What is the main benefit of unit testing?",
+        options: [
+        "It verifies interactions between modules",
+        "It detects defects early and locally within individual functions or classes",
+        "It improves user interface design",
+        "It assesses system performance under load"
+        ],
+        answer: "It detects defects early and locally within individual functions or classes",
+        explanation: "Unit tests focus on isolated components, making it easier to find and fix bugs at the function or class level."
+    },
+    {
+        question: "Which type of test data would include an age value of -999?",
+        options: ["Valid Data", "Invalid Data", "Boundary Data", "Erroneous Data"],
+        answer: "Erroneous Data",
+        explanation: "Erroneous data represents clearly incorrect or extreme values to test how the system handles invalid input."
+    },
+    {
+        question: "What is the purpose of automating tests using scripts or tools like Selenium?",
+        options: [
+        "To replace the need for developers",
+        "To reduce human error and speed up repetitive testing",
+        "To make manual testing more enjoyable",
+        "To generate more bugs"
+        ],
+        answer: "To reduce human error and speed up repetitive testing",
+        explanation: "Automation helps ensure consistent testing, reduces mistakes, and saves time when running repetitive or regression tests."
+    },
+    {
+        question: "What should a test plan include?",
+        options: [
+        "Expected results, test data, purpose, and record of actual results",
+        "Only the expected results",
+        "Only the programming code",
+        "A list of all developers working on the project"
+        ],
+        answer: "Expected results, test data, purpose, and record of actual results",
+        explanation: "A test plan documents the tests to perform, why they are done, the inputs used, expected outcomes, and actual results for comparison."
+    },
+    {
+        question: "Which of the following is NOT a benefit of concept testing?",
+        options: [
+        "Finding major flaws early",
+        "Capturing stakeholder expectations",
+        "Providing detailed performance metrics",
+        "Guiding priority and scope decisions"
+        ],
+        answer: "Providing detailed performance metrics",
+        explanation: "Concept testing is for early feedback on ideas or prototypes, not for detailed performance evaluation."
+    },
+    {
+        question: "Integration testing primarily checks:",
+        options: [
+        "The correctness of individual functions",
+        "Interactions between modules or components",
+        "Keyboard input functionality",
+        "Data entry formatting only"
+        ],
+        answer: "Interactions between modules or components",
+        explanation: "Integration testing ensures that modules or services work together correctly and data flows properly between them."
+    }
+    ];
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>

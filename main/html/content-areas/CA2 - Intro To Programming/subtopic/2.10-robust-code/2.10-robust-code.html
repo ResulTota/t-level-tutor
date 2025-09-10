@@ -177,6 +177,186 @@
                 <li>Handle exceptions for invalid input or unexpected cases</li>
             </ul>
         </section>
+
+                
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the main purpose of robust code?",
+        options: [
+        "To make code shorter",
+        "To handle errors and unexpected situations gracefully",
+        "To run faster than other code",
+        "To remove the need for testing"
+        ],
+        answer: "To handle errors and unexpected situations gracefully",
+        explanation: "Robust code avoids crashes and provides meaningful feedback to users."
+    },
+    {
+        question: "Which of these is a key characteristic of robust code?",
+        options: [
+        "It avoids using functions",
+        "It handles unexpected inputs",
+        "It uses only while loops",
+        "It skips error messages"
+        ],
+        answer: "It handles unexpected inputs",
+        explanation: "Robust code manages invalid or unusual inputs without failing."
+    },
+    {
+        question: "What is the purpose of debugging?",
+        options: [
+        "To add new features",
+        "To identify and fix errors in code",
+        "To automatically optimize memory",
+        "To rewrite the whole program"
+        ],
+        answer: "To identify and fix errors in code",
+        explanation: "Debugging ensures programs work correctly by finding and correcting issues."
+    },
+    {
+        question: "Which of the following best describes the role of debugging in robust solutions?",
+        options: [
+        "It makes code shorter and faster",
+        "It ensures programs can handle errors and edge cases",
+        "It removes the need for testing",
+        "It automatically fixes all bugs"
+        ],
+        answer: "It ensures programs can handle errors and edge cases",
+        explanation: "Debugging strengthens weak points in code, improving reliability."
+    },
+    {
+        question: "Which tool or method can be used to locate errors in code?",
+        options: [
+        "Random guessing",
+        "Print statements and stepping through code with a debugger",
+        "Changing all variables to strings",
+        "Deleting parts of the code"
+        ],
+        answer: "Print statements and stepping through code with a debugger",
+        explanation: "Debugging tools and print statements help trace variable values and logic flow."
+    },
+    {
+        question: "What type of error occurs if you forget a colon at the end of an if statement in Python?",
+        options: [
+        "Logic error",
+        "Syntax error",
+        "Runtime error",
+        "Validation error"
+        ],
+        answer: "Syntax error",
+        explanation: "Forgetting required syntax (like colons) causes syntax errors."
+    },
+    {
+        question: "Which of these is an example of correcting a logic error?",
+        options: [
+        "Fixing a missing colon in an if statement",
+        "Changing x + y to x * y in a calculation",
+        "Catching a ValueError with try/except",
+        "Installing a new IDE"
+        ],
+        answer: "Changing x + y to x * y in a calculation",
+        explanation: "Logic errors occur when the wrong formula or condition is used."
+    },
+    {
+        question: "What happens if you do NOT handle invalid user input in your program?",
+        options: [
+        "The program still works perfectly",
+        "The program may crash or behave unpredictably",
+        "The program runs faster",
+        "The program writes its own error handling"
+        ],
+        answer: "The program may crash or behave unpredictably",
+        explanation: "Without handling invalid input, programs can break at runtime."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>
