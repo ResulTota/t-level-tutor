@@ -433,7 +433,8 @@ arrow-Nav a {
       background: #ffebee;
       color: #c62828;
     }
-    .quiz-next {
+    .quiz-next, 
+    .quiz-retry {
       margin-top: 20px;
       padding: 10px 16px;
       border: none;
