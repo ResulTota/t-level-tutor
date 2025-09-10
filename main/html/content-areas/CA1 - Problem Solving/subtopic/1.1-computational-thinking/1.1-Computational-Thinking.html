@@ -506,6 +506,228 @@
                 </ul>
             </li>
         </ul>
+
+        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+        const quizData = [
+        {
+            question: "What is the definition of Computational Thinking?",
+            options: [
+            "A way of guessing solutions using creativity",
+            "A way of thinking that breaks problems into steps, finds patterns, filters out details, and develops algorithms",
+            "A method of memorising solutions without analysis",
+            "A technique only used in computer programming"
+            ],
+            answer: "A way of thinking that breaks problems into steps, finds patterns, filters out details, and develops algorithms",
+            explanation: "Computational Thinking is a structured way of solving problems logically and efficiently."
+        },
+        {
+            question: "In which situation should you NOT use Computational Thinking?",
+            options: [
+            "Automating repetitive tasks",
+            "Subjective decisions based on taste or creativity",
+            "Designing a manufacturing process",
+            "Problems requiring accuracy"
+            ],
+            answer: "Subjective decisions based on taste or creativity",
+            explanation: "Computational Thinking is less useful for subjective or creative decisions where structure isn’t helpful."
+        },
+        {
+            question: "Which of the following is NOT a component of Computational Thinking?",
+            options: [
+            "Decomposition",
+            "Pattern Recognition",
+            "Abstraction",
+            "Debugging"
+            ],
+            answer: "Debugging",
+            explanation: "Debugging is important in computing, but the four main components are Decomposition, Pattern Recognition, Abstraction, and Algorithmic Design."
+        },
+        {
+            question: "What is the purpose of Decomposition?",
+            options: [
+            "To hide unnecessary details and focus on essentials",
+            "To identify similarities and reuse solutions",
+            "To break complex problems into smaller, manageable parts",
+            "To create a strict set of step-by-step instructions"
+            ],
+            answer: "To break complex problems into smaller, manageable parts",
+            explanation: "Decomposition helps simplify and structure complex problems into easier sub-problems."
+        },
+        {
+            question: "Which is a drawback of Decomposition?",
+            options: [
+            "Helps identify task dependencies",
+            "Can over-complicate tasks if done poorly",
+            "Facilitates testing and debugging",
+            "Makes problems easier to solve"
+            ],
+            answer: "Can over-complicate tasks if done poorly",
+            explanation: "If not done carefully, decomposition can lead to unnecessary complexity."
+        },
+        {
+            question: "What is the purpose of Pattern Recognition?",
+            options: [
+            "To remove unnecessary details",
+            "To create an algorithm",
+            "To identify similarities and patterns for solving problems faster",
+            "To split problems into sub-tasks"
+            ],
+            answer: "To identify similarities and patterns for solving problems faster",
+            explanation: "Pattern Recognition allows reuse of past solutions, prediction, and efficiency."
+        },
+        {
+            question: "Which of the following is a risk of Pattern Recognition?",
+            options: [
+            "Helps predict outcomes",
+            "Can result in overgeneralisation and bias",
+            "Improves efficiency",
+            "Facilitates generalisation"
+            ],
+            answer: "Can result in overgeneralisation and bias",
+            explanation: "Incorrect assumptions or misinterpreted patterns can lead to bias and errors."
+        },
+        {
+            question: "What is the purpose of Abstraction?",
+            options: [
+            "To simplify complexity by focusing on essential details",
+            "To break problems into smaller parts",
+            "To reuse solutions from past problems",
+            "To create algorithms for automation"
+            ],
+            answer: "To simplify complexity by focusing on essential details",
+            explanation: "Abstraction filters out non-essential details to keep focus on what matters."
+        },
+        {
+            question: "Which is a drawback of Abstraction?",
+            options: [
+            "Reduces complexity",
+            "Improves clarity",
+            "May lose important details",
+            "Facilitates generalisation"
+            ],
+            answer: "May lose important details",
+            explanation: "If unnecessary details are removed incorrectly, crucial information can be lost."
+        },
+        {
+            question: "What is Algorithmic Design?",
+            options: [
+            "A way of finding similarities in problems",
+            "The creation of step-by-step solutions to solve a problem",
+            "The removal of unnecessary details",
+            "The breaking down of complex problems"
+            ],
+            answer: "The creation of step-by-step solutions to solve a problem",
+            explanation: "Algorithmic Design involves creating structured, step-by-step instructions to solve problems."
+        },
+        {
+            question: "Which of these is NOT a method of representing Decomposition?",
+            options: [
+            "Block Diagrams",
+            "Flowcharts",
+            "Information Flow Diagrams",
+            "Spreadsheets"
+            ],
+            answer: "Spreadsheets",
+            explanation: "Decomposition is usually represented with block diagrams, flowcharts, information flow diagrams, code, or written descriptions."
+        },
+        {
+            question: "What is the main purpose of using Pattern Recognition in problem solving?",
+            options: [
+            "To predict outcomes and reuse solutions",
+            "To split tasks into smaller parts",
+            "To filter out details",
+            "To create automation algorithms"
+            ],
+            answer: "To predict outcomes and reuse solutions",
+            explanation: "Pattern Recognition helps simplify problems by reusing past solutions and making predictions."
+        }
+        ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const resultEl = document.getElementById("result");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function showQuestion() {
+      const q = quizData[currentQ];
+      questionEl.textContent = q.question;
+      feedbackEl.textContent = "";
+      feedbackEl.className = "quiz-feedback";
+      nextBtn.style.display = "none";
+
+      optionsEl.innerHTML = "";
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(opt, btn);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(answer, button) {
+      const q = quizData[currentQ];
+      const optionButtons = optionsEl.querySelectorAll("button");
+
+      // Disable all buttons after an answer
+      optionButtons.forEach(b => b.disabled = true);
+
+      if (answer === q.answer) {
+        score++;
+        button.classList.add("correct");
+        feedbackEl.textContent = "✅ Correct! " + q.explanation;
+        feedbackEl.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+        feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+        feedbackEl.classList.add("wrong");
+
+        // Highlight correct answer
+        optionButtons.forEach(b => {
+          if (b.textContent === q.answer) {
+            b.classList.add("correct");
+          }
+        });
+      }
+
+      nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      if (currentQ < quizData.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      questionEl.textContent = "";
+      optionsEl.innerHTML = "";
+      feedbackEl.textContent = "";
+      nextBtn.style.display = "none";
+      resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+    }
+
+    nextBtn.addEventListener("click", nextQuestion);
+
+    // Start quiz
+    showQuestion();
+  </script>
+    
     </main>
     
     <arrow-Nav>
@@ -517,7 +739,7 @@
             <img src="../../../../../images/next-arrow.png" alt="next arrow" width="100" height="100" id="arrow"/>
         </a>
     </arrow-Nav> 
-    
+
     <footer>
         <p>&copy; 2025 TLevelTutor. All rights reserved.</p>
         <p>For more information, visit our <a href="">Coming Soon</a>.</p>
@@ -532,5 +754,7 @@
             }
         });
     </script>
+
+
 </body>
 </html>

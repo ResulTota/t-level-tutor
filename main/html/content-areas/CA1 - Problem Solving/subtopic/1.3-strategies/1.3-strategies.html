@@ -379,6 +379,327 @@
                 <li>Using the <strong>wrong strategy</strong> can <strong>waste time</strong> or <strong>introduce errors</strong>, so understanding this relationship is critical in software development.</li>
             </ul>
         </section>
+
+                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+        const quizData = [
+            {
+                question: "What is the definition of the Top-Down approach?",
+                options: [
+                "Building small components first and then combining them",
+                "Breaking down a problem from overall design into smaller sub-problems",
+                "Randomly testing different solutions until one works",
+                "Dividing work based on available team members"
+                ],
+                answer: "Breaking down a problem from overall design into smaller sub-problems",
+                explanation: "Top-Down starts with the big picture and then drills into details."
+            },
+            {
+                question: "Which is a benefit of the Top-Down approach?",
+                options: [
+                "Detailed issues are discovered early",
+                "Provides a clear structure and avoids missing steps",
+                "Always faster than Bottom-Up",
+                "Requires no revisions"
+                ],
+                answer: "Provides a clear structure and avoids missing steps",
+                explanation: "Top-Down ensures overall structure and logic are considered first."
+            },
+            {
+                question: "Which is a drawback of the Top-Down approach?",
+                options: [
+                "Encourages code reuse",
+                "Detailed issues may only be discovered late",
+                "Testing can begin earlier",
+                "Supports modular collaboration"
+                ],
+                answer: "Detailed issues may only be discovered late",
+                explanation: "Since the focus is initially on the big picture, smaller issues may appear later."
+            },
+            {
+                question: "What is the definition of the Bottom-Up approach?",
+                options: [
+                "Breaking down from the big picture to smaller tasks",
+                "Focusing on building modules first and combining them",
+                "Random trial and error problem solving",
+                "Writing pseudocode before coding"
+                ],
+                answer: "Focusing on building modules first and combining them",
+                explanation: "Bottom-Up builds reliable components first, then integrates them."
+            },
+            {
+                question: "Which is a benefit of the Bottom-Up approach?",
+                options: [
+                "Risk of poor integration",
+                "Can reuse existing components",
+                "Ensures the big-picture structure",
+                "Avoids duplicated effort"
+                ],
+                answer: "Can reuse existing components",
+                explanation: "Bottom-Up is efficient when pre-built modules are available."
+            },
+            {
+                question: "Which is a drawback of the Bottom-Up approach?",
+                options: [
+                "Revisions required if design is flawed",
+                "Risk of poor system integration",
+                "Time-consuming planning",
+                "Limited opportunities for reuse"
+                ],
+                answer: "Risk of poor system integration",
+                explanation: "If integration is not planned carefully, components may not work well together."
+            },
+            {
+                question: "What is modularisation?",
+                options: [
+                "Breaking problems into reusable independent modules",
+                "Writing algorithms only in code",
+                "A debugging technique for runtime errors",
+                "Testing modules after integration"
+                ],
+                answer: "Breaking problems into reusable independent modules",
+                explanation: "Modularisation simplifies problems by creating separate reusable modules."
+            },
+            {
+                question: "Which is a drawback of modularisation?",
+                options: [
+                "Encourages reuse across projects",
+                "Can make debugging easier",
+                "Managing too many modules adds complexity",
+                "Improves maintainability"
+                ],
+                answer: "Managing too many modules adds complexity",
+                explanation: "Too many small modules can cause integration overhead."
+            },
+            {
+                question: "What is the purpose of Root Cause Analysis (RCA)?",
+                options: [
+                "To quickly fix symptoms without finding the cause",
+                "To identify and address the underlying cause of a problem",
+                "To build reusable modules",
+                "To avoid documenting solutions"
+                ],
+                answer: "To identify and address the underlying cause of a problem",
+                explanation: "RCA prevents recurring issues by addressing their true origin."
+            },
+            {
+                question: "What technique involves repeatedly asking 'Why?' until the root cause is found?",
+                options: [
+                "Failure Mode and Effects Analysis",
+                "Event Tree Analysis",
+                "Five Whys",
+                "Top-Down Analysis"
+                ],
+                answer: "Five Whys",
+                explanation: "The Five Whys technique drills down quickly to the root cause."
+            },
+            {
+                question: "Which is a drawback of the Five Whys?",
+                options: [
+                "Requires no tools",
+                "Quick to apply in meetings",
+                "May lead to superficial answers",
+                "Encourages critical thinking"
+                ],
+                answer: "May lead to superficial answers",
+                explanation: "If not applied carefully, the answers may stay at surface level."
+            },
+            {
+                question: "What is the purpose of Failure Mode and Effects Analysis (FMEA)?",
+                options: [
+                "To create flowcharts for algorithms",
+                "To identify possible failures and prioritise risks",
+                "To visualise problem outcomes using a tree diagram",
+                "To quickly fix bugs without planning"
+                ],
+                answer: "To identify possible failures and prioritise risks",
+                explanation: "FMEA focuses on preventing failures by identifying and ranking risks."
+            },
+            {
+                question: "Which is a drawback of FMEA?",
+                options: [
+                "Requires detailed system knowledge and can be time-consuming",
+                "Quick and simple to apply",
+                "Encourages critical thinking",
+                "Provides a visual structure of outcomes"
+                ],
+                answer: "Requires detailed system knowledge and can be time-consuming",
+                explanation: "FMEA needs deep knowledge and effort, which can be resource-heavy."
+            },
+            {
+                question: "What is Event Tree Analysis (ETA)?",
+                options: [
+                "Backward analysis of failures",
+                "A forward-looking analysis mapping possible outcomes from an event",
+                "A coding strategy for modular programs",
+                "A technique to repeatedly ask 'Why?'"
+                ],
+                answer: "A forward-looking analysis mapping possible outcomes from an event",
+                explanation: "ETA starts with an event and explores all possible consequences."
+            },
+            {
+                question: "Which of these is an action after Root Cause Analysis?",
+                options: [
+                "Ignore unresolved issues",
+                "Log, Close, Escalate",
+                "Skip documentation",
+                "Repeat RCA indefinitely"
+                ],
+                answer: "Log, Close, Escalate",
+                explanation: "These steps ensure accountability, resolution, and escalation if needed."
+            },
+            {
+                question: "What is the first step in the high-level problem-solving strategy?",
+                options: [
+                "Gather Information",
+                "Analyse the Information",
+                "Define the Problem",
+                "Implement a Solution"
+                ],
+                answer: "Define the Problem",
+                explanation: "Clearly identifying the problem is always the first step."
+            },
+            {
+                question: "Which step of the high-level problem-solving strategy involves creating a timeline and assigning roles?",
+                options: [
+                "Gather Information",
+                "Make a Plan of Action",
+                "Implement a Solution",
+                "Review the Solution"
+                ],
+                answer: "Make a Plan of Action",
+                explanation: "This step sets out what to do, who will do it, and when."
+            },
+            {
+                question: "Which step checks whether the problem is solved and if unintended issues have occurred?",
+                options: [
+                "Analyse the Information",
+                "Implement a Solution",
+                "Review the Solution",
+                "Define the Problem"
+                ],
+                answer: "Review the Solution",
+                explanation: "Reviewing ensures the solution worked and did not create new issues."
+            },
+            {
+                question: "Which approach is best for large-scale problems requiring overall system structure?",
+                options: [
+                "Bottom-Up",
+                "Top-Down",
+                "Debugging only",
+                "Event Tree Analysis"
+                ],
+                answer: "Top-Down",
+                explanation: "Top-Down works well for large and complex systems where structure matters."
+            },
+            {
+                question: "Which strategy is best when reliable existing components can be reused?",
+                options: [
+                "Top-Down",
+                "Bottom-Up",
+                "FMEA",
+                "Event Tree Analysis"
+                ],
+                answer: "Bottom-Up",
+                explanation: "Bottom-Up is efficient when pre-built, reliable modules are available."
+            },
+            {
+                question: "Which strategy is best when multiple developers are working in parallel?",
+                options: [
+                "Bottom-Up",
+                "Top-Down",
+                "Modularisation",
+                "Five Whys"
+                ],
+                answer: "Modularisation",
+                explanation: "Dividing work into modules allows parallel teamwork."
+            }
+            ];
+
+
+    let currentQ = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const resultEl = document.getElementById("result");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function showQuestion() {
+      const q = quizData[currentQ];
+      questionEl.textContent = q.question;
+      feedbackEl.textContent = "";
+      feedbackEl.className = "quiz-feedback";
+      nextBtn.style.display = "none";
+
+      optionsEl.innerHTML = "";
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(opt, btn);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(answer, button) {
+      const q = quizData[currentQ];
+      const optionButtons = optionsEl.querySelectorAll("button");
+
+      // Disable all buttons after an answer
+      optionButtons.forEach(b => b.disabled = true);
+
+      if (answer === q.answer) {
+        score++;
+        button.classList.add("correct");
+        feedbackEl.textContent = "✅ Correct! " + q.explanation;
+        feedbackEl.classList.add("correct");
+      } else {
+        button.classList.add("wrong");
+        feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+        feedbackEl.classList.add("wrong");
+
+        // Highlight correct answer
+        optionButtons.forEach(b => {
+          if (b.textContent === q.answer) {
+            b.classList.add("correct");
+          }
+        });
+      }
+
+      nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      if (currentQ < quizData.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      questionEl.textContent = "";
+      optionsEl.innerHTML = "";
+      feedbackEl.textContent = "";
+      nextBtn.style.display = "none";
+      resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+    }
+
+    nextBtn.addEventListener("click", nextQuestion);
+
+    // Start quiz
+    showQuestion();
+  </script>
     </main>
     
     <arrow-Nav>

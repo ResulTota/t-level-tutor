@@ -279,6 +279,182 @@
                 <li><strong>Incorrect iteration:</strong> Using wrong index or length, causing skipped or extra elements.</li>
             </ul>
         </section>
+
+        
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+      const quizData = [
+        {
+            question: "What is a list in Python?",
+            options: [
+            "An unordered collection of key-value pairs",
+            "An ordered collection that can store multiple data types",
+            "A fixed-type structure for numeric data",
+            "A type of loop"
+            ],
+            answer: "An ordered collection that can store multiple data types",
+            explanation: "Lists are ordered, dynamic collections that allow duplicates and multiple data types."
+        },
+        {
+            question: "Which of the following is an advantage of using an array over a list?",
+            options: [
+            "Can store multiple data types",
+            "Faster access and efficient memory usage for large numeric computations",
+            "Unordered storage for quick lookups",
+            "More built-in methods than lists"
+            ],
+            answer: "Faster access and efficient memory usage for large numeric computations",
+            explanation: "Arrays are efficient for large datasets but require all elements to be of the same type."
+        },
+        {
+            question: "Which data structure is best for storing student records with fields like name, age, and grade?",
+            options: ["List", "Array", "Dictionary", "Tuple"],
+            answer: "Dictionary",
+            explanation: "Dictionaries store data in key-value pairs, making them ideal for structured information like student records."
+        },
+        {
+            question: "What will happen with this code?\nfruits = [\"apple\", \"banana\"]\nprint(fruits[2])",
+            options: ["Prints 'cherry'", "Prints None", "IndexError", "ValueError"],
+            answer: "IndexError",
+            explanation: "The list has only 2 elements (index 0 and 1). Accessing index 2 is out of bounds."
+        },
+        {
+            question: "Which method adds an item to the end of a list?",
+            options: [".insert()", ".append()", ".pop()", ".remove()"],
+            answer: ".append()",
+            explanation: "append() adds a new item to the end of a list."
+        },
+        {
+            question: "What will this code output?\nstudent = {\"name\": \"Alice\"}\nprint(student[\"age\"])",
+            options: ["'age'", "None", "KeyError", "TypeError"],
+            answer: "KeyError",
+            explanation: "The key 'age' does not exist in the dictionary, so a KeyError occurs."
+        },
+        {
+            question: "Which error occurs when trying to append a float into an integer array?",
+            options: ["TypeError", "ValueError", "IndexError", "KeyError"],
+            answer: "TypeError",
+            explanation: "Arrays require all elements to be of the same type. Adding a float to an integer array raises a TypeError."
+        },
+        {
+            question: "How can you check if a key exists in a dictionary?",
+            options: [
+            "\"key\" in dict",
+            "dict.has(\"key\")",
+            "dict.exists(\"key\")",
+            "len(dict) > 0"
+            ],
+            answer: "\"key\" in dict",
+            explanation: "The 'in' keyword checks for the existence of keys in a dictionary."
+        },
+        {
+            question: "What is a drawback of using lists compared to arrays?",
+            options: [
+            "Lists cannot grow or shrink dynamically",
+            "Lists require all elements to be the same type",
+            "Lists are slower for large numeric computations",
+            "Lists cannot store strings"
+            ],
+            answer: "Lists are slower for large numeric computations",
+            explanation: "Lists are flexible but less efficient than arrays for heavy numeric operations."
+        },
+        {
+            question: "What is a common mistake when working with mutable data structures like lists?",
+            options: [
+            "Reusing methods like append()",
+            "Creating references instead of copies, leading to unintended modifications",
+            "Using too many built-in methods",
+            "Accessing by index"
+            ],
+            answer: "Creating references instead of copies, leading to unintended modifications",
+            explanation: "Assigning one list to another (list2 = list1) creates a reference, so changes to one affect the other."
+        }
+        ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

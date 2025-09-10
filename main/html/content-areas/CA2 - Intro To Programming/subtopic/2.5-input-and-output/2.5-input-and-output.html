@@ -246,6 +246,189 @@ file.write("Hello")
             <h4>Tip:</h4>
             <p>Use <code>with open("filename", "r/w") as file:</code> to automatically close files safely.</p>
         </section>
+
+        
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+      const quizData = [
+        {
+            question: "What is the main purpose of input and output in programming?",
+            options: [
+            "To store data temporarily in memory",
+            "To capture data from the user and display results",
+            "To sort data in ascending order",
+            "To calculate mathematical expressions"
+            ],
+            answer: "To capture data from the user and display results",
+            explanation: "Input allows users to provide data, while output shows results to the screen or a file."
+        },
+        {
+            question: "What does this code do?\nname = input(\"Enter your name: \")\nprint(\"Hello, \" + name)",
+            options: [
+            "Reads a name from the user and prints a greeting",
+            "Writes the name into a file",
+            "Reads a name from a file",
+            "Creates a variable without output"
+            ],
+            answer: "Reads a name from the user and prints a greeting",
+            explanation: "input() captures user input and print() displays the result."
+        },
+        {
+            question: "Which file mode should you use to add new content to the end of an existing file?",
+            options: ["r", "w", "a", "rw"],
+            answer: "a",
+            explanation: "Append mode ('a') adds new content to the end of a file without overwriting existing data."
+        },
+        {
+            question: "What is the difference between read() and readline()?",
+            options: [
+            "read() reads one line, readline() reads the whole file",
+            "read() reads the whole file, readline() reads one line",
+            "Both read only one character",
+            "Both are used for writing data"
+            ],
+            answer: "read() reads the whole file, readline() reads one line",
+            explanation: "read() loads the full file, while readline() reads one line at a time."
+        },
+        {
+            question: "What will this code output if 'numbers.txt' contains '5'?\nfile = open(\"numbers.txt\", \"r\")\nnumber = int(file.readline())\nprint(number * 2)\nfile.close()",
+            options: ["5", "10", "25", "Error"],
+            answer: "10",
+            explanation: "The file contains '5'. It's read as a string, converted to int, then multiplied by 2."
+        },
+        {
+            question: "Which method is recommended to avoid forgetting to close files?",
+            options: [
+            "file.save()",
+            "file.end()",
+            "with open(...) as file",
+            "try/except"
+            ],
+            answer: "with open(...) as file",
+            explanation: "The 'with' statement automatically closes files once the block is done."
+        },
+        {
+            question: "What error will occur with this code?\nage = input(\"Enter age: \")\nprint(age + 5)",
+            options: ["IndexError", "TypeError", "KeyError", "FileNotFoundError"],
+            answer: "TypeError",
+            explanation: "input() returns a string, so adding it to an integer causes a TypeError."
+        },
+        {
+            question: "What is the difference between write() and writelines()?",
+            options: [
+            "write() writes a string, writelines() writes a list of strings",
+            "write() writes one line, writelines() writes the whole file",
+            "write() is for reading, writelines() is for writing",
+            "There is no difference"
+            ],
+            answer: "write() writes a string, writelines() writes a list of strings",
+            explanation: "write() takes one string, while writelines() writes multiple strings from a list."
+        },
+        {
+            question: "What happens if you try to open a non-existent file in read mode ('r')?",
+            options: ["It creates a new empty file", "It deletes the file", "It raises FileNotFoundError", "It returns an empty string"],
+            answer: "It raises FileNotFoundError",
+            explanation: "Opening in 'r' mode requires the file to exist, otherwise FileNotFoundError is raised."
+        },
+        {
+            question: "Which of the following shows correct file writing in Python?",
+            options: [
+            "file.open('data.txt', 'w')",
+            "open('data.txt').write('Hello')",
+            "with open('data.txt', 'w') as file: file.write('Hello')",
+            "file = write('data.txt')"
+            ],
+            answer: "with open('data.txt', 'w') as file: file.write('Hello')",
+            explanation: "The correct approach is using 'with open' and write() to ensure the file is safely handled."
+        }
+        ];
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
 
     <arrow-Nav>

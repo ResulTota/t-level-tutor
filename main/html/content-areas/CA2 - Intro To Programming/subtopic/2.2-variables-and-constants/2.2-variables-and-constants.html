@@ -177,6 +177,192 @@
             <h3 class="sub-heading">2.2.9 - Be able to use data type conversion functions.</h3>
             <p>You must be able to use data type conversion functions (e.g., <code>int()</code>, <code>float()</code>, <code>str()</code>).</p>
         </section>
+
+        
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+      const quizData = [
+        {
+            question: "What is a variable in programming?",
+            options: [
+            "A fixed value that cannot change",
+            "A named storage location in memory that can hold changing values",
+            "A sequence of characters",
+            "A type of loop"
+            ],
+            answer: "A named storage location in memory that can hold changing values",
+            explanation: "Variables are storage locations in memory that can hold values which may change during execution."
+        },
+        {
+            question: "Which of the following is an example of using a variable?",
+            options: ["PI = 3.14159", "age = 16", "True", "\"Hello\""],
+            answer: "age = 16",
+            explanation: "Variables store values that can change, such as 'age'. Constants like PI remain fixed."
+        },
+        {
+            question: "What is the purpose of a constant?",
+            options: [
+            "To store data that may change during execution",
+            "To prevent accidental changes to important values",
+            "To repeat a block of code multiple times",
+            "To convert data from one type to another"
+            ],
+            answer: "To prevent accidental changes to important values",
+            explanation: "Constants keep values fixed (e.g., PI = 3.14159) and improve readability."
+        },
+        {
+            question: "Which of these best represents a constant in Python?",
+            options: ["PI = 3.14159", "age = 18", "user_input = input()", "x = x + 1"],
+            answer: "PI = 3.14159",
+            explanation: "By convention, constants are written in uppercase to indicate fixed values."
+        },
+        {
+            question: "Why are data type conversion functions used?",
+            options: [
+            "To repeat loops more efficiently",
+            "To avoid type errors and ensure correct operations",
+            "To make variables global",
+            "To make constants modifiable"
+            ],
+            answer: "To avoid type errors and ensure correct operations",
+            explanation: "Conversion functions like int(), float(), and str() ensure data is in the correct format for operations."
+        },
+        {
+            question: "Which function would you use to convert user input into an integer in Python?",
+            options: ["str()", "float()", "int()", "bool()"],
+            answer: "int()",
+            explanation: "int() converts a string (e.g., user input) into an integer for arithmetic operations."
+        },
+        {
+            question: "What does 'scope' mean in programming?",
+            options: [
+            "The precision of floating-point numbers",
+            "The region of a program where a variable can be accessed",
+            "The process of converting data types",
+            "The size of an array"
+            ],
+            answer: "The region of a program where a variable can be accessed",
+            explanation: "Scope defines a variable’s visibility and lifetime within a program."
+        },
+        {
+            question: "What is a global variable?",
+            options: [
+            "A variable declared inside a function",
+            "A variable accessible throughout the entire program",
+            "A variable that cannot change",
+            "A variable that automatically converts data types"
+            ],
+            answer: "A variable accessible throughout the entire program",
+            explanation: "Global variables are declared outside functions and can be used anywhere in the program."
+        },
+        {
+            question: "Which of the following will cause an error?",
+            options: [
+            "x = 10; print(x)",
+            "def my_function(): y = 5; print(y)",
+            "def my_function(): y = 5; print(x); my_function()",
+            "print(y)  # where y is defined only inside a function"
+            ],
+            answer: "print(y)  # where y is defined only inside a function",
+            explanation: "Local variables exist only inside their function. Accessing them outside will cause an error."
+        },
+        {
+            question: "Which of these is an example of data type conversion?",
+            options: [
+            "age = 16",
+            "PI = 3.14159",
+            "age = int(\"18\")",
+            "x = y + z"
+            ],
+            answer: "age = int(\"18\")",
+            explanation: "Here the string \"18\" is converted into an integer using int()."
+        }
+        ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

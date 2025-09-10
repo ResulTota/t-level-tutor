@@ -262,6 +262,173 @@ print(x &lt; y and y &lt; z)  # Correct
                 </li>
             </ul>
         </section>
+
+        
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the purpose of arithmetic operators?",
+        options: [
+        "Compare values",
+        "Combine Boolean values",
+        "Perform mathematical calculations",
+        "Assign values to variables"
+        ],
+        answer: "Perform mathematical calculations",
+        explanation: "Arithmetic operators (+, -, *, /, etc.) are used to perform mathematical calculations on numbers."
+    },
+    {
+        question: "What will this code output?\na = 10\nb = 3\nprint(a // b)",
+        options: ["3.333...", "3", "4", "1"],
+        answer: "3",
+        explanation: "// is integer division, which gives the whole number result of dividing 10 by 3."
+    },
+    {
+        question: "Which operator checks if two values are equal?",
+        options: ["=", "==", "!=", "==="],
+        answer: "==",
+        explanation: "== checks for equivalence, while = is assignment."
+    },
+    {
+        question: "What will this output?\nx = 7\ny = 10\nprint(x != y)",
+        options: ["True", "False", "Error", "7"],
+        answer: "True",
+        explanation: "Since 7 is not equal to 10, the result is True."
+    },
+    {
+        question: "Which Boolean operator returns True if at least one condition is True?",
+        options: ["not", "and", "or", "xor"],
+        answer: "or",
+        explanation: "The 'or' operator returns True if one or more of the conditions are True."
+    },
+    {
+        question: "What is the result of this expression?\na = True\nb = False\nprint(not a or b)",
+        options: ["True", "False", "Error", "None"],
+        answer: "False",
+        explanation: "not a = False, so False or False = False."
+    },
+    {
+        question: "What error occurs with this code?\nx = 5\ny = \"10\"\nprint(x + y)",
+        options: ["TypeError", "ValueError", "SyntaxError", "IndexError"],
+        answer: "TypeError",
+        explanation: "You cannot add an integer (5) to a string ('10') without conversion."
+    },
+    {
+        question: "Which of these correctly checks if a number is divisible by both 2 and 3?",
+        options: [
+        "if num % 2 and num % 3:",
+        "if num % 2 == 0 and num % 3 == 0:",
+        "if num % 2 = 0 && num % 3 = 0:",
+        "if (num / 2) and (num / 3):"
+        ],
+        answer: "if num % 2 == 0 and num % 3 == 0:",
+        explanation: "The modulus operator checks divisibility. Both conditions must be true."
+    },
+    {
+        question: "What does this code output?\nx = 4\ny = 6\nprint(x * 2 == y)",
+        options: ["True", "False", "Error", "8"],
+        answer: "True",
+        explanation: "x * 2 = 8, y = 6, so 8 == 6 is False (output is False)."
+    },
+    {
+        question: "Which is a common Boolean operator mistake?",
+        options: [
+        "Using '==' instead of '=' for comparison",
+        "Forgetting parentheses when combining conditions",
+        "Mixing strings and numbers in arithmetic",
+        "All of the above"
+        ],
+        answer: "All of the above",
+        explanation: "Each of these is a common mistake: wrong operator for comparison, missing parentheses, and mixing incompatible types."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>
