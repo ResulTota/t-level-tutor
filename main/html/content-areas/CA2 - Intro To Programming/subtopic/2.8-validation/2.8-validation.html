@@ -186,7 +186,8 @@
             <div class="quiz-options" id="options"></div>
             <div class="quiz-feedback" id="feedback"></div>
             <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
-        <div class="quiz-result" id="result"></div>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
         </div>
 
   <script>
@@ -314,6 +315,7 @@
         const feedbackEl = document.getElementById("feedback");
         const resultEl = document.getElementById("result");
         const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
 
         function showQuestion() {
           const q = quizData[currentQ];
@@ -374,7 +376,18 @@
           feedbackEl.textContent = "";
           nextBtn.style.display = "none";
           resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
         }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
 
         nextBtn.addEventListener("click", nextQuestion);
 
