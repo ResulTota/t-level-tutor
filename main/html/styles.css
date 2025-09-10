@@ -2,8 +2,8 @@
     --header-bg-color: #CAE9FF;
     --header-text-color:black;
     --both-inner-box-color: aliceblue;
-    --footer-color:  #1b4965;
-    --footer-text-color: white;
+    --footer-color:  #CAE9FF;
+    --footer-text-color: black;
     --switch-day-night: #69B4E0;
     --switch-fill-color: #205274;
     --shadow-jitsu-color: #1b4965;
@@ -22,7 +22,7 @@
     --esp-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --esp-topic-img-color: linear-gradient(#205274,#417592 );
     --content-back-color: white;
-    --pillar-background: linear-gradient(#CAE9FF, #1b4965);
+    --pillar-background: linear-gradient(#5FA8D3, #1b4965);
 
     --menu-color: rgb(202, 233, 255, 0.9);
     --menu-text-color: #000; 
@@ -305,7 +305,7 @@ footer {
     background-color: var(--footer-color);
     color: var(--footer-text-color);
     text-align: center;
-    padding: 10px;
+    padding: 8px;
     margin: 0px;
 }
 
@@ -492,8 +492,8 @@ main{
 
 .overlay .closebtn {
   position: absolute;
-  top: 15%;
-  right: 48%;
+  top: 20px;
+  right: 45px;
   font-size: 60px;
 }
 
@@ -802,3 +802,19 @@ input.error {
 }
 
 /* SIGNUP PAGE STYLES END */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Fills the remaining vertical space */
+}
