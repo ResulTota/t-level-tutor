@@ -239,6 +239,212 @@ while n < 10:
             <h3 class="sub-heading">2.6.8 - Be able to debug code using actions</h3>
             <p>You must be able to debug code that uses sequence, selection, and iteration.</p>
         </section>
+
+                
+                        <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+        <div class="quiz-result" id="result"></div>
+        </div>
+
+  <script>
+      const quizData = [
+  {
+    question: "What does 'sequence' mean in programming?",
+    options: [
+      "Repeating instructions multiple times",
+      "Choosing between different actions",
+      "The order in which instructions are executed",
+      "Breaking a program into functions"
+    ],
+    answer: "The order in which instructions are executed",
+    explanation: "Sequence ensures code runs from top to bottom in a logical order."
+  },
+  {
+    question: "Which Python code shows correct use of sequence?",
+    options: [
+      "if x > 0: print('Positive')",
+      "print('Start'); x = 5; y = x + 2; print('Result:', y)",
+      "for i in range(5): print(i)",
+      "while x < 10: x += 1"
+    ],
+    answer: "print('Start'); x = 5; y = x + 2; print('Result:', y)",
+    explanation: "This example executes step by step from top to bottom."
+  },
+  {
+    question: "What is the main purpose of selection in programming?",
+    options: [
+      "To repeat instructions",
+      "To choose between actions based on conditions",
+      "To define variables",
+      "To speed up programs"
+    ],
+    answer: "To choose between actions based on conditions",
+    explanation: "Selection uses conditions (if/elif/else, match/case) to control program flow."
+  },
+  {
+    question: "Which of the following is an example of selection?",
+    options: [
+      "for i in range(5): print(i)",
+      "if score >= 90: print('Grade A')",
+      "print('Hello')",
+      "x = 5; y = x + 2"
+    ],
+    answer: "if score >= 90: print('Grade A')",
+    explanation: "This uses an if condition to decide what action to take."
+  },
+  {
+    question: "What keyword is used in Python 3.10+ for multi-way selection?",
+    options: ["switch", "choose", "match", "casewhen"],
+    answer: "match",
+    explanation: "Python 3.10 introduced match/case for structured pattern matching."
+  },
+  {
+    question: "What is the main purpose of loops?",
+    options: [
+      "To run code only once",
+      "To repeat instructions multiple times",
+      "To compare values",
+      "To store data in memory"
+    ],
+    answer: "To repeat instructions multiple times",
+    explanation: "Loops allow repetition without duplicating code."
+  },
+  {
+    question: "Which loop type repeats a fixed number of times?",
+    options: [
+      "Count-controlled loop",
+      "Condition-controlled loop",
+      "Recursive loop",
+      "Infinite loop"
+    ],
+    answer: "Count-controlled loop",
+    explanation: "Count-controlled loops use a counter, e.g., for i in range(5)."
+  },
+  {
+    question: "Which code is an example of condition-controlled iteration?",
+    options: [
+      "for i in range(3): print(i)",
+      "while x < 5: print(x); x += 1",
+      "print('Done')",
+      "if x > 0: print(x)"
+    ],
+    answer: "while x < 5: print(x); x += 1",
+    explanation: "The while loop repeats until the condition becomes false."
+  },
+  {
+    question: "What is a main drawback of loops?",
+    options: [
+      "They reduce code duplication",
+      "They can cause infinite loops if conditions are wrong",
+      "They make programs easier to maintain",
+      "They automate repetitive tasks"
+    ],
+    answer: "They can cause infinite loops if conditions are wrong",
+    explanation: "Incorrect conditions in loops can trap the program in endless repetition."
+  },
+  {
+    question: "What will this code output?\nfor i in range(3):\n    print(i)",
+    options: ["0 1 2", "1 2 3", "3 2 1", "Error"],
+    answer: "0 1 2",
+    explanation: "range(3) generates numbers 0, 1, 2."
+  },
+  {
+    question: "Which action type is shown here?\nif x > 10:\n    print('Big')\nelse:\n    print('Small')",
+    options: ["Sequence", "Selection", "Iteration", "Recursion"],
+    answer: "Selection",
+    explanation: "The program chooses between two actions using if/else."
+  },
+  {
+    question: "What kind of error could this cause?\nwhile True:\n    print('Hello')",
+    options: ["SyntaxError", "TypeError", "Infinite loop", "IndexError"],
+    answer: "Infinite loop",
+    explanation: "Since the condition is always true, the loop never ends."
+  }
+];
+
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>
