@@ -160,6 +160,197 @@
             </ul>
         </ul>
 
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What does manipulating data involve?",
+        options: [
+        "Changing raw input into meaningful output using systematic steps",
+        "Changing the form or structure of data without altering its core meaning",
+        "Examining data to find patterns and trends",
+        "Deleting irrelevant datasets completely"
+        ],
+        answer: "Changing the form or structure of data without altering its core meaning",
+        explanation: "Manipulation changes how data is arranged or presented but not its actual meaning."
+    },
+    {
+        question: "Which of the following is an example of data manipulation?",
+        options: [
+        "Sorting a customer list alphabetically",
+        "Calculating average sales per week",
+        "Applying formulas to find profit margins",
+        "Using data to forecast seasonal demand"
+        ],
+        answer: "Sorting a customer list alphabetically",
+        explanation: "Sorting is a manipulation task — the core data remains the same, only its order changes."
+    },
+    {
+        question: "What is a key drawback of manipulating data?",
+        options: [
+        "It always requires programming knowledge",
+        "Poor manipulation may cause important details to be lost",
+        "It does not make datasets easier to compare",
+        "It prevents deeper analysis from being done"
+        ],
+        answer: "Poor manipulation may cause important details to be lost",
+        explanation: "Over-manipulation or careless filtering may remove valuable details."
+    },
+    {
+        question: "What does analysing data allow organisations to do?",
+        options: [
+        "Make datasets easier to read",
+        "Generate evidence-based insights and identify trends",
+        "Convert raw input into consistent formats",
+        "Combine multiple spreadsheets into one"
+        ],
+        answer: "Generate evidence-based insights and identify trends",
+        explanation: "Analysis focuses on extracting meaning, patterns, and relationships from data."
+    },
+    {
+        question: "Which of these is a drawback of analysing data?",
+        options: [
+        "It cannot be automated",
+        "It always leads to biased results",
+        "It requires analytical skills, and poor techniques may lead to false conclusions",
+        "It changes the structure of data permanently"
+        ],
+        answer: "It requires analytical skills, and poor techniques may lead to false conclusions",
+        explanation: "Without proper skills, analysis can be misapplied and produce misleading results."
+    },
+    {
+        question: "What does processing data usually involve?",
+        options: [
+        "Simple rearranging of datasets",
+        "Cleaning, calculating, or applying formulas systematically",
+        "Guessing trends from incomplete data",
+        "Writing summaries without reviewing the original dataset"
+        ],
+        answer: "Cleaning, calculating, or applying formulas systematically",
+        explanation: "Processing converts raw input into structured and accurate output, often with automation."
+    },
+    {
+        question: "Which of these is a benefit of processing data?",
+        options: [
+        "It ensures data is accurate, consistent, and structured",
+        "It requires no technical resources or software",
+        "It removes the need for analysis entirely",
+        "It eliminates the risk of human error completely"
+        ],
+        answer: "It ensures data is accurate, consistent, and structured",
+        explanation: "Processing creates clean, reliable datasets ready for reporting or machine learning."
+    },
+    {
+        question: "What is a drawback of processing data?",
+        options: [
+        "It cannot be automated",
+        "Errors in processing steps may spread and affect the entire dataset",
+        "It only works for numerical data",
+        "It always produces misleading conclusions"
+        ],
+        answer: "Errors in processing steps may spread and affect the entire dataset",
+        explanation: "A single mistake in the pipeline can cascade and distort all output."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
+
     </main>
     
     <arrow-Nav>

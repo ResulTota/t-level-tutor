@@ -221,6 +221,166 @@
         <h4>Real-world Example</h4>
         <p>A company stores sales data in multiple folders by region (directory-based), and each file contains nested customer order details (hierarchy-based). To analyze total sales, files are aggregated and hierarchical data flattened for spreadsheet analysis, using metadata to maintain correct field mapping.</p>
         
+
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Which type of metadata would include information like file size, creation date, and access permissions?",
+        options: ["Descriptive", "Structural", "Administrative", "Hierarchical"],
+        answer: "Administrative",
+        explanation: "Administrative metadata provides management details about the data."
+    },
+    {
+        question: "What is the main drawback of a file-based structure?",
+        options: [
+        "Difficult to manage when the number of files grows large",
+        "Not compatible with databases",
+        "Cannot store text data",
+        "Always requires metadata"
+        ],
+        answer: "Difficult to manage when the number of files grows large",
+        explanation: "File-based storage is simple but becomes messy with too many files."
+    },
+    {
+        question: "In a directory-based structure, files are:",
+        options: [
+        "Linked directly to a parent node in a tree",
+        "Organized in folders and subfolders",
+        "Stored without any hierarchy",
+        "Only accessible with metadata"
+        ],
+        answer: "Organized in folders and subfolders",
+        explanation: "Directory-based storage allows hierarchical grouping of files."
+    },
+    {
+        question: "Which storage structure is best suited for representing organizational charts?",
+        options: ["File-based", "Directory-based", "Hierarchy-based", "Metadata-based"],
+        answer: "Hierarchy-based",
+        explanation: "Hierarchy-based structures model parent-child relationships like in org charts."
+    },
+    {
+        question: "What problem can occur when converting hierarchical data (e.g. XML) into flat formats like spreadsheets?",
+        options: [
+        "Loss of parent-child relationship details",
+        "File size becomes too small",
+        "Metadata disappears automatically",
+        "It becomes unreadable by humans"
+        ],
+        answer: "Loss of parent-child relationship details",
+        explanation: "Flattening hierarchical data risks losing structural context."
+    },
+    {
+        question: "How does metadata support data transformation?",
+        options: [
+        "By replacing missing values automatically",
+        "By providing context and mapping for accurate interpretation",
+        "By compressing large files",
+        "By storing raw binary data"
+        ],
+        answer: "By providing context and mapping for accurate interpretation",
+        explanation: "Metadata ensures fields are understood correctly during transformation."
+    }
+    ];
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

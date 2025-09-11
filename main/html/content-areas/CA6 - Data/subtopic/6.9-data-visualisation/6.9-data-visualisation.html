@@ -200,6 +200,149 @@
             <li>Internal tracking: Dashboards to monitor KPIs and progress effectively.</li>
         </ul>
 
+
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Which graph type is best for showing a trend over time?",
+        options: ["Bar graph", "Pie chart", "Line graph", "Scatter plot"],
+        answer: "Line graph",
+        explanation: "Line graphs highlight changes or trends over time."
+    },
+    {
+        question: "What is the main advantage of using a table?",
+        options: [
+        "Engages audiences visually",
+        "Summarises findings quickly",
+        "Presents exact numbers and comparisons",
+        "Shows proportions of a whole"
+        ],
+        answer: "Presents exact numbers and comparisons",
+        explanation: "Tables are best for precision and detailed data."
+    },
+    {
+        question: "Which format is best for a general public audience?",
+        options: ["Detailed dashboards", "Infographics", "Complex tables", "Scatter plots"],
+        answer: "Infographics",
+        explanation: "Infographics simplify and engage, ideal for non-specialist audiences."
+    },
+    {
+        question: "What is the main drawback of dashboards?",
+        options: [
+        "They can become cluttered and overwhelming",
+        "They cannot display real-time data",
+        "They sacrifice precision for clarity",
+        "They are not suitable for executives"
+        ],
+        answer: "They can become cluttered and overwhelming",
+        explanation: "Dashboards are powerful but risk information overload."
+    },
+    {
+        question: "Which visualisation format is best for formal decision-making?",
+        options: ["Infographics", "Reports", "Pie charts", "Dashboards"],
+        answer: "Reports",
+        explanation: "Reports combine visuals with detailed analysis and context."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

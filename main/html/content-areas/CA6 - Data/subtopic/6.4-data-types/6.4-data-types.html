@@ -204,6 +204,203 @@
             <p><strong>Data transformation:</strong> Transform when integrating systems, cleaning data, or performing analytics. Example: Converting string "2025-09-01" to a date type to calculate days until a deadline.</p>
         </ul>
 
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Which data type is best for storing the number of items in a shopping cart?",
+        options: ["Integer", "Real (Float)", "String", "Blob"],
+        answer: "Integer",
+        explanation: "Item counts must be whole numbers, so integer is most suitable."
+    },
+    {
+        question: "Which data type should be used to store temperature readings such as 36.6°C?",
+        options: ["Integer", "Real (Float)", "Character", "Boolean"],
+        answer: "Real (Float)",
+        explanation: "Real (float) handles fractional values needed for precise measurements."
+    },
+    {
+        question: "What is the main purpose of the Character data type?",
+        options: [
+        "To store long passages of text",
+        "To store single letters, numbers, or symbols",
+        "To store multimedia files",
+        "To store only True/False values"
+        ],
+        answer: "To store single letters, numbers, or symbols",
+        explanation: "Character data type is limited to one symbol, like 'A' or '#'."
+    },
+    {
+        question: "Which data type would be best for storing an address like '123 Main Street'?",
+        options: ["Character", "String", "Integer", "Blob"],
+        answer: "String",
+        explanation: "Strings can hold multiple characters, words, and numbers together as text."
+    },
+    {
+        question: "A Boolean data type is most commonly used to:",
+        options: [
+        "Store measurements with decimals",
+        "Store large binary objects like images",
+        "Represent logical True/False conditions",
+        "Store multiple characters in a row"
+        ],
+        answer: "Represent logical True/False conditions",
+        explanation: "Booleans are ideal for flags, conditions, or binary states (yes/no)."
+    },
+    {
+        question: "Which of the following is an example of a Blob (Binary Large Object)?",
+        options: [
+        "An employee’s birthdate",
+        "A product’s price in a store",
+        "A user’s profile picture stored in a database",
+        "A True/False login flag"
+        ],
+        answer: "A user’s profile picture stored in a database",
+        explanation: "Blobs are used for large binary data such as images, audio, or video."
+    },
+    {
+        question: "Structured data relies on:",
+        options: [
+        "Freeform text and multimedia storage",
+        "Clearly defined data types like Integer, String, and Date",
+        "Only Boolean and Real values",
+        "Manual categorisation of data"
+        ],
+        answer: "Clearly defined data types like Integer, String, and Date",
+        explanation: "Structured data is stored in predefined formats, making it searchable and analysable."
+    },
+    {
+        question: "Unstructured data typically uses which of the following data types?",
+        options: [
+        "Integer and Real only",
+        "Date and Boolean",
+        "Strings and Blobs",
+        "Only Categorical values"
+        ],
+        answer: "Strings and Blobs",
+        explanation: "Unstructured data like text, images, and video is usually stored in strings or blobs."
+    },
+    {
+        question: "What is a risk of transforming a Real number into an Integer?",
+        options: [
+        "Losing decimal precision",
+        "Converting into a Blob",
+        "Losing all text information",
+        "Causing logical errors with Boolean checks"
+        ],
+        answer: "Losing decimal precision",
+        explanation: "Integers drop any decimal values, which can reduce accuracy."
+    },
+    {
+        question: "Which type of data is most suitable for a social media platform storing photos, comments, and videos?",
+        options: [
+        "Structured data with Integers only",
+        "Unstructured data using Strings and Blobs",
+        "Boolean data stored in databases",
+        "Real data values for continuous measurements"
+        ],
+        answer: "Unstructured data using Strings and Blobs",
+        explanation: "Social media relies heavily on unstructured data like text posts and multimedia."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

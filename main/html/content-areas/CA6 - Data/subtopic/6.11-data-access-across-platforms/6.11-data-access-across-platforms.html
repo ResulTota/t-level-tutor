@@ -233,6 +233,159 @@
             <p>Conclusion: Using a combination of mechanisms often provides the best solution in digital software development.</p>
         </ul>
 
+
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the purpose of permissions in data access?",
+        options: [
+        "To verify user credentials",
+        "To define what actions a user can perform",
+        "To group users into roles",
+        "To apply conditional policies"
+        ],
+        answer: "To define what actions a user can perform",
+        explanation: "Permissions determine allowed operations like read, write, or delete."
+    },
+    {
+        question: "Which access mechanism groups users and assigns rights collectively?",
+        options: ["API", "RBAC", "RuBAC", "Rules"],
+        answer: "RBAC",
+        explanation: "Role-Based Access Control simplifies management by grouping permissions."
+    },
+    {
+        question: "What is a key drawback of Rule-Based Access Control (RuBAC)?",
+        options: [
+        "It cannot handle temporary access",
+        "It is inflexible for dynamic needs",
+        "Complexity can cause misconfigurations",
+        "It is not suitable for security"
+        ],
+        answer: "Complexity can cause misconfigurations",
+        explanation: "While flexible, RuBAC can become too complex and error-prone."
+    },
+    {
+        question: "Why are APIs important in accessing data across platforms?",
+        options: [
+        "They simplify role management",
+        "They allow software systems to communicate securely",
+        "They define who can read/write data",
+        "They reduce storage redundancy"
+        ],
+        answer: "They allow software systems to communicate securely",
+        explanation: "APIs enable programmatic, structured, cross-platform data access."
+    },
+    {
+        question: "Which factor most influences the choice between RBAC, RuBAC, and APIs?",
+        options: [
+        "Data sensitivity and compliance",
+        "User interface design",
+        "Programming language",
+        "Storage efficiency"
+        ],
+        answer: "Data sensitivity and compliance",
+        explanation: "Security, scalability, and compliance drive which mechanism is suitable."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

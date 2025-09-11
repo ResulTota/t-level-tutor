@@ -296,6 +296,241 @@
         </ul>
         </section>>
 
+
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the main difference between data and information?",
+        options: [
+        "Data is processed and meaningful, while information is raw and unorganised",
+        "Data is raw and unprocessed, while information is processed and given context",
+        "Data always includes human judgement, while information does not",
+        "Data is always numerical, while information is always text"
+        ],
+        answer: "Data is raw and unprocessed, while information is processed and given context",
+        explanation: "Data becomes information when structured and given meaning."
+    },
+    {
+        question: "Which of the following best describes knowledge?",
+        options: [
+        "Unprocessed facts and figures with no context",
+        "Processed data that answers who, what, where, and when",
+        "Insights and understanding derived from information combined with experience",
+        "Organised charts, tables, and reports"
+        ],
+        answer: "Insights and understanding derived from information combined with experience",
+        explanation: "Knowledge adds human judgement to information for decision-making."
+    },
+    {
+        question: "What is the correct relationship among data, information, and knowledge?",
+        options: [
+        "Knowledge → Data → Information",
+        "Information → Data → Knowledge",
+        "Data → Knowledge → Information",
+        "Data → Information → Knowledge"
+        ],
+        answer: "Data → Information → Knowledge",
+        explanation: "Raw data becomes information when processed, and information leads to knowledge when interpreted with experience."
+    },
+    {
+        question: "Which of the following is a source of human-generated data?",
+        options: [
+        "Online surveys and forms",
+        "Accelerometer readings",
+        "Smart thermostats",
+        "Financial transaction records"
+        ],
+        answer: "Online surveys and forms",
+        explanation: "Humans provide direct input through surveys, forms, and questionnaires."
+    },
+    {
+        question: "What is a risk of using AI-generated data?",
+        options: [
+        "Responses may be dishonest",
+        "Sensors may fail to capture real-time data",
+        "Bias in training data can create biased outcomes",
+        "Transactional data may be incomplete"
+        ],
+        answer: "Bias in training data can create biased outcomes",
+        explanation: "AI and ML systems can develop feedback loops if trained on biased data."
+    },
+    {
+        question: "Which source of data is continuous, real-time, and often objective?",
+        options: [
+        "Human surveys",
+        "Sensors",
+        "Transactions",
+        "AI-generated outputs"
+        ],
+        answer: "Sensors",
+        explanation: "Sensors collect environmental or physical measurements directly and continuously."
+    },
+    {
+        question: "What ethical data practice ensures users know and agree to data collection?",
+        options: [
+        "Consent",
+        "Privacy",
+        "Fairness",
+        "Transparency"
+        ],
+        answer: "Consent",
+        explanation: "Users must provide informed consent before their data is collected."
+    },
+    {
+        question: "Which metric evaluates whether data is trustworthy and accurate?",
+        options: [
+        "Quantity",
+        "Veracity",
+        "Timeframe",
+        "Source"
+        ],
+        answer: "Veracity",
+        explanation: "High-veracity data reduces errors and builds confidence in decisions."
+    },
+    {
+        question: "Which organisational use of data involves tracking logins, resource access, and timing?",
+        options: [
+        "System performance analysis",
+        "User monitoring",
+        "Targeted marketing",
+        "Threat assessment"
+        ],
+        answer: "User monitoring",
+        explanation: "User monitoring tracks behaviour to improve security and experience."
+    },
+    {
+        question: "Which organisational activity uses sales patterns to adjust stock levels?",
+        options: [
+        "Threat/opportunity assessment",
+        "Targeted marketing",
+        "Analysis to identify patterns",
+        "System performance analysis"
+        ],
+        answer: "Analysis to identify patterns",
+        explanation: "Analysing patterns helps organisations plan for demand and trends."
+    },
+    {
+        question: "Which suitability factor in digital software development ensures data matches project goals?",
+        options: [
+        "Accuracy",
+        "Relevance",
+        "Timeliness",
+        "Ethics"
+        ],
+        answer: "Relevance",
+        explanation: "Relevant data ensures development decisions align with project goals."
+    },
+    {
+        question: "What risk occurs if biased or unreliable data is used in software development?",
+        options: [
+        "The final product may fail to meet user needs",
+        "The software will always run slower",
+        "Ethics will no longer matter",
+        "The project will cost less but deliver more"
+        ],
+        answer: "The final product may fail to meet user needs",
+        explanation: "Poor-quality or biased data can undermine product reliability and fairness."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

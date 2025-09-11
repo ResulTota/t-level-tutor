@@ -202,6 +202,189 @@
             </ul>
             <p><strong>Key principle:</strong> Selecting the correct data format ensures efficient storage, smooth data exchange, and compatibility across systems. Developers should balance readability, structure, size, and interoperability when choosing a format.</p>
         </ul>
+
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Which data format is lightweight, text-based, supports nested structures, and is commonly used in web APIs?",
+        options: ["CSV", "JSON", "XML", "UTF-8"],
+        answer: "JSON",
+        explanation: "JSON is human-readable, machine-parsable, and supports objects and arrays, making it perfect for APIs."
+    },
+    {
+        question: "What is the main limitation of CSV files?",
+        options: [
+        "Cannot be opened in spreadsheets",
+        "Too complex for humans to read",
+        "Cannot easily represent nested or hierarchical data",
+        "Not compatible with databases"
+        ],
+        answer: "Cannot easily represent nested or hierarchical data",
+        explanation: "CSV handles tabular data well but struggles with hierarchical structures like JSON or XML."
+    },
+    {
+        question: "Which format would be most suitable for storing system logs?",
+        options: ["JSON", "XML", "Plain Text (.txt)", "UTF-8"],
+        answer: "Plain Text (.txt)",
+        explanation: "Text files are simple, lightweight, and ideal for logs or small notes."
+    },
+    {
+        question: "Which character encoding standard supports almost all global characters, making it essential for multilingual systems?",
+        options: ["ASCII", "UTF-8", "CSV", "XML"],
+        answer: "UTF-8",
+        explanation: "UTF-8 is the global standard for encoding characters from virtually all languages."
+    },
+    {
+        question: "ASCII encoding is limited to:",
+        options: [
+        "Only Chinese and Japanese characters",
+        "128 basic English letters, digits, and symbols",
+        "Full multilingual support",
+        "Hierarchical structured data"
+        ],
+        answer: "128 basic English letters, digits, and symbols",
+        explanation: "ASCII supports only the first 128 characters, making it lightweight but limited."
+    },
+    {
+        question: "Which format uses opening and closing tags to structure hierarchical data?",
+        options: ["CSV", "UTF-8", "XML", "Text file"],
+        answer: "XML",
+        explanation: "XML uses tagged markup to store hierarchical structured data."
+    },
+    {
+        question: "Why is JSON often easier to transform into other formats compared to text files?",
+        options: [
+        "It is encoded in ASCII only",
+        "It is structured with predictable rules",
+        "It does not require parsing",
+        "It stores only plain unstructured text"
+        ],
+        answer: "It is structured with predictable rules",
+        explanation: "Structured formats like JSON can be validated and transformed reliably."
+    },
+    {
+        question: "What risk arises when transforming between data formats such as JSON and CSV?",
+        options: [
+        "Loss of tabular data",
+        "Loss of nested or hierarchical details",
+        "Inability to represent numbers",
+        "Reduced compatibility with UTF-8"
+        ],
+        answer: "Loss of nested or hierarchical details",
+        explanation: "CSV cannot capture nested structures, so JSON → CSV transformation may lose data."
+    },
+    {
+        question: "Which format would be most suitable for an international e-commerce website storing customer reviews in multiple languages?",
+        options: ["ASCII", "UTF-8", "CSV", "XML"],
+        answer: "UTF-8",
+        explanation: "UTF-8 supports multilingual text, ensuring correct display of global characters."
+    },
+    {
+        question: "Which format is most suitable for a legacy enterprise system that requires verbose hierarchical data exchange?",
+        options: ["CSV", "Text file", "XML", "JSON"],
+        answer: "XML",
+        explanation: "XML is widely used in enterprise and legacy systems due to its self-describing, tag-based structure."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
         
     </main>
     
