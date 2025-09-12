@@ -268,6 +268,264 @@
                 <li>Want businesses to contribute to the economy and society.</li>
                 <li>Can impose taxes, regulations, and incentives that affect business operations.</li>
             </ul>
+
+    <script>
+        const quizData = [
+        {
+            question: "What is the main purpose of an organisation that provides a service?",
+            options: [
+            "To produce physical goods",
+            "To offer intangible services to meet customer needs",
+            "To reinvest profits into charities",
+            "To regulate businesses"
+            ],
+            answer: "To offer intangible services to meet customer needs",
+            explanation: "Service organisations provide non-physical services, e.g., NHS, Barclays, Uber."
+        },
+        {
+            question: "Which of the following is an example of a product-based organisation?",
+            options: [
+            "Tesco (groceries)",
+            "Uber (transport)",
+            "NHS (healthcare)",
+            "Barclays (banking)"
+            ],
+            answer: "Tesco (groceries)",
+            explanation: "Product-based organisations produce or sell physical goods like food, clothing, or cars."
+        },
+        {
+            question: "Small or Medium-Sized Enterprises (SMEs) are typically:",
+            options: [
+            "Multinational companies with vast resources",
+            "Independently owned businesses with fewer employees and smaller turnover",
+            "Government-owned organisations",
+            "Voluntary charities reinvesting profits"
+            ],
+            answer: "Independently owned businesses with fewer employees and smaller turnover",
+            explanation: "SMEs are smaller businesses compared to large enterprises, often with local reach."
+        },
+        {
+            question: "What type of organisation is the NHS?",
+            options: [
+            "Private sector",
+            "Public sector",
+            "Voluntary sector",
+            "NGO"
+            ],
+            answer: "Public sector",
+            explanation: "The NHS is government-funded and provides services for the public."
+        },
+        {
+            question: "Non-Governmental Organisations (NGOs) typically focus on:",
+            options: [
+            "Shareholder profit",
+            "Social, environmental, or humanitarian issues",
+            "Manufacturing physical goods",
+            "Government regulations"
+            ],
+            answer: "Social, environmental, or humanitarian issues",
+            explanation: "NGOs operate independently from governments, focusing on causes rather than profit."
+        },
+        {
+            question: "What is the main characteristic of the voluntary/charity sector?",
+            options: [
+            "Profit is distributed to shareholders",
+            "Income is reinvested into the cause",
+            "Owned by the government",
+            "Primarily multinational corporations"
+            ],
+            answer: "Income is reinvested into the cause",
+            explanation: "Charities reinvest any income to further their mission rather than distribute profit."
+        },
+        {
+            question: "What does B2C (Business to Customer) mean?",
+            options: [
+            "Businesses selling to other businesses",
+            "Businesses selling directly to individual consumers",
+            "Businesses selling to both businesses and consumers",
+            "Businesses working with governments"
+            ],
+            answer: "Businesses selling directly to individual consumers",
+            explanation: "B2C focuses on mass marketing, small transactions, and customer preferences."
+        },
+        {
+            question: "Which of the following is a Business to Business (B2B) example?",
+            options: [
+            "eBay",
+            "Microsoft",
+            "Netflix",
+            "Tesco"
+            ],
+            answer: "Microsoft",
+            explanation: "B2B organisations sell to other businesses, often through contracts and long-term relationships."
+        },
+        {
+            question: "Which business model involves selling to both consumers and businesses?",
+            options: [
+            "B2C",
+            "B2B",
+            "B2M",
+            "NGO"
+            ],
+            answer: "B2M",
+            explanation: "Business to Many (B2M) includes dual marketing strategies for both groups, e.g., Amazon or Netflix."
+        },
+        {
+            question: "Which internal stakeholder is legally responsible for owning part of an organisation?",
+            options: [
+            "Directors",
+            "Employees",
+            "Owners",
+            "Customers"
+            ],
+            answer: "Owners",
+            explanation: "Owners or shareholders provide capital and seek returns on their investment."
+        },
+        {
+            question: "Who is responsible for overseeing operations and making strategic decisions?",
+            options: [
+            "Employees",
+            "Suppliers",
+            "Directors",
+            "Customers"
+            ],
+            answer: "Directors",
+            explanation: "Directors are appointed by owners to manage strategy and long-term business success."
+        },
+        {
+            question: "Employees are mainly interested in:",
+            options: [
+            "Strategic company policies",
+            "Timely payments and contracts",
+            "Job security, fair wages, and career growth",
+            "Return on investment"
+            ],
+            answer: "Job security, fair wages, and career growth",
+            explanation: "Employees want stable working conditions and opportunities for development."
+        },
+        {
+            question: "Which external stakeholder is most concerned with product quality, price, and service?",
+            options: [
+            "Suppliers",
+            "Customers",
+            "Investors",
+            "Government"
+            ],
+            answer: "Customers",
+            explanation: "Customers look for value for money and influence success with their buying decisions."
+        },
+        {
+            question: "Suppliers are primarily interested in:",
+            options: [
+            "Timely payments and strong relationships",
+            "Company reputation",
+            "Fair wages",
+            "Regulatory compliance"
+            ],
+            answer: "Timely payments and strong relationships",
+            explanation: "Suppliers provide materials/services and rely on prompt payments to sustain operations."
+        },
+        {
+            question: "What is the government’s role as an external stakeholder?",
+            options: [
+            "Setting marketing strategies",
+            "Ensuring compliance with laws, collecting taxes, and regulating business activity",
+            "Providing direct investment in all companies",
+            "Offering employee training"
+            ],
+            answer: "Ensuring compliance with laws, collecting taxes, and regulating business activity",
+            explanation: "Government bodies regulate, tax, and incentivise organisations to benefit the economy and society."
+        }
+        ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

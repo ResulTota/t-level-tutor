@@ -184,6 +184,218 @@
             </ul>
         </ul>
 
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is quantitative data?",
+        options: [
+        "Descriptive data that captures opinions or experiences",
+        "Numerical data that can be measured and expressed statistically",
+        "Unstructured information such as images and videos",
+        "Data stored as categories without numbers"
+        ],
+        answer: "Numerical data that can be measured and expressed statistically",
+        explanation: "Quantitative data deals with numbers, measurements, and calculations."
+    },
+    {
+        question: "Which of the following is an example of qualitative data?",
+        options: [
+        "Temperature readings in Celsius",
+        "Height of students in centimeters",
+        "Product reviews from customers",
+        "Monthly income in pounds"
+        ],
+        answer: "Product reviews from customers",
+        explanation: "Reviews describe opinions/feelings, making them qualitative."
+    },
+    {
+        question: "Why is quantitative data usually considered structured?",
+        options: [
+        "It is descriptive and multimedia-based",
+        "It fits into predefined formats like tables and databases",
+        "It cannot be measured numerically",
+        "It provides context but no numerical value"
+        ],
+        answer: "It fits into predefined formats like tables and databases",
+        explanation: "Quantitative data naturally aligns with structured storage formats."
+    },
+    {
+        question: "Which of the following best describes unstructured data?",
+        options: [
+        "Organised into rows and columns for easy processing",
+        "Stored in rigid, predefined formats",
+        "Rich descriptive data such as videos, emails, or social posts",
+        "Always numerical and suitable for statistical analysis"
+        ],
+        answer: "Rich descriptive data such as videos, emails, or social posts",
+        explanation: "Unstructured data lacks a strict format, often containing text or multimedia."
+    },
+    {
+        question: "Which is an example of discrete quantitative data?",
+        options: [
+        "Number of cars in a parking lot",
+        "Weight of a suitcase in kilograms",
+        "Temperature in a room",
+        "Survey responses coded as Yes/No"
+        ],
+        answer: "Number of cars in a parking lot",
+        explanation: "Discrete values can only take specific whole numbers."
+    },
+    {
+        question: "Continuous quantitative data can take:",
+        options: [
+        "Only fixed, whole number values",
+        "Any value within a range, including decimals",
+        "Only categories like Male/Female",
+        "Only descriptive responses like colours"
+        ],
+        answer: "Any value within a range, including decimals",
+        explanation: "Continuous data can vary smoothly, e.g., height, weight, temperature."
+    },
+    {
+        question: "Which of these represents categorical data?",
+        options: [
+        "1 = Male, 2 = Female",
+        "165.4 cm height",
+        "Number of tickets sold",
+        "Daily temperature in °C"
+        ],
+        answer: "1 = Male, 2 = Female",
+        explanation: "Categorical values classify items into groups, not continuous numbers."
+    },
+    {
+        question: "How can qualitative data be codified into structured formats?",
+        options: [
+        "By deleting descriptive details",
+        "By converting opinions into numerical categories or tags",
+        "By forcing all responses into decimals",
+        "By ignoring context and focusing on numbers"
+        ],
+        answer: "By converting opinions into numerical categories or tags",
+        explanation: "Qualitative data can be tagged or coded to make it structured for analysis."
+    },
+    {
+        question: "In digital software development, which type of data is most suitable for a banking app?",
+        options: [
+        "Unstructured qualitative data such as comments",
+        "Structured quantitative data such as balances and transactions",
+        "Categorical values like Male/Female",
+        "Continuous values such as temperature"
+        ],
+        answer: "Structured quantitative data such as balances and transactions",
+        explanation: "Banking requires structured numeric data for accuracy and reporting."
+    },
+    {
+        question: "Which best describes the interrelationship between quantitative and qualitative data?",
+        options: [
+        "They cannot be transformed into each other",
+        "Qualitative is always structured, quantitative is always unstructured",
+        "Quantitative is structured and easily analysed, qualitative is unstructured but can be transformed",
+        "Both are only useful if stored as continuous values"
+        ],
+        answer: "Quantitative is structured and easily analysed, qualitative is unstructured but can be transformed",
+        explanation: "Quantitative fits structured systems, while qualitative needs transformation tools."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

@@ -216,6 +216,154 @@
             <p><strong>Judgements:</strong> Decide which datasets are worth maintaining based on value and veracity, determine quality assurance levels, balance costs, time, and skills. Example: Only reliable and relevant customer data is maintained for a recommendation engine.</p>
         </ul>
         
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Which of the six Vs refers to the speed at which data is generated and processed?",
+        options: ["Volume", "Velocity", "Variety", "Veracity"],
+        answer: "Velocity",
+        explanation: "Velocity measures how fast data arrives and needs to be processed."
+    },
+    {
+        question: "Which V relates to the usefulness of data for business decision-making?",
+        options: ["Veracity", "Variability", "Value", "Volume"],
+        answer: "Value",
+        explanation: "Value reflects how beneficial data is for achieving business goals."
+    },
+    {
+        question: "What is the main challenge of data variety?",
+        options: [
+        "Managing large file sizes",
+        "Integrating different formats such as text, images, and videos",
+        "Ensuring real-time processing",
+        "Validating customer data accuracy"
+        ],
+        answer: "Integrating different formats such as text, images, and videos",
+        explanation: "Variety requires handling multiple data types across systems."
+    },
+    {
+        question: "Which quality assurance method checks that data matches the source of truth?",
+        options: ["Validation", "Verification", "Reliability", "Integrity"],
+        answer: "Verification",
+        explanation: "Verification ensures data matches original sources and is correct."
+    },
+    {
+        question: "If a company keeps outdated financial reports without updates, which factor is being ignored?",
+        options: ["Skills", "Cost", "Time", "Consistency"],
+        answer: "Time",
+        explanation: "Time affects data freshness — financial reports must be current."
+    },
+    {
+        question: "Why might redundancy be intentionally built into data systems?",
+        options: [
+        "To reduce storage costs",
+        "To protect against data loss",
+        "To improve query speed",
+        "To standardize formats"
+        ],
+        answer: "To protect against data loss",
+        explanation: "Redundancy provides backups and recovery options in case of failure."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

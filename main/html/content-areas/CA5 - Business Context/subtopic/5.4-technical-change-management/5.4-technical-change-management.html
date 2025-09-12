@@ -571,6 +571,265 @@
             <li><strong>Time:</strong> Tight deadlines may require prioritizing features or simplifying implementation.</li>
             <li><strong>Human and Technological Resources:</strong> Lack of skilled personnel or suitable technology can delay progress or reduce effectiveness.</li>
         </ul>
+
+
+    <script>
+        const quizData = [
+        {
+            question: "What is the main purpose of technical change management?",
+            options: [
+            "To resist all changes and preserve the status quo",
+            "To plan, implement, and monitor changes while minimising disruption and risk",
+            "To increase short-term profits at any cost",
+            "To outsource all business processes"
+            ],
+            answer: "To plan, implement, and monitor changes while minimising disruption and risk",
+            explanation: "Change management ensures change delivers intended benefits with minimal disruption."
+        },
+        {
+            question: "Which is an internal factor that may trigger organisational change?",
+            options: [
+            "Inflation",
+            "New government policies",
+            "Organisational restructuring",
+            "Cultural expectations"
+            ],
+            answer: "Organisational restructuring",
+            explanation: "Restructuring realigns teams or reporting lines for efficiency and strategy."
+        },
+        {
+            question: "What is a drawback of organisational restructuring?",
+            options: [
+            "Uncertainty and morale issues",
+            "Increased costs of compliance",
+            "New competitors entering the market",
+            "Changes in government priorities"
+            ],
+            answer: "Uncertainty and morale issues",
+            explanation: "Restructuring may lower morale or cause staff turnover during transition."
+        },
+        {
+            question: "What is a key benefit of expansion as a trigger for change?",
+            options: [
+            "Reduces costs by cutting staff",
+            "Increases market reach and revenue potential",
+            "Simplifies communication",
+            "Removes risk of operational complexity"
+            ],
+            answer: "Increases market reach and revenue potential",
+            explanation: "Expansion enables access to new markets and diversifies revenue streams."
+        },
+        {
+            question: "Which internal change involves reducing workforce or scale?",
+            options: [
+            "Rebranding",
+            "Diversification",
+            "Downsizing",
+            "Expansion"
+            ],
+            answer: "Downsizing",
+            explanation: "Downsizing cuts costs by reducing workforce or operations."
+        },
+        {
+            question: "Rebranding is an example of change triggered by what?",
+            options: [
+            "Organisational restructuring",
+            "New strategic objectives",
+            "Political instability",
+            "Environmental concerns"
+            ],
+            answer: "New strategic objectives",
+            explanation: "Rebranding helps reposition an organisation to meet strategic goals."
+        },
+        {
+            question: "Which external factor involves new laws requiring compliance updates?",
+            options: [
+            "Economic",
+            "Legal",
+            "Social",
+            "Technological"
+            ],
+            answer: "Legal",
+            explanation: "Legal changes require updates to policies, processes, or products."
+        },
+        {
+            question: "What external factor includes recession, inflation, and interest rates?",
+            options: [
+            "Economic",
+            "Political",
+            "Environmental",
+            "Social"
+            ],
+            answer: "Economic",
+            explanation: "Economic conditions directly influence organisational change."
+        },
+        {
+            question: "What is a drawback of responding to social change with hybrid working?",
+            options: [
+            "Reduced access to talent",
+            "Lower employee satisfaction",
+            "Requires investment in secure systems and training",
+            "Increased reliance on outdated tech"
+            ],
+            answer: "Requires investment in secure systems and training",
+            explanation: "Adapting to remote or hybrid work requires significant investment."
+        },
+        {
+            question: "Which response to change involves adapting internal rules and guidelines?",
+            options: [
+            "New or amended policies",
+            "Restructuring",
+            "Improved training",
+            "New products or services"
+            ],
+            answer: "New or amended policies",
+            explanation: "Policies may need to be updated due to regulation or priorities."
+        },
+        {
+            question: "What method of implementing change replaces the old system immediately?",
+            options: [
+            "Phased",
+            "Pilot",
+            "Direct",
+            "Parallel"
+            ],
+            answer: "Direct",
+            explanation: "The direct method involves an immediate switchover."
+        },
+        {
+            question: "Which change management objective framework uses 'Evaluated' and 'Reviewed'?",
+            options: [
+            "SMART",
+            "SWOT",
+            "SMARTER",
+            "PESTLE"
+            ],
+            answer: "SMARTER",
+            explanation: "SMARTER adds 'Evaluated' and 'Reviewed' to the standard SMART framework."
+        },
+        {
+            question: "Why is rollback planning important?",
+            options: [
+            "It avoids the need for user training",
+            "It reduces upfront investment costs",
+            "It ensures systems can be restored if change fails",
+            "It eliminates the need for monitoring"
+            ],
+            answer: "It ensures systems can be restored if change fails",
+            explanation: "Rollback planning prevents data loss and restores services quickly."
+        },
+        {
+            question: "Which factor affects feasibility of a digital project by limiting financial resources?",
+            options: [
+            "Budget",
+            "Time",
+            "Human resources",
+            "Constraints"
+            ],
+            answer: "Budget",
+            explanation: "A limited budget restricts scope or quality of digital projects."
+        },
+        {
+            question: "Which is a risk of digital projects related to staff attitudes?",
+            options: [
+            "Inadequate knowledge of new systems",
+            "Resistance to change",
+            "Misuse of new systems",
+            "Lack of managerial support"
+            ],
+            answer: "Resistance to change",
+            explanation: "Employees may resist adopting new systems, slowing implementation."
+        }
+        ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
 
     <arrow-Nav>

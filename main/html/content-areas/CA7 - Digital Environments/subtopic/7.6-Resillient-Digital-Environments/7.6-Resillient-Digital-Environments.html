@@ -310,6 +310,254 @@
         </ul>
         <p>By combining these methods, organizations can <strong>minimize downtime</strong>, <strong>prevent data loss</strong>, and <strong>maintain client trust</strong>.</p>
 
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is a resilient digital environment?",
+        options: [
+        "A system designed only for fast performance",
+        "A system that can recover quickly from failures while maintaining operations",
+        "A backup-only system with no active use",
+        "A temporary system used during testing"
+        ],
+        answer: "A system that can recover quickly from failures while maintaining operations",
+        explanation: "Resilient environments are designed to withstand failures, attacks, or disruptions while keeping services running."
+    },
+    {
+        question: "Which is a key benefit of resilient environments?",
+        options: [
+        "Increased system complexity",
+        "Increased security, reputation, and reduced downtime",
+        "Higher hardware costs",
+        "More frequent service outages"
+        ],
+        answer: "Increased security, reputation, and reduced downtime",
+        explanation: "Resilient systems protect data, maintain customer trust, and ensure services remain available."
+    },
+    {
+        question: "How do resilient systems increase security?",
+        options: [
+        "By never updating software",
+        "By encrypting data and reducing vulnerabilities",
+        "By sharing passwords across staff",
+        "By relying on a single backup server"
+        ],
+        answer: "By encrypting data and reducing vulnerabilities",
+        explanation: "Encryption, regular patches, and monitoring help protect data at rest and in transit."
+    },
+    {
+        question: "Why does resilience improve an organization’s reputation?",
+        options: [
+        "Clients see fewer failures and trust the service more",
+        "It makes the system slower but more reliable",
+        "It hides system errors from users",
+        "It reduces IT staff requirements"
+        ],
+        answer: "Clients see fewer failures and trust the service more",
+        explanation: "A reliable, secure system builds confidence in the brand and keeps customers loyal."
+    },
+    {
+        question: "What is a major consequence of downtime?",
+        options: [
+        "Lower system performance only",
+        "Loss of money and reputation",
+        "Automatic hardware upgrades",
+        "Reduced software licensing fees"
+        ],
+        answer: "Loss of money and reputation",
+        explanation: "Downtime can harm revenue and customer trust, which resilience helps to prevent."
+    },
+    {
+        question: "How do software updates and patches improve resilience?",
+        options: [
+        "They make systems slower",
+        "They fix vulnerabilities and improve performance",
+        "They remove old hardware automatically",
+        "They reduce storage requirements"
+        ],
+        answer: "They fix vulnerabilities and improve performance",
+        explanation: "Updates include performance improvements and patches address new security threats."
+    },
+    {
+        question: "Why is secure disposal important in hardware replacement?",
+        options: [
+        "To reduce costs",
+        "To prevent data leaks from old devices",
+        "To improve software updates",
+        "To make backups faster"
+        ],
+        answer: "To prevent data leaks from old devices",
+        explanation: "Old hardware should be wiped or destroyed to ensure sensitive data is not exposed."
+    },
+    {
+        question: "What is data/system redundancy?",
+        options: [
+        "Keeping multiple copies of data or systems",
+        "Using fewer servers to cut costs",
+        "Updating only one system at a time",
+        "Allowing users to share passwords"
+        ],
+        answer: "Keeping multiple copies of data or systems",
+        explanation: "Redundancy ensures service availability if one system fails."
+    },
+    {
+        question: "What does device hardening involve?",
+        options: [
+        "Adding more storage space",
+        "Securing devices by removing unnecessary features",
+        "Installing multiple applications on every device",
+        "Allowing all users full admin access"
+        ],
+        answer: "Securing devices by removing unnecessary features",
+        explanation: "Hardening reduces vulnerabilities by disabling unused ports, apps, and permissions."
+    },
+    {
+        question: "Which is NOT a type of backup?",
+        options: ["Onsite", "Remote/Offsite", "Cloud", "Password-based"],
+        answer: "Password-based",
+        explanation: "Common backup types include onsite, offsite, and cloud, not password-based."
+    },
+    {
+        question: "Which backup type provides the fastest recovery?",
+        options: ["Onsite", "Offsite", "Cloud", "Cold site"],
+        answer: "Onsite",
+        explanation: "Onsite backups allow quick restoration since the data is stored locally."
+    },
+    {
+        question: "Which disaster recovery site is fully equipped and ready to use immediately?",
+        options: ["Cold site", "Warm site", "Hot site", "Backup site"],
+        answer: "Hot site",
+        explanation: "Hot sites have all hardware and software pre-installed for immediate recovery."
+    },
+    {
+        question: "Which disaster recovery site requires the most setup before use?",
+        options: ["Hot site", "Warm site", "Cold site", "Backup site"],
+        answer: "Cold site",
+        explanation: "Cold sites are empty spaces with basic infrastructure, requiring full setup before use."
+    },
+    {
+        question: "What is the main purpose of Standard Operating Procedures (SOPs)?",
+        options: [
+        "To ensure staff follow correct processes and reduce human errors",
+        "To replace technical staff with automation",
+        "To increase system complexity",
+        "To reduce hardware requirements"
+        ],
+        answer: "To ensure staff follow correct processes and reduce human errors",
+        explanation: "SOPs train staff and provide clear guidelines for responding to incidents effectively."
+    },
+    {
+        question: "What three key elements work together to create resilient environments?",
+        options: [
+        "Technology, processes, and people",
+        "Software, hardware, and customers",
+        "Updates, backups, and passwords",
+        "Security, downtime, and storage"
+        ],
+        answer: "Technology, processes, and people",
+        explanation: "Technology (backups, redundancy), processes (SOPs, recovery plans), and people (trained staff) together ensure resilience."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

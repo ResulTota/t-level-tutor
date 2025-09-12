@@ -364,6 +364,376 @@
                 </em>
             </li>
         </ul>
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData_8_3 = [
+    // Security Settings
+    {
+        question: "What is the main purpose of security settings in hardware and software?",
+        options: [
+        "To improve user productivity",
+        "To restrict unauthorized access and enforce policies",
+        "To speed up system performance",
+        "To increase storage capacity"
+        ],
+        answer: "To restrict unauthorized access and enforce policies",
+        explanation: "Security settings reduce the attack surface and prevent unauthorized changes."
+    },
+    {
+        question: "What is a drawback of misconfigured security settings?",
+        options: [
+        "They make systems faster",
+        "They may create vulnerabilities",
+        "They reduce encryption strength",
+        "They block malware automatically"
+        ],
+        answer: "They may create vulnerabilities",
+        explanation: "Improper configuration of security settings can weaken system security."
+    },
+
+    // Anti-malware Software
+    {
+        question: "What does anti-malware software do?",
+        options: [
+        "Encrypts sensitive data",
+        "Detects and removes malicious software",
+        "Manages user passwords",
+        "Monitors physical access"
+        ],
+        answer: "Detects and removes malicious software",
+        explanation: "Anti-malware scans files, quarantines threats, and provides real-time protection."
+    },
+
+    // Intrusion Detection
+    {
+        question: "What is the benefit of intrusion detection?",
+        options: [
+        "Immediate system recovery",
+        "Early warning of attacks",
+        "Faster system performance",
+        "Reduced need for encryption"
+        ],
+        answer: "Early warning of attacks",
+        explanation: "Intrusion detection helps identify suspicious activity quickly."
+    },
+
+    // Encryption
+    {
+        question: "What is the difference between symmetric and asymmetric encryption?",
+        options: [
+        "Symmetric uses the same key, asymmetric uses public/private keys",
+        "Symmetric is faster but less secure, asymmetric is slower but more secure",
+        "Symmetric is for files, asymmetric is for hardware",
+        "Symmetric works offline, asymmetric works online"
+        ],
+        answer: "Symmetric uses the same key, asymmetric uses public/private keys",
+        explanation: "Symmetric encryption uses one key; asymmetric uses two keys for secure communication."
+    },
+
+    // User Access Policies
+    {
+        question: "What is the benefit of user access policies?",
+        options: [
+        "They limit exposure of sensitive data",
+        "They speed up login times",
+        "They eliminate the need for encryption",
+        "They automatically block malware"
+        ],
+        answer: "They limit exposure of sensitive data",
+        explanation: "Access policies define who can access resources, reducing risk."
+    },
+
+    // Staff Vetting & Training
+    {
+        question: "What is the purpose of staff vetting?",
+        options: [
+        "To increase employee productivity",
+        "To ensure trustworthy personnel and reduce insider threats",
+        "To manage employee salaries",
+        "To assign user access levels"
+        ],
+        answer: "To ensure trustworthy personnel and reduce insider threats",
+        explanation: "Background checks help prevent malicious insiders."
+    },
+    {
+        question: "Why is staff training important for security?",
+        options: [
+        "It reduces risk of human error",
+        "It eliminates the need for encryption",
+        "It increases system performance",
+        "It blocks malware automatically"
+        ],
+        answer: "It reduces risk of human error",
+        explanation: "Training helps employees follow best practices and avoid mistakes."
+    },
+
+    // Device Hardening & Backups
+    {
+        question: "What is device hardening?",
+        options: [
+        "Installing additional software",
+        "Disabling unnecessary features and services",
+        "Encrypting all system files",
+        "Monitoring all network activity"
+        ],
+        answer: "Disabling unnecessary features and services",
+        explanation: "Device hardening reduces vulnerabilities by limiting potential attack points."
+    },
+    {
+        question: "What is the main benefit of backups?",
+        options: [
+        "They improve system speed",
+        "They prevent phishing attacks",
+        "They enable recovery from data loss",
+        "They block unauthorized access"
+        ],
+        answer: "They enable recovery from data loss",
+        explanation: "Backups ensure data can be restored after failure, disaster, or attack."
+    },
+
+    // Software & Firmware Updates
+    {
+        question: "Why are software updates important?",
+        options: [
+        "They increase hardware lifespan",
+        "They fix vulnerabilities and protect against threats",
+        "They speed up user logins",
+        "They reduce storage usage"
+        ],
+        answer: "They fix vulnerabilities and protect against threats",
+        explanation: "Regular patches keep systems secure from known exploits."
+    },
+    {
+        question: "What is the risk of firmware/driver updates?",
+        options: [
+        "They can cause device instability",
+        "They reduce encryption strength",
+        "They disable anti-malware",
+        "They delete backups"
+        ],
+        answer: "They can cause device instability",
+        explanation: "Although they fix vulnerabilities, updates may sometimes cause hardware/software issues."
+    },
+
+    // Air Gaps & Certification of APIs
+    {
+        question: "What is the purpose of an air gap?",
+        options: [
+        "To isolate systems from unsecured networks",
+        "To increase network speed",
+        "To encrypt stored data",
+        "To manage passwords"
+        ],
+        answer: "To isolate systems from unsecured networks",
+        explanation: "Air-gapped systems are disconnected to prevent remote attacks."
+    },
+    {
+        question: "Why is API certification important?",
+        options: [
+        "It ensures APIs meet security standards",
+        "It speeds up system performance",
+        "It reduces password complexity",
+        "It eliminates the need for backups"
+        ],
+        answer: "It ensures APIs meet security standards",
+        explanation: "Certified APIs are less likely to introduce vulnerabilities."
+    },
+
+    // VPNs, MFA, Password Managers
+    {
+        question: "What does a VPN do?",
+        options: [
+        "Encrypts network traffic for secure remote access",
+        "Manages user credentials",
+        "Detects malware",
+        "Monitors physical entry"
+        ],
+        answer: "Encrypts network traffic for secure remote access",
+        explanation: "VPNs protect data in transit and secure remote connections."
+    },
+    {
+        question: "What is the benefit of multi-factor authentication (MFA)?",
+        options: [
+        "It increases login speed",
+        "It provides stronger protection against unauthorized access",
+        "It replaces the need for passwords",
+        "It prevents physical intrusions"
+        ],
+        answer: "It provides stronger protection against unauthorized access",
+        explanation: "MFA requires more than one form of verification, making accounts harder to hack."
+    },
+    {
+        question: "What is a drawback of password managers?",
+        options: [
+        "They encourage weak passwords",
+        "They can be a single point of failure if compromised",
+        "They require constant updates",
+        "They disable encryption"
+        ],
+        answer: "They can be a single point of failure if compromised",
+        explanation: "If the password manager is hacked, all stored passwords may be exposed."
+    },
+
+    // Port Scanning & Penetration Testing
+    {
+        question: "What is the benefit of port scanning?",
+        options: [
+        "It identifies open ports and vulnerabilities",
+        "It blocks unauthorized users",
+        "It encrypts network traffic",
+        "It speeds up file transfers"
+        ],
+        answer: "It identifies open ports and vulnerabilities",
+        explanation: "Port scanning helps administrators detect weaknesses."
+    },
+    {
+        question: "What is penetration testing?",
+        options: [
+        "Running system backups",
+        "Authorized testing to find vulnerabilities",
+        "Blocking malicious IP addresses",
+        "Encrypting all system files"
+        ],
+        answer: "Authorized testing to find vulnerabilities",
+        explanation: "Penetration testing (ethical hacking) simulates attacks to identify weaknesses."
+    },
+
+    // Firewall Configuration
+    {
+        question: "What do firewall configuration rules control?",
+        options: [
+        "What users can log in",
+        "Which data packets are allowed in or out",
+        "How fast the system runs",
+        "When backups are performed"
+        ],
+        answer: "Which data packets are allowed in or out",
+        explanation: "Firewalls control traffic based on rules like IP addresses, ports, or applications."
+    },
+
+    // Network Segregation & Monitoring
+    {
+        question: "What is the purpose of network segregation?",
+        options: [
+        "To limit the spread of attacks and protect critical assets",
+        "To reduce costs",
+        "To increase Wi-Fi speed",
+        "To allow unlimited access"
+        ],
+        answer: "To limit the spread of attacks and protect critical assets",
+        explanation: "Segregation (via VLANs or physical isolation) adds layers of security."
+    },
+    {
+        question: "What is the benefit of network monitoring?",
+        options: [
+        "It enables rapid response to threats",
+        "It reduces the need for staff",
+        "It automatically encrypts data",
+        "It prevents hardware failure"
+        ],
+        answer: "It enables rapid response to threats",
+        explanation: "Monitoring helps detect suspicious activity and vulnerabilities in real time."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

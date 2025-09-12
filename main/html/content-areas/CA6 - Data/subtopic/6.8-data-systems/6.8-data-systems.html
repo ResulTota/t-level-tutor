@@ -203,6 +203,149 @@
             <p>Good planning balances accuracy, efficiency, and cost for high-quality data entry systems.</p>
         </ul>
 
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the first step of data wrangling?",
+        options: ["Clean", "Structure", "Validate", "Enrich"],
+        answer: "Structure",
+        explanation: "Data must first be organized into a logical format like a table."
+    },
+    {
+        question: "Which data system function retrieves information efficiently?",
+        options: ["Input", "Search", "Save", "Output"],
+        answer: "Search",
+        explanation: "Search enables quick access to specific data from large sets."
+    },
+    {
+        question: "Entering '57' instead of '75' is an example of:",
+        options: ["Transcription error", "Transposition error", "Validation error", "Verification error"],
+        answer: "Transposition error",
+        explanation: "Transposition swaps digits or letters around."
+    },
+    {
+        question: "Which method reduces typing mistakes by limiting user options?",
+        options: ["Validation", "Verification", "Drop-down menus", "Pre-filled fields"],
+        answer: "Drop-down menus",
+        explanation: "Drop-downs constrain input to predefined options."
+    },
+    {
+        question: "Why is double-entry verification most suitable for critical data?",
+        options: [
+        "It speeds up input",
+        "It prevents redundancy",
+        "It reduces design time",
+        "It ensures accuracy by comparing two entries"
+        ],
+        answer: "It ensures accuracy by comparing two entries",
+        explanation: "Critical data needs the highest accuracy; double-entry detects errors."
+    },
+    {
+        question: "Which factor can increase the risk of errors during data entry?",
+        options: ["Short screen design time", "Pre-filled entry boxes", "Long entry times", "Drop-down menus"],
+        answer: "Long entry times",
+        explanation: "Fatigue from long input sessions increases mistakes."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

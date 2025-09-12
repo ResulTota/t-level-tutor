@@ -403,6 +403,250 @@
             <li>Coordinating teams and deadlines.</li>
         </ul>
 
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    // --- 7.2.1 Operating Systems ---
+    {
+        question: "What is the main role of an operating system (OS)?",
+        options: [
+        "To create documents and spreadsheets",
+        "To manage hardware, software resources, and provide services for programs",
+        "To host websites and cloud infrastructure",
+        "To detect and remove computer viruses"
+        ],
+        answer: "To manage hardware, software resources, and provide services for programs",
+        explanation: "The OS is system software that manages hardware and software, and provides essential services for applications."
+    },
+    {
+        question: "Which type of OS processes jobs in groups without user interaction?",
+        options: ["Multitasking OS", "Real-Time OS", "Batch OS", "Network OS"],
+        answer: "Batch OS",
+        explanation: "Batch operating systems collect and process jobs in batches, useful for repetitive, high-volume tasks like payroll."
+    },
+    {
+        question: "Which feature allows a multitasking OS to give the appearance of running multiple tasks simultaneously?",
+        options: ["Batch processing", "Time-slicing", "Virtualisation", "Job scheduling"],
+        answer: "Time-slicing",
+        explanation: "Multitasking OSs divide CPU time between tasks, giving the appearance of simultaneous execution."
+    },
+    {
+        question: "Which operating system is most suitable for industrial automation where timing is critical?",
+        options: ["Batch OS", "Mobile OS", "Real-Time OS", "Network OS"],
+        answer: "Real-Time OS",
+        explanation: "Real-Time OS provides predictable, fast responses for time-critical systems like robotics and medical devices."
+    },
+    {
+        question: "Which OS type is designed to manage file sharing, authentication, and remote access in corporate networks?",
+        options: ["Network OS", "Batch OS", "Multitasking OS", "Mobile OS"],
+        answer: "Network OS",
+        explanation: "Network OS is designed for managing shared resources, user authentication, and communication across a network."
+    },
+    {
+        question: "Which of the following is a feature of mobile operating systems?",
+        options: [
+        "Optimised for low power and battery efficiency",
+        "Handles batch jobs with no user interaction",
+        "Manages large data centres",
+        "Guarantees predictable response times for embedded systems"
+        ],
+        answer: "Optimised for low power and battery efficiency",
+        explanation: "Mobile OSs (Android, iOS) are designed for smartphones/tablets with power management and touch interfaces."
+    },
+
+    // --- 7.2.2 Utilities ---
+    {
+        question: "Which utility tool reorganises fragmented data to improve access speed on HDDs?",
+        options: ["Defragmenter", "File Compression", "Package Manager", "Backup Software"],
+        answer: "Defragmenter",
+        explanation: "Defragmenters reorganise scattered data on HDDs, reducing disk head movement and improving performance."
+    },
+    {
+        question: "Which type of utility reduces file size using algorithms like ZIP or RAR?",
+        options: ["File Manager", "File Compression", "Backup Software", "Protection Software"],
+        answer: "File Compression",
+        explanation: "Compression utilities shrink files for storage or transfer, either losslessly (ZIP) or with some quality loss."
+    },
+    {
+        question: "Which utility automates software installation, updates, and dependency management?",
+        options: ["Defragmenter", "Package Manager", "Antivirus", "Backup Software"],
+        answer: "Package Manager",
+        explanation: "Package managers (apt, npm, pip) streamline software installation, updates, and dependency handling."
+    },
+    {
+        question: "Which utility provides antivirus, firewalls, and encryption to secure systems?",
+        options: ["Backup Software", "Protection Software", "File Management", "Defragmenter"],
+        answer: "Protection Software",
+        explanation: "Protection software safeguards against malware, unauthorised access, and protects sensitive data."
+    },
+    {
+        question: "What is the main purpose of backup software?",
+        options: [
+        "To compress files",
+        "To optimise CPU performance",
+        "To create copies of data for recovery",
+        "To detect network intrusions"
+        ],
+        answer: "To create copies of data for recovery",
+        explanation: "Backup software ensures files or entire systems can be restored after failures or attacks."
+    },
+
+    // --- Code Development Tools ---
+    {
+        question: "Which development tool combines editing, debugging, and interface design in one environment?",
+        options: ["Compiler", "Interpreter", "IDE", "Package Manager"],
+        answer: "IDE",
+        explanation: "Integrated Development Environments (IDEs) provide coding, debugging, and UI tools in one application."
+    },
+    {
+        question: "What is the main role of a compiler?",
+        options: [
+        "To execute code line by line",
+        "To translate high-level code into machine code",
+        "To manage software dependencies",
+        "To provide syntax highlighting"
+        ],
+        answer: "To translate high-level code into machine code",
+        explanation: "Compilers convert source code into executable machine code and often optimise performance."
+    },
+    {
+        question: "Which tool executes code line by line, providing immediate feedback?",
+        options: ["Interpreter", "Compiler", "IDE", "Debugger"],
+        answer: "Interpreter",
+        explanation: "Interpreters (e.g., Python, JavaScript) run code line by line, ideal for scripting and rapid testing."
+    },
+
+    // --- 7.2.4 Application Software ---
+    {
+        question: "Which application is best suited for writing essays and reports?",
+        options: ["Spreadsheet", "Database", "Word Processor", "Project Management Software"],
+        answer: "Word Processor",
+        explanation: "Word processors (Word, Google Docs) are designed for creating and formatting text-based documents."
+    },
+    {
+        question: "Which application organises data into rows and columns with formulas and charts?",
+        options: ["Spreadsheet", "Database", "Email", "IDE"],
+        answer: "Spreadsheet",
+        explanation: "Spreadsheets (Excel, Google Sheets) allow data organisation, calculations, and charting."
+    },
+    {
+        question: "Which software manages structured data, queries, and reports?",
+        options: ["Email", "Word Processor", "Database", "Spreadsheet"],
+        answer: "Database",
+        explanation: "Databases (MySQL, Oracle) store structured data securely and support queries and reporting."
+    },
+    {
+        question: "Which software is primarily used for sending and receiving digital messages with attachments?",
+        options: ["Project Management Software", "Database", "Email", "Spreadsheet"],
+        answer: "Email",
+        explanation: "Email software (Outlook, Gmail) enables digital communication, attachments, and contact management."
+    },
+    {
+        question: "Which software supports task assignment, scheduling, and collaboration with tools like Gantt charts?",
+        options: ["Spreadsheet", "Project Management Software", "IDE", "File Compression"],
+        answer: "Project Management Software",
+        explanation: "Project management tools (Trello, MS Project) help coordinate teams, tasks, and deadlines."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

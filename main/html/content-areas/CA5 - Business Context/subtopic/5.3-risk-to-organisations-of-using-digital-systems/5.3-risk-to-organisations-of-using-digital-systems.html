@@ -149,6 +149,253 @@
         <li><strong>Withdrawal of licence to practise:</strong> Certain industries, such as healthcare or finance, may lose their legal right to operate if they fail to meet compliance standards.</li>
         <li><strong>Loss of business:</strong> Customers may switch to competitors, contracts may be lost, and revenue may decline.</li>
     </ul>
+
+      <script>
+        const quizData = [
+        {
+            question: "What happens when confidentiality is compromised in a security breach?",
+            options: [
+            "Customer or trade secrets are exposed",
+            "Systems become faster",
+            "Competitors lose market share",
+            "AI tools become less accurate"
+            ],
+            answer: "Customer or trade secrets are exposed",
+            explanation: "A hack could expose sensitive information, such as healthcare patient records."
+        },
+        {
+            question: "What is an example of a loss of integrity in digital systems?",
+            options: [
+            "Customer personal data is stolen",
+            "Data in a financial database is tampered with",
+            "Employees cannot access the system due to downtime",
+            "A competitor launches a new technology"
+            ],
+            answer: "Data in a financial database is tampered with",
+            explanation: "Loss of integrity means data has been altered or corrupted."
+        },
+        {
+            question: "What does reduced availability mean?",
+            options: [
+            "Users cannot access systems due to attacks like DDoS",
+            "Personal data is leaked online",
+            "AI discriminates against certain groups",
+            "Systems fail to meet legal regulations"
+            ],
+            answer: "Users cannot access systems due to attacks like DDoS",
+            explanation: "Reduced availability prevents access for employees or customers."
+        },
+        {
+            question: "Which of the following is a privacy breach?",
+            options: [
+            "Leaking business intellectual property",
+            "A DDoS attack shutting down servers",
+            "Failure to update to new technology",
+            "An unreliable payroll system"
+            ],
+            answer: "Leaking business intellectual property",
+            explanation: "Privacy breaches involve exposure of personal or organisational information."
+        },
+        {
+            question: "What can happen if organisations fail to comply with regulations like GDPR?",
+            options: [
+            "They face fines and legal action",
+            "They gain customer trust",
+            "They become more innovative",
+            "They attract new investors"
+            ],
+            answer: "They face fines and legal action",
+            explanation: "Non-compliance can result in penalties or loss of licences."
+        },
+        {
+            question: "How can algorithms create audience exclusion?",
+            options: [
+            "By speeding up system performance",
+            "By unintentionally discriminating against groups",
+            "By ensuring compliance with GDPR",
+            "By protecting intellectual property"
+            ],
+            answer: "By unintentionally discriminating against groups",
+            explanation: "AI or biased algorithms can lead to unfair treatment."
+        },
+        {
+            question: "Which example shows poor user experience as a risk?",
+            options: [
+            "A system that is inaccessible or hard to navigate",
+            "A competitor adopting AI automation",
+            "A cloud service outage",
+            "Leaking trade secrets"
+            ],
+            answer: "A system that is inaccessible or hard to navigate",
+            explanation: "Poor usability discourages users, reducing engagement or sales."
+        },
+        {
+            question: "What is a risk of not adopting emerging rival technologies?",
+            options: [
+            "Employees face job insecurity",
+            "Customers switch to competitors with better tools",
+            "Fines from regulators",
+            "Better protection against cyberattacks"
+            ],
+            answer: "Customers switch to competitors with better tools",
+            explanation: "Failure to adopt new tech can lead to loss of market share."
+        },
+        {
+            question: "What risk arises from over-reliance on a single digital system?",
+            options: [
+            "System failure may stop employees working",
+            "Improved customer retention",
+            "Higher brand reputation",
+            "Fewer privacy breaches"
+            ],
+            answer: "System failure may stop employees working",
+            explanation: "If a key service goes down, productivity halts."
+        },
+        {
+            question: "What happens if a system is not fit for purpose?",
+            options: [
+            "It reduces productivity and efficiency",
+            "It improves security compliance",
+            "It enhances customer loyalty",
+            "It prevents legal action"
+            ],
+            answer: "It reduces productivity and efficiency",
+            explanation: "An unsuitable system creates inefficiencies and wastes resources."
+        },
+        {
+            question: "Which is a potential impact of digital system risks?",
+            options: [
+            "Reputational damage",
+            "Improved customer trust",
+            "Faster financial growth",
+            "Guaranteed legal compliance"
+            ],
+            answer: "Reputational damage",
+            explanation: "Breaches or failures can harm public perception and trust."
+        },
+        {
+            question: "Which consequence can industries like healthcare or finance face for non-compliance?",
+            options: [
+            "Withdrawal of licence to practise",
+            "Reduced employee satisfaction",
+            "Better adoption of rival technologies",
+            "Improved market share"
+            ],
+            answer: "Withdrawal of licence to practise",
+            explanation: "Failing compliance standards can lead to losing legal rights to operate."
+        },
+        {
+            question: "What is a financial impact of regulatory non-compliance?",
+            options: [
+            "Fines from regulatory bodies",
+            "Higher product demand",
+            "Lower security risks",
+            "Increased innovation"
+            ],
+            answer: "Fines from regulatory bodies",
+            explanation: "Breaking laws like GDPR can result in heavy penalties."
+        },
+        {
+            question: "How can risks lead to loss of business?",
+            options: [
+            "Customers move to competitors",
+            "Systems update too quickly",
+            "Employees use CRM systems",
+            "Organisations adopt automation"
+            ],
+            answer: "Customers move to competitors",
+            explanation: "Breaches or poor systems can push customers to rival businesses."
+        }
+        ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

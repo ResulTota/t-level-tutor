@@ -468,6 +468,260 @@
             <li><strong>SaaS:</strong> Minimal responsibility, just use the software</li>
         </ul>
 
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is a cloud environment?",
+        options: [
+        "A local computer network",
+        "A network of remote servers accessed over the Internet",
+        "A single physical server in a data center",
+        "An offline backup system"
+        ],
+        answer: "A network of remote servers accessed over the Internet",
+        explanation: "Cloud environments let you store data, run applications, and access services without relying solely on your local device."
+    },
+    {
+        question: "Which type of cloud is dedicated to a single organization?",
+        options: ["Public Cloud", "Private Cloud", "Hybrid Cloud", "Community Cloud"],
+        answer: "Private Cloud",
+        explanation: "A private cloud provides exclusive access for one organization, offering more control and security."
+    },
+    {
+        question: "Which is a disadvantage of private cloud?",
+        options: [
+        "Less control over security",
+        "Shared infrastructure",
+        "Higher costs and IT expertise required",
+        "Limited customization"
+        ],
+        answer: "Higher costs and IT expertise required",
+        explanation: "Private clouds require expensive infrastructure and skilled staff to manage."
+    },
+    {
+        question: "Which type of cloud is shared among multiple organizations and provided by companies like AWS or Azure?",
+        options: ["Private Cloud", "Public Cloud", "Hybrid Cloud", "Local Cloud"],
+        answer: "Public Cloud",
+        explanation: "Public clouds are accessible over the Internet, managed by providers like AWS, Azure, and Google Cloud."
+    },
+    {
+        question: "Which is a key benefit of public cloud?",
+        options: [
+        "Exclusive access",
+        "Pay-as-you-go cost model",
+        "Full control over hardware",
+        "Custom-built infrastructure"
+        ],
+        answer: "Pay-as-you-go cost model",
+        explanation: "Public cloud services are cost-effective because you only pay for what you use."
+    },
+    {
+        question: "Which cloud type offers stronger security and compliance but at a higher cost?",
+        options: ["Public Cloud", "Private Cloud", "Hybrid Cloud", "Community Cloud"],
+        answer: "Private Cloud",
+        explanation: "Private clouds give organizations more control and security but require higher investment."
+    },
+    {
+        question: "What does 'portability' mean in cloud computing?",
+        options: [
+        "Running apps without an internet connection",
+        "Accessing data and services from anywhere with the internet",
+        "Migrating only physical servers",
+        "Sharing resources with multiple users"
+        ],
+        answer: "Accessing data and services from anywhere with the internet",
+        explanation: "Portability means cloud services can be accessed across devices and locations as long as you have an internet connection."
+    },
+    {
+        question: "Which cloud feature allows resources to scale up or down depending on demand?",
+        options: ["Elasticity", "Portability", "Isolation", "Aggregation"],
+        answer: "Elasticity",
+        explanation: "Elasticity lets cloud services scale automatically to handle more or fewer users."
+    },
+    {
+        question: "Which is a benefit of cloud storage compared to local storage?",
+        options: [
+        "More physical limitations",
+        "Virtually unlimited space",
+        "Higher maintenance costs",
+        "Only accessible from one device"
+        ],
+        answer: "Virtually unlimited space",
+        explanation: "Cloud storage provides large-scale storage without the need for physical hardware upgrades."
+    },
+    {
+        question: "What is the main cost benefit of cloud computing?",
+        options: [
+        "No need for internet",
+        "Hardware must be purchased upfront",
+        "Pay-as-you-go model reduces upfront costs",
+        "Every organization needs its own data center"
+        ],
+        answer: "Pay-as-you-go model reduces upfront costs",
+        explanation: "Cloud providers let businesses pay only for what they use instead of investing in expensive infrastructure."
+    },
+    {
+        question: "What does IaaS provide?",
+        options: [
+        "Fully functional software via the internet",
+        "Platform tools for app development",
+        "Virtualized computing resources like servers and storage",
+        "Free hardware with unlimited access"
+        ],
+        answer: "Virtualized computing resources like servers and storage",
+        explanation: "Infrastructure as a Service (IaaS) provides virtualized hardware resources over the internet."
+    },
+    {
+        question: "Which is a disadvantage of IaaS?",
+        options: [
+        "Client must maintain the operating system and middleware",
+        "No control over the OS",
+        "Applications cannot be installed",
+        "No scalability options"
+        ],
+        answer: "Client must maintain the operating system and middleware",
+        explanation: "IaaS offers flexibility but requires technical expertise to manage the OS and middleware."
+    },
+    {
+        question: "What is PaaS mainly used for?",
+        options: [
+        "Developing and deploying applications without managing infrastructure",
+        "Buying physical servers",
+        "Running fully finished apps via the cloud",
+        "Managing virtualized storage only"
+        ],
+        answer: "Developing and deploying applications without managing infrastructure",
+        explanation: "Platform as a Service (PaaS) provides a managed environment for software development."
+    },
+    {
+        question: "Which is a key disadvantage of PaaS?",
+        options: [
+        "Minimal control over OS or middleware",
+        "Too much hardware responsibility",
+        "No access to development tools",
+        "Slow deployment"
+        ],
+        answer: "Minimal control over OS or middleware",
+        explanation: "With PaaS, the cloud provider controls the platform, limiting customization."
+    },
+    {
+        question: "What does SaaS deliver?",
+        options: [
+        "Operating systems only",
+        "Software development tools",
+        "Fully functional applications over the internet",
+        "Cloud hardware and virtualization only"
+        ],
+        answer: "Fully functional applications over the internet",
+        explanation: "Software as a Service (SaaS) delivers ready-to-use applications via a browser or app."
+    },
+    {
+        question: "Which is a common example of SaaS?",
+        options: ["Amazon EC2", "Google App Engine", "Microsoft 365", "VMware ESXi"],
+        answer: "Microsoft 365",
+        explanation: "SaaS includes services like Gmail, Microsoft 365, or Salesforce where users directly access the software online."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

@@ -198,6 +198,154 @@
             </ul>
         </ul>
 
+
+                              <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is the main purpose of a data warehouse?",
+        options: [
+        "Store raw unstructured data",
+        "Store structured historical data for analysis",
+        "Enable real-time communication with customers",
+        "Provide targeted discounts"
+        ],
+        answer: "Store structured historical data for analysis",
+        explanation: "Data warehouses consolidate structured data from multiple sources for reporting and long-term analysis."
+    },
+    {
+        question: "Which tool is most suitable for storing raw videos, images, and text for future machine learning analysis?",
+        options: ["Data Mart", "Data Lake", "Data Warehouse", "Spreadsheet"],
+        answer: "Data Lake",
+        explanation: "Data lakes handle raw, diverse data types at scale, unlike warehouses or marts."
+    },
+    {
+        question: "What is the main purpose of data mining?",
+        options: [
+        "To summarize information into reports",
+        "To discover hidden patterns and correlations",
+        "To centralize structured data",
+        "To enforce access rights"
+        ],
+        answer: "To discover hidden patterns and correlations",
+        explanation: "Data mining uses statistics/AI to find insights like fraud detection or customer trends."
+    },
+    {
+        question: "Which BI use case involves forecasting revenue and budgeting expenses?",
+        options: ["Data Mining", "CRM Analytics", "Financial Planning & Analysis", "Reporting"],
+        answer: "Financial Planning & Analysis",
+        explanation: "FP&A uses data to forecast, budget, and manage financial risks."
+    },
+    {
+        question: "How does the scale of data affect tool choice?",
+        options: [
+        "Small datasets always need data lakes",
+        "Larger datasets require scalable storage and advanced analytics",
+        "Medium datasets cannot be analyzed",
+        "Tool choice is unrelated to scale"
+        ],
+        answer: "Larger datasets require scalable storage and advanced analytics",
+        explanation: "Big Data requires data lakes, cloud, and AI-driven analysis."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>
