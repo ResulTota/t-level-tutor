@@ -16,6 +16,8 @@
     --sub-menu-hover: rgba(50,120,160, 0.7);
     --sub-menu-background: rgba(37,97,133, 0.7);
 
+    --quiz-bg-color: white;
+
 }
 body.darkmode{
     --header-bg-color: #002139;
@@ -34,6 +36,8 @@ body.darkmode{
     --side-bar-color: #002139;
     --sub-menu-hover: rgba(11, 46, 86, 0.7);
     --sub-menu-background: rgba(9, 39, 69, 0.7);
+
+    --quiz-bg-color: #0A192F;
 }
 
 #theme-switch{
@@ -387,11 +391,13 @@ arrow-Nav a {
       max-width: 500px;
       margin: 40px auto;
       padding: 20px;
-      border: 2px solid #ddd;
+      border: 2px solid var(--border-line-color);
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       font-family: Arial, sans-serif;
+      background-color: var(--quiz-bg-color);
     }
+
     .quiz-question {
       font-size: 1.2em;
       margin-bottom: 15px;

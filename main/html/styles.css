@@ -22,7 +22,7 @@
     --esp-topic-box-color: linear-gradient(to bottom,#1b4965,#5FA8D3 );
     --esp-topic-img-color: linear-gradient(#205274,#417592 );
     --content-back-color: white;
-    --pillar-background: linear-gradient(#5FA8D3, #1b4965);
+    --pillar-background: linear-gradient(#1b4965,#5FA8D3);
 
     --menu-color: rgb(202, 233, 255, 0.9);
     --menu-text-color: #000; 
@@ -816,5 +816,5 @@ html, body {
 }
 
 main {
-  flex: 1; /* Fills the remaining vertical space */
+  flex: 1;
 }
