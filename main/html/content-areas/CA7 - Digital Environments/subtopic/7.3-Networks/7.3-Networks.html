@@ -671,6 +671,229 @@
 
         <p>Understanding bandwidth and latency helps in designing, troubleshooting, and optimising networks and connected systems to meet performance requirements.</p>
 
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "Which of these is a benefit of connecting devices in a network?",
+        options: [
+        "Increased hardware costs",
+        "Resource sharing and collaboration",
+        "No need for security",
+        "Slower communication"
+        ],
+        answer: "Resource sharing and collaboration",
+        explanation: "Networks allow resource sharing (printers, files, internet) and enable improved communication and collaboration."
+    },
+    {
+        question: "Which of these is a drawback of connecting devices in a network?",
+        options: [
+        "Faster communication",
+        "Scalability",
+        "Security risks and maintenance costs",
+        "Centralised management"
+        ],
+        answer: "Security risks and maintenance costs",
+        explanation: "Networks introduce risks like malware and data breaches, and require ongoing maintenance and skilled IT staff."
+    },
+    {
+        question: "What is the coverage area of a Personal Area Network (PAN)?",
+        options: [
+        "A few metres around one person",
+        "A single building",
+        "A whole city",
+        "Across countries and continents"
+        ],
+        answer: "A few metres around one person",
+        explanation: "A PAN typically covers only a few metres, connecting personal devices such as phones, headphones, or smartwatches."
+    },
+    {
+        question: "Which type of network connects devices within a single building, such as an office or school?",
+        options: ["PAN", "LAN", "MAN", "WAN"],
+        answer: "LAN",
+        explanation: "A Local Area Network (LAN) connects devices within a limited area such as a building."
+    },
+    {
+        question: "Which type of network spans across cities?",
+        options: ["PAN", "LAN", "MAN", "WAN"],
+        answer: "MAN",
+        explanation: "A Metropolitan Area Network (MAN) covers a city or large campus area, connecting multiple LANs."
+    },
+    {
+        question: "Which type of network provides secure communication over public infrastructure?",
+        options: ["LAN", "MAN", "WAN", "VPN"],
+        answer: "VPN",
+        explanation: "A Virtual Private Network (VPN) uses encryption to provide secure remote access over public networks."
+    },
+    {
+        question: "Which is a benefit of fibre-optic connectivity?",
+        options: [
+        "Cheap and easy to install",
+        "Very high speeds over long distances",
+        "Resistant to physical damage",
+        "Limited to 100m range"
+        ],
+        answer: "Very high speeds over long distances",
+        explanation: "Fibre-optic cables transmit data as light, offering extremely high bandwidth and minimal signal loss over long distances."
+    },
+    {
+        question: "In which topology do all devices connect to a central switch or hub?",
+        options: ["Star", "Mesh", "Tree", "Bus"],
+        answer: "Star",
+        explanation: "In a star topology, all devices connect to a central hub/switch, making it easy to manage but dependent on the hub."
+    },
+    {
+        question: "Which network model has no central server and allows devices to share resources directly?",
+        options: ["Client-Server", "Thin Client", "Peer-to-Peer", "Hybrid"],
+        answer: "Peer-to-Peer",
+        explanation: "In a Peer-to-Peer (P2P) model, devices share resources directly, suitable for small networks."
+    },
+    {
+        question: "What is the main role of a router in a network?",
+        options: [
+        "Store and manage files",
+        "Connect different networks and direct data",
+        "Provide wireless connectivity",
+        "Assign MAC addresses"
+        ],
+        answer: "Connect different networks and direct data",
+        explanation: "A router connects different networks (e.g., LAN to Internet) and forwards data between them."
+    },
+    {
+        question: "Which OSI layer is responsible for logical addressing and routing?",
+        options: [
+        "Transport Layer (4)",
+        "Network Layer (3)",
+        "Data Link Layer (2)",
+        "Application Layer (7)"
+        ],
+        answer: "Network Layer (3)",
+        explanation: "The Network Layer handles logical addressing (IP addresses) and routing data across networks."
+    },
+    {
+        question: "How many layers are in the TCP/IP model?",
+        options: ["3", "4", "5", "7"],
+        answer: "4",
+        explanation: "The TCP/IP model has four layers: Application, Transport, Internet, and Network Access."
+    },
+    {
+        question: "Which part of a data packet contains the actual message being transmitted?",
+        options: ["Header", "Payload", "Trailer", "Checksum"],
+        answer: "Payload",
+        explanation: "The payload (data) is the actual content, while the header and trailer carry control and error-checking information."
+    },
+    {
+        question: "Which protocol automatically assigns IP addresses to devices on a network?",
+        options: ["DNS", "DHCP", "FTP", "SMTP"],
+        answer: "DHCP",
+        explanation: "Dynamic Host Configuration Protocol (DHCP) automatically assigns IP addresses and configuration to devices."
+    },
+    {
+        question: "What is latency measured in?",
+        options: ["Bits per second", "Milliseconds", "Gigabytes", "Hops"],
+        answer: "Milliseconds",
+        explanation: "Latency is the time delay for data to travel from source to destination, measured in milliseconds (ms)."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

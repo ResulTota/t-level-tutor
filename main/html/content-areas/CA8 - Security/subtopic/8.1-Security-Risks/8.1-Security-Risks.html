@@ -160,6 +160,215 @@
 
             Overall, the failure to maintain privacy and confidentiality can have long-lasting negative effects on an organisation's success and sustainability.
         </p>
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+      const quizData = [
+        {
+            question: "Which of the following is an example of confidential information held by organisations?",
+            options: [
+            "Employee salaries and personal info",
+            "Publicly available company brochures",
+            "Advertisements on social media",
+            "General industry news"
+            ],
+            answer: "Employee salaries and personal info",
+            explanation: "Confidential information includes salaries, customer data, access credentials, financial records, and trade secrets."
+        },
+        {
+            question: "Which of these is NOT typically considered confidential information?",
+            options: [
+            "Customer and stakeholder details",
+            "Access information like passwords and PINs",
+            "Public press releases",
+            "Business strategies"
+            ],
+            answer: "Public press releases",
+            explanation: "Publicly shared information like press releases is not confidential, while customer data and business strategies are."
+        },
+        {
+            question: "Why must organisations keep information confidential?",
+            options: [
+            "To reduce advertising costs",
+            "To protect privacy, maintain trust, and comply with laws",
+            "To improve internet speed",
+            "To simplify business operations"
+            ],
+            answer: "To protect privacy, maintain trust, and comply with laws",
+            explanation: "Confidentiality safeguards sensitive information, prevents fraud, ensures compliance, and maintains customer trust."
+        },
+        {
+            question: "Which law relates to the protection of confidential information in Europe?",
+            options: ["GDPR", "DMCA", "FCC", "ISO"],
+            answer: "GDPR",
+            explanation: "The General Data Protection Regulation (GDPR) enforces strict rules about handling personal data in Europe."
+        },
+        {
+            question: "Which of the following is a consequence of failing to keep information confidential?",
+            options: [
+            "Increased customer loyalty",
+            "Legal penalties and fines",
+            "Better employee morale",
+            "Improved competitive advantage"
+            ],
+            answer: "Legal penalties and fines",
+            explanation: "Non-compliance with laws like GDPR or HIPAA can lead to significant fines and legal actions."
+        },
+        {
+            question: "How can a breach of confidentiality affect an organisation’s reputation?",
+            options: [
+            "It improves transparency",
+            "It leads to loss of customer trust and loyalty",
+            "It makes the company more competitive",
+            "It reduces financial reporting"
+            ],
+            answer: "It leads to loss of customer trust and loyalty",
+            explanation: "Customers are less likely to trust organisations that fail to protect their private data."
+        },
+        {
+            question: "Which of these is a financial impact of losing confidential data?",
+            options: [
+            "Reduced hardware costs",
+            "Fraud, fines, and loss of business",
+            "Increased productivity",
+            "Lower salaries for staff"
+            ],
+            answer: "Fraud, fines, and loss of business",
+            explanation: "Breaches can lead to fraud, heavy fines, lawsuits, and customers moving to competitors."
+        },
+        {
+            question: "What is an operational impact of a data breach?",
+            options: [
+            "More customers",
+            "Disruption and downtime",
+            "Faster decision-making",
+            "Stronger brand image"
+            ],
+            answer: "Disruption and downtime",
+            explanation: "Data breaches can halt operations, causing productivity loss and delays in service delivery."
+        },
+        {
+            question: "How can confidentiality breaches affect employees?",
+            options: [
+            "Improved morale",
+            "Reduced workload",
+            "Loss of trust and lower morale",
+            "Higher salaries"
+            ],
+            answer: "Loss of trust and lower morale",
+            explanation: "When confidentiality is breached, employees may feel insecure and lose trust in their employer."
+        },
+        {
+            question: "What competitive risk arises from failing to keep information confidential?",
+            options: [
+            "Loss of sensitive information that gives rivals an advantage",
+            "Better marketing opportunities",
+            "Improved collaboration with competitors",
+            "Reduced security costs"
+            ],
+            answer: "Loss of sensitive information that gives rivals an advantage",
+            explanation: "If trade secrets or business strategies leak, competitors can gain a market advantage."
+        }
+        ];
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
 
     <arrow-Nav>

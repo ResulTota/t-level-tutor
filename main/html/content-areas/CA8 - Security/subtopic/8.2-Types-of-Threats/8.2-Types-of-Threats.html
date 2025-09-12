@@ -272,6 +272,327 @@
             </ul>
         </p>
         
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    // 8.2.1 - Technical Threats
+    {
+        question: "What is malware?",
+        options: [
+        "Software designed to protect systems from attacks",
+        "Malicious software that damages or disrupts systems",
+        "A secure method of communication",
+        "A tool used to manage passwords"
+        ],
+        answer: "Malicious software that damages or disrupts systems",
+        explanation: "Malware includes viruses, worms, trojans, ransomware, spyware, and keyloggers that harm systems."
+    },
+    {
+        question: "What is the difference between a DoS and DDoS attack?",
+        options: [
+        "DoS is local, DDoS uses multiple computers",
+        "DoS is legal, DDoS is illegal",
+        "DoS targets databases, DDoS targets networks",
+        "DoS is slower than DDoS"
+        ],
+        answer: "DoS is local, DDoS uses multiple computers",
+        explanation: "A DoS attack comes from one source, while DDoS attacks use multiple machines to overwhelm a system."
+    },
+    {
+        question: "What are botnets commonly used for?",
+        options: [
+        "Gaming",
+        "Running company servers",
+        "DDoS attacks, spamming, and spreading malware",
+        "Encrypting sensitive data"
+        ],
+        answer: "DDoS attacks, spamming, and spreading malware",
+        explanation: "Botnets are networks of compromised computers under an attacker’s control."
+    },
+    {
+        question: "Which attack intercepts and alters communications between two parties?",
+        options: [
+        "Phishing",
+        "BotNet attack",
+        "Man-in-the-Middle attack",
+        "DoS attack"
+        ],
+        answer: "Man-in-the-Middle attack",
+        explanation: "A Man-in-the-Middle attack secretly intercepts and may alter data between two parties."
+    },
+    {
+        question: "Why are open Wi-Fi networks dangerous?",
+        options: [
+        "They are too slow for secure data transfer",
+        "They can be exploited to intercept data or gain access",
+        "They prevent the use of encryption",
+        "They cost money to use"
+        ],
+        answer: "They can be exploited to intercept data or gain access",
+        explanation: "Unsecured Wi-Fi allows attackers to spy on data or access systems without authorization."
+    },
+
+    // 8.2.2 - Technical Vulnerabilities
+    {
+        question: "What is a risk of weak encryption?",
+        options: [
+        "Data can be easily intercepted or stolen",
+        "Users cannot log in",
+        "Systems become faster",
+        "Passwords are automatically reset"
+        ],
+        answer: "Data can be easily intercepted or stolen",
+        explanation: "Weak encryption makes sensitive information vulnerable to interception and theft."
+    },
+    {
+        question: "Which is an example of an inadequate password policy?",
+        options: [
+        "Requiring complex passwords",
+        "Allowing weak, guessable passwords",
+        "Forcing regular password updates",
+        "Using multi-factor authentication"
+        ],
+        answer: "Allowing weak, guessable passwords",
+        explanation: "Poor password policies increase the risk of unauthorized access."
+    },
+    {
+        question: "What is the risk of failing to use multi-factor authentication (MFA)?",
+        options: [
+        "Users forget their passwords",
+        "Accounts are more vulnerable with only passwords",
+        "Systems run more slowly",
+        "Encryption becomes unnecessary"
+        ],
+        answer: "Accounts are more vulnerable with only passwords",
+        explanation: "MFA provides extra security; without it, accounts are easier to hack."
+    },
+    {
+        question: "What is the danger of out-of-date components?",
+        options: [
+        "They take up too much storage",
+        "They may contain unpatched vulnerabilities",
+        "They make systems too secure",
+        "They are harder to back up"
+        ],
+        answer: "They may contain unpatched vulnerabilities",
+        explanation: "Outdated software or hardware may lack security updates and support."
+    },
+
+    // 8.2.3 - Human Threats
+    {
+        question: "Which of these is an example of human error?",
+        options: [
+        "Accidentally deleting files",
+        "Writing malware",
+        "Phishing attack",
+        "Tailgating into a building"
+        ],
+        answer: "Accidentally deleting files",
+        explanation: "Human error includes mistakes like deleting data or sending information to the wrong recipient."
+    },
+    {
+        question: "How should organisations respond to a malicious employee?",
+        options: [
+        "Promote them to a higher role",
+        "Monitor activity and remove access immediately",
+        "Ignore the issue to avoid conflict",
+        "Allow them to work from home"
+        ],
+        answer: "Monitor activity and remove access immediately",
+        explanation: "Suspending accounts and removing access prevents further damage."
+    },
+    {
+        question: "What is poor cyber hygiene?",
+        options: [
+        "Using strong password managers",
+        "Unsafe practices like weak passwords or leaving devices unlocked",
+        "Installing regular updates",
+        "Running antivirus software"
+        ],
+        answer: "Unsafe practices like weak passwords or leaving devices unlocked",
+        explanation: "Poor cyber hygiene includes weak security habits that make attacks easier."
+    },
+
+    // 8.2.4 - Physical Vulnerabilities
+    {
+        question: "What is tailgating in physical security?",
+        options: [
+        "Following someone through a secure door without authorization",
+        "Using weak Wi-Fi passwords",
+        "Bypassing software encryption",
+        "Deleting old files"
+        ],
+        answer: "Following someone through a secure door without authorization",
+        explanation: "Tailgating occurs when an intruder follows an authorized person into a secure area."
+    },
+    {
+        question: "How can natural disasters be mitigated in IT systems?",
+        options: [
+        "By using antivirus software",
+        "By developing disaster recovery plans and backups",
+        "By enforcing password changes",
+        "By restricting employee internet access"
+        ],
+        answer: "By developing disaster recovery plans and backups",
+        explanation: "Backups and recovery planning ensure systems survive disasters like floods or fires."
+    },
+    {
+        question: "What is a risk of poor system robustness?",
+        options: [
+        "Failure in harsh conditions leading to data loss",
+        "Systems become too secure",
+        "Hackers gain faster access",
+        "Encryption cannot be applied"
+        ],
+        answer: "Failure in harsh conditions leading to data loss",
+        explanation: "Weak equipment not designed for the environment can fail and cause data loss."
+    },
+
+    // 8.2.5 - Impact of Threats and Vulnerabilities
+    {
+        question: "What is a major impact of losing sensitive data?",
+        options: [
+        "Improved efficiency",
+        "Legal consequences and reputational damage",
+        "Faster access times",
+        "Better customer service"
+        ],
+        answer: "Legal consequences and reputational damage",
+        explanation: "Losing sensitive data harms reputation, breaks trust, and can result in fines."
+    },
+    {
+        question: "What does unauthorized access to digital systems allow?",
+        options: [
+        "Improved collaboration",
+        "Manipulation, theft, or destruction of data",
+        "Faster system performance",
+        "More storage capacity"
+        ],
+        answer: "Manipulation, theft, or destruction of data",
+        explanation: "Hackers can alter, steal, or destroy data once inside a system."
+    },
+    {
+        question: "What is the impact of service disruption?",
+        options: [
+        "Increased trust",
+        "Improved productivity",
+        "Downtime and poor customer experience",
+        "Reduced hardware costs"
+        ],
+        answer: "Downtime and poor customer experience",
+        explanation: "DoS attacks and failures make services unavailable, harming productivity and trust."
+    },
+    {
+        question: "What risk comes from unauthorized physical access?",
+        options: [
+        "Theft, sabotage, or planting malicious hardware",
+        "Reduced operating costs",
+        "More secure systems",
+        "Improved staff morale"
+        ],
+        answer: "Theft, sabotage, or planting malicious hardware",
+        explanation: "Intruders in secure areas can steal equipment or install malicious devices."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
 
     <arrow-Nav>

@@ -434,6 +434,248 @@
         <h3>Summary</h3>
         <p>Each hardware device plays a crucial role in enabling computer systems to <strong>input</strong>, <strong>process</strong>, <strong>store</strong>, and <strong>output</strong> data efficiently. Understanding their features helps in selecting the right components for specific tasks.</p>
 
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    // --- 7.1.1 Physical Computers ---
+    {
+        question: "Which of these is a key feature of a personal computer (PC)?",
+        options: [
+        "Dedicated to one fixed function",
+        "General-purpose, upgradeable, runs desktop OS",
+        "Optimised for 24/7 server hosting",
+        "Integrated into household appliances"
+        ],
+        answer: "General-purpose, upgradeable, runs desktop OS",
+        explanation: "PCs are flexible, general-purpose machines with moderate to high power, suitable for many tasks."
+    },
+    {
+        question: "Which of the following is a typical use of a mobile device?",
+        options: [
+        "Big data processing in enterprises",
+        "Navigation, communication, and on-the-go apps",
+        "Hosting large websites and databases",
+        "Controlling industrial machinery"
+        ],
+        answer: "Navigation, communication, and on-the-go apps",
+        explanation: "Mobile devices are portable and designed for everyday communication, navigation, and app usage."
+    },
+    {
+        question: "What is a major advantage of servers?",
+        options: [
+        "Highly portable with touchscreens",
+        "Low cost and energy efficient",
+        "Designed for reliability and uptime with many simultaneous users",
+        "Tailored to single-purpose tasks with minimal overhead"
+        ],
+        answer: "Designed for reliability and uptime with many simultaneous users",
+        explanation: "Servers are optimised for performance, scalability, and 24/7 reliability."
+    },
+    {
+        question: "Which of these describes an embedded device?",
+        options: [
+        "A system with upgradeable hardware for gaming and productivity",
+        "A portable touchscreen device with sensors and apps",
+        "A specialised component integrated into appliances or IoT systems",
+        "A high-capacity network-focused computer in a data centre"
+        ],
+        answer: "A specialised component integrated into appliances or IoT systems",
+        explanation: "Embedded devices perform dedicated functions with low power and small size, often in IoT or appliances."
+    },
+    {
+        question: "Which is a limitation of mobile devices compared to PCs?",
+        options: [
+        "They cannot run social media apps",
+        "They have limited upgradeability and smaller processing power",
+        "They lack wireless connectivity",
+        "They cannot be battery powered"
+        ],
+        answer: "They have limited upgradeability and smaller processing power",
+        explanation: "Mobile devices are convenient but less powerful and harder to upgrade than PCs."
+    },
+
+    // --- 7.1.2 Hardware Devices ---
+    {
+        question: "Which of the following is an input device?",
+        options: ["Monitor", "Printer", "Keyboard", "Speaker"],
+        answer: "Keyboard",
+        explanation: "Input devices allow data entry into the system. A keyboard is used for typing and commands."
+    },
+    {
+        question: "What is the main function of output devices?",
+        options: [
+        "Allow the user to input data",
+        "Store data permanently",
+        "Display or present processed data",
+        "Control system cooling"
+        ],
+        answer: "Display or present processed data",
+        explanation: "Output devices like monitors, printers, and speakers show or transmit results to the user."
+    },
+    {
+        question: "What does CPU clock speed represent?",
+        options: [
+        "The number of processing cores",
+        "The amount of RAM installed",
+        "The number of instructions processed per second",
+        "The capacity of storage drives"
+        ],
+        answer: "The number of instructions processed per second",
+        explanation: "Clock speed, measured in GHz, determines how many instructions the CPU can process each second."
+    },
+    {
+        question: "Which memory type is volatile and used for active processes?",
+        options: ["ROM", "SSD", "RAM", "Blu-ray disc"],
+        answer: "RAM",
+        explanation: "RAM is fast, temporary storage that holds active programs and data. It is cleared when power is off."
+    },
+    {
+        question: "Which type of secondary storage is faster and has no moving parts?",
+        options: ["HDD", "SSD", "CD", "Tape"],
+        answer: "SSD",
+        explanation: "Solid State Drives (SSDs) are faster and more durable than HDDs because they have no moving parts."
+    },
+    {
+        question: "What is the role of the motherboard in a computer?",
+        options: [
+        "To store operating system files permanently",
+        "To provide cooling for the CPU",
+        "To connect and enable communication between all components",
+        "To render graphics and animations"
+        ],
+        answer: "To connect and enable communication between all components",
+        explanation: "The motherboard is the main circuit board, linking CPU, RAM, storage, and expansion cards."
+    },
+    {
+        question: "Which hardware device is specialised for rendering images and parallel tasks?",
+        options: ["CPU", "GPU", "Motherboard", "ROM"],
+        answer: "GPU",
+        explanation: "Graphics Processing Units (GPUs) accelerate graphics rendering and parallel computing tasks."
+    },
+    {
+        question: "What is the purpose of network interface devices?",
+        options: [
+        "To cool down system components",
+        "To allow wired or wireless network connectivity",
+        "To provide permanent storage",
+        "To convert power from AC to DC"
+        ],
+        answer: "To allow wired or wireless network connectivity",
+        explanation: "Network interfaces (PCI, USB, adapters) enable systems to connect to networks."
+    },
+    {
+        question: "Which cooling method circulates liquid to transfer heat?",
+        options: ["Passive cooling", "Air cooling", "Liquid cooling", "Magnetic cooling"],
+        answer: "Liquid cooling",
+        explanation: "Liquid cooling uses fluid to absorb heat efficiently, often for gaming PCs and servers."
+    },
+    {
+        question: "Which hardware device measures environmental conditions such as temperature or movement?",
+        options: ["Sensor", "Motherboard", "GPU", "Optical drive"],
+        answer: "Sensor",
+        explanation: "Sensors detect environmental data (temperature, motion, biometrics) in mobile, IoT, and embedded systems."
+    }
+    ];
+
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

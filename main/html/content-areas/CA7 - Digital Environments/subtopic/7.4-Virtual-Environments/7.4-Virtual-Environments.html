@@ -447,6 +447,265 @@
         <p><strong>Example:</strong> Testing a server application in a VM might show it handling 500 users easily, but when deployed on a real server, it may crash under the same load due to hardware differences.</p>
 
         </section>
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    {
+        question: "What is a virtual machine (VM)?",
+        options: [
+        "A physical computer dedicated to one task",
+        "A software-based emulation of a physical computer",
+        "A networking device that connects servers",
+        "A cloud storage service"
+        ],
+        answer: "A software-based emulation of a physical computer",
+        explanation: "A VM runs its own guest OS and behaves like a separate device while sharing the host machine’s hardware."
+    },
+    {
+        question: "Which of these is an advantage of virtual machines?",
+        options: [
+        "They always run faster than physical hardware",
+        "They require no licensing",
+        "Isolation ensures one VM’s crash does not affect others",
+        "They need no RAM or CPU resources"
+        ],
+        answer: "Isolation ensures one VM’s crash does not affect others",
+        explanation: "VMs are isolated from each other, so a failure or infection in one does not usually spread."
+    },
+    {
+        question: "What is the main drawback of virtual machines compared to running directly on hardware?",
+        options: [
+        "They are more secure",
+        "They require less storage",
+        "They have performance overhead",
+        "They cannot run legacy software"
+        ],
+        answer: "They have performance overhead",
+        explanation: "Because VMs emulate hardware, they run slower than programs on physical machines."
+    },
+    {
+        question: "What is the role of a hypervisor?",
+        options: [
+        "To store files securely",
+        "To create and manage virtual machines",
+        "To provide internet connectivity",
+        "To replace physical CPUs"
+        ],
+        answer: "To create and manage virtual machines",
+        explanation: "A hypervisor allocates CPU, memory, storage, and networking resources among VMs."
+    },
+    {
+        question: "Which hypervisor type runs directly on hardware with no host OS?",
+        options: ["Type 1 (Bare-Metal)", "Type 2 (Hosted)", "Hybrid", "Emulator"],
+        answer: "Type 1 (Bare-Metal)",
+        explanation: "Type 1 hypervisors run directly on hardware, providing better performance and security."
+    },
+    {
+        question: "Which hypervisor type runs as software on top of an operating system?",
+        options: ["Type 1 (Bare-Metal)", "Type 2 (Hosted)", "Container", "Serverless"],
+        answer: "Type 2 (Hosted)",
+        explanation: "Type 2 hypervisors run like applications on an existing OS, making them easier but less efficient."
+    },
+    {
+        question: "Which feature of virtual environments keeps workloads separate for stability and security?",
+        options: ["Portability", "Aggregation", "Isolation", "Emulation"],
+        answer: "Isolation",
+        explanation: "Isolation ensures that crashes, malware, or errors in one VM don’t affect others or the host."
+    },
+    {
+        question: "What does emulation allow?",
+        options: [
+        "Running multiple VMs on one server",
+        "One system to mimic another",
+        "Automatic software updates",
+        "Encrypted data transmission"
+        ],
+        answer: "One system to mimic another",
+        explanation: "Emulation allows software designed for one OS or platform to run on another, e.g., Windows apps on a Mac."
+    },
+    {
+        question: "Which feature makes it easy to move or copy VMs between systems?",
+        options: ["Portability", "Isolation", "Aggregation", "Managed Execution"],
+        answer: "Portability",
+        explanation: "VMs can be packaged as single files, allowing simple migration and backup."
+    },
+    {
+        question: "What is aggregation in virtual environments?",
+        options: [
+        "Running programs in isolation",
+        "Combining resources into a virtualised pool",
+        "Sharing files between users",
+        "Compressing VM images"
+        ],
+        answer: "Combining resources into a virtualised pool",
+        explanation: "Aggregation pools multiple machines’ resources, enabling scalability and high availability."
+    },
+    {
+        question: "How do virtual environments enhance security?",
+        options: [
+        "By using faster hardware",
+        "Through isolation and sandboxing",
+        "By avoiding encryption",
+        "By limiting memory use"
+        ],
+        answer: "Through isolation and sandboxing",
+        explanation: "VMs confine malware and allow testing of unsafe code in controlled environments."
+    },
+    {
+        question: "Which is a drawback of sharing resources across multiple VMs?",
+        options: [
+        "Increased collaboration",
+        "Resource contention and slower performance",
+        "Better cost efficiency",
+        "Improved flexibility"
+        ],
+        answer: "Resource contention and slower performance",
+        explanation: "If too many VMs compete for the same CPU or memory, performance may degrade."
+    },
+    {
+        question: "What is a benefit of using virtual environments for disaster recovery?",
+        options: [
+        "Backups are slower",
+        "VMs can be restored quickly from images",
+        "It requires more hardware",
+        "Recovery is impossible without physical servers"
+        ],
+        answer: "VMs can be restored quickly from images",
+        explanation: "VMs can be saved as files and restored or moved easily for disaster recovery."
+    },
+    {
+        question: "Which benefit of virtual environments reduces the need for physical servers?",
+        options: [
+        "Aggregation",
+        "Cost effectiveness",
+        "Isolation",
+        "Emulation"
+        ],
+        answer: "Cost effectiveness",
+        explanation: "Running multiple VMs on one server reduces hardware, power, and cooling costs."
+    },
+    {
+        question: "Which is a drawback of virtual environments?",
+        options: [
+        "They cannot run legacy software",
+        "They have slower execution due to virtualization overhead",
+        "They require no licensing",
+        "They always give accurate performance results"
+        ],
+        answer: "They have slower execution due to virtualization overhead",
+        explanation: "Because commands must be translated between guest and host OS, execution is slower than native performance."
+    },
+    {
+        question: "Why can virtual environments give a false representation of performance?",
+        options: [
+        "They use faster CPUs",
+        "They don’t always access full hardware features",
+        "They bypass the OS",
+        "They use multiple hypervisors"
+        ],
+        answer: "They don’t always access full hardware features",
+        explanation: "VMs don’t directly access all host hardware features, so test results may differ from real-world performance."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>

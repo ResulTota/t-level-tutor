@@ -248,6 +248,244 @@
             <br>
             The IAAA components work together to ensure secure access and accountability in digital systems. Weakness in one area can compromise the effectiveness of the others.
         </p>
+
+                                <!--quiz-->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-question" id="question"></div>
+            <div class="quiz-options" id="options"></div>
+            <div class="quiz-feedback" id="feedback"></div>
+            <button class="quiz-next" id="nextBtn" style="display:none;">Next</button>
+            <div class="quiz-result" id="result"></div>
+            <button class="quiz-retry" id="retryBtn" style="display:none;">Retry Quiz</button>
+        </div>
+
+  <script>
+    const quizData = [
+    // CIA Triad
+    {
+        question: "What does the CIA triad stand for?",
+        options: [
+        "Confidentiality, Integrity, Availability",
+        "Control, Identification, Authentication",
+        "Cybersecurity, Information, Access",
+        "Confidentiality, Identity, Authorization"
+        ],
+        answer: "Confidentiality, Integrity, Availability",
+        explanation: "The CIA triad forms the foundation of information security."
+    },
+    {
+        question: "How does confidentiality support integrity?",
+        options: [
+        "By controlling access and preventing unauthorized tampering",
+        "By making data available at all times",
+        "By reducing storage costs",
+        "By improving system speed"
+        ],
+        answer: "By controlling access and preventing unauthorized tampering",
+        explanation: "Restricting access through confidentiality helps maintain data integrity."
+    },
+    {
+        question: "What is a drawback of focusing too heavily on confidentiality?",
+        options: [
+        "It may reduce usability and add complexity",
+        "It always lowers costs",
+        "It guarantees 100% data accuracy",
+        "It eliminates the need for backups"
+        ],
+        answer: "It may reduce usability and add complexity",
+        explanation: "Overly strict confidentiality can make systems harder to use."
+    },
+    {
+        question: "Which techniques help ensure integrity?",
+        options: [
+        "Hashing, digital signatures, checksums, audit trails",
+        "Encryption, access controls, authentication",
+        "Redundancy, backups, failover systems",
+        "Firewalls and anti-malware"
+        ],
+        answer: "Hashing, digital signatures, checksums, audit trails",
+        explanation: "These ensure that data has not been altered or tampered with."
+    },
+    {
+        question: "What is the main benefit of availability?",
+        options: [
+        "Ensures data and services are accessible when needed",
+        "Protects sensitive information from disclosure",
+        "Maintains trustworthiness of data",
+        "Speeds up encryption processes"
+        ],
+        answer: "Ensures data and services are accessible when needed",
+        explanation: "Availability ensures users can reliably access information."
+    },
+
+    // IAAA Model
+    {
+        question: "What does the IAAA model stand for?",
+        options: [
+        "Identification, Authentication, Authorisation, Accountability",
+        "Integrity, Access, Authorization, Audit",
+        "Identification, Access, Analysis, Authentication",
+        "Internet Authentication and Authorization Architecture"
+        ],
+        answer: "Identification, Authentication, Authorisation, Accountability",
+        explanation: "The IAAA model ensures secure access and accountability in digital systems."
+    },
+    {
+        question: "Which technique is an example of identification?",
+        options: [
+        "Using a username",
+        "Entering a password",
+        "Assigning permissions",
+        "Recording user activity"
+        ],
+        answer: "Using a username",
+        explanation: "Identification is about recognizing the individual in the system."
+    },
+    {
+        question: "Which of the following is an authentication technique?",
+        options: [
+        "Role-based access control (RBAC)",
+        "Access control lists (ACLs)",
+        "Passwords and multi-factor authentication",
+        "Audit logs"
+        ],
+        answer: "Passwords and multi-factor authentication",
+        explanation: "Authentication verifies the identity of the user."
+    },
+    {
+        question: "What is the purpose of authorisation?",
+        options: [
+        "To verify a user’s identity",
+        "To limit access only to permitted resources and actions",
+        "To record user actions",
+        "To encrypt communication"
+        ],
+        answer: "To limit access only to permitted resources and actions",
+        explanation: "Authorisation ensures users can only access what they are allowed."
+    },
+    {
+        question: "What technique ensures accountability in digital systems?",
+        options: [
+        "Audit logs and user activity monitoring",
+        "Passwords and passphrases",
+        "Biometric verification",
+        "Encryption of stored data"
+        ],
+        answer: "Audit logs and user activity monitoring",
+        explanation: "These ensure actions can be traced back to specific users."
+    },
+    {
+        question: "What is a drawback of accountability measures?",
+        options: [
+        "They always reduce system speed",
+        "They require secure log storage and may raise privacy concerns",
+        "They eliminate the need for user authentication",
+        "They prevent system downtime"
+        ],
+        answer: "They require secure log storage and may raise privacy concerns",
+        explanation: "Accountability needs safe log management and may affect user privacy."
+    },
+    {
+        question: "How do the IAAA components work together?",
+        options: [
+        "They operate independently with no overlap",
+        "A weakness in one can compromise the others",
+        "They only apply to hardware devices",
+        "They remove the need for encryption"
+        ],
+        answer: "A weakness in one can compromise the others",
+        explanation: "The IAAA model components are interdependent for secure access and accountability."
+    }
+    ];
+
+
+        let currentQ = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const feedbackEl = document.getElementById("feedback");
+        const resultEl = document.getElementById("result");
+        const nextBtn = document.getElementById("nextBtn");
+        const retryBtn = document.getElementById("retryBtn");
+
+        function showQuestion() {
+          const q = quizData[currentQ];
+          questionEl.textContent = q.question;
+          feedbackEl.textContent = "";
+          feedbackEl.className = "quiz-feedback";
+          nextBtn.style.display = "none";
+
+          optionsEl.innerHTML = "";
+          q.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => checkAnswer(opt, btn);
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        function checkAnswer(answer, button) {
+          const q = quizData[currentQ];
+          const optionButtons = optionsEl.querySelectorAll("button");
+
+          // Disable all buttons after an answer
+          optionButtons.forEach(b => b.disabled = true);
+
+          if (answer === q.answer) {
+            score++;
+            button.classList.add("correct");
+            feedbackEl.textContent = "✅ Correct! " + q.explanation;
+            feedbackEl.classList.add("correct");
+          } else {
+            button.classList.add("wrong");
+            feedbackEl.textContent = `❌ Wrong. The correct answer is "${q.answer}". ${q.explanation}`;
+            feedbackEl.classList.add("wrong");
+
+            // Highlight correct answer
+            optionButtons.forEach(b => {
+              if (b.textContent === q.answer) {
+                b.classList.add("correct");
+              }
+            });
+          }
+
+          nextBtn.style.display = "block";
+        }
+
+        function nextQuestion() {
+          currentQ++;
+          if (currentQ < quizData.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        }
+
+        function showResult() {
+          questionEl.textContent = "";
+          optionsEl.innerHTML = "";
+          feedbackEl.textContent = "";
+          nextBtn.style.display = "none";
+          resultEl.textContent = `You scored ${score} out of ${quizData.length}! 🎉`;
+          retryBtn.style.display = "block";
+        }
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        retryBtn.addEventListener("click", () => {
+        currentQ = 0;
+        score = 0;
+        resultEl.textContent = "";
+        retryBtn.style.display = "none";
+        showQuestion();
+        });
+
+        nextBtn.addEventListener("click", nextQuestion);
+
+        // Start quiz
+        showQuestion();
+      </script>
     </main>
     
     <arrow-Nav>
