@@ -4,12 +4,12 @@
     --border-header: #031825;
     --border-line-color: black;
     --both-outer-box-color: linear-gradient(#5FA8D3, #1b4965);
-    --shadow-jitsu-color: #1c3748;
+    --shadow-jitsu-color: hsl(203, 44%, 20%);
     --footer-color: #CAE9FF;
     --form-bg-color: #bee7fe;
     --nav-1-color: #1B4965;
 
-     --container-color: white ;
+    --container-color: white ;
 
     --switch-day-night: #69B4E0;
     --switch-fill-color: #205274;
