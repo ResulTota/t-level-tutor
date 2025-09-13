@@ -1,6 +1,6 @@
 :root{
     --header-bg-color: #CAE9FF;
-    --both-outer-box-color:  linear-gradient(#5FA8D3, #1b4965);
+    --both-outer-box-color: linear-gradient(#5FA8D3, #1b4965);
     --footer-color: #CAE9FF;
     --sub-topic-box-color: #CAE9FF;
     --border-line-color: black;
@@ -11,6 +11,7 @@
     --switch-day-night: #69B4E0;
     --switch-fill-color: #205274;
 
+    
     --side-bar-color: #1B4965;
     --sub-menu-hover: rgba(50,120,160, 0.7);
     --sub-menu-background: rgba(37,97,133, 0.7);
