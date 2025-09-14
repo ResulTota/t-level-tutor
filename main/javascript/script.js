@@ -140,3 +140,67 @@ showQuestion();
 
 // Start quiz
 showQuestion();
+
+
+
+/* Sign Up */
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+  let password = document.getElementById("psw").value;
+  let confirmPassword = document.getElementById("psw-repeat").value;
+  let errorMessage = document.getElementById("error-message");
+
+  if (password !== confirmPassword) {
+      event.preventDefault(); // stop form from submitting
+      errorMessage.style.display = "block"; // show error
+  } else {
+      errorMessage.style.display = "none"; // hide error if fixed
+  }
+});
+        
+
+
+/*  Firebase Script */
+
+//script type="module"
+  // Import Firebase SDKs from CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } 
+    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC_eZWC9B2nWY-5_0UDswLRlL7Ssa1pSt0",
+      authDomain: "tleveltutor.firebaseapp.com",
+      projectId: "tleveltutor",
+      storageBucket: "tleveltutor.firebasestorage.app",
+      messagingSenderId: "978451529313",
+      appId: "1:978451529313:web:33ffc6efd85ad713d8f420",
+      measurementId: "G-T47VXPDZEJ"
+    };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // Setup Auth
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // Sign in with Google
+  document.getElementById("googleSignUp").addEventListener("click", async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      document.getElementById("userInfo").innerText = `Hello, ${user.displayName}`;
+      console.log("Signed in:", user);
+    } catch (error) {
+      console.error("Sign in error:", error);
+    }
+  });
+
+  // Sign out
+  document.getElementById("signOut").addEventListener("click", async () => {
+    await signOut(auth);
+    document.getElementById("userInfo").innerText = "Signed out";
+  });
